@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register View</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <main>
-        <section id="left-side">
+      <section id="left-side"></section>
 
-        </section>
+      <section id="right-side">
+        <h1>Get Started!</h1>
+        <form method="POST">
+          <div id="register-names-div">
+            <input type="text" name="first-name" placeholder="Name" />
+            <input type="text" name="last-name" placeholder="Last Name" />
+          </div>
+          <input type="text" name="email" placeholder="Email" />
+          <input type="password" name="password" placeholder="Password" />
 
-        <section id="right-side">
-            <form method="POST">
-                <div id="register-names-div">
-                    <input type="text" name="first-name" placeholder="Name">
-                    <input type="text" name="last-name" placeholder="Last Name">
-                </div>
-                <input type="text" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
-
-                <button id="register-submit-button">Register</button>
-
-                <!-- Already have an account? Login -->
-            </form>
-        </section>
+          <button id="register-submit-button">Register</button>
+        </form>
+        <h5>Already have an account? <a href="">Login here</a></h5>
+      </section>
     </main>
-</body>
+  </body>
 </html>
