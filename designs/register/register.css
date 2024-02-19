@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+
 :root {
+    --dark-green: #08785e; 
+    --darker-green: #076c55;
     --border-radius: 0.3rem;
 }
 
+
 html {
-    background-image: linear-gradient(to right top, #053719, #094c2e, #0a6145, #08785e, #008f7a);
-    background: url('./wallpaperflare.com_wallpaper.jpg') no-repeat center center / cover;
+    background: url('../images/wallpaperflare.com_wallpaper.jpg') no-repeat center center / cover;
 }
+
 
 body {
     height: 100vh;
@@ -15,6 +19,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 
 main {
     width: 80vw;
@@ -26,6 +31,7 @@ main {
     border-radius: 0.8rem;
     overflow: hidden;
 }
+
 
 main form {
     display: flex;
@@ -46,10 +52,10 @@ main section {
     gap: 2vh;
 }
 
+
 main section input {
     display: block;
     font-size: 1.2rem;
-    /* padding: 1rem 6rem 1rem 1rem; */
     padding-left: 1rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -60,30 +66,35 @@ main section input {
     font-style: normal;
 }
 
+
 #left-side {
     /* background-color: #1b2d47; */
-    background: url('./97133ec9-8094-4eb6-945c-cee5c52fa329.webp') center center / cover no-repeat;
+    background: url('../images/97133ec9-8094-4eb6-945c-cee5c52fa329.webp') center center / cover no-repeat;
 }
+
 
 #right-side {
     background-color: #F5F5F5;
 }
+
 
 #register-names-div {
     display: flex;
     justify-content: space-between;
 }
 
+
 #register-names-div input {
     width: 45%;
     display: inline;
 }
 
+
 #register-submit-button {
     margin-top: 1rem;
     padding: 1rem 2.4rem;
     font-size: 1.6rem;
-    background-color:#08785e;
+    background-color: var(--dark-green);
     border-radius: var(--border-radius);
     font-family: "Courier Prime", monospace;
     font-weight: 400;
@@ -96,10 +107,12 @@ main section input {
     transition: 300ms ease-in-out;
 }
 
+
 #register-submit-button:hover {
     animation: rotate-scale-up 1s ease-in-out forwards;
-    background-color: #076c55;
+    background-color: var(--darker-green);
 }
+
 
 h1 {
     font-size: 3rem;
@@ -109,15 +122,17 @@ h1 {
     text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.54);
 }
 
+
 h5 {
     margin-top: 0.5rem;
     font-size: 1.3rem;
     font-family: "Courier Prime", monospace;   
 }
 
+
 h5 a {
     text-decoration: none;
-    color: #08785e;
+    color: var(--dark-green);
     font-weight: 600;
     transition: 300ms ease-in-out;
 }
@@ -125,8 +140,9 @@ h5 a {
 
 h5 a:hover {
     text-decoration: underline;
-    color: #076c55;
+    color: var(--darker-green);
 }
+
 
 @-webkit-keyframes rotate-scale-up {
     0% {
