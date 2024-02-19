@@ -1,0 +1,33 @@
+html {
+    background-image: linear-gradient(to right top, #053719, #094c2e, #0a6145, #08785e, #008f7a);
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 80vw;
+    height: 80vh;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 1px 1px 7px 0.5px rgba(0,0,0,0.75);
+    border-radius: 0.8rem;
+    overflow: hidden;
+}
+
+#left-side {
+    height: 100%;
+    width: 50%;
+    background-color: #1b2d47;
+}
+
+#right-side {
+    height: 100%;
+    width: 50%;
+    background-color: whitesmoke;
+}
