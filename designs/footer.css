@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 
 
 .footer {
-margin-top: 15vh;
+  margin-top: 15vh;
   width: 94.5%;
   position: relative;
   background: #3586ff;
@@ -13,6 +14,7 @@ margin-top: 15vh;
   align-items: center;
   flex-direction: column;
   text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.9);
+  font-family: "Anta", sans-serif;
 }
 
 
@@ -35,8 +37,8 @@ margin-top: 15vh;
 
 
 .social-icon__link {
-  font-size: 2rem;
-  color: #fff;
+  font-size: 2.3rem;
+  color: #f5f5f5;
   margin: 0 10px;
   display: inline-block;
   transition: 0.6s ease-in-out;
@@ -44,7 +46,7 @@ margin-top: 15vh;
 
 
 .social-icon__link:hover {
-  transform: translateY(-5px);
+  color: #dddddd;
 }
 
 
@@ -63,13 +65,14 @@ margin-top: 15vh;
 
 .menu__link:hover {
   opacity: 1;
+  text-decoration: underline;
 }
  
 
 .footer p {
   color: #fff;
-  margin: 2rem 0 10px 0;
-  font-size: 1.5rem;
+  margin: 2.3rem 0 2rem 0;
+  font-size: 1.8rem;
   font-weight: 300;
 }
 
