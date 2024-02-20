@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+nav {
+    width: 100vw;
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3vh 0;
+}
+
+nav section {
+    width: 42.5vw;
+    height: 6vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 0.45rem;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
+    font-size: 1.3rem;
+}
+
+nav section ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+nav section ul li a {
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+nav section ul li a:hover {
+    text-decoration: underline;
+    color: #e1e2e0;
+}
+
+
+#test-hub-logo {
+    height: 6.5vh;
+    cursor: pointer;
+}
+
+#hide-show-nav-i {
+    font-size: 2.5rem;
+    cursor: pointer;
+    position: absolute;
+    left: 96.5%;
+    transform: rotate(90deg);
+    transition: 400ms ease-in-out;
+    color: whitesmoke;
+}

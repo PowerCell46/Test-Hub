@@ -54,3 +54,6 @@ value stocks = акции на компании, които се търгува�
 # Long and Short positions
 
 # S&P = Standard & Poor's
+
+
+https://dribbble.com/shots/22907633-Registration-page-design
