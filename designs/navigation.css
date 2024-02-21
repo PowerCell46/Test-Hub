@@ -55,3 +55,18 @@ nav section ul li a:hover {
     transition: 400ms ease-in-out;
     color: whitesmoke;
 }
+
+
+@media only screen and (max-width: 1920px) {
+    nav section {
+        width: 42.5vw;
+        height: 9vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 0.45rem;
+        box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
+        font-size: 1.3rem;
+    }
+}
