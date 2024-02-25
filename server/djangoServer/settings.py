@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     'djangoServer.testhub_auth',
+    'djangoServer.testhub_structure'
 ]
 
 REST_FRAMEWORK = {

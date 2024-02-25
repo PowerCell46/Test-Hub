@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TestingConfig(AppConfig):
+class PyTestsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'djangoServer.testing'
+    name = 'djangoServer.testhub_structure'
