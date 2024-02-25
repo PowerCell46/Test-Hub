@@ -1,0 +1,106 @@
+:root {
+    --dark-green: #08785e; 
+    --darker-green: #076c55;
+    --midnight-blue: #101720;
+    --border-radius: 0.3rem;
+}
+
+
+html {
+    background: url('../images/wallpaperflare.com_wallpaper.jpg') no-repeat center center / cover;
+}
+
+
+main {
+    /* background-color: lawngreen; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+main section {
+    color: whitesmoke;
+    width: 80%;
+    border-radius: var(--border-radius);
+    background-size: cover;
+    margin-bottom: 3vh;
+    padding: 3rem 6rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+main section:nth-child(n) {
+    background-image: url('https://images.hdqwalls.com/wallpapers/lake-minimal-red-4k-zd.jpg');
+}
+
+main section:nth-child(2n) {
+    background-image: url('https://papers.co/wallpaper/papers.co-so43-blur-gradation-dark-blue-28-wallpaper.jpg');
+}
+
+main section h5 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4vh;
+    font-family: "Anta", sans-serif;
+}
+
+main section label {
+    font-size: 1.5rem;
+}
+
+
+.options input {
+    display: none;
+}
+
+
+.options label {
+    display: inline-block;
+    position: relative;
+    margin-right: 1.2rem;
+    margin-bottom: 2rem;
+    padding-left: 1.9rem;
+    cursor: pointer;
+}
+
+
+.options label:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 21px; 
+    height: 21px;
+    left: 0;
+    top: 40%;
+    margin-top: -10px; 
+    border: 2px solid #fff;
+    border-radius: 10px; 
+}
+
+.options label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    top: 50%;
+    left: 10.5px; 
+    margin-top: 0;
+    background: #fff;
+    border-radius: 5px; 
+    transition: .2s ease-in-out;
+}
+
+.options input:checked + label:after {
+    height: 12px; 
+    width: 12px; 
+    margin-top: -5.7px; 
+    left: 6.1px; 
+}
+
+
+form div {
+    display: flex;
+    justify-content: space-around;
+}
