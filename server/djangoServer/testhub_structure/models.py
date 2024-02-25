@@ -8,10 +8,17 @@ class Course(models.Model):  # Python Basics
     description = models.TextField(null=True, blank=True)
     creator = models.ForeignKey(to=User, on_delete=models.DO_NOTHING, related_name='courses')  # Only administrators
 
+    def __str__(self):
+        return f'"{self.name}", created by {self.creator}.'
+
 
 class Topic(models.Model):  # For & While Loops
     name = models.CharField(max_length=25, validators=[MinLengthValidator(3)])
     course = models.ForeignKey(to=Course, on_delete=models.CASCADE, related_name='topics')
+    creator = models.ForeignKey(to=User, on_delete=models.DO_NOTHING, related_name='topics')
+
+    def __str__(self):
+        return f'"{self.name}" from "{self.course.name}".'
 
 
 class PyTest(models.Model):  # Odd Even Sum
