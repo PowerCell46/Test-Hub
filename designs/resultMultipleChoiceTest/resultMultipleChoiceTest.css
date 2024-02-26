@@ -36,6 +36,7 @@ body {
     box-shadow: var(--box-shadow);
     width: 32.5vw;
     margin: 3vh;
+    margin-bottom: 5vh;
     transition: 300ms ease-in-out;
 }
 
@@ -44,7 +45,6 @@ body {
 }
 
 .result-section h5 {
-    /* margin: 3vh; */
     color: whitesmoke;
     font-family: 'Anta', sans-serif;
     font-size: 4rem;
@@ -63,6 +63,7 @@ body {
     display: flex;
     gap:  1.5rem;
     flex-wrap: wrap;
+    margin-bottom: 5vh;
 }
 
 .correct-answer-button, .wrong-answer-button {
@@ -85,6 +86,7 @@ body {
 
 .correct-answer-button:hover {
     background-color: #065644;
+    transform: translateY(-0.4rem);
 }
 
 .wrong-answer-button {
@@ -93,4 +95,5 @@ body {
 
 .wrong-answer-button:hover {
     background-color: #660000;
+    transform: translateY(-0.4rem);
 }
