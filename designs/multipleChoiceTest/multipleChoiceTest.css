@@ -3,6 +3,8 @@
     --darker-green: #076c55;
     --midnight-blue: #101720;
     --border-radius: 0.3rem;
+    --box-shadow: 1px 1px 7px 0.5px rgba(0,0,0,0.75);
+    --text-shadow: 3px 1px 2px rgba(0, 0, 0, 0.54);
 }
 
 
@@ -28,6 +30,8 @@ main section {
     margin-bottom: 3vh;
     padding: 3rem 6rem;
     font-family: 'Poppins', sans-serif;
+    box-shadow: var(--box-shadow);
+    text-shadow: var(--text-shadow);
 }
 
 main section:nth-child(n) {
@@ -103,4 +107,35 @@ main section label {
 form div {
     display: flex;
     justify-content: space-around;
+}
+
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 5vh;
+    font-family: "Anta", sans-serif;
+    color: whitesmoke;
+    text-shadow: var(--text-shadow);
+}
+
+button {
+    margin-top: 1rem;
+    padding: 1.5rem 3.6rem;
+    font-size: 2rem;
+    background-color: #006faf;
+    border-radius: var(--border-radius);
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: whitesmoke;
+    border: none;
+    text-shadow: 3px 1px 2px rgba(0, 0, 0, 0.54);
+    box-shadow: 1px 1px 5px 0.5px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+}
+
+
+button:hover {
+    background-color: #008ee1;
 }
