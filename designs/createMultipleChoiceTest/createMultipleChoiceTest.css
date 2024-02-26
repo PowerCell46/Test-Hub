@@ -36,6 +36,7 @@ main section {
     box-shadow: var(--box-shadow);
 }
 
+
 main section:nth-child(2n) {
     background-image: url('https://c.wallhere.com/photos/2e/b7/Firewatch_video_games_mountains_nature_landscape_artwork_minimalism_fire_lookout_tower-1366269.jpg!d');
 }
@@ -94,12 +95,48 @@ main section input {
     transition: 600ms ease-in-out; 
 }
 
+
 #add-new-question:hover {
     background-color: rgba(255, 255, 255, 0.4);
     transform: translateY(-1rem);
 }
 
+
 #add-new-question:hover h1 {
     color: black;
     text-decoration: underline;
+}
+
+
+#choose-course-choose-topic {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 2px dashed whitesmoke;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 81%;
+    height: 20vh;
+    margin: 0 auto;
+    margin-bottom: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: 600ms ease-in-out;
+    font-family: "Anta", sans-serif;
+}
+
+
+#choose-course-choose-topic label{
+    font-size: 2.5rem;    
+    margin-right: 1rem;
+    color: whitesmoke;
+    text-shadow: var(--text-shadow);
+}
+
+
+#choose-course-choose-topic select {
+    cursor: pointer;
+    font-size: 1.8rem;
+    border-radius: var(--border-radius);
+    font-family: "Anta", sans-serif;
+    padding: 0.5rem 1rem;
 }
