@@ -47,3 +47,5 @@ class MultipleChoiceQuestion(models.Model):  # What is the difference between li
     third_option = models.CharField(max_length=OPTION_MAX_LENGTH, validators=[MinLengthValidator(OPTION_MIN_LENGTH)])
     fourth_option = models.CharField(max_length=OPTION_MAX_LENGTH, validators=[MinLengthValidator(OPTION_MIN_LENGTH)])
     correct_answer = models.PositiveIntegerField(choices=((1, 1), (2, 2), (3, 3), (4, 4)))
+
+# Submissions

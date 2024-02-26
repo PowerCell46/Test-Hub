@@ -23,7 +23,7 @@ body {
 }
 
 form {
-    background-image: linear-gradient(to right top, #231141, #470542, #660038, #7c0025, #880808);
+    background-image: url('https://images4.alphacoders.com/718/718136.jpg');
     border-radius: var(--border-radius);
     width: 80%;
     display: flex;
@@ -106,4 +106,4 @@ button:hover {
     box-shadow: var(--box-shadow);
 }
 
-    
+    /* ERROR MESSAGES !!! */
