@@ -74,6 +74,7 @@
         <label id="task-title-label" for="task-title">Title:</label>
         <input type="text" id="task-title" placeholder="Sum even numbers">
 
+        <h5 id="unit-tests-title">Unit Tests:</h5>
         <textarea id="pythonCode"></textarea>
         
         <button>Create Task</button>
@@ -123,6 +124,37 @@
     var editor = CodeMirror.fromTextArea(document.getElementById("pythonCode"), {
       mode: "python",
       lineNumbers: true,
+      styleActiveLine: true,
+      
     });
   </script>  
 </html>
+
+
+<!-- File PDF/ Word -->
+
+<!-- 
+import unittest
+
+class TestIsEven(unittest.TestCase):
+
+    def test_even_number(self):
+        self.assertTrue(is_even(4), "4 is an even number")
+
+    def test_odd_number(self):
+        self.assertFalse(is_even(5), "5 is an odd number")
+
+    def test_zero(self):
+        self.assertTrue(is_even(0), "0 is an even number")
+
+    def test_negative_even_number(self):
+        self.assertTrue(is_even(-2), "-2 is an even number")
+
+    def test_negative_odd_number(self):
+        self.assertFalse(is_even(-3), "-3 is an odd number")
+ -->
+
+ <!-- 
+def is_even(number):
+    return number % 2 == 0
+  -->

@@ -1,8 +1,8 @@
 #choose-course-choose-topic {
-    background-color: rgba(255, 255, 255, 0.3);
-    border: 2px dashed whitesmoke;
+    /* background-color: rgba(255, 255, 255, 0.3);
+    border: 2px dashed whitesmoke; */
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    /* box-shadow: var(--box-shadow); */
     width: 81%;
     height: 20vh;
     margin: 0 auto;
@@ -20,6 +20,11 @@
     margin-right: 1rem;
     color: whitesmoke;
     text-shadow: var(--text-shadow);
+}
+
+
+#choose-course-choose-topic input {
+    font-family: 'Anta', sans-serif;
 }
 
 

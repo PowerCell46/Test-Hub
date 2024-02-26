@@ -59,7 +59,7 @@ nav section ul li a:hover {
 }
 
 
-@media only screen and (max-width: 1920px) {
+/* @media only screen and (max-width: 1920px) {
     nav section {
         width: 42.5vw;
         height: 9vh;
@@ -71,4 +71,4 @@ nav section ul li a:hover {
         box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
         font-size: 1.3rem;
     }
-}
+} */

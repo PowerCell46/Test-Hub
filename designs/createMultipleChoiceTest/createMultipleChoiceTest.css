@@ -2,6 +2,7 @@
     --dark-green: #08785e; 
     --darker-green: #076c55;
     --midnight-blue: #101720;
+    --maroon-red: #800000;
     --border-radius: 0.3rem;
     --box-shadow: 1px 1px 7px 0.5px rgba(0,0,0,0.75);
     --text-shadow: 3px 1px 2px rgba(0, 0, 0, 0.54);
@@ -108,3 +109,19 @@ main section input {
 }
 
 
+.error {
+    border: 5px solid var(--maroon-red);
+}
+
+.error-message {
+    margin-top: 0;
+    text-align: center;
+    font-family: "Courier Prime", monospace;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--maroon-red);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    border: 2px solid black;
+    background-color: whitesmoke;
+}
