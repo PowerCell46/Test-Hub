@@ -34,8 +34,7 @@ main {
 
 
 h1 {
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-top: 3vh;
     font-size: 3.5rem;
     color: whitesmoke;
     text-shadow: var(--text-shadow);
@@ -46,7 +45,7 @@ h1 {
 table {
     margin-top: 2vh;
     border-collapse: separate;
-    border-spacing: 1.1rem;
+    border-spacing: 0.7rem 1.3rem;
     width: 92%;
     font-family: "Anta", sans-serif;
 }
