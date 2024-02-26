@@ -4,6 +4,7 @@
 :root {
     --dark-green: #08785e; 
     --darker-green: #076c55;
+    --maroon-red: #800000;
     --border-radius: 0.3rem;
 }
 
@@ -21,6 +22,8 @@ body {
 
 
 main {
+    margin-top: 2vh;
+    margin-bottom: 5vh;
     width: 80vw;
     height: 80vh;
     background-color: black;
@@ -84,7 +87,7 @@ main section input {
 
 
 #register-names-div input {
-    width: 45%;
+    width: 44.5%;
     display: inline;
 }
 
@@ -142,6 +145,17 @@ h5 a:hover {
     color: var(--darker-green);
 }
 
+.error {
+    border: 3.5px solid var(--maroon-red);
+}
+
+.error-message {
+    margin-top: 1vh;
+    text-align: center;
+    font-family: "Courier Prime", monospace;
+    font-weight: 600;
+    color: var(--maroon-red);
+}
 
 @-webkit-keyframes rotate-scale-up {
     0% {
