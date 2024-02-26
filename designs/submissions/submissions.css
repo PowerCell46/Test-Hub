@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+:root {
+    --dark-green: #08785e; 
+    --darker-green: #076c55;
+    --midnight-blue: #101720;
+    --border-radius: 0.3rem;
+}
+
+
+html {
+    background: url('../images/wallpaperflare.com_wallpaper.jpg') no-repeat center center / cover;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+
+table {
+    margin-top: 2vh;
+    border-collapse: separate;
+    border-spacing: 22.5px;
+    width: 92%;
+    font-family: "Anta", sans-serif;
+}
+
+
+tr:nth-child(1n) {
+    background-color: #4E8397;
+}
+
+
+tr:nth-child(2n) {
+    background-color: #318EAB;
+}
+
+
+tr:nth-child(1) {
+    background-color: darkblue;
+}
+
+
+tr {
+    transition: 600ms ease-in-out;
+}
+
+
+tr:not(:first-child):hover {
+    cursor: pointer;
+    background-color: #007262;
+    transform: translateY(-0.4rem);
+}
+
+
+table th,
+table td {
+    border-radius: 0.5rem;
+    font-size: 1.8rem;
+    font-family: 'Square Peg', cursive;
+    color: whitesmoke;
+    font-weight: 100;
+    letter-spacing: 0.07rem;
+    text-shadow: 5px 0px 7px rgba(255,255, 255,0.37);
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+table th {
+    font-family: 'Salsa';
+    text-shadow: none;
+    padding: 1.5rem;
+    text-shadow: 5px 0px 7px rgba(0, 0, 0, 0.60);
+}
+
+
+table td img {
+    width: 13vw;
+    margin: 0 auto;
+    border-radius: 0.3rem;
+    margin-top: 0.3em;
+}
