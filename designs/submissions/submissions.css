@@ -99,13 +99,16 @@ table th {
     text-shadow: 5px 0px 7px rgba(0, 0, 0, 0.60);
 }
 
+
 table td i {
     margin-right: 0.3rem;
 }
 
+
 .fa-check {
     color: darkgreen;
 }
+
 
 .fa-xmark {
     color: darkred;

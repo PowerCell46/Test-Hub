@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+
 nav {
     width: 100vw;
     height: 9vh;
@@ -29,6 +30,7 @@ nav section ul {
     gap: 2rem;
 }
 
+
 nav section ul li a {
     text-decoration: none;
     transition: all 0.3s ease-in-out;
@@ -47,6 +49,7 @@ nav section ul li a:hover {
     height: 6.5vh;
     cursor: pointer;
 }
+
 
 #hide-show-nav-i {
     font-size: 2.5rem;

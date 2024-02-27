@@ -144,9 +144,11 @@ h5 a:hover {
     color: var(--darker-green);
 }
 
+
 .error {
     border: 3.5px solid var(--maroon-red);
 }
+
 
 .error-message {
     margin-top: -1.8vh;
@@ -155,6 +157,7 @@ h5 a:hover {
     font-weight: 600;
     color: var(--maroon-red);
 }
+
 
 @-webkit-keyframes rotate-scale-up {
     0% {
@@ -170,6 +173,7 @@ h5 a:hover {
               transform: scale(1) rotateZ(360deg);
     }
   }
+  
   @keyframes rotate-scale-up {
     0% {
       -webkit-transform: scale(1) rotateZ(0);
