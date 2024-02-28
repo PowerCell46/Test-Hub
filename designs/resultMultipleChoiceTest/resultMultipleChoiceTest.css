@@ -30,28 +30,34 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-
-.result-section img {
+    height: 70vh;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    width: 32.5vw;
-    margin: 3vh;
     margin-bottom: 5vh;
-    transition: 300ms ease-in-out;
+    background-image: url('../images/coding-avfu043y2kv52wha.jpg');
+    animation-name: bgPositionAnim;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    margin-bottom: 5vh;
 }
 
 
-.result-section img:hover {
-    filter: blur(2px);
+@keyframes bgPositionAnim {
+    0% {
+        background-position: center calc(100%);
+    }
+    100% {
+        background-position: center;
+    }
 }
 
 
 .result-section h5 {
     color: whitesmoke;
     font-family: 'Anta', sans-serif;
-    font-size: 4rem;
+    font-size: 7rem;
     text-shadow: var(--text-shadow);
 }
 
@@ -68,14 +74,13 @@ body {
     display: flex;
     gap:  1.5rem;
     flex-wrap: wrap;
-    margin-bottom: 5vh;
 }
 
 
 .correct-answer-button, .wrong-answer-button {
     padding:  1.3rem  2rem;
     font-size:  1.8rem;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 0.8rem;
     box-shadow: var(--box-shadow);
     font-family: "Anta", sans-serif;
@@ -89,12 +94,12 @@ body {
 
 
 .correct-answer-button {
-    background-color: #076c55;
+    background-color:#008000;
 }
 
 
 .correct-answer-button:hover {
-    background-color: #065644;
+    background-color: #228B22;
     transform: translateY(-0.4rem);
 }
 
@@ -107,4 +112,13 @@ body {
 .wrong-answer-button:hover {
     background-color: #660000;
     transform: translateY(-0.4rem);
+}
+
+h4 {
+    margin-bottom: 2vh;
+    font-size: 4rem;
+    color: whitesmoke;
+    text-shadow: var(--text-shadow);
+    font-family: 'Anta';
+    text-align: center;
 }

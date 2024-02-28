@@ -88,14 +88,13 @@ table td {
     text-shadow: var(--text-shadow);
     text-align: center;
     vertical-align: middle;
-    padding: 1.5rem;
+    padding: 2rem;
     box-shadow: var(--box-shadow);
 }
 
 
 table th {
     text-shadow: none;
-    padding: 1.5rem;
     text-shadow: 5px 0px 7px rgba(0, 0, 0, 0.60);
 }
 
