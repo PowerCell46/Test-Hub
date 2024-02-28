@@ -14,15 +14,42 @@ function hideShowNavigation(e) {
 
 
 function hideShowTopics(e) {
-    const hiddenTopics = e.target.parentElement.querySelector(".hidden");
+    const currentElement = e.currentTarget.parentElement;
+    const hiddenTopics = currentElement.querySelector(".hidden");
 
-    if (hiddenTopics.style.display == 'none') {
-        console.log(hiddenTopics);
-        e.target.parentElement.querySelector(".fa-arrow-down").style.transform = 'rotate(180deg)';
+    hiddenTopics.style.transition = 'opacity 0.5s ease';
+
+    if (hiddenTopics.style.display === 'none' || hiddenTopics.style.display === '') {
+        currentElement.querySelector(".fa-arrow-down").style.transform = 'rotate(180deg)';
         hiddenTopics.style.display = 'block';
 
+        setTimeout(() => hiddenTopics.style.opacity = 1, 10);
+
     } else {
-        e.target.parentElement.querySelector(".fa-arrow-down").style.transform = 'rotate(0deg)';
-        hiddenTopics.style.display = 'none';
+        currentElement.querySelector(".fa-arrow-down").style.transform = 'rotate(0deg)';
+        hiddenTopics.style.opacity = 0;
+
+        setTimeout(() => hiddenTopics.style.display = 'none', 500);
     }
+}
+
+
+function hideShowTasks(e) {
+    const currentElement = e.currentTarget.parentElement;
+    const hiddenTopics = currentElement.querySelector(".hidden-tasks");
+
+    hiddenTopics.style.transition = 'opacity 0.5s ease';
+
+    if (hiddenTopics.style.display === 'none' || hiddenTopics.style.display === '') {
+        currentElement.querySelector(".fa-arrow-down").style.transform = 'rotate(180deg)';
+        hiddenTopics.style.display = 'block';
+
+        setTimeout(() => hiddenTopics.style.opacity = 1, 10);
+
+    } else {
+        currentElement.querySelector(".fa-arrow-down").style.transform = 'rotate(0deg)';
+        hiddenTopics.style.opacity = 0;
+
+        setTimeout(() => hiddenTopics.style.display = 'none', 500);
+    }   
 }

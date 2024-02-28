@@ -43,17 +43,29 @@
 
     <main>
       <aside>
-      <div class="course-section">
-        <li onclick="hideShowTopics(event)">Python Basics <i class="fa-solid fa-arrow-down"></i></li>
-        <div class="hidden">
-          <li>First Steps in Coding</li>
-          <li>Conditional Statements</li>
-          <li>For Loop</li>
-          <li>While Loop</li>
-          <li>Nested Loops</li>
-          <li>Exam Preparation</li>
+        <div class="course-section">
+          <li onclick="hideShowTopics(event)">
+            Python Basics <i class="fa-solid fa-arrow-down"></i>
+          </li>
+          <div class="hidden">
+            <div class="topic-section">
+              <li onclick="hideShowTasks(event)">First Steps in Coding <i class="fa-solid fa-arrow-down"></i></li>
+              <div class="hidden-tasks">
+                <li>Hello TestHub</li>
+                <li>Nums 1...10</li>
+                <li>Square Area</li>
+                <li>Inches to Centimeters</li>
+                <li>Greeting by Name</li>
+              </div>
+            </div>
+
+            <li>Conditional Statements <i class="fa-solid fa-arrow-down"></i></li>
+            <li>For Loop <i class="fa-solid fa-arrow-down"></i></li>
+            <li>While Loop <i class="fa-solid fa-arrow-down"></i></li>
+            <li>Nested Loops <i class="fa-solid fa-arrow-down"></i></li>
+            <li>Exam Preparation <i class="fa-solid fa-arrow-down"></i></li>
+          </div>
         </div>
-      </div>
         <li>Python Fundamentals <i class="fa-solid fa-arrow-down"></i></li>
         <li>Python Advanced <i class="fa-solid fa-arrow-down"></i></li>
         <li>Python OOP <i class="fa-solid fa-arrow-down"></i></li>
@@ -64,13 +76,17 @@
         <li>JS Basics <i class="fa-solid fa-arrow-down"></i></li>
         <li>JS Fundamentals <i class="fa-solid fa-arrow-down"></i></li>
       </aside>
-      
+
       <section>
         <h1>TestHub</h1>
       </section>
     </main>
 
-    <h5 id="welcoming-message">Welcome to TestHub, a place where students can test their knowledge and improve their practical and theoretical skills in the sphere of Programming with Python!</h5>
+    <h5 id="welcoming-message">
+      Welcome to TestHub, a place where students can test their knowledge and
+      improve their practical and theoretical skills in the sphere of
+      Programming with Python!
+    </h5>
 
     <footer class="footer">
       <div class="waves">
@@ -108,7 +124,11 @@
         <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
         <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
       </ul>
-      <p>&copy;2024 <a href="https://github.com/PowerCell46" target="_blank">PowerCell46</a> | All Rights Reserved</p>
+      <p>
+        &copy;2024
+        <a href="https://github.com/PowerCell46" target="_blank">PowerCell46</a>
+        | All Rights Reserved
+      </p>
     </footer>
   </body>
 </html>

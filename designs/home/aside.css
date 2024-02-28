@@ -20,6 +20,8 @@ aside li {
     margin-bottom: 0.5rem;
     display: flex;
     justify-content: space-between;
+    transition: opacity 0.75s ease;
+    transition: 300ms ease-in-out;
 }
 
 
@@ -29,6 +31,7 @@ aside li:hover {
 
 
 .hidden {
+    opacity: 0;
     display: none;
 }
 
@@ -43,5 +46,22 @@ aside li:hover {
 
 
 .hidden li:hover {
+    background-color: rgba(0, 0, 0, 0.3);   
+}
+
+
+.hidden-tasks {
+    opacity: 0;
+    display: none;
+}
+
+
+.hidden-tasks li {
+    width: 70%;   
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+
+.hidden-tasks li:hover {
     background-color: rgba(0, 0, 0, 0.3);   
 }
