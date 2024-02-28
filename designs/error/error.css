@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+:root {
+    --dark-green: #08785e; 
+    --darker-green: #076c55;
+    --maroon-red: #800000;
+    --border-radius: 0.3rem;
+    --text-shadow: 3px 1px 2px rgba(0, 0, 0, 0.54);
+}
+
+
+html {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/f/f5/Computer-screen-code-glitch-animation-gif-background-free.gif') no-repeat center center / cover;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+h1 {
+    padding-top: 25vh;
+    padding-bottom: 20vh;
+    font-family: 'Anta';
+    font-size: 6rem;
+    color: whitesmoke;
+    text-shadow: var(--text-shadow);
+    text-align: center;
+    line-height: 1.35;
+}
