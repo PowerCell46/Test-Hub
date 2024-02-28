@@ -45,11 +45,6 @@ main section {
     align-items: center;
     justify-content: center;
     max-height: 66vh;
-    /* animation-name: kenburns-top ;
-    animation-duration: 10s;
-    animation-timing-function: ease-in-out;
-    animation-direction: alternate;
-    animation-iteration-count: infinite; */
 }
 
 
@@ -74,16 +69,4 @@ main section h1 {
     text-shadow: var(--text-shadow);
     text-align: center;
     font-family: 'Anta';
-}
-
-
-@keyframes kenburns-top {
-  0% {
-    transform: scale(1) translateY(0);
-    transform-origin: 50% 16%;
-  }
-  100% {
-    transform: scale(1.25) translateY(-15px);
-    transform-origin: top;
-  }
 }

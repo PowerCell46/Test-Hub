@@ -47,6 +47,10 @@
       </nav>
       
       <form method="post">
+        <label id="task-title-label" for="task-title">Title:</label>
+        <input type="text" id="task-title" placeholder="Sum even numbers" class="error">
+        <!-- <p class="error-message">Invalid Title!</p> -->
+
         <section id="choose-course-choose-topic">
             <div>
               <label for="course">Course:</label>
@@ -71,12 +75,13 @@
             </div>
           </section>
 
-        <label id="task-title-label" for="task-title">Title:</label>
-        <input type="text" id="task-title" placeholder="Sum even numbers">
+          <label for="task-description-file">True Colour Image:</label>
+          <input name="task-description-file" type="file" class="file-upload" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required="">
 
         <h5 id="unit-tests-title">Unit Tests:</h5>
         <textarea id="pythonCode"></textarea>
-        
+        <!-- <p class="error-message">Unit Tests cannot be empty!</p> -->
+
         <button>Create Task</button>
       </form>
 
