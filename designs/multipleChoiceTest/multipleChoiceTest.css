@@ -41,7 +41,7 @@ main section:nth-child(n) {
 
 
 main section:nth-child(2n) {
-    background-color: #d70044
+    background-color: #810029
 }
 
 
@@ -145,5 +145,18 @@ button {
 
 
 button:hover {
-    background-color: #008ee1;
+    background-color: #1a7db7;
+}
+
+.unfilled-question {
+    border: 7.5px dashed #FF4500;
+    animation: changeColor 3s infinite;
+}
+
+
+@keyframes changeColor {
+    10% { border-color: #FF4500; }
+    50% { border-color: #FFD700; }
+    90% { border-color: #663399; }
+    100% {border-color: #FF4500; }
 }

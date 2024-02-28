@@ -8,6 +8,7 @@ nav {
     align-items: center;
     justify-content: center;
     margin: 3vh 0;
+    /* background-color: aliceblue; */
 }
 
 
@@ -21,6 +22,7 @@ nav section {
     border-radius: 0.45rem;
     box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
     font-size: 1.3rem;
+    transition: opacity 0.75s ease;
 }
 
 
