@@ -41,38 +41,41 @@
       ></i>
     </nav>
     
-    <div class="title-wrapper">
-      <label id="task-title-label" for="task-title">Exam Title:</label>
-      <input type="text" id="task-title" placeholder="Sum even numbers">
-    </div>
+   
     
     <section id="choose-course-choose-topic">
-      <div>
-        <label for="course">Course:</label>
-        <select name="course" id="course-select">
-          <option value="" disabled selected>Select a Course</option>
-          <option value="Python Basics">Python Basics</option>
-          <option value="Python Basics">Python Fundamentals</option>
-          <option value="Python Basics">Python Advanced</option>
-          <option value="Python Basics">Python OOP</option>
-        </select>
+      <div class="title-wrapper">
+        <label id="task-title-label" for="task-title">Exam Title:</label>
+        <input type="text" id="task-title" placeholder="Sum even numbers">
       </div>
-
-      <div>
-        <label for="topic">Topic:</label>
-        <select name="topic" id="course-select">
-          <option value="" disabled selected>Select a Topic</option>
-          <option value="Python Intro">Python Intro</option>
-          <option value="Conditional Statements">Conditional Statements</option>
-          <option value="For Loop">For Loop</option>
-          <option value="While Loop">While Loop</option>
-        </select>
+      <div class="wrapper">
+        <div>
+          <label for="course">Course:</label>
+          <select name="course" id="course-select">
+            <option value="" disabled selected>Select a Course</option>
+            <option value="Python Basics">Python Basics</option>
+            <option value="Python Basics">Python Fundamentals</option>
+            <option value="Python Basics">Python Advanced</option>
+            <option value="Python Basics">Python OOP</option>
+          </select>
+        </div>
+  
+        <div>
+          <label for="topic">Topic:</label>
+          <select name="topic" id="course-select">
+            <option value="" disabled selected>Select a Topic</option>
+            <option value="Python Intro">Python Intro</option>
+            <option value="Conditional Statements">Conditional Statements</option>
+            <option value="For Loop">For Loop</option>
+            <option value="While Loop">While Loop</option>
+          </select>
+        </div>
       </div>
     </section>
 
     <main>
       <section>
-        <i id="remove-question" onclick="removeMultipleChoiceQuestion(event)" class="fa-regular fa-circle-xmark fa-bounce"></i>
+        <i id="remove-question" onclick="removeMultipleChoiceQuestion(event)" class="fa-regular fa-circle-xmark"></i>
         <input
           id="question-title-input"
           type="text"
@@ -99,7 +102,7 @@
         <!-- <p class="error-message">Answer must be between 1 and 4!</p> -->
       </section>
       <section>
-        <i id="remove-question" onclick="removeMultipleChoiceQuestion(event)" class="fa-regular fa-circle-xmark fa-bounce"></i>
+        <i id="remove-question" onclick="removeMultipleChoiceQuestion(event)" class="fa-regular fa-circle-xmark"></i>
         <input
           id="question-title-input"
           type="text"
@@ -125,7 +128,7 @@
         <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
       </section>
       <section>
-        <i id="remove-question" onclick="removeMultipleChoiceQuestion(event)" class="fa-regular fa-circle-xmark fa-bounce"></i>
+        <i id="remove-question" onclick="removeMultipleChoiceQuestion(event)" class="fa-regular fa-circle-xmark"></i>
         <input
           id="question-title-input"
           type="text"
