@@ -53,3 +53,8 @@ function hideShowTasks(e) {
         setTimeout(() => hiddenTopics.style.display = 'none', 500);
     }   
 }
+
+
+function removeMultipleChoiceQuestion(e) {
+    e.currentTarget.parentElement.remove();
+}

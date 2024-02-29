@@ -152,3 +152,21 @@ main section input {
     justify-content: center;
     flex-direction: column;
 }
+
+
+#remove-question {
+    cursor: pointer;
+    color: whitesmoke;
+    border-radius: 50%;
+    font-size: 2rem;
+    text-shadow: var(--text-shadow);
+    position: relative;
+    bottom: 8.6vh;
+    left: 49.3%;
+    transition: 400ms ease-in-out;
+}
+
+
+#remove-question:hover {
+    color: black;
+}
