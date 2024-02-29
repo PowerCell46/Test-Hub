@@ -1,14 +1,16 @@
 <nav>
     <section id="navigation-section" [ngStyle]="{'display': navigationVisible ? 'flex' : 'none', 'opacity': navigationOpacity}">
-      <img
+      <a routerLink="/">
+        <img
         id="test-hub-logo"
         src="../../assets/images/9a641d59-fa1d-4616-b53e-9f3a1784a8ad-transformed.webp"
         alt="Test Hub Logo"
       />
+      </a>
       <ul>
-        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/logout">Logout</a></li>
         <li><a routerLink="/login">Login</a></li>
-        <li><a routerLink="/submissions">Submissionse</a></li>
+        <li><a routerLink="/submissions">Submissions</a></li>
         <li><a routerLink="/register">Register</a></li>
       </ul>
     </section>

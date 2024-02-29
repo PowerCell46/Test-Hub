@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 
 
 :root {
@@ -7,6 +8,8 @@
     --darker-green: #076c55;
     --maroon-red: #800000;
     --border-radius: 0.3rem;
+	--deep-blue: #3586ff;
+	--text-shadow: 3px 1px 2px rgba(0, 0, 0, 0.54);
 }
 
 

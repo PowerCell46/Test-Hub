@@ -1,0 +1,15 @@
+::ng-deep html {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/f/f5/Computer-screen-code-glitch-animation-gif-background-free.gif') no-repeat center center / cover !important;
+}
+
+
+h1 {
+    padding-top: 25vh;
+    padding-bottom: 20vh;
+    font-family: 'Anta';
+    font-size: 6rem;
+    color: whitesmoke;
+    text-shadow: var(--text-shadow);
+    text-align: center;
+    line-height: 1.35;
+}
