@@ -24,7 +24,7 @@ body {
 
 main {
     width: 80vw;
-    background-image: url('../images/artwork_minimalism_mountains_mist_sky_blue_simple_blue_background-1803147.jpg!d');
+    background-image: url('https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-013.jpg');
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -185,4 +185,37 @@ table td i {
 
 .fa-xmark {
     color: darkred;
+}
+
+
+.inner-container-wrapper {
+    /* background-color: #076c55; */
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+
+
+.inner-container-wrapper i {
+    color: black;
+    margin-top: -1.5vh;
+    font-size: 3rem;
+    transition: 300ms ease-in-out;
+    cursor: pointer;
+}
+
+
+.inner-container-wrapper i:hover {
+    color: #333333;
+    transform: translateY(-0.3rem);
+}
+
+
+.CodeMirror {
+    width: 80%;
+    height: auto;
+    font-size: 1.5rem;
+    font-family: 'Anta';
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }

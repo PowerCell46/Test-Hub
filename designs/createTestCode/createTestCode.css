@@ -137,6 +137,7 @@ input[type=file] {
     color: #f5f5f5;
     text-shadow: var(--text-shadow);
     padding: 1.5rem;
+    border-radius: var(--border-radius);
 }
 
 
