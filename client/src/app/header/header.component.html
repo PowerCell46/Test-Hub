@@ -1,0 +1,20 @@
+<nav>
+    <section id="navigation-section" [ngStyle]="{'display': navigationVisible ? 'flex' : 'none', 'opacity': navigationOpacity}">
+      <img
+        id="test-hub-logo"
+        src="../../assets/images/9a641d59-fa1d-4616-b53e-9f3a1784a8ad-transformed.webp"
+        alt="Test Hub Logo"
+      />
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Login</a></li>
+        <li><a href="">Submissionse</a></li>
+        <li><a href="">Register</a></li>
+      </ul>
+    </section>
+    <i
+    (click)="hideShowNavigation($event)"
+      id="hide-show-nav-i"
+      class="fa-solid fa-bars"
+    ></i>
+  </nav>
