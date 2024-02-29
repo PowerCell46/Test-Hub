@@ -1,0 +1,13 @@
+@import url('../../assets/styles/auth.css');
+
+
+main form {
+    width: 70%;
+    gap: 1.2vh;
+}
+
+
+#left-side {
+    /* background-color: #1b2d47; */
+    background: url('../../assets/images/97133ec9-8094-4eb6-945c-cee5c52fa329.webp') center center / cover no-repeat;
+}

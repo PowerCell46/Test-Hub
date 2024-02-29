@@ -1,0 +1,22 @@
+<main>
+    <section id="left-side"></section>
+  
+    <section id="right-side">
+      <h1>Get Started!</h1>
+      <form method="POST">
+        <div id="register-names-div">
+          <input type="text" name="first-name" placeholder="First Name" />
+          <input type="text" name="last-name" placeholder="Last Name" />
+        </div>
+        <!-- <p class="error-message">First name must be at least 6 chars!</p> -->
+        <input type="text" name="email" placeholder="Email" />
+        <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
+        <input type="password" name="password" placeholder="Password" />
+        <!-- <p class="error-message">Password must be at least 6 chars!</p> -->
+        <button id="register-submit-button">Register</button>
+      </form>
+      <h5>
+        Already have an account? <a routerLink="/login">Login here</a>
+      </h5>
+    </section>
+  </main>

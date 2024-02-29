@@ -1,5 +1,7 @@
 
 main {
+    margin: 0 auto; /* Fix it at some point */
+    justify-self: center;
     margin-top: 2vh;
     margin-bottom: 5vh;
     width: 80vw;
@@ -49,6 +51,7 @@ main section input {
 
 #left-side {
     /* background-color: #1b2d47; */
+    /* background: url('../../assets/images/97133ec9-8094-4eb6-945c-cee5c52fa329.webp') center center / cover no-repeat; */
     background: url('../../assets/images/d990a259-7568-4433-826b-ff3c4e082b55.webp') center center / cover no-repeat;
 }
 
