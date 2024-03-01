@@ -13,3 +13,17 @@ export interface QuestionInitForm {
 //     user: RegisterUser,
 //     token: string
 // }
+
+interface HomePageTask {
+    title: string
+}
+
+interface HomePageTopics {
+    title: string,
+    tasks: HomePageTask[] 
+}
+
+export interface HomePageCourse {
+    title: string,
+    topics: HomePageTopics[]
+}

@@ -11,6 +11,7 @@ import { ErrorComponent } from './error/error.component';
 import { FooterComponent } from './footer/footer.component';
 import { CreateMultiplechoiceTestComponent } from './create-multiplechoice-test/create-multiplechoice-test.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     LogoutComponent,
     ErrorComponent,
     FooterComponent,
-    CreateMultiplechoiceTestComponent
+    CreateMultiplechoiceTestComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

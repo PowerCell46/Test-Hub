@@ -6,9 +6,10 @@ import { LogoutComponent } from './logout/logout.component';
 import { ErrorComponent } from './error/error.component';
 import { CreateMultiplechoiceTestComponent } from './create-multiplechoice-test/create-multiplechoice-test.component';
 import { RouteGuardService } from './route-guard.service';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  // {path: "/", component: }
+  {path: "", component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'logout', component: LogoutComponent},

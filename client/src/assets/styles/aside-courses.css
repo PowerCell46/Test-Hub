@@ -1,0 +1,67 @@
+aside {
+    width: 27.5vw;
+    margin-right: 1rem;
+}
+
+
+aside li {
+    list-style: none;
+    border: 1px solid white;
+    font-size: 1.5rem;
+    padding: 1.2rem 2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
+    transition: 300ms ease-in-out;
+    font-family: 'Anta';
+    color: whitesmoke;
+    text-shadow: var(--text-shadow);
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    transition: opacity 0.75s ease;
+    transition: 300ms ease-in-out;
+}
+
+
+aside li:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+.hidden {
+    opacity: 0;
+    display: none;
+}
+
+
+.hidden li {
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 80%;
+    margin-bottom: 0.5rem;
+}
+
+
+.hidden li:hover {
+    background-color: rgba(0, 0, 0, 0.3);   
+}
+
+
+.hidden-tasks {
+    opacity: 0;
+    display: none;
+}
+
+
+.hidden-tasks li {
+    width: 70%;   
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+
+.hidden-tasks li:hover {
+    background-color: rgba(0, 0, 0, 0.3);   
+}
