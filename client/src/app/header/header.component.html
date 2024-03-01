@@ -8,10 +8,10 @@
       />
       </a>
       <ul>
-        <li><a routerLink="/logout">Logout</a></li>
-        <li><a routerLink="/login">Login</a></li>
-        <li><a routerLink="/submissions">Submissions</a></li>
-        <li><a routerLink="/register">Register</a></li>
+        <li *ngIf="isLoggedIn"><a routerLink="/logout">Logout</a></li>
+        <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
+        <li *ngIf="isLoggedIn"><a routerLink="/submissions">Submissions</a></li>
+        <li *ngIf="!isLoggedIn"><a routerLink="/register">Register</a></li>
       </ul>
     </section>
     <i
@@ -19,4 +19,4 @@
       id="hide-show-nav-i"
       class="fa-solid fa-bars"
     ></i>
-  </nav>
+</nav>

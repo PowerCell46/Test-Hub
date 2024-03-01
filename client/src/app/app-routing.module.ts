@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ErrorComponent } from './error/error.component';
 import { CreateMultiplechoiceTestComponent } from './create-multiplechoice-test/create-multiplechoice-test.component';
+import { RouteGuardService } from './route-guard.service';
 
 const routes: Routes = [
   // {path: "/", component: }
@@ -13,7 +14,7 @@ const routes: Routes = [
   {path: 'logout', component: LogoutComponent},
   // {path: '', redirectTo: '/error', pathMatch: 'full'},
   // {path: '/error', component: ErrorComponent},
-  {path: "createMultipleChoiceQuestion", component: CreateMultiplechoiceTestComponent}
+  {path: "createMultipleChoiceQuestion",canActivate: [RouteGuardService],  component: CreateMultiplechoiceTestComponent}
 ];
 
 @NgModule({
