@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ErrorComponent } from './error/error.component';
 import { FooterComponent } from './footer/footer.component';
+import { CreateMultiplechoiceTestComponent } from './create-multiplechoice-test/create-multiplechoice-test.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './footer/footer.component';
     RegisterComponent,
     LogoutComponent,
     ErrorComponent,
-    FooterComponent
+    FooterComponent,
+    CreateMultiplechoiceTestComponent
   ],
   imports: [
     BrowserModule,

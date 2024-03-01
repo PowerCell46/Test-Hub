@@ -1,13 +1,9 @@
-class Person {
-    constructor(name) {
-        this.name = name;
-    }
+questions = [
+    {id: 1},
+    {id: 2},
+    {id: 3}
+]
 
-    sayHello() {
-        return 'Hello there from ' + this.name
-    }
-}
+const sortedquestions = questions.sort((a, b) => b.id - a.id)[0].id;
 
-const me = new Person("Peter");
-
-console.log(me.sayHello());
+console.log(sortedquestions[0].id);
