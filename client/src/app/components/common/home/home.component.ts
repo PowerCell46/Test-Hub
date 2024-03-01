@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HomePageCourse } from '../../assets/interfaces/main-interfaces';
+import { HomePageCourse } from '../../../../assets/interfaces/main-interfaces';
 
 @Component({
   selector: 'app-home',

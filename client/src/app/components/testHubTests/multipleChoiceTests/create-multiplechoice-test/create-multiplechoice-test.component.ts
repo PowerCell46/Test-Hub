@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { QuestionInitForm } from '../../assets/interfaces/main-interfaces';
+import { QuestionInitForm } from '../../../../../assets/interfaces/main-interfaces';
 
 @Component({
   selector: 'app-create-multiplechoice-test',

@@ -3,15 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { LogoutComponent } from './logout/logout.component';
-import { ErrorComponent } from './error/error.component';
-import { FooterComponent } from './footer/footer.component';
-import { CreateMultiplechoiceTestComponent } from './create-multiplechoice-test/create-multiplechoice-test.component';
+import { HeaderComponent } from './components/common/header/header.component';
+import { LoginComponent } from './components/authentication/login/login.component';
+import { RegisterComponent } from './components/authentication/register/register.component';
+import { LogoutComponent } from './components/authentication/logout/logout.component';
+import { ErrorComponent } from './components/common/error/error.component';
+import { FooterComponent } from './components/common/footer/footer.component';
+import { CreateMultiplechoiceTestComponent } from './components/testHubTests/multipleChoiceTests/create-multiplechoice-test/create-multiplechoice-test.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/common/home/home.component';
 
 @NgModule({
   declarations: [

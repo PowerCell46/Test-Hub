@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../authentication.service';
-import { passwordStrengthValidator } from '../../assets/validators/passwordValidator';
-import { baseServerUrl } from '../../assets/constants';
+import { AuthenticationService } from '../../../authentication.service';
+import { passwordStrengthValidator } from '../../../../assets/validators/passwordValidator';
+import { baseServerUrl } from '../../../../assets/constants';
 
 @Component({
   selector: 'app-login',

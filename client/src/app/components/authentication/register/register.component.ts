@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { passwordStrengthValidator } from '../../assets/validators/passwordValidator';
+import { passwordStrengthValidator } from '../../../../assets/validators/passwordValidator';
 import { HttpClient } from '@angular/common/http';
-import { baseServerUrl } from '../../assets/constants';
+import { baseServerUrl } from '../../../../assets/constants';
 // import { RegisterResponse } from '../../assets/interfaces/main-interfaces';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../authentication.service';
+import { AuthenticationService } from '../../../authentication.service';
 
 @Component({
   selector: 'app-register',
