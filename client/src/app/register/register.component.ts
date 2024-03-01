@@ -27,7 +27,7 @@ export class RegisterComponent {
 
   onRegisterSubmit(): void {
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
+      // console.log(this.registerForm.value);
       
       this.http.post(`${baseServerUrl}auth/register/`, {
           username: this.registerForm.value['username'], 

@@ -1,18 +1,43 @@
 <main>
+  <section id="right-side">
+    <h1>Welcome Back!</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" method="POST">
+      <!-- Username -->
+      <input type="text" name="username" formControlName="username" placeholder="Username" />
+      <!-- Error messages Username -->
+      <p
+      *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['minlength']"
+      class="error-message"
+    >
+      Username must be at least 5 chars!
+    </p>
+    <p
+        *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['passwordStrength']"
+        class="error-message"
+      >
+      Username must contain at least one uppercase letter, one lowercase letter, and a number!
+    </p>
 
-    <section id="right-side">
-      <h1>Welcome Back!</h1>
-      <form method="POST">
-        <input type="text" name="email" placeholder="Email" />
-        <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
-        <input type="password" name="password" placeholder="Password" />
-        <!-- <p class="error-message">Password must be at least 6 chars!</p> -->
+     <!-- Password -->
+      <input type="password" name="password" formControlName="password" placeholder="Password" />
+      <!-- Erros messages Password -->
+      <p
+        *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength']"
+        class="error-message"
+      >
+        Password must be at least 6 chars!
+      </p>
+      <p
+        *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['passwordStrength']"
+        class="error-message"
+      >
+      Password must contain at least one uppercase letter, one lowercase letter, and a number!
+      </p>
 
-        <button id="register-submit-button">Login</button>
-      </form>
-      <h5>Don't have an account? <a routerLink="/register">Register here</a></h5>
-    </section>
+      <button type="submit" id="register-submit-button">Login</button>
+    </form>
+    <h5>Don't have an account? <a routerLink="/register">Register here</a></h5>
+  </section>
 
-    <section id="left-side"></section>
-
+  <section id="left-side"></section>
 </main>
