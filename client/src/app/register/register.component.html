@@ -1,22 +1,103 @@
 <main>
-    <section id="left-side"></section>
-  
-    <section id="right-side">
-      <h1>Get Started!</h1>
-      <form method="POST">
-        <div id="register-names-div">
-          <input type="text" name="first-name" placeholder="First Name" />
-          <input type="text" name="last-name" placeholder="Last Name" />
-        </div>
-        <!-- <p class="error-message">First name must be at least 6 chars!</p> -->
-        <input type="text" name="email" placeholder="Email" />
-        <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
-        <input type="password" name="password" placeholder="Password" />
-        <!-- <p class="error-message">Password must be at least 6 chars!</p> -->
-        <button id="register-submit-button">Register</button>
-      </form>
-      <h5>
-        Already have an account? <a routerLink="/login">Login here</a>
-      </h5>
-    </section>
-  </main>
+  <section id="left-side"></section>
+
+  <section id="right-side">
+    <h1>Get Started!</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+      <!-- First Name and Last Name -->
+      <div id="register-names-div">
+        <input
+          type="text"
+          name="first-name"
+          formControlName="firstName"
+          placeholder="First Name"
+        />
+        <input
+          type="text"
+          name="last-name"
+          formControlName="lastName"
+          placeholder="Last Name"
+        />
+      </div>
+      <!-- Error messages First Name and Last Name -->
+      <p
+        *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['minlength']"
+        class="error-message"
+      >
+        First name must be at least 3 chars!
+      </p>
+      <p
+        *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['minlength']"
+        class="error-message"
+      >
+        Last name must be at least 5 chars!
+      </p>
+
+    <!-- Username -->
+    <input
+      type="text"
+      name="username"
+      formControlName="username"
+      placeholder="Username"
+    />
+    <!-- Error messages Username -->
+    <p
+      *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.errors?.['minlength']"
+      class="error-message"
+    >
+      Username must be at least 5 chars!
+    </p>
+    <p
+        *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.errors?.['passwordStrength']"
+        class="error-message"
+      >
+      Username must contain at least one uppercase letter, one lowercase letter, and a number!
+    </p>
+
+      <!-- Email -->
+      <input
+        type="text"
+        name="email"
+        formControlName="email"
+        placeholder="Email"
+      />
+      <!-- Error messages Email -->
+      <p
+        *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['minlength']"
+        class="error-message"
+      >
+        Email must be at least 5 chars!
+      </p>
+      <p
+        *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']"
+        class="error-message"
+      >
+        Invalid Email!
+      </p>
+
+      <!-- Password -->
+      <input
+        type="password"
+        name="password"
+        formControlName="password"
+        placeholder="Password"
+      />
+      <!-- Error messages Password -->
+      <p
+        *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['minlength']"
+        class="error-message"
+      >
+        Password must be at least 6 chars!
+      </p>
+      <p
+        *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['passwordStrength']"
+        class="error-message"
+      >
+      Password must contain at least one uppercase letter, one lowercase letter, and a number!
+      </p>
+
+      <button type="submit" id="register-submit-button">Register</button>
+    </form>
+    <h5>Already have an account? <a routerLink="/login">Login here</a></h5>
+  </section>
+</main>

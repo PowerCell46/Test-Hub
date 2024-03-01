@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { passwordStrengthValidator } from '../../assets/validators/passwordValidator';
+import { HttpClient } from '@angular/common/http';
+import { baseServerUrl } from '../../assets/constants';
+// import { RegisterResponse } from '../../assets/interfaces/main-interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -6,5 +12,40 @@ import { Component } from '@angular/core';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+  registerForm: FormGroup;
 
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
+    this.registerForm = this.formBuilder.group({
+      username: ['', [Validators.required, Validators.minLength(5), passwordStrengthValidator()]],
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.minLength(5)]],
+      email: ['', [Validators.required, Validators.email, Validators.minLength(5)]],
+      password: ['', [Validators.required, Validators.minLength(6), passwordStrengthValidator()]]
+    });
+  }
+
+  onRegisterSubmit(): void {
+    if (this.registerForm.valid) {
+      console.log(this.registerForm.value);
+      
+      this.http.post(`${baseServerUrl}auth/register/`, {
+          username: this.registerForm.value['username'], 
+          email: this.registerForm.value['email'], 
+          password: this.registerForm.value['password'],
+          password2: this.registerForm.value['password']
+      }).subscribe({
+        next: (response: any) => {
+          console.log(response);
+
+          localStorage.setItem('token', response.token);
+
+          this.router.navigate(['/']);
+          
+        },
+        error: (error) => {
+          console.error(error);
+        }
+      })
+    }
+  }
 }
