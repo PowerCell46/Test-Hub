@@ -27,7 +27,5 @@ export class HomeComponent {
     {title: "Python OOP", topics: []},
     {title: "JS Basics", topics: []},
     {title: "JS Fundamentals", topics: []},
-  ];
-
-  
+  ];  
 }

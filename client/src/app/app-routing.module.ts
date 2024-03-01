@@ -12,10 +12,10 @@ const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'logout', component: LogoutComponent},
+  {path: 'logout', canActivate: [RouteGuardService], component: LogoutComponent},
   // {path: '', redirectTo: '/error', pathMatch: 'full'},
   // {path: '/error', component: ErrorComponent},
-  {path: "createMultipleChoiceQuestion",canActivate: [RouteGuardService],  component: CreateMultiplechoiceTestComponent}
+  {path: "createMultipleChoiceQuestion", component: CreateMultiplechoiceTestComponent}
 ];
 
 @NgModule({
