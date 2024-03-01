@@ -15,15 +15,17 @@ export interface QuestionInitForm {
 // }
 
 interface HomePageTask {
-    title: string
+    title: string,
 }
 
 interface HomePageTopics {
     title: string,
+    visible: boolean,
     tasks: HomePageTask[] 
 }
 
 export interface HomePageCourse {
     title: string,
-    topics: HomePageTopics[]
+    topics: HomePageTopics[],
+    visible: boolean
 }

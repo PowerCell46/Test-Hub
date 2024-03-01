@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { baseServerUrl } from '../../../../assets/constants';
 // import { RegisterResponse } from '../../assets/interfaces/main-interfaces';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../../authentication.service';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-register',

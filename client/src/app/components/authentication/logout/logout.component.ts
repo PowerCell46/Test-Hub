@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../../../authentication.service';
+import { AuthenticationService } from '../../../services/authentication.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { baseServerUrl } from '../../../../assets/constants';
 import { Router } from '@angular/router';

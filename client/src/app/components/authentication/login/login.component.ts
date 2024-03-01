@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../../authentication.service';
+import { AuthenticationService } from '../../../services/authentication.service';
 import { passwordStrengthValidator } from '../../../../assets/validators/passwordValidator';
 import { baseServerUrl } from '../../../../assets/constants';
 

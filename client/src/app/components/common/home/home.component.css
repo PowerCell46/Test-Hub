@@ -1,4 +1,4 @@
-@import url('../../assets/styles/aside-courses.css');
+@import url('../../../../assets/styles/aside-courses.css');
 
 
 ::ng-deep html {
@@ -17,7 +17,7 @@ main {
 
 main section {
     width: 65vw;
-    background-image: url('../../assets/images/1000_F_218537567_Z4W3By4FP4VTi8ncqA0Uv1RiGdcuKWnk.jpg');
+    background-image: url('../../../../assets/images/1000_F_218537567_Z4W3By4FP4VTi8ncqA0Uv1RiGdcuKWnk.jpg');
     background-size: cover;
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);

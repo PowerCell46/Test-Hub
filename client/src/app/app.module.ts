@@ -12,6 +12,8 @@ import { FooterComponent } from './components/common/footer/footer.component';
 import { CreateMultiplechoiceTestComponent } from './components/testHubTests/multipleChoiceTests/create-multiplechoice-test/create-multiplechoice-test.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/common/home/home.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { HomeComponent } from './components/common/home/home.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

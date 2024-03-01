@@ -31,8 +31,9 @@ aside li:hover {
 
 
 .hidden {
-    opacity: 0;
-    display: none;
+    /* opacity: 0;
+    display: none; */
+    transition: opacity 0.5s ease;
 }
 
 
@@ -51,8 +52,9 @@ aside li:hover {
 
 
 .hidden-tasks {
-    opacity: 0;
-    display: none;
+    /* opacity: 0;
+    display: none; */
+    transition: opacity 0.5s ease;
 }
 
 
