@@ -29,7 +29,7 @@ class UserLogin(APIView):  # ALLOW ONLY NOT AUTHENTICATED USERS
     def post(self, request):
         username = request.data.get('username')
         password = request.data.get('password')
-        
+
         user = authenticate(username=username, password=password)
         if user:
             token, created = Token.objects.get_or_create(user=user)
