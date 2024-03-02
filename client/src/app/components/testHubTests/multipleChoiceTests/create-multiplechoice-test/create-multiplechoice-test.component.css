@@ -73,6 +73,7 @@ main section input {
     height: 20vh;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;gap: 2vh;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -174,4 +175,13 @@ main section input {
 #create-multipleChoice-button:hover {
     animation: rotate-scale-up 1s ease-in-out forwards;
     background-color: var(--darker-green);
+}
+
+
+#total-questions {
+    margin-top: -2.5vh;
+    font-family: 'Anta', sans-serif;
+    color: whitesmoke;
+    font-size: 1.5rem;
+    text-shadow: var(--text-shadow);
 }
