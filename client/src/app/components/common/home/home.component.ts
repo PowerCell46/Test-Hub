@@ -46,11 +46,9 @@ export class HomeComponent {
   toggleTopics(courseTitle: string): void {
     const course = this.courses.find(c => c.title === courseTitle);
 
-    // const topic = course?.topics?.find(t => t.title === topicName);
     if (course) {
       course.visible = !course?.visible
     }
-    console.log(course);
   }
 
   toggleTasks(courseTitle: string, topicTitle: string): void {
@@ -59,6 +57,5 @@ export class HomeComponent {
     if (topic) {
       topic.visible = !topic.visible
     }
-    console.log(topic);
   }
 }
