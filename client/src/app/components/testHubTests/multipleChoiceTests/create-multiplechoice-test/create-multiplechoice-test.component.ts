@@ -1,22 +1,16 @@
 import { Component } from '@angular/core';
-import { QuestionInitForm } from '../../../../../assets/interfaces/main-interfaces';
-import { AuthenticationService } from '../../../../services/authentication.service';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../../../../services/authentication.service';
 
 @Component({
   selector: 'app-create-multiplechoice-test',
   templateUrl: './create-multiplechoice-test.component.html',
-  styleUrl: './create-multiplechoice-test.component.css'
+  styleUrls: ['./create-multiplechoice-test.component.css']
 })
 export class CreateMultiplechoiceTestComponent {
     public multipleQuestionsExamForm: FormGroup;
-    questions:QuestionInitForm[] = [
-        {id: 1, title: "What is the difference between list and tuple?"},
-        {id: 2, title: "How do delete files in Python?"},
-        {id: 3, title: "Explain scope in Python."}
-    ]
 
     constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, public authService: AuthenticationService) {
       this.multipleQuestionsExamForm = this.formBuilder.group({
@@ -25,26 +19,37 @@ export class CreateMultiplechoiceTestComponent {
         topic: ['', [Validators.required]],
         examQuestions: this.formBuilder.array([])
       });
+
     }
 
-  removeQuestion(questionId: number): void {
-    this.questions = this.questions.filter(question => question.id != questionId);
-  }
-
-  createQuestion(): void {
-    let newId = 1;
-
-    if (this.questions.length > 0) {
-    newId = this.questions.sort((a, b) => b.id - a.id)[0].id + 1;
+    get examQuestions(): FormArray {
+      return this.multipleQuestionsExamForm.get('examQuestions') as FormArray;
     }
 
-    this.questions.sort((a, b) => a.id - b.id);
 
-    this.questions.push({id:newId, title: "What is Python?" });
-    }   
+    private createQuestionFormGroup(newId: number): FormGroup {
+      return this.formBuilder.group({
+        id: [newId],
+        title: ['', [Validators.required, Validators.minLength(5)]],
+        optionA: ['', [Validators.required, Validators.minLength(1)]],
+        optionB: ['', [Validators.required, Validators.minLength(1)]],
+        optionC: ['', [Validators.required, Validators.minLength(1)]],
+        optionD: ['', [Validators.required, Validators.minLength(1)]],
+        correctAnswer: ['', [Validators.required, Validators.min(1), Validators.max(4)]]
+      });
+    }
 
-    onMultipleQuestionsSubmit() {
+    addQuestion(): void {
+      const newId = this.examQuestions.value.length + 1; 
+      this.examQuestions.push(this.createQuestionFormGroup(newId));
+    }
+
+    removeQuestion(index: number): void {
+      this.examQuestions.removeAt(index);
+    }
+
+    onMultipleQuestionsSubmit(): void {
       console.log(this.multipleQuestionsExamForm.value);
-      
+      // Submit your form here. Remember to handle the form's `examQuestions` array on your backend accordingly.
     }
 }

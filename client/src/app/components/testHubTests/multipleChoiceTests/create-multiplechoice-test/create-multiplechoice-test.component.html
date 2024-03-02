@@ -37,46 +37,106 @@
     </div>
   </section>
 
-  <main *ngFor="let question of questions">
-    <section
-      [ngClass]="{
-        'even-question': question.id % 2 === 0,
-        'odd-question': question.id % 2 !== 0
-      }"
+  <div formArrayName="examQuestions">
+    <main
+      *ngFor="let question of examQuestions.controls; let i = index"
+      [formGroupName]="i"
     >
-      <i
-        id="remove-question"
-        (click)="removeQuestion(question.id)"
-        class="fa-regular fa-circle-xmark"
-      ></i>
-      <input
-        id="question-title-input"
-        type="text"
-        placeholder="{{ question.title }}"
-      />
+      <section
+        [ngClass]="{
+          'even-question': i % 2 === 0,
+          'odd-question': i % 2 !== 0
+        }"
+      >
+        <i
+          id="remove-question"
+          (click)="removeQuestion(i)"
+          class="fa-regular fa-circle-xmark"
+        ></i>
 
-      <div>
-        <input class="question-options-inputs" type="text" placeholder="A" />
-        <input class="question-options-inputs" type="text" placeholder="B" />
-      </div>
-      <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
+        <!-- Question Title -->
+        <input
+          id="question-title-input"
+          formControlName="title"
+          type="text"
+          placeholder="What is the difference between list and tuple?"
+        />
+        <!-- Error message Title -->
+        <p *ngIf="question.get('title')?.touched && question.get('title')?.errors?.['minlength']" class="error-message">
+          Title must be at least 5 chars!
+        </p>
 
-      <div>
-        <input class="question-options-inputs" type="text" placeholder="C" />
-        <input class="question-options-inputs" type="text" placeholder="D" />
-      </div>
-      <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
 
-      <input
-        id="question-correct-answer"
-        type="number"
-        placeholder="Correct Answer"
-      />
-      <!-- <p class="error-message">Answer must be between 1 and 4!</p> -->
-    </section>
-  </main>
+        <div>
+          <!-- Option A -->
+          <input
+            class="question-options-inputs"
+            formControlName="optionA"
+            type="text"
+            placeholder="A"
+          />
+         <!-- Option B -->
+          <input
+            class="question-options-inputs"
+            formControlName="optionB"
+            type="text"
+            placeholder="B"
+          />
+        </div>
+         <!--Error message Option A  -->
+        <p *ngIf="question.get('optionA')?.touched && question.get('optionA')?.errors?.['minlength']" class="error-message">
+          Option A must be at least 1 char!
+        </p>
+         <!--Error message Option B  -->
+         <p *ngIf="question.get('optionB')?.touched && question.get('optionB')?.errors?.['minlength']" class="error-message">
+          Option B must be at least 1 char!
+        </p>
 
-  <section (click)="createQuestion()" id="add-new-question">
+
+        <div>
+          <!-- Option C -->
+          <input
+            class="question-options-inputs"
+            formControlName="optionC"
+            type="text"
+            placeholder="C"
+          />
+          <!-- Option D -->
+          <input
+            class="question-options-inputs"
+            formControlName="optionD"
+            type="text"
+            placeholder="D"
+          />
+        </div>
+        <!--Error message Option C  -->
+        <p *ngIf="question.get('optionC')?.touched && question.get('optionC')?.errors?.['minlength']" class="error-message">
+          Option C must be at least 1 char!
+        </p>  
+        <!--Error message Option A  -->
+        <p *ngIf="question.get('optionD')?.touched && question.get('optionD')?.errors?.['minlength']" class="error-message">
+          Option D must be at least 1 char!
+        </p>
+
+        <!-- Correct Answer -->
+        <input
+          id="question-correct-answer"
+          formControlName="correctAnswer"
+          type="number"
+          placeholder="Correct Answer"
+        />
+        <!-- Error message Correct Answer -->
+        <p *ngIf="question.get('correctAnswer')?.touched && question.get('correctAnswer')?.errors?.['min']" class="error-message">
+          Correct Answer must be at least 1!
+        </p>
+        <p *ngIf="question.get('correctAnswer')?.touched && question.get('correctAnswer')?.errors?.['max']" class="error-message">
+          Correct Answer must be lower than 4!
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <section (click)="addQuestion()" id="add-new-question">
     <!-- <p>Total Questions: {{questions.length}}</p> -->
     <h1>Add a Question</h1>
   </section>
