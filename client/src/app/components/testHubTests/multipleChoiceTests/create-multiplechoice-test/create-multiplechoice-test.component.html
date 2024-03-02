@@ -1,14 +1,21 @@
-<form method="POST">
-
+<form
+  [formGroup]="multipleQuestionsExamForm"
+  (ngSubmit)="onMultipleQuestionsSubmit()"
+>
   <section id="choose-course-choose-topic">
     <div class="title-wrapper">
       <label id="task-title-label" for="task-title">Exam Title:</label>
-      <input type="text" id="task-title" placeholder="Sum even numbers" />
+      <input
+        type="text"
+        id="task-title"
+        formControlName="examTitle"
+        placeholder="Sum even numbers"
+      />
     </div>
     <div class="wrapper">
       <div>
         <label for="course">Course:</label>
-        <select name="course" id="course-select">
+        <select name="course" formControlName="course" id="course-select">
           <option value="" disabled selected>Select a Course</option>
           <option value="Python Basics">Python Basics</option>
           <option value="Python Basics">Python Fundamentals</option>
@@ -16,10 +23,10 @@
           <option value="Python Basics">Python OOP</option>
         </select>
       </div>
-  
+
       <div>
         <label for="topic">Topic:</label>
-        <select name="topic" id="course-select">
+        <select name="topic" formControlName="topic" id="course-select">
           <option value="" disabled selected>Select a Topic</option>
           <option value="Python Intro">Python Intro</option>
           <option value="Conditional Statements">Conditional Statements</option>
@@ -29,39 +36,52 @@
       </div>
     </div>
   </section>
-  
+
   <main *ngFor="let question of questions">
-      <section [ngClass]="{'even-question': question.id % 2 === 0, 'odd-question': question.id % 2 !== 0}">
-        <i id="remove-question" (click)="removeQuestion(question.id)" class="fa-regular fa-circle-xmark"></i>
-        <input
-          id="question-title-input"
-          type="text"
-          placeholder="{{question.title}}"/>
-  
-        <div>
-          <input class="question-options-inputs" type="text" placeholder="A" />
-          <input class="question-options-inputs" type="text" placeholder="B" />
-        </div>
-        <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
-  
-        <div>
-          <input class="question-options-inputs" type="text" placeholder="C" />
-          <input class="question-options-inputs" type="text" placeholder="D" />
-        </div>
-        <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
-  
-        <input
-          id="question-correct-answer"
-          type="number"
-          placeholder="Correct Answer"
-        />
-        <!-- <p class="error-message">Answer must be between 1 and 4!</p> -->
-      </section>
+    <section
+      [ngClass]="{
+        'even-question': question.id % 2 === 0,
+        'odd-question': question.id % 2 !== 0
+      }"
+    >
+      <i
+        id="remove-question"
+        (click)="removeQuestion(question.id)"
+        class="fa-regular fa-circle-xmark"
+      ></i>
+      <input
+        id="question-title-input"
+        type="text"
+        placeholder="{{ question.title }}"
+      />
+
+      <div>
+        <input class="question-options-inputs" type="text" placeholder="A" />
+        <input class="question-options-inputs" type="text" placeholder="B" />
+      </div>
+      <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
+
+      <div>
+        <input class="question-options-inputs" type="text" placeholder="C" />
+        <input class="question-options-inputs" type="text" placeholder="D" />
+      </div>
+      <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
+
+      <input
+        id="question-correct-answer"
+        type="number"
+        placeholder="Correct Answer"
+      />
+      <!-- <p class="error-message">Answer must be between 1 and 4!</p> -->
+    </section>
   </main>
-  
+
   <section (click)="createQuestion()" id="add-new-question">
-      <!-- <p>Total Questions: {{questions.length}}</p> -->
+    <!-- <p>Total Questions: {{questions.length}}</p> -->
     <h1>Add a Question</h1>
   </section>
-  
+
+  <div class="button-wrapper">
+    <button type="submit" id="create-multipleChoice-button">Create Exam</button>
+  </div>
 </form>
