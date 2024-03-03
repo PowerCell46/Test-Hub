@@ -7,6 +7,7 @@ import 'prismjs/components/prism-python';
 import 'prismjs/themes/prism.css';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { CoursesTopicsService } from '../../../services/courses-topics.service';
+import { topicDefaultValueValidator } from '../../../../assets/validators/topicValidator';
 
 @Component({
   selector: 'app-python-tests',
@@ -23,7 +24,7 @@ export class PythonTestsComponent implements OnInit {
     this.pythonTestForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       course: ['', [Validators.required]],
-      topic: [{value: null, disabled: true}],
+      topic: [{value: null, disabled: true}, [topicDefaultValueValidator()]],
       description: ['', [Validators.required]],
       unitTests: ['', [Validators.required, Validators.minLength(10)]]
     });

@@ -18,12 +18,8 @@ export class CoursesTopicsService {
       map(data => data.map(course => course.name))
     );
   }
-
-  
    
-   // ... rest of your code
-   
-   getTopics(selectedCourse: string): Observable<any> {
+  getTopics(selectedCourse: string): Observable<any> {
     return this.http.get<any[]>(this.requestUrl).pipe(
        map(courses => {
          const selectedCourseObj = courses.find(course => course.name === selectedCourse);

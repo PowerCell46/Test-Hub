@@ -18,7 +18,7 @@ class CreateTopic(APIView):
 
 class GetCoursesAndTopics(APIView):
     permission_classes = (AllowAny,)
-    
+
     def get(self, request):
         courses = Course.objects.all()
         serializer = CourseSerializer(courses, many=True)
