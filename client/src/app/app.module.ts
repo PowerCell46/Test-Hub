@@ -13,6 +13,7 @@ import { CreateMultiplechoiceTestComponent } from './components/testHubTests/mul
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/common/home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { PythonTestsComponent } from './components/testHubTests/pythonTests/python-tests.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ErrorComponent,
     FooterComponent,
     CreateMultiplechoiceTestComponent,
-    HomeComponent
+    HomeComponent,
+    PythonTestsComponent
   ],
   imports: [
     BrowserModule,

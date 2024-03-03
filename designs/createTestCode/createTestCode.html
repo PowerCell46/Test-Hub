@@ -47,33 +47,41 @@
       </nav>
       
       <form method="post">
-        <label id="task-title-label" for="task-title">Title:</label>
-        <input type="text" id="task-title" placeholder="Sum even numbers" class="error">
-        <!-- <p class="error-message">Invalid Title!</p> -->
 
         <section id="choose-course-choose-topic">
+          <div class="title-wrapper">
+            <label id="task-title-label" for="task-title">Exam Title:</label>
+            <input
+              type="text"
+              id="task-title"
+              formControlName="examTitle"
+              placeholder="Sum even numbers"
+            />
+          </div>
+          <div class="wrapper">
             <div>
               <label for="course">Course:</label>
-            <select name="course" id="course-select">
-              <option value="" disabled selected>Select a Course</option>
-              <option value="Python Basics">Python Basics</option>
-              <option value="Python Basics">Python Fundamentals</option>
-              <option value="Python Basics">Python Advanced</option>
-              <option value="Python Basics">Python OOP</option>
-            </select>
+              <select name="course" formControlName="course" id="course-select">
+                <option value="" disabled selected>Select a Course</option>
+                <option value="Python Basics">Python Basics</option>
+                <option value="Python Basics">Python Fundamentals</option>
+                <option value="Python Basics">Python Advanced</option>
+                <option value="Python Basics">Python OOP</option>
+              </select>
             </div>
       
             <div>
               <label for="topic">Topic:</label>
-            <select name="topic" id="course-select">
-              <option value="" disabled selected>Select a Topic</option>
-              <option value="Python Intro">Python Intro</option>
-              <option value="Conditional Statements">Conditional Statements</option>
-              <option value="For Loop">For Loop</option>
-              <option value="While Loop">While Loop</option>
-            </select>
+              <select name="topic" formControlName="topic" id="course-select">
+                <option value="" disabled selected>Select a Topic</option>
+                <option value="Python Intro">Python Intro</option>
+                <option value="Conditional Statements">Conditional Statements</option>
+                <option value="For Loop">For Loop</option>
+                <option value="While Loop">While Loop</option>
+              </select>
             </div>
-          </section>
+          </div>
+        </section>
 
           <div class="file-upload-div">
           <label for="task-description-file"  class="file-upload-label">File Description:</label>

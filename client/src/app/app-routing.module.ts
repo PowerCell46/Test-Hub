@@ -7,6 +7,7 @@ import { ErrorComponent } from './components/common/error/error.component';
 import { CreateMultiplechoiceTestComponent } from './components/testHubTests/multipleChoiceTests/create-multiplechoice-test/create-multiplechoice-test.component';
 import { RouteGuardService } from './services/route-guard.service';
 import { HomeComponent } from './components/common/home/home.component';
+import { PythonTestsComponent } from './components/testHubTests/pythonTests/python-tests.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'logout', canActivate: [RouteGuardService], component: LogoutComponent},
   // {path: '', redirectTo: '/error', pathMatch: 'full'},
   // {path: '/error', component: ErrorComponent},
-  {path: "createMultipleChoiceQuestion", component: CreateMultiplechoiceTestComponent}
+  {path: "createMultipleChoiceQuestion", component: CreateMultiplechoiceTestComponent},
+  {path: "createPythonTest", component: PythonTestsComponent},
 ];
 
 @NgModule({
