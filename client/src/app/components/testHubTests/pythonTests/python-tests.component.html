@@ -1,5 +1,4 @@
 <form [formGroup]="pythonTestForm" (ngSubmit)="onPythonTestSubmit()">
-
   <section id="choose-course-choose-topic">
     <div class="title-wrapper">
       <label id="task-title-label" for="task-title">Exam Title:</label>
@@ -11,18 +10,21 @@
       />
     </div>
     <!-- Error message Title -->
-    <p *ngIf="pythonTestForm.get('title')?.touched && pythonTestForm.get('title')?.errors?.['minlength']" class="error-message">
+    <p
+      *ngIf="pythonTestForm.get('title')?.touched && pythonTestForm.get('title')?.errors?.['minlength']"
+      class="error-message"
+    >
       Title must be at least 3 chars!
     </p>
     <div class="wrapper">
       <div>
         <label for="course">Course:</label>
+
         <select name="course" formControlName="course" id="course-select">
           <option value="" disabled selected>Select a Course</option>
-          <option value="Python Basics">Python Basics</option>
-          <option value="Python Basics">Python Fundamentals</option>
-          <option value="Python Basics">Python Advanced</option>
-          <option value="Python Basics">Python OOP</option>
+          <option *ngFor="let course of courses" [value]="course">
+            {{ course }}
+          </option>
         </select>
       </div>
 
@@ -39,16 +41,35 @@
     </div>
   </section>
 
-    <div class="file-upload-div">
-    <label for="task-description-file"  class="file-upload-label">File Description:</label>
-    <input name="task-description-file" formControlName="description" type="file" class="file-upload" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required="">
+  <div class="file-upload-div">
+    <label for="task-description-file" class="file-upload-label"
+      >File Description:</label
+    >
+    <input
+      name="task-description-file"
+      formControlName="description"
+      type="file"
+      class="file-upload"
+      accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      required=""
+    />
   </div>
-  
-  <div id="unit-tests-wrapper"><h5 id="unit-tests-title">Unit Tests:</h5>
-    <textarea formControlName="unitTests" (input)="updateCode($any($event.target).value)" placeholder="Enter Python code here..."></textarea></div>
-  <pre><code [innerHTML]="highlightedCode" class="language-python"></code></pre>  
+
+  <div id="unit-tests-wrapper">
+    <h5 id="unit-tests-title">Unit Tests:</h5>
+    <textarea
+      formControlName="unitTests"
+      (input)="updateCode($any($event.target).value)"
+      placeholder="Enter Python code here..."
+    ></textarea>
+  </div>
+  <pre><code [innerHTML]="highlightedCode" class="language-python"></code></pre>
   <!-- Error message Unit Tests -->
-  <p *ngIf="pythonTestForm.get('unitTests')?.touched && pythonTestForm.get('unitTests')?.errors?.['minlength']" class="error-message" id="unit-tests-err">
+  <p
+    *ngIf="pythonTestForm.get('unitTests')?.touched && pythonTestForm.get('unitTests')?.errors?.['minlength']"
+    class="error-message"
+    id="unit-tests-err"
+  >
     Unit Tests must be at least 10 chars!
   </p>
 
@@ -76,7 +97,7 @@ class TestIsEven(unittest.TestCase):
         self.assertFalse(is_even(-3), "-3 is an odd number")
  -->
 
- <!-- 
+<!-- 
 def is_even(number):
     return number % 2 == 0
   -->

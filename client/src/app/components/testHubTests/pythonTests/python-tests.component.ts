@@ -6,23 +6,33 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-python';
 import 'prismjs/themes/prism.css';
 import { AuthenticationService } from '../../../services/authentication.service';
+import { CoursesTopicsService } from '../../../services/courses-topics.service';
 
 @Component({
   selector: 'app-python-tests',
   templateUrl: './python-tests.component.html',
   styleUrls: ['./python-tests.component.css']
 })
-export class PythonTestsComponent {
+export class PythonTestsComponent implements OnInit {
+  courses: any = [];
   pythonTestForm: FormGroup;
   highlightedCode: string = '';
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthenticationService) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthenticationService, private courseTopicsService: CoursesTopicsService) {
     this.pythonTestForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       course: ['', [Validators.required]],
       topic: ['', [Validators.required]],
       description: ['', [Validators.required]],
       unitTests: ['', [Validators.required, Validators.minLength(10)]]
+    });
+  }
+
+  ngOnInit(): void {
+    this.courseTopicsService.getCourses().subscribe(data => {
+      console.log(data);
+      
+      this.courses = data;
     });
   }
 
