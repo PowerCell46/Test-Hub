@@ -14,19 +14,30 @@ export interface QuestionInitForm {
 //     token: string
 // }
 
-interface HomePageTask {
+interface PyTests {
+    id: number,
     title: string,
+    visible: boolean
 }
 
-interface HomePageTopics {
+interface MultipleChoiceTests {
+    id: number,
     title: string,
+    visible: boolean
+}
+
+interface Topics {
+    id: number,
+    name: string,
     visible: boolean,
-    tasks: HomePageTask[] 
+    multiple_choice_tests: MultipleChoiceTests[],
+    py_tests: PyTests[], 
 }
 
-export interface HomePageCourse {
-    title: string,
-    topics: HomePageTopics[],
+export interface Courses {
+    id: number,
+    name: string,
+    topics: Topics[],
     visible: boolean
 }
 

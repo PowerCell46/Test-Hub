@@ -1,17 +1,21 @@
 <main>
     <aside>
       <div class="course-section" *ngFor="let course of courses" @fadeInOut>
-        <li (click)="toggleTopics(course.title)">
+        <li (click)="toggleTopics(course.name)">
           <!-- Course Titlle-->
-         {{course.title}} <i class="fa-solid fa-arrow-down" [ngStyle]="{'transform': course.visible ? 'rotate(180deg)' : 'rotate(0deg)'}"></i> 
+         {{course.name}} <i class="fa-solid fa-arrow-down" [ngStyle]="{'transform': course.visible ? 'rotate(180deg)' : 'rotate(0deg)'}"></i> 
         </li>
         <div *ngIf="course.visible" class="hidden">
           <div class="topic-section" *ngFor="let topic of course.topics" @fadeInOut>
              <!-- Topic Titlle-->
-            <li (click)="toggleTasks(course.title, topic.title)">{{topic.title}} <i class="fa-solid fa-arrow-down" [ngStyle]="{'transform': topic.visible ? 'rotate(180deg)' : 'rotate(0deg)'}"></i></li>
+            <li (click)="toggleTasks(course.name, topic.name)">{{topic.name}} <i class="fa-solid fa-arrow-down" [ngStyle]="{'transform': topic.visible ? 'rotate(180deg)' : 'rotate(0deg)'}"></i></li>
             <div *ngIf="topic.visible">
-              <div class="hidden-tasks" *ngFor="let task of topic.tasks" @fadeInOut>
-                <!-- Task Title -->
+              <div class="hidden-tasks" id="hidden-tasks-multiple-question" *ngFor="let task of topic.multiple_choice_tests" @fadeInOut>
+                <!-- MultipleQuestion Task Title -->
+                <li>{{task.title}}</li>
+              </div>
+              <div class="hidden-tasks hidden-tasks-python" *ngFor="let task of topic.py_tests" @fadeInOut>
+                <!-- Python Task Title -->
                 <li>{{task.title}}</li>
               </div>
             </div>

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { HomePageCourse } from '../../../../assets/interfaces/main-interfaces';
+import { Component, OnInit } from '@angular/core';
+import { Courses } from '../../../../assets/interfaces/main-interfaces';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { CoursesTopicsService } from '../../../services/courses-topics.service';
 
 @Component({
   selector: 'app-home',
@@ -18,33 +19,35 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ])
   ]
 })
-export class HomeComponent {
-  courses: HomePageCourse[] = [
-    {title: "Python Basics", 
-    visible: false,
-    topics: [
-      {title: "First Steps in Coding", 
-      visible: false,
-      tasks: [
-        {title: "Hello TestHub"}, 
-        {title: "Nums 1...10"}, 
-        {title: "Square Area"}, 
-        {title: "Inches to Centimeters"}, 
-        {title: "Greeting by Name"}]},
-      {title: "Conditional Statements", visible: false, tasks: []},
-      {title: "For Loop", visible: false, tasks: []},
-      {title: "While Loop", visible: false, tasks: []},
-      {title: "Nested Loops", visible: false, tasks: []},
-      {title: "Exam Preparation", visible: false, tasks: []}]},
-    {title: "Python Fundamentals", visible: false, topics: []},
-    {title: "Python Advanced",  visible: false, topics: []},
-    {title: "Python OOP",  visible: false, topics: []},
-    {title: "JS Basics",  visible: false, topics: []},
-    {title: "JS Fundamentals",  visible: false, topics: []},
-  ];  
+export class HomeComponent implements OnInit {  
+  courses: Courses[] = [];
+
+  constructor(private courseTopicSerice: CoursesTopicsService) {}
+
+  ngOnInit(): void {
+    this.courseTopicSerice.getCoursesTopicsTests().subscribe(data => {
+      this.courses = data;
+  
+      this.courses.forEach(course => {
+        course.visible = false; 
+        course.topics.forEach(topic => {
+          topic.visible = false;
+          topic.multiple_choice_tests.forEach(multiple_choice_test => {
+            multiple_choice_test.visible = false;
+          });
+          topic.py_tests.forEach(py_test => {
+            py_test.visible = false;
+          });
+        });
+      });
+      console.log(this.courses);
+      
+    });
+  }
+  
 
   toggleTopics(courseTitle: string): void {
-    const course = this.courses.find(c => c.title === courseTitle);
+    const course = this.courses.find(c => c.name === courseTitle);
 
     if (course) {
       course.visible = !course?.visible
@@ -52,7 +55,7 @@ export class HomeComponent {
   }
 
   toggleTasks(courseTitle: string, topicTitle: string): void {
-    const topic = this.courses.find(c => c.title === courseTitle)?.topics.find(t => t.title === topicTitle);
+    const topic = this.courses.find(c => c.name === courseTitle)?.topics.find(t => t.name === topicTitle);
 
     if (topic) {
       topic.visible = !topic.visible

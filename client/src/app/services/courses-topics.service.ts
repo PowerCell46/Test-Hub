@@ -13,6 +13,10 @@ export class CoursesTopicsService {
   requestUrl: string =  `${baseServerUrl}testHub/getCoursesAndTopics/`;
   constructor(private http: HttpClient) { }
 
+  getCoursesTopicsTests(): Observable<any> {
+    return this.http.get<any[]>(this.requestUrl).pipe();
+  }
+
   getCourses(): Observable<string[]> {
     return this.http.get<any[]>(this.requestUrl).pipe(
       map(data => data.map(course => course.name))
@@ -21,7 +25,7 @@ export class CoursesTopicsService {
    
   getTopics(selectedCourse: string): Observable<any> {
     return this.http.get<any[]>(this.requestUrl).pipe(
-       map(courses => {
+       map(courses => {        
          const selectedCourseObj = courses.find(course => course.name === selectedCourse);
          if (selectedCourseObj && selectedCourseObj.topics) {
            return selectedCourseObj.topics.map((t: Topic) => t.name);
