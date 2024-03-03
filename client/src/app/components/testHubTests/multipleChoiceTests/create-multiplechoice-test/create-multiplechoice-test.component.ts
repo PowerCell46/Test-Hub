@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../../services/authentication.service';
 import { CoursesTopicsService } from '../../../../services/courses-topics.service';
 import { topicDefaultValueValidator } from '../../../../../assets/validators/topicValidator';
+import { baseServerUrl } from '../../../../../assets/constants';
 
 @Component({
   selector: 'app-create-multiplechoice-test',
@@ -70,7 +71,18 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
     }
 
     onMultipleQuestionsSubmit(): void {
-      console.log(this.multipleQuestionsExamForm.value);
-      // Submit your form here. Remember to handle the form's `examQuestions` array on your backend accordingly.
+      const headers = new HttpHeaders({
+        'Authorization': `Token ${this.authService.getToken()}`
+      });
+
+      this.http.post(`${baseServerUrl}testHub/createMultipleChoiceExam/`, this.multipleQuestionsExamForm.value, {headers: headers})
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/']);
+        },
+        error: err => {
+          console.error(err);
+        }
+      })
     }
 }
