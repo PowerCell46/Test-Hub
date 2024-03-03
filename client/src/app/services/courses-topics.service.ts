@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { baseServerUrl } from '../../assets/constants';
+interface Topic {
+  name: string;
+ }
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +19,19 @@ export class CoursesTopicsService {
     );
   }
 
-  getTopics(): Observable<any> {
-    return this.http.get(this.requestUrl);
-  }
+  
+   
+   // ... rest of your code
+   
+   getTopics(selectedCourse: string): Observable<any> {
+    return this.http.get<any[]>(this.requestUrl).pipe(
+       map(courses => {
+         const selectedCourseObj = courses.find(course => course.name === selectedCourse);
+         if (selectedCourseObj && selectedCourseObj.topics) {
+           return selectedCourseObj.topics.map((t: Topic) => t.name);
+         }
+         return [];
+       })
+    );
+   }
 }

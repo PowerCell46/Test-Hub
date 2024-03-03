@@ -20,8 +20,8 @@
       <div>
         <label for="course">Course:</label>
 
-        <select name="course" formControlName="course" id="course-select">
-          <option value="" disabled selected>Select a Course</option>
+        <select name="course" formControlName="course" id="course-select" (change)="onCourseSelect()">
+          <option value="Select a Course" disabled selected>Select a Course</option>
           <option *ngFor="let course of courses" [value]="course">
             {{ course }}
           </option>
@@ -31,11 +31,8 @@
       <div>
         <label for="topic">Topic:</label>
         <select name="topic" formControlName="topic" id="course-select">
-          <option value="" disabled selected>Select a Topic</option>
-          <option value="Python Intro">Python Intro</option>
-          <option value="Conditional Statements">Conditional Statements</option>
-          <option value="For Loop">For Loop</option>
-          <option value="While Loop">While Loop</option>
+          <option value="Select a Topic" disabled selected>Select a Topic</option>
+          <option *ngFor="let topic of topics" [value]="topic">{{topic}}</option>
         </select>
       </div>
     </div>

@@ -15,6 +15,7 @@ import { CoursesTopicsService } from '../../../services/courses-topics.service';
 })
 export class PythonTestsComponent implements OnInit {
   courses: any = [];
+  topics: any = [];
   pythonTestForm: FormGroup;
   highlightedCode: string = '';
 
@@ -22,7 +23,7 @@ export class PythonTestsComponent implements OnInit {
     this.pythonTestForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       course: ['', [Validators.required]],
-      topic: ['', [Validators.required]],
+      topic: [{value: null, disabled: true}],
       description: ['', [Validators.required]],
       unitTests: ['', [Validators.required, Validators.minLength(10)]]
     });
@@ -30,14 +31,23 @@ export class PythonTestsComponent implements OnInit {
 
   ngOnInit(): void {
     this.courseTopicsService.getCourses().subscribe(data => {
-      console.log(data);
-      
       this.courses = data;
     });
   }
 
+  onCourseSelect(): void {
+    const selectedCourse = this.pythonTestForm.get('course')?.value;
+    if (selectedCourse) {
+      this.courseTopicsService.getTopics(selectedCourse).subscribe(topics => {        
+        this.topics = topics;
+        this.pythonTestForm.get('topic')?.enable();
+        this.pythonTestForm.get('topic')?.setValue('Select a Topic');
+      });
+    }
+  }
 
-  updateCode(code: string) {
+
+  updateCode(code: string) { // Updated the python syntax highlighting area
     this.highlightedCode = Prism.highlight(code, Prism.languages['python'], 'python');
   }
 
