@@ -1,10 +1,12 @@
+from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.shortcuts import render, get_object_or_404
+from rest_framework import status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceTest, MultipleChoiceQuestion
+from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceTest, MultipleChoiceQuestion, PyTest
 from djangoServer.testhub_structure.permissions import IsTeacher
 from djangoServer.testhub_structure.serializers import CourseSerializer
 
@@ -69,3 +71,34 @@ class CreateMultipleChoiceExam(APIView):  # Only teachers can create
                 )
 
         return Response({'message': 'Multiple choice exam created successfully!'})
+
+
+class CreatePythonExam(APIView):  # Only teachers can create
+    permission_classes = (AllowAny,)
+
+    def post(self, request, *args, **kwargs):
+        title = request.data.get('title')
+        description_file = request.FILES.get('description') if 'description' in request.FILES else None
+        unit_tests = request.data.get('unitTests')
+        topic = get_object_or_404(Topic, name=request.data.get('topic'))
+        user = request.user
+
+        if not user.is_authenticated:
+            return Response({"error": "Authentication required"}, status=401)
+
+        if not title or not unit_tests or not description_file or not topic:
+            return Response({'error': 'Missing required fields.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            with transaction.atomic():
+                pytest = PyTest(
+                    title=title,
+                    description=description_file,
+                    unit_tests=unit_tests,
+                    creator=user,
+                    topic=topic)
+                pytest.save()
+        except ValidationError as e:
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response({'message': 'Python Test created successfully!'}, status=status.HTTP_201_CREATED)

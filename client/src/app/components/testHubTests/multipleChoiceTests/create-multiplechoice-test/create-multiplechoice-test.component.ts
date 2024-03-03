@@ -83,6 +83,6 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
         error: err => {
           console.error(err);
         }
-      })
+      });
     }
 }

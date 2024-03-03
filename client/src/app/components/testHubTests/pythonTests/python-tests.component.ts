@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -8,6 +8,7 @@ import 'prismjs/themes/prism.css';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { CoursesTopicsService } from '../../../services/courses-topics.service';
 import { topicDefaultValueValidator } from '../../../../assets/validators/topicValidator';
+import { baseServerUrl } from '../../../../assets/constants';
 
 @Component({
   selector: 'app-python-tests',
@@ -64,8 +65,18 @@ export class PythonTestsComponent implements OnInit {
       formData.append('description', fileInput.files[0]);
     }
   
-    for (let [key, value] of (formData as any).entries()) {
-      console.log(key, value);
-    }
+    const headers = new HttpHeaders({
+      'Authorization': `Token ${this.authService.getToken()}`
+    });
+
+    this.http.post(`${baseServerUrl}testHub/createPythonTest/`, formData, {headers: headers})
+    .subscribe({
+      next: () => {
+        this.router.navigate(['/']);
+      }, 
+      error: err => {
+        console.error(err);
+      }
+    });
   }
 }
