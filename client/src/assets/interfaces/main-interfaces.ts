@@ -29,3 +29,10 @@ export interface HomePageCourse {
     topics: HomePageTopics[],
     visible: boolean
 }
+
+export interface Submissions {
+    submissionN: number,
+    user: string,
+    task: string,
+    result: string
+}

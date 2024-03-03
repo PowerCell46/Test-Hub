@@ -8,6 +8,7 @@ import { CreateMultiplechoiceTestComponent } from './components/testHubTests/mul
 import { RouteGuardService } from './services/route-guard.service';
 import { HomeComponent } from './components/common/home/home.component';
 import { PythonTestsComponent } from './components/testHubTests/pythonTests/python-tests.component';
+import { SubmissionsComponent } from './components/common/submissions/submissions.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   // {path: '/error', component: ErrorComponent},
   {path: "createMultipleChoiceQuestion", component: CreateMultiplechoiceTestComponent},
   {path: "createPythonTest", component: PythonTestsComponent},
+  {path: "submissions", component: SubmissionsComponent}
 ];
 
 @NgModule({

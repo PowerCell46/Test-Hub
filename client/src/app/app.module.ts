@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/common/home/home.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PythonTestsComponent } from './components/testHubTests/pythonTests/python-tests.component';
+import { SubmissionsComponent } from './components/common/submissions/submissions.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { PythonTestsComponent } from './components/testHubTests/pythonTests/pyth
     FooterComponent,
     CreateMultiplechoiceTestComponent,
     HomeComponent,
-    PythonTestsComponent
+    PythonTestsComponent,
+    SubmissionsComponent
   ],
   imports: [
     BrowserModule,

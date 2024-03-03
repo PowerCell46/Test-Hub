@@ -1,0 +1,21 @@
+<main>
+    <h1>Recent Submissions</h1>
+    <table>
+        <tr>
+            <th>Submission №</th>
+            <th>User</th>
+            <th>Task</th>
+            <th>Result</th>
+          </tr>
+      <tr *ngFor="let submission of submissions">
+        <td>{{submission.submissionN}}</td>
+        <td>{{submission.user}}</td>
+        <td>{{submission.task}}</td>
+        <td>
+          <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
+          ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
+          ><i class="fa-solid fa-xmark"></i> {{submission.result}}
+        </td>
+      </tr>
+    </table>
+  </main>
