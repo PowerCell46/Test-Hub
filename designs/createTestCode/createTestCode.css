@@ -200,4 +200,5 @@ input[type=file]::file-selector-button:hover {
     justify-content: center;
     gap: 2vw;
     margin-bottom: 2vh;
+    box-shadow: var(--box-shadow);
 }

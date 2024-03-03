@@ -192,13 +192,35 @@ input[type=file]::file-selector-button:hover {
 
 
 textarea {
-    width: 100%;
-    height: 100px;
+    border-radius: var(--border-radius);
+    padding-left: 0.5rem;
+    width: 25%;
+    height: 35px;
     margin-bottom: 20px;
+    font-family: 'Anta';
+    font-size: 1.1rem;
+    line-height: 35px; /* Match the height of the textarea */
+    resize: none;
   }
   
+  
+
   pre {
+    font-family: 'Anta';
+    min-height: 20vh;
+    border-radius: var(--border-radius);
     background-color: #f5f5f5;
     border: 1px solid #ddd;
     padding: 10px;
-  }
+    width: 60%;
+    max-height: 20vh;
+    overflow: auto; /* This will add a scrollbar when necessary */
+}
+
+#unit-tests-wrapper {
+    display: flex;
+    gap: 1.5vw;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

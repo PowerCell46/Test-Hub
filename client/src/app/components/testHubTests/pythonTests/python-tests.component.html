@@ -1,49 +1,49 @@
 <form method="post">
 
-    <section id="choose-course-choose-topic">
-      <div class="title-wrapper">
-        <label id="task-title-label" for="task-title">Exam Title:</label>
-        <input
-          type="text"
-          id="task-title"
-          formControlName="examTitle"
-          placeholder="Sum even numbers"
-        />
-      </div>
-      <div class="wrapper">
-        <div>
-          <label for="course">Course:</label>
-          <select name="course" formControlName="course" id="course-select">
-            <option value="" disabled selected>Select a Course</option>
-            <option value="Python Basics">Python Basics</option>
-            <option value="Python Basics">Python Fundamentals</option>
-            <option value="Python Basics">Python Advanced</option>
-            <option value="Python Basics">Python OOP</option>
-          </select>
-        </div>
-  
-        <div>
-          <label for="topic">Topic:</label>
-          <select name="topic" formControlName="topic" id="course-select">
-            <option value="" disabled selected>Select a Topic</option>
-            <option value="Python Intro">Python Intro</option>
-            <option value="Conditional Statements">Conditional Statements</option>
-            <option value="For Loop">For Loop</option>
-            <option value="While Loop">While Loop</option>
-          </select>
-        </div>
-      </div>
-    </section>
-
-      <div class="file-upload-div">
-      <label for="task-description-file"  class="file-upload-label">File Description:</label>
-      <input name="task-description-file" type="file" class="file-upload" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required="">
+  <section id="choose-course-choose-topic">
+    <div class="title-wrapper">
+      <label id="task-title-label" for="task-title">Exam Title:</label>
+      <input
+        type="text"
+        id="task-title"
+        formControlName="examTitle"
+        placeholder="Sum even numbers"
+      />
     </div>
-    
-    <h5 id="unit-tests-title">Unit Tests:</h5>
-    <textarea (input)="updateCode($any($event.target).value)" placeholder="Enter Python code here..."></textarea>
-    <pre><code [innerHTML]="highlightedCode" class="language-python"></code></pre>  
-    <!-- <p class="error-message">Unit Tests cannot be empty!</p> -->
+    <div class="wrapper">
+      <div>
+        <label for="course">Course:</label>
+        <select name="course" formControlName="course" id="course-select">
+          <option value="" disabled selected>Select a Course</option>
+          <option value="Python Basics">Python Basics</option>
+          <option value="Python Basics">Python Fundamentals</option>
+          <option value="Python Basics">Python Advanced</option>
+          <option value="Python Basics">Python OOP</option>
+        </select>
+      </div>
 
-    <button>Create Task</button>
-  </form>
+      <div>
+        <label for="topic">Topic:</label>
+        <select name="topic" formControlName="topic" id="course-select">
+          <option value="" disabled selected>Select a Topic</option>
+          <option value="Python Intro">Python Intro</option>
+          <option value="Conditional Statements">Conditional Statements</option>
+          <option value="For Loop">For Loop</option>
+          <option value="While Loop">While Loop</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+    <div class="file-upload-div">
+    <label for="task-description-file"  class="file-upload-label">File Description:</label>
+    <input name="task-description-file" type="file" class="file-upload" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required="">
+  </div>
+  
+  <div id="unit-tests-wrapper"><h5 id="unit-tests-title">Unit Tests:</h5>
+    <textarea (input)="updateCode($any($event.target).value)" placeholder="Enter Python code here..."></textarea></div>
+  <pre><code [innerHTML]="highlightedCode" class="language-python"></code></pre>  
+  <!-- <p class="error-message">Unit Tests cannot be empty!</p> -->
+
+  <button>Create Task</button>
+</form>
