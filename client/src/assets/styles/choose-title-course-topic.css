@@ -60,3 +60,8 @@
     font-family: "Anta", sans-serif;
     padding: 0.5rem 1rem;
 }
+
+
+input {
+    border-radius: var(--border-radius);
+}

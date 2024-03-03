@@ -8,7 +8,8 @@
       />
       </a>
       <ul>
-        <li *ngIf="isLoggedIn"><a routerLink="/createMultipleChoiceQuestion">Create Question</a></li>
+        <li *ngIf="isLoggedIn"><a routerLink="/createPythonTest">Python</a></li>
+        <li *ngIf="isLoggedIn"><a routerLink="/createMultipleChoiceQuestion">MultipleChoice</a></li>
         <li><a routerLink="/submissions">Submissions</a></li>
         <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
         <li *ngIf="isLoggedIn"><a routerLink="/myProfile">My Profile</a></li>

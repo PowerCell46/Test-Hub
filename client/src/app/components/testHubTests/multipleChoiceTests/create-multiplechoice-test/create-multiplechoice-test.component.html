@@ -12,6 +12,9 @@
         placeholder="Sum even numbers"
       />
     </div>
+    <p *ngIf="multipleQuestionsExamForm.get('examTitle')?.touched && multipleQuestionsExamForm.get('examTitle')?.errors?.['minlength']" class="error-message">
+      Title must be at least 3 chars!
+    </p>
     <div class="wrapper">
       <div>
         <label for="course">Course:</label>

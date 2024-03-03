@@ -14,7 +14,7 @@ export class CreateMultiplechoiceTestComponent {
 
     constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, public authService: AuthenticationService) {
       this.multipleQuestionsExamForm = this.formBuilder.group({
-        examTitle: ['', [Validators.required]],
+        examTitle: ['', [Validators.required, Validators.minLength(3)]],
         course: ['', [Validators.required]],
         topic: ['', [Validators.required]],
         examQuestions: this.formBuilder.array([])

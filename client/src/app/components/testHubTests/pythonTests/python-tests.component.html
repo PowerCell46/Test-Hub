@@ -1,4 +1,4 @@
-<form method="post">
+<form [formGroup]="pythonTestForm" (ngSubmit)="onPythonTestSubmit()">
 
   <section id="choose-course-choose-topic">
     <div class="title-wrapper">
@@ -6,10 +6,14 @@
       <input
         type="text"
         id="task-title"
-        formControlName="examTitle"
+        formControlName="title"
         placeholder="Sum even numbers"
       />
     </div>
+    <!-- Error message Title -->
+    <p *ngIf="pythonTestForm.get('title')?.touched && pythonTestForm.get('title')?.errors?.['minlength']" class="error-message">
+      Title must be at least 3 chars!
+    </p>
     <div class="wrapper">
       <div>
         <label for="course">Course:</label>
@@ -37,13 +41,42 @@
 
     <div class="file-upload-div">
     <label for="task-description-file"  class="file-upload-label">File Description:</label>
-    <input name="task-description-file" type="file" class="file-upload" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required="">
+    <input name="task-description-file" formControlName="description" type="file" class="file-upload" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required="">
   </div>
   
   <div id="unit-tests-wrapper"><h5 id="unit-tests-title">Unit Tests:</h5>
-    <textarea (input)="updateCode($any($event.target).value)" placeholder="Enter Python code here..."></textarea></div>
+    <textarea formControlName="unitTests" (input)="updateCode($any($event.target).value)" placeholder="Enter Python code here..."></textarea></div>
   <pre><code [innerHTML]="highlightedCode" class="language-python"></code></pre>  
-  <!-- <p class="error-message">Unit Tests cannot be empty!</p> -->
+  <!-- Error message Unit Tests -->
+  <p *ngIf="pythonTestForm.get('unitTests')?.touched && pythonTestForm.get('unitTests')?.errors?.['minlength']" class="error-message" id="unit-tests-err">
+    Unit Tests must be at least 10 chars!
+  </p>
 
-  <button>Create Task</button>
+  <button type="submit">Create Task</button>
 </form>
+
+<!-- 
+import unittest
+
+class TestIsEven(unittest.TestCase):
+
+    def test_even_number(self):
+        self.assertTrue(is_even(4), "4 is an even number")
+
+    def test_odd_number(self):
+        self.assertFalse(is_even(5), "5 is an odd number")
+
+    def test_zero(self):
+        self.assertTrue(is_even(0), "0 is an even number")
+
+    def test_negative_even_number(self):
+        self.assertTrue(is_even(-2), "-2 is an even number")
+
+    def test_negative_odd_number(self):
+        self.assertFalse(is_even(-3), "-3 is an odd number")
+ -->
+
+ <!-- 
+def is_even(number):
+    return number % 2 == 0
+  -->
