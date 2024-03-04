@@ -14,21 +14,21 @@ export interface QuestionInitForm {
 //     token: string
 // }
 
-interface PyTests {
+interface PyTests { // For Home Page
     id: number,
     title: string,
     visible: boolean,
     encoded: string
 }
 
-interface MultipleChoiceTests {
+interface MultipleChoiceTests { // For Home Page
     id: number,
     title: string,
     visible: boolean,
     encoded: string
 }
 
-interface Topics {
+interface Topics { // For Home Page
     id: number,
     name: string,
     visible: boolean,
@@ -37,7 +37,7 @@ interface Topics {
     encoded: string
 }
 
-export interface Courses {
+export interface Courses { // For Home Page
     id: number,
     name: string,
     topics: Topics[],
@@ -50,4 +50,18 @@ export interface Submissions {
     user: string,
     task: string,
     result: string
+}
+
+interface multipleChoiceQuestion {
+    correct_answer: number,
+    first_option: string,
+    second_option: string,
+    third_option: string,
+    fourth_option: string,
+    question_title: string,
+} 
+
+export interface MultipleChoiceExam {
+    title: string,
+    questions: multipleChoiceQuestion[]
 }

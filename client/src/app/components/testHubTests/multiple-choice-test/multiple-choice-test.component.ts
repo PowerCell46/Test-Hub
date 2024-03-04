@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { decodeURLSegment } from '../../../../assets/utils';
 import { MultipleChoiceExamService } from '../../../services/multiple-choice-exam.service';
+import { MultipleChoiceExam } from '../../../../assets/interfaces/main-interfaces';
 
 @Component({
   selector: 'app-multiple-choice-test',
@@ -9,7 +10,7 @@ import { MultipleChoiceExamService } from '../../../services/multiple-choice-exa
   styleUrl: './multiple-choice-test.component.css'
 })
 export class MultipleChoiceTestComponent implements OnInit {
-  exam: any;
+  exam!: MultipleChoiceExam;
   taskName!: string;
   
   constructor(private route: ActivatedRoute, private multipleChoiceExamService: MultipleChoiceExamService) { }
@@ -20,7 +21,6 @@ export class MultipleChoiceTestComponent implements OnInit {
 
       this.multipleChoiceExamService.getMultipleChoiceExam(this.taskName).subscribe(data => {
         this.exam = data;
-        console.log(data);
       });
       
     });
