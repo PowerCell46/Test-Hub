@@ -17,13 +17,15 @@ export interface QuestionInitForm {
 interface PyTests {
     id: number,
     title: string,
-    visible: boolean
+    visible: boolean,
+    encoded: string
 }
 
 interface MultipleChoiceTests {
     id: number,
     title: string,
-    visible: boolean
+    visible: boolean,
+    encoded: string
 }
 
 interface Topics {
@@ -32,13 +34,15 @@ interface Topics {
     visible: boolean,
     multiple_choice_tests: MultipleChoiceTests[],
     py_tests: PyTests[], 
+    encoded: string
 }
 
 export interface Courses {
     id: number,
     name: string,
     topics: Topics[],
-    visible: boolean
+    visible: boolean,
+    encoded: string
 }
 
 export interface Submissions {

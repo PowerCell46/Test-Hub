@@ -12,11 +12,11 @@
             <div *ngIf="topic.visible">
               <div class="hidden-tasks" id="hidden-tasks-multiple-question" *ngFor="let task of topic.multiple_choice_tests" @fadeInOut>
                 <!-- MultipleQuestion Task Title -->
-                <li>{{task.title}}</li>
+                <li routerLink="/contests/{{course.encoded}}/{{topic.encoded}}/multiple-choice/{{task.encoded}}">{{task.title}}</li>
               </div>
               <div class="hidden-tasks hidden-tasks-python" *ngFor="let task of topic.py_tests" @fadeInOut>
                 <!-- Python Task Title -->
-                <li>{{task.title}}</li>
+                <li routerLink="/contests/{{course.encoded}}/{{topic.encoded}}/python/{{task.encoded}}">{{task.title}}</li>
               </div>
             </div>
           </div>

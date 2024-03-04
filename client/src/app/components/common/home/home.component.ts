@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Courses } from '../../../../assets/interfaces/main-interfaces';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CoursesTopicsService } from '../../../services/courses-topics.service';
+import { encodeURLSegment } from '../../../../assets/utils';
 
 @Component({
   selector: 'app-home',
@@ -30,13 +31,17 @@ export class HomeComponent implements OnInit {
   
       this.courses.forEach(course => {
         course.visible = false; 
+        course.encoded = encodeURLSegment(course.name);
         course.topics.forEach(topic => {
           topic.visible = false;
+          topic.encoded = encodeURLSegment(topic.name);
           topic.multiple_choice_tests.forEach(multiple_choice_test => {
             multiple_choice_test.visible = false;
+            multiple_choice_test.encoded = encodeURLSegment(multiple_choice_test.title);
           });
           topic.py_tests.forEach(py_test => {
             py_test.visible = false;
+            py_test.encoded = encodeURLSegment(py_test.title);
           });
         });
       });

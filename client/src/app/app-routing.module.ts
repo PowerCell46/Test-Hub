@@ -19,7 +19,9 @@ const routes: Routes = [
   // {path: '/error', component: ErrorComponent},
   {path: "createMultipleChoiceQuestion", component: CreateMultiplechoiceTestComponent},
   {path: "createPythonTest", component: PythonTestsComponent},
-  {path: "submissions", component: SubmissionsComponent}
+  {path: "submissions", component: SubmissionsComponent},
+  {path: "contests/:courseName/:topicName/multiple-choice/:taskName", component: RegisterComponent}, // Put the right component
+  {path: "contests/:courseName/:topicName/python/:taskName", component: LoginComponent} // Put the right component
 ];
 
 @NgModule({
