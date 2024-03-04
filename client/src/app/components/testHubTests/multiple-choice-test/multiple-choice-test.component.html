@@ -1,31 +1,34 @@
 <main *ngIf="exam">
   <h1>{{ exam.title }}</h1>
 
-  <form>
-    <section
-      *ngFor="let question of exam.questions"
-      class="options unfilled-question"
-    >
-      <h5>{{ question.question_title }}</h5>
-      <div class="container">
-        <div class="inner-container">
-          <input type="radio" name="fav_language" value="1" />
-          <label for="html">{{ question.first_option }}</label>
-          <input type="radio" name="fav_language" value="3" />
-          <label for="css">{{ question.third_option }}</label>
-        </div>
+  <form [formGroup]="examForm" (ngSubmit)="onMultipleQuestionsExamSubmit()">
+    <div formArrayName="questions">
+      <section *ngFor="let questionControl of questionsFormArray.controls; let i = index" [formGroupName]="i" class="options">
+        <h5>{{ exam.questions[i].question_title }}</h5>
+        <div class="container">
 
-        <div class="inner-container">
-          <input type="radio" name="fav_language" value="2" />
-          <label for="javascript">{{ question.second_option }}</label>
-          <input type="radio" name="fav_language" value="4" />
-          <label for="python">{{ question.fourth_option }}</label>
-        </div>
-      </div>
-    </section>
+          <div class="inner-container">
+            <input type="radio" formControlName="selectedValue" value="1" [id]="'question' + i + '_option1'" [attr.name]="'question' + i" class="options-input">
+            <label [for]="'question' + i + '_option1'">{{ exam.questions[i].first_option }}</label>
 
+            <input type="radio" formControlName="selectedValue" value="2" [id]="'question' + i + '_option2'" [attr.name]="'question' + i" class="options-input">
+            <label [for]="'question' + i + '_option2'">{{ exam.questions[i].second_option }}</label>
+          </div>
+
+          <div class="inner-container">
+            <input type="radio" formControlName="selectedValue" value="3" [id]="'question' + i + '_option3'" [attr.name]="'question' + i" class="options-input">
+            <label [for]="'question' + i + '_option3'">{{ exam.questions[i].third_option }}</label>
+
+            <input type="radio" formControlName="selectedValue" value="4" [id]="'question' + i + '_option4'" [attr.name]="'question' + i" class="options-input">
+            <label [for]="'question' + i + '_option4'">{{ exam.questions[i].fourth_option }}</label>
+          </div>
+
+        </div>
+      </section>
+    </div>
     <div class="button-wrapper">
-      <button>Finish Test</button>
+      <button type="submit">Finish Test</button>
     </div>
   </form>
+  
 </main>
