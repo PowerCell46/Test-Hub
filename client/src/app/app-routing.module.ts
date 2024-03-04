@@ -24,6 +24,7 @@ const routes: Routes = [
   {path: "submissions", component: SubmissionsComponent},
   {path: "contests/:courseName/:topicName/multiple-choice/:taskName", component: MultipleChoiceTestComponent},
   {path: "submissions/multipleChoiceTest/:submissionId", component: ResultMultipleChoiceTestComponent},
+  {path: "submissions/multipleChoiceTest/:submissionId/:questionId", component: LoginComponent}, // Create the design for this component
   {path: "contests/:courseName/:topicName/python/:taskName", component: LoginComponent} // Put the right component
 ];
 

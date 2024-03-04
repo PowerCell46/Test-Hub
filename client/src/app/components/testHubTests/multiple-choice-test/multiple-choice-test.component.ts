@@ -24,9 +24,7 @@ export class MultipleChoiceTestComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.taskName = decodeURLSegment(params['taskName']);
   
-      this.multipleChoiceExamService.getMultipleChoiceExam(this.taskName).subscribe(data => {
-        console.log(data);
-        
+      this.multipleChoiceExamService.getMultipleChoiceExam(this.taskName).subscribe(data => {        
         this.exam = data;
         this.initializeForm();
       });
@@ -59,8 +57,8 @@ export class MultipleChoiceTestComponent implements OnInit {
       });
       this.http.post(`${baseServerUrl}testHub/multipleChoiceExam/${this.exam.title}/`, this.examForm.value, {headers: headers})
       .subscribe({
-        next: () => {
-          this.router.navigate(['/']);
+        next: (response: any) => {
+          this.router.navigate([`submissions/multipleChoiceTest/${response.submissionId}`]);
         },
         error: (err) => {
           console.error(err);

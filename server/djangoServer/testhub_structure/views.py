@@ -9,7 +9,8 @@ from rest_framework.views import APIView
 from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceTest, MultipleChoiceQuestion, PyTest, \
     SubmissionMultipleChoiceTest
 from djangoServer.testhub_structure.permissions import IsTeacher
-from djangoServer.testhub_structure.serializers import CourseSerializer, MultipleChoiceExamSerializer
+from djangoServer.testhub_structure.serializers import CourseSerializer, MultipleChoiceExamSerializer, \
+    MultipleChoiceSubmissionSerializer
 
 
 class CreateTopic(APIView):
@@ -143,11 +144,33 @@ class MultipleChoiceExam(APIView):
                     correct_answers += 1
                 answers.append(f"{q_data['questionId']} {q_data['selectedValue']}")
 
-            SubmissionMultipleChoiceTest.objects.create(
+            submission = SubmissionMultipleChoiceTest.objects.create(
                 submitter=user,
                 answers='|'.join(answers),
                 correct_answers=correct_answers,
                 multiple_choice_exam=multiple_questions_exam
             )
 
-        return Response({"message": "Successful submission!"}, status=status.HTTP_201_CREATED)
+        return Response({"message": "Successful submission!", 'submissionId': submission.pk},
+                        status=status.HTTP_201_CREATED)
+
+
+class GetMultipleChoiceTestSubmission(APIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request, submissionId):
+        submission = SubmissionMultipleChoiceTest.objects.get(pk=submissionId)
+        serializer = MultipleChoiceSubmissionSerializer(submission, many=False)
+        data = serializer.data
+        data['total_questions'] = submission.multiple_choice_exam.questions.count()
+        answers = []
+        for index, info in enumerate(data['answers'].split('|'), start=1):
+            question_id = int(info.split(' ')[0])
+            question = MultipleChoiceQuestion.objects.get(pk=question_id)
+            answers.append({
+                'questionNumber': index,
+                'questionId': question_id,
+                'valid': int(info.split(' ')[1]) == question.correct_answer
+                })
+        data['answers'] = answers
+        return Response(data)

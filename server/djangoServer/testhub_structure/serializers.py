@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Course, Topic, PyTest, MultipleChoiceTest, MultipleChoiceQuestion
+from .models import Course, Topic, PyTest, MultipleChoiceTest, MultipleChoiceQuestion, SubmissionMultipleChoiceTest
 
 
 class PyTestSerializer(serializers.ModelSerializer):
@@ -45,3 +45,10 @@ class MultipleChoiceExamSerializer(serializers.ModelSerializer):
     class Meta:
         model = MultipleChoiceTest
         fields = ['title', 'questions']
+
+
+class MultipleChoiceSubmissionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SubmissionMultipleChoiceTest
+        fields = ['answers', 'correct_answers']
+
