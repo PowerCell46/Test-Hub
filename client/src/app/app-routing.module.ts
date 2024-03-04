@@ -10,6 +10,7 @@ import { HomeComponent } from './components/common/home/home.component';
 import { PythonTestsComponent } from './components/testHubTests/pythonTests/python-tests.component';
 import { SubmissionsComponent } from './components/common/submissions/submissions.component';
 import { MultipleChoiceTestComponent } from './components/testHubTests/multiple-choice-test/multiple-choice-test.component';
+import { ResultMultipleChoiceTestComponent } from './components/testHubTests/result-multiple-choice-test/result-multiple-choice-test.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: "createPythonTest", component: PythonTestsComponent},
   {path: "submissions", component: SubmissionsComponent},
   {path: "contests/:courseName/:topicName/multiple-choice/:taskName", component: MultipleChoiceTestComponent},
+  {path: "submissions/multipleChoiceTest/:submissionId", component: ResultMultipleChoiceTestComponent},
   {path: "contests/:courseName/:topicName/python/:taskName", component: LoginComponent} // Put the right component
 ];
 
