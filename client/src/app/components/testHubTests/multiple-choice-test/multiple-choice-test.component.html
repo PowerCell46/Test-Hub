@@ -1,0 +1,33 @@
+<main>
+  <h1>{{exam.title}}</h1>
+
+  <form>
+    <section *ngFor="let question of exam.questions" class="options unfilled-question">
+      <h5>{{question.question_title}}</h5>
+      <div class="container">
+        <div class="inner-container">
+          <input type="radio" id="html" name="fav_language" value="{{question.first_option}}" />
+          <label for="html">{{question.first_option}}</label>
+          <input type="radio" id="css" name="fav_language" value="{{question.third_option}}" />
+          <label for="css">{{question.third_option}}</label>
+        </div>
+
+        <div class="inner-container">
+          <input
+            type="radio"
+            id="javascript"
+            name="fav_language"
+            value="{{question.second_option}}"
+          />
+          <label for="javascript">{{question.second_option}}</label>
+          <input type="radio" id="python" name="fav_language" value="{{question.fourth_option}}" />
+          <label for="python">{{question.fourth_option}}</label>
+        </div>
+      </div>
+    </section>
+
+    <div class="button-wrapper">
+      <button>Finish Test</button>
+    </div>
+  </form>
+</main>

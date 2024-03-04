@@ -8,7 +8,7 @@ from rest_framework.views import APIView
 
 from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceTest, MultipleChoiceQuestion, PyTest
 from djangoServer.testhub_structure.permissions import IsTeacher
-from djangoServer.testhub_structure.serializers import CourseSerializer
+from djangoServer.testhub_structure.serializers import CourseSerializer, MultipleChoiceExamSerializer
 
 
 class CreateTopic(APIView):
@@ -102,3 +102,13 @@ class CreatePythonExam(APIView):  # Only teachers can create
             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
         return Response({'message': 'Python Test created successfully!'}, status=status.HTTP_201_CREATED)
+
+
+class GetMultipleChoiceExam(APIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request, examName):
+        multiple_questions_exam = MultipleChoiceTest.objects.get(title=examName)
+        serializer = MultipleChoiceExamSerializer(multiple_questions_exam)
+        return Response(serializer.data)
+    
