@@ -34,7 +34,9 @@ class CourseSerializer(serializers.ModelSerializer):
 class MultipleChoiceQuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = MultipleChoiceQuestion
-        fields = ['question_title', 'first_option', 'second_option', 'third_option', 'fourth_option', 'correct_answer']
+        fields = ['id', 'question_title', 'first_option',
+                  'second_option', 'third_option', 'fourth_option',
+                  'correct_answer']
 
 
 class MultipleChoiceExamSerializer(serializers.ModelSerializer):

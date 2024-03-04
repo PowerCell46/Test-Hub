@@ -53,6 +53,7 @@ export interface Submissions {
 }
 
 interface multipleChoiceQuestion {
+    id: number,
     correct_answer: number,
     first_option: string,
     second_option: string,

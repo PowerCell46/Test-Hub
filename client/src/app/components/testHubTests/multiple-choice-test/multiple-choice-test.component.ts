@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { decodeURLSegment } from '../../../../assets/utils';
 import { MultipleChoiceExamService } from '../../../services/multiple-choice-exam.service';
 import { MultipleChoiceExam } from '../../../../assets/interfaces/main-interfaces';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthenticationService } from '../../../services/authentication.service';
+import { baseServerUrl } from '../../../../assets/constants';
 
 @Component({
   selector: 'app-multiple-choice-test',
@@ -15,13 +18,15 @@ export class MultipleChoiceTestComponent implements OnInit {
   taskName!: string;
   public examForm!: FormGroup; 
   
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private multipleChoiceExamService: MultipleChoiceExamService) {}
+  constructor(private router: Router, private formBuilder: FormBuilder, private http: HttpClient,  private route: ActivatedRoute, private multipleChoiceExamService: MultipleChoiceExamService, public authService: AuthenticationService) {}
 
   ngOnInit(): void {    
     this.route.params.subscribe(params => {
       this.taskName = decodeURLSegment(params['taskName']);
   
       this.multipleChoiceExamService.getMultipleChoiceExam(this.taskName).subscribe(data => {
+        console.log(data);
+        
         this.exam = data;
         this.initializeForm();
       });
@@ -31,20 +36,36 @@ export class MultipleChoiceTestComponent implements OnInit {
   initializeForm() {
     const questionsControls = this.exam.questions.map(question => {
       return this.formBuilder.group({
-        selectedValue: ['', Validators.required]
+        selectedValue: ['', Validators.required],
+        questionId: [question.id, Validators.required]
       });
     });
   
     this.examForm = this.formBuilder.group({
       questions: this.formBuilder.array(questionsControls)
     });
-  }  
+  }
+  
 
   get questionsFormArray() {
     return this.examForm.get('questions') as FormArray;
   }
 
   onMultipleQuestionsExamSubmit() {
-    console.log(this.examForm.value);
+
+    if (this.examForm.valid) {
+      const headers = new HttpHeaders({
+        'Authorization': `Token ${this.authService.getToken()}`
+      });
+      this.http.post(`${baseServerUrl}testHub/multipleChoiceExam/${this.exam.title}/`, this.examForm.value, {headers: headers})
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/']);
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      })     
+    }
   }
 }

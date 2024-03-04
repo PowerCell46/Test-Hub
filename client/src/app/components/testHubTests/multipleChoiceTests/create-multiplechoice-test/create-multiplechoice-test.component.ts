@@ -71,6 +71,7 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
     }
 
     onMultipleQuestionsSubmit(): void {
+      // if form is valid ???
       const headers = new HttpHeaders({
         'Authorization': `Token ${this.authService.getToken()}`
       });

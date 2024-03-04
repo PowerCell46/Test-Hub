@@ -14,7 +14,7 @@
             <input type="radio" formControlName="selectedValue" value="2" [id]="'question' + i + '_option2'" [attr.name]="'question' + i" class="options-input">
             <label [for]="'question' + i + '_option2'">{{ exam.questions[i].second_option }}</label>
           </div>
-
+          <input type="hidden" formControlName="questionId">
           <div class="inner-container">
             <input type="radio" formControlName="selectedValue" value="3" [id]="'question' + i + '_option3'" [attr.name]="'question' + i" class="options-input">
             <label [for]="'question' + i + '_option3'">{{ exam.questions[i].third_option }}</label>

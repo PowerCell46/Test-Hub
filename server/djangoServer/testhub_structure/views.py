@@ -6,7 +6,8 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceTest, MultipleChoiceQuestion, PyTest
+from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceTest, MultipleChoiceQuestion, PyTest, \
+    SubmissionMultipleChoiceTest
 from djangoServer.testhub_structure.permissions import IsTeacher
 from djangoServer.testhub_structure.serializers import CourseSerializer, MultipleChoiceExamSerializer
 
@@ -104,11 +105,49 @@ class CreatePythonExam(APIView):  # Only teachers can create
         return Response({'message': 'Python Test created successfully!'}, status=status.HTTP_201_CREATED)
 
 
-class GetMultipleChoiceExam(APIView):
+class MultipleChoiceExam(APIView):
     permission_classes = (AllowAny,)
 
     def get(self, request, examName):
         multiple_questions_exam = MultipleChoiceTest.objects.get(title=examName)
         serializer = MultipleChoiceExamSerializer(multiple_questions_exam)
         return Response(serializer.data)
-    
+
+    def post(self, request, examName):
+        user = request.user
+
+        if not user.is_authenticated:
+            return Response({"error": "Authentication required"}, status=401)
+
+        try:
+            multiple_questions_exam = MultipleChoiceTest.objects.get(title=examName)
+        except MultipleChoiceTest.DoesNotExist:
+            return Response({"error": "Exam not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        answers_data = request.data.get('questions')
+        if not isinstance(answers_data, list):
+            return Response({"error": "Invalid data format"}, status=status.HTTP_400_BAD_REQUEST)
+
+        question_ids = [d['questionId'] for d in answers_data]
+        questions = MultipleChoiceQuestion.objects.filter(pk__in=question_ids)
+
+        if len(questions) != len(answers_data):
+            return Response({"error": "One or more questions not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        answers = []
+        correct_answers = 0
+        with transaction.atomic():
+            for q_data in answers_data:
+                question = next((q for q in questions if q.id == q_data['questionId']), None)
+                if question and question.correct_answer == int(q_data['selectedValue']):
+                    correct_answers += 1
+                answers.append(f"{q_data['questionId']} {q_data['selectedValue']}")
+
+            SubmissionMultipleChoiceTest.objects.create(
+                submitter=user,
+                answers='|'.join(answers),
+                correct_answers=correct_answers,
+                multiple_choice_exam=multiple_questions_exam
+            )
+
+        return Response({"message": "Successful submission!"}, status=status.HTTP_201_CREATED)

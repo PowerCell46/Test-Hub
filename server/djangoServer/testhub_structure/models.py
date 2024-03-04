@@ -48,4 +48,10 @@ class MultipleChoiceQuestion(models.Model):  # What is the difference between li
     fourth_option = models.CharField(max_length=OPTION_MAX_LENGTH, validators=[MinLengthValidator(OPTION_MIN_LENGTH)])
     correct_answer = models.PositiveIntegerField(choices=((1, 1), (2, 2), (3, 3), (4, 4)))
 
-# Submissions
+
+class SubmissionMultipleChoiceTest(models.Model):
+    submitter = models.ForeignKey(to=User, on_delete=models.DO_NOTHING, related_name='submissions')
+    answers = models.TextField()
+    correct_answers = models.PositiveIntegerField()
+    multiple_choice_exam = models.ForeignKey(to=MultipleChoiceTest, on_delete=models.DO_NOTHING,
+                                             related_name='submissions')
