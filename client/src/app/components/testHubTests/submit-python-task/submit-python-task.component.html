@@ -1,65 +1,73 @@
-<main>
-    <h1>Basic Syntax, Conditional Statements and Loops - Exercise</h1>
+<main *ngIf="pythonTest">
+  <h1>{{ pythonTest.topicName }}</h1>
 
-    <div class="tasks-container">
-      <div class="task">01. Ages</div>
-      <div class="task">02. Division</div>
-      <div class="task">03. Vacation</div>
+  <div class="tasks-container">
+    <div *ngFor="let task of pythonTest.topicTasks" class="task">
+      {{ task.name }}
     </div>
-    <section class="inner-container">
-      <div class="inner-container-wrapper">
-        <h5>01. Ages</h5>
-        <a href="./style.css" download=""><i class="fa-solid fa-file"></i></a>
-      </div>
-      <textarea id="pythonCode"></textarea>
-      <div class="current-task"></div>
-      <button>Submit</button>
-    </section>
-  </main>
+  </div>
+  <section class="inner-container">
+    <div class="inner-container-wrapper">
+      <h5>{{ pythonTest.title}}</h5>
+      <a href="{{pythonTest.description}}" download>
+        <i class="fa-solid fa-file"></i>
+      </a>    </div>
+    <div id="unit-tests-wrapper">
+      <h5 id="unit-tests-title">Unit Tests:</h5>
+      <textarea
+        (input)="updateCode($any($event.target).value)"
+        placeholder="Enter Python code here..."
+      ></textarea>
+    </div>
+    <pre><code [innerHTML]="highlightedCode" class="language-python"></code></pre>
+    <div class="current-task"></div>
+    <button>Submit</button>
+  </section>
+</main>
 
-  <table>
-    <tr>
-      <th>Points</th>
-      <th>Submission Date</th>
-    </tr>
-    <tr>
-      <td>
-        <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-        ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-        ><i class="fa-solid fa-xmark"></i> 80/100
-      </td>
-      <td>00:28:50 08.10.2023</td>
-    </tr>
-    <tr>
-      <td>
-        <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-        ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-        ><i class="fa-solid fa-xmark"></i> 80/100
-      </td>
-      <td>00:28:50 08.10.2023</td>
-    </tr>
-    <tr>
-      <td>
-        <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-        ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-        ><i class="fa-solid fa-xmark"></i> 80/100
-      </td>
-      <td>00:28:50 08.10.2023</td>
-    </tr>
-    <tr>
-      <td>
-        <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-        ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-        ><i class="fa-solid fa-xmark"></i> 80/100
-      </td>
-      <td>00:28:50 08.10.2023</td>
-    </tr>
-    <tr>
-      <td>
-        <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-        ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-        ><i class="fa-solid fa-xmark"></i> 80/100
-      </td>
-      <td>00:28:50 08.10.2023</td>
-    </tr>
-  </table>
+<table>
+  <tr>
+    <th>Points</th>
+    <th>Submission Date</th>
+  </tr>
+  <tr>
+    <td>
+      <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
+      ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
+      ><i class="fa-solid fa-xmark"></i> 80/100
+    </td>
+    <td>00:28:50 08.10.2023</td>
+  </tr>
+  <tr>
+    <td>
+      <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
+      ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
+      ><i class="fa-solid fa-xmark"></i> 80/100
+    </td>
+    <td>00:28:50 08.10.2023</td>
+  </tr>
+  <tr>
+    <td>
+      <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
+      ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
+      ><i class="fa-solid fa-xmark"></i> 80/100
+    </td>
+    <td>00:28:50 08.10.2023</td>
+  </tr>
+  <tr>
+    <td>
+      <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
+      ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
+      ><i class="fa-solid fa-xmark"></i> 80/100
+    </td>
+    <td>00:28:50 08.10.2023</td>
+  </tr>
+  <tr>
+    <td>
+      <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
+      ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
+      ><i class="fa-solid fa-xmark"></i> 80/100
+    </td>
+    <td>00:28:50 08.10.2023</td>
+  </tr>
+</table>

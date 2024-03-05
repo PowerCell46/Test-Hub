@@ -55,3 +55,7 @@ class SubmissionMultipleChoiceTest(models.Model):
     correct_answers = models.PositiveIntegerField()
     multiple_choice_exam = models.ForeignKey(to=MultipleChoiceTest, on_delete=models.DO_NOTHING,
                                              related_name='submissions')
+
+
+class SubmissionPyTest(models.Model):
+    ...

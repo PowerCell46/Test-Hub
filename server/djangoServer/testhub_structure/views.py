@@ -1,3 +1,5 @@
+from urllib.parse import unquote
+
 from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.shortcuts import render, get_object_or_404
@@ -10,7 +12,7 @@ from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceT
     SubmissionMultipleChoiceTest
 from djangoServer.testhub_structure.permissions import IsTeacher
 from djangoServer.testhub_structure.serializers import CourseSerializer, MultipleChoiceExamSerializer, \
-    MultipleChoiceSubmissionSerializer, MultipleChoiceQuestionSerializer
+    MultipleChoiceSubmissionSerializer, MultipleChoiceQuestionSerializer, PythonTestSerializer
 
 
 class CreateTopic(APIView):
@@ -176,7 +178,7 @@ class GetMultipleChoiceTestSubmission(APIView):
         return Response(data)
 
 
-class GetMultipleChoiceQuestion(APIView): # Да се пусне на чата да сложи try except-и
+class GetMultipleChoiceQuestion(APIView):  # Да се пусне на чата да сложи try except-и
     permission_classes = (AllowAny,)
 
     def get(self, request, submissionId, questionId):
@@ -191,3 +193,23 @@ class GetMultipleChoiceQuestion(APIView): # Да се пусне на чата �
                 data = serializer.data
                 data['givenAnswer'] = given_answer
                 return Response(data)
+
+
+class PythonTest(APIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request, name):
+        python_test = PyTest.objects.get(title=unquote(name).replace('-', ' '))
+        topic_name = python_test.topic.name
+        topic_tasks = []
+        for task in python_test.topic.multiple_choice_tests.all():
+            topic_tasks.append({"id": task.pk, "name": task.title})
+        for task in python_test.topic.py_tests.all():
+            topic_tasks.append({"id": task.pk, "name": task.title})
+        serializer = PythonTestSerializer(python_test, many=False)
+        data = serializer.data
+        data['topicName'] = topic_name
+        data['topicTasks'] = topic_tasks
+
+        return Response(data)
+

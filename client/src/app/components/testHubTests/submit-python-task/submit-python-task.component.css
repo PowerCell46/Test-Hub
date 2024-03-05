@@ -190,11 +190,51 @@ table td i {
 }
 
 
-.CodeMirror {
-    width: 80%;
-    height: auto;
-    font-size: 1.5rem;
+textarea {
+    border-radius: var(--border-radius);
+    padding-left: 0.5rem;
+    width: 25%;
+    height: 35px;
+    margin-bottom: 20px;
     font-family: 'Anta';
+    font-size: 1.1rem;
+    line-height: 35px;
+    resize: none;
+  }
+  
+  
+
+  pre {
+    font-family: 'Anta';
+    min-height: 20vh;
+    border-radius: var(--border-radius);
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 60%;
+    max-height: 20vh;
+    overflow: auto;
+}
+
+#unit-tests-wrapper {
+    display: flex;
+    gap: 1.5vw;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#unit-tests-err {
+    margin-top: 2vh;
+    margin-bottom: -3vh;
+    padding: 0.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    background-color: #f5f5f5;
+    text-shadow: none;
+}
+
+.title-wrapper {
+    margin-top: 2vh;
+    margin-bottom: 3vh;
 }
