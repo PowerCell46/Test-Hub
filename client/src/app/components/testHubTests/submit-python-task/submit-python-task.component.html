@@ -2,16 +2,23 @@
   <h1>{{ pythonTest.topicName }}</h1>
 
   <div class="tasks-container">
-    <div *ngFor="let task of pythonTest.topicTasks" class="task">
-      {{ task.name }}
-    </div>
+    <ng-container *ngFor="let task of pythonTest.topicTasks">
+
+      <div *ngIf="task.type === 'multiple-choice'" routerLink="/contests/{{courseName}}/{{topicName}}/multiple-choice/{{task.encodedName}}" class="task">
+        {{ task.name }}
+      </div>
+      <div *ngIf="task.type === 'python'" routerLink="/contests/{{courseName}}/{{topicName}}/python/{{task.encodedName}}" class="task">
+        {{ task.name }}
+      </div>
+    </ng-container>
   </div>
   <section class="inner-container">
     <div class="inner-container-wrapper">
-      <h5>{{ pythonTest.title}}</h5>
-      <a href="{{pythonTest.description}}" download>
+      <h5>{{ pythonTest.title }}</h5>
+      <a target="_blank" href="{{ pythonTest.description }}">
         <i class="fa-solid fa-file"></i>
-      </a>    </div>
+      </a>
+    </div>
     <div id="unit-tests-wrapper">
       <h5 id="unit-tests-title">Unit Tests:</h5>
       <textarea

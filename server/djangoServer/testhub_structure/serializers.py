@@ -56,5 +56,5 @@ class MultipleChoiceSubmissionSerializer(serializers.ModelSerializer):
 class PythonTestSerializer(serializers.ModelSerializer):
     class Meta:
         model = PyTest
-        fields = '__all__'
+        fields = ['id', 'title', 'description']
 

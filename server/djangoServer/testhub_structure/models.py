@@ -59,3 +59,7 @@ class SubmissionMultipleChoiceTest(models.Model):
 
 class SubmissionPyTest(models.Model):
     ...
+    #Time
+    #user
+    #py test
+    #result

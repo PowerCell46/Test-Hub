@@ -199,14 +199,18 @@ class PythonTest(APIView):
     permission_classes = (AllowAny,)
 
     def get(self, request, name):
-        python_test = PyTest.objects.get(title=unquote(name).replace('-', ' '))
+        name = unquote(name).replace('-', ' ')
+        python_test = get_object_or_404(PyTest, title=name)
         topic_name = python_test.topic.name
         topic_tasks = []
+
         for task in python_test.topic.multiple_choice_tests.all():
-            topic_tasks.append({"id": task.pk, "name": task.title})
+            topic_tasks.append({"type": "multiple-choice", "name": task.title})
+
         for task in python_test.topic.py_tests.all():
-            topic_tasks.append({"id": task.pk, "name": task.title})
-        serializer = PythonTestSerializer(python_test, many=False)
+            topic_tasks.append({"type": "python", "name": task.title})
+
+        serializer = PythonTestSerializer(python_test, context={'request': request}, many=False)
         data = serializer.data
         data['topicName'] = topic_name
         data['topicTasks'] = topic_tasks

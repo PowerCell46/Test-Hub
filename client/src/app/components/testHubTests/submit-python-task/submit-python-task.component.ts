@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Prism from 'prismjs';
 import { PythonTestService } from '../../../services/python-test.service';
 import { ActivatedRoute } from '@angular/router';
-import { decodeURLSegment } from '../../../../assets/utils';
-
+import { decodeURLSegment, encodeURLSegment } from '../../../../assets/utils';
 
 @Component({
   selector: 'app-submit-python-task',
@@ -12,6 +11,8 @@ import { decodeURLSegment } from '../../../../assets/utils';
 })
 export class SubmitPythonTaskComponent implements OnInit{
   highlightedCode: string = '';
+  courseName: string = '';
+  topicName: string = '';
   pythonTest: any;
 
   constructor(private route: ActivatedRoute, private pythonTestService: PythonTestService) {}
@@ -22,12 +23,19 @@ export class SubmitPythonTaskComponent implements OnInit{
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
+      this.courseName = params['courseName'];
+      this.topicName = params['topicName'];
       this.pythonTest = params['taskName'];
-    })
-    this.pythonTestService.getPythonTestData(this.pythonTest).subscribe(data => {
-      console.log(data);
-      
+    });
+    
+    this.pythonTestService.getPythonTestData(this.pythonTest).subscribe((data: any) => {
+      data.topicTasks = data.topicTasks.map((task: any) => {
+        return { ...task, encodedName: encodeURLSegment(task.name) };
+      });
+
       this.pythonTest = data;
-    })
+      // console.log(data);      
+    });
+
   }
 }
