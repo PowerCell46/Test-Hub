@@ -17,4 +17,8 @@ export class MultipleChoiceExamService {
   getMultipleChoiceSubmission(submissionId: number): Observable<any> {
     return this.http.get<any[]>(`${baseServerUrl}testHub/submissions/multipleChoiceExam/${submissionId}/`).pipe();
   }
+
+  getSingleQuestion(submissionId: number, questionId: number): Observable<any> {
+    return this.http.get<any[]>(`${baseServerUrl}testHub/submissions/multipleChoiceExam/${submissionId}/${questionId}/`).pipe();
+  }
 }

@@ -1,0 +1,23 @@
+<main *ngIf="question">
+    <h1>Python Advanced Exam</h1>
+    <section class="options">
+        <h5>{{question.question_title}}</h5>
+        <form>
+            <div>
+                <input type="radio" name="first_option" value="{{question.first_option}}" [checked]="question.givenAnswer === 1" disabled/>
+                <label for="first_option" id="{{question.correct_answer === 1 ? 'correct' : 'wrong'}}">{{question.first_option}}</label>
+
+                <input type="radio" name="second_option" value="{{question.second_option}}" [checked]="question.givenAnswer === 2" disabled/>
+                <label for="second_option" id="{{question.correct_answer === 2 ? 'correct' : 'wrong'}}">{{question.second_option}}</label>
+            </div>
+
+            <div>
+                <input type="radio" name="third_option" value="{{question.third_option}}" [checked]="question.givenAnswer === 3" disabled/>
+                <label for="third_option" id="{{question.correct_answer === 3 ? 'correct' : 'wrong'}}">{{question.third_option}}</label>
+                
+                <input type="radio" name="fourth_option" value="{{question.fourth_option}}" [checked]="question.givenAnswer === 4" disabled/>
+                <label for="fourth_option" id="{{question.correct_answer === 4 ? 'correct' : 'wrong'}}">{{question.fourth_option}}</label> 
+            </div>
+        </form>
+    </section>
+</main>

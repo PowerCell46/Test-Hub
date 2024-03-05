@@ -11,6 +11,7 @@ import { PythonTestsComponent } from './components/testHubTests/pythonTests/pyth
 import { SubmissionsComponent } from './components/common/submissions/submissions.component';
 import { MultipleChoiceTestComponent } from './components/testHubTests/multiple-choice-test/multiple-choice-test.component';
 import { ResultMultipleChoiceTestComponent } from './components/testHubTests/result-multiple-choice-test/result-multiple-choice-test.component';
+import { ResultSingleQuestionComponent } from './components/testHubTests/result-single-question/result-single-question.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -24,7 +25,7 @@ const routes: Routes = [
   {path: "submissions", component: SubmissionsComponent},
   {path: "contests/:courseName/:topicName/multiple-choice/:taskName", component: MultipleChoiceTestComponent},
   {path: "submissions/multipleChoiceTest/:submissionId", component: ResultMultipleChoiceTestComponent},
-  {path: "submissions/multipleChoiceTest/:submissionId/:questionId", component: LoginComponent}, // Create the design for this component
+  {path: "submissions/multipleChoiceTest/:submissionId/:questionId", component: ResultSingleQuestionComponent},
   {path: "contests/:courseName/:topicName/python/:taskName", component: LoginComponent} // Put the right component
 ];
 

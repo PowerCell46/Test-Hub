@@ -10,7 +10,7 @@ from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceT
     SubmissionMultipleChoiceTest
 from djangoServer.testhub_structure.permissions import IsTeacher
 from djangoServer.testhub_structure.serializers import CourseSerializer, MultipleChoiceExamSerializer, \
-    MultipleChoiceSubmissionSerializer
+    MultipleChoiceSubmissionSerializer, MultipleChoiceQuestionSerializer
 
 
 class CreateTopic(APIView):
@@ -174,3 +174,20 @@ class GetMultipleChoiceTestSubmission(APIView):
                 })
         data['answers'] = answers
         return Response(data)
+
+
+class GetMultipleChoiceQuestion(APIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request, submissionId, questionId):
+        submission = SubmissionMultipleChoiceTest.objects.get(pk=submissionId)
+        given_answer = None
+        for data in submission.answers.split("|"):
+            current_question_id = int(data.split(' ')[0])
+            if current_question_id == questionId:
+                given_answer = int(data.split(' ')[1])
+                question = MultipleChoiceQuestion.objects.get(id=current_question_id)
+                serializer = MultipleChoiceQuestionSerializer(question, many=False)
+                data = serializer.data
+                data['givenAnswer'] = given_answer
+                return Response(data)

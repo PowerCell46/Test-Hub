@@ -51,7 +51,7 @@ class MultipleChoiceQuestion(models.Model):  # What is the difference between li
 
 class SubmissionMultipleChoiceTest(models.Model):
     submitter = models.ForeignKey(to=User, on_delete=models.DO_NOTHING, related_name='submissions')
-    answers = models.TextField()
+    answers = models.TextField()  # data format: questionId selectedValue|questionId selectedValue
     correct_answers = models.PositiveIntegerField()
     multiple_choice_exam = models.ForeignKey(to=MultipleChoiceTest, on_delete=models.DO_NOTHING,
                                              related_name='submissions')

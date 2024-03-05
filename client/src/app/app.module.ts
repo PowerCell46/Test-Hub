@@ -17,6 +17,7 @@ import { PythonTestsComponent } from './components/testHubTests/pythonTests/pyth
 import { SubmissionsComponent } from './components/common/submissions/submissions.component';
 import { MultipleChoiceTestComponent } from './components/testHubTests/multiple-choice-test/multiple-choice-test.component';
 import { ResultMultipleChoiceTestComponent } from './components/testHubTests/result-multiple-choice-test/result-multiple-choice-test.component';
+import { ResultSingleQuestionComponent } from './components/testHubTests/result-single-question/result-single-question.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ResultMultipleChoiceTestComponent } from './components/testHubTests/res
     PythonTestsComponent,
     SubmissionsComponent,
     MultipleChoiceTestComponent,
-    ResultMultipleChoiceTestComponent
+    ResultMultipleChoiceTestComponent,
+    ResultSingleQuestionComponent
   ],
   imports: [
     BrowserModule,
