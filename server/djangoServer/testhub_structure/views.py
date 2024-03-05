@@ -176,7 +176,7 @@ class GetMultipleChoiceTestSubmission(APIView):
         return Response(data)
 
 
-class GetMultipleChoiceQuestion(APIView):
+class GetMultipleChoiceQuestion(APIView): # Да се пусне на чата да сложи try except-и
     permission_classes = (AllowAny,)
 
     def get(self, request, submissionId, questionId):

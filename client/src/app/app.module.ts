@@ -18,6 +18,7 @@ import { SubmissionsComponent } from './components/common/submissions/submission
 import { MultipleChoiceTestComponent } from './components/testHubTests/multiple-choice-test/multiple-choice-test.component';
 import { ResultMultipleChoiceTestComponent } from './components/testHubTests/result-multiple-choice-test/result-multiple-choice-test.component';
 import { ResultSingleQuestionComponent } from './components/testHubTests/result-single-question/result-single-question.component';
+import { SubmitPythonTaskComponent } from './components/testHubTests/submit-python-task/submit-python-task.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ResultSingleQuestionComponent } from './components/testHubTests/result-
     SubmissionsComponent,
     MultipleChoiceTestComponent,
     ResultMultipleChoiceTestComponent,
-    ResultSingleQuestionComponent
+    ResultSingleQuestionComponent,
+    SubmitPythonTaskComponent
   ],
   imports: [
     BrowserModule,

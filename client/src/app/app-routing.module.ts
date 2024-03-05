@@ -12,21 +12,26 @@ import { SubmissionsComponent } from './components/common/submissions/submission
 import { MultipleChoiceTestComponent } from './components/testHubTests/multiple-choice-test/multiple-choice-test.component';
 import { ResultMultipleChoiceTestComponent } from './components/testHubTests/result-multiple-choice-test/result-multiple-choice-test.component';
 import { ResultSingleQuestionComponent } from './components/testHubTests/result-single-question/result-single-question.component';
+import { SubmitPythonTaskComponent } from './components/testHubTests/submit-python-task/submit-python-task.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
-  {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'logout', canActivate: [RouteGuardService], component: LogoutComponent},
-  // {path: '', redirectTo: '/error', pathMatch: 'full'},
-  // {path: '/error', component: ErrorComponent},
+  
   {path: "createMultipleChoiceQuestion", component: CreateMultiplechoiceTestComponent},
   {path: "createPythonTest", component: PythonTestsComponent},
+
   {path: "submissions", component: SubmissionsComponent},
-  {path: "contests/:courseName/:topicName/multiple-choice/:taskName", component: MultipleChoiceTestComponent},
   {path: "submissions/multipleChoiceTest/:submissionId", component: ResultMultipleChoiceTestComponent},
   {path: "submissions/multipleChoiceTest/:submissionId/:questionId", component: ResultSingleQuestionComponent},
-  {path: "contests/:courseName/:topicName/python/:taskName", component: LoginComponent} // Put the right component
+  
+  {path: "contests/:courseName/:topicName/multiple-choice/:taskName", component: MultipleChoiceTestComponent},
+  {path: "contests/:courseName/:topicName/python/:taskName", component: SubmitPythonTaskComponent}
+
+  // {path: '', redirectTo: '/error', pathMatch: 'full'},
+  // {path: '/error', component: ErrorComponent},
 ];
 
 @NgModule({
