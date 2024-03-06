@@ -53,7 +53,7 @@ export class PythonTestsComponent implements OnInit {
     this.highlightedCode = Prism.highlight(code, Prism.languages['python'], 'python');
   }
 
-  onPythonTestSubmit(): void {
+  onPythonTestSubmit(): void { // if valid ???
     const formData = new FormData();
     formData.append('title', this.pythonTestForm.get('title')?.value ?? '');
     formData.append('course', this.pythonTestForm.get('course')?.value ?? '');

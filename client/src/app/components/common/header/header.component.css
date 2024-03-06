@@ -64,7 +64,7 @@ nav section ul li a:hover {
 }
 
 
-@media only screen and (max-height: 1080px) {
+/* @media only screen and (max-height: 1080px) {
     nav section {
         width: 42.5vw;
         height: 9vh;
@@ -78,4 +78,4 @@ nav section ul li a:hover {
         margin-top: 4vh;
         margin-bottom: 4vh;
     }
-}
+} */

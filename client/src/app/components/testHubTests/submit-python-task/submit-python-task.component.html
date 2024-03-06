@@ -12,7 +12,7 @@
       </div>
     </ng-container>
   </div>
-  <section class="inner-container">
+  <form [formGroup]="pythonTestSubmitForm" (ngSubmit)="onPythonTaskSubmit()" class="inner-container">
     <div class="inner-container-wrapper">
       <h5>{{ pythonTest.title }}</h5>
       <a target="_blank" href="{{ pythonTest.description }}">
@@ -20,16 +20,16 @@
       </a>
     </div>
     <div id="unit-tests-wrapper">
-      <h5 id="unit-tests-title">Unit Tests:</h5>
-      <textarea
+      <h5 id="unit-tests-title">Code:</h5>
+      <textarea formControlName="code"
         (input)="updateCode($any($event.target).value)"
         placeholder="Enter Python code here..."
       ></textarea>
     </div>
     <pre><code [innerHTML]="highlightedCode" class="language-python"></code></pre>
     <div class="current-task"></div>
-    <button>Submit</button>
-  </section>
+    <button type="submit">Submit</button>
+  </form>
 </main>
 
 <table>
@@ -78,3 +78,9 @@
     <td>00:28:50 08.10.2023</td>
   </tr>
 </table>
+
+
+<!-- 
+def is_even(number):
+    return number % 2 == 0
+  -->
