@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Course, Topic, PyTest, MultipleChoiceTest, MultipleChoiceQuestion, SubmissionMultipleChoiceTest
+from .models import Course, Topic, PyTest, MultipleChoiceTest, MultipleChoiceQuestion, SubmissionMultipleChoiceTest, \
+    SubmissionPyTest
 
 
 class PyTestSerializer(serializers.ModelSerializer):
@@ -58,3 +59,18 @@ class PythonTestSerializer(serializers.ModelSerializer):
         model = PyTest
         fields = ['id', 'title', 'description']
 
+
+class PySubmissions(serializers.ModelSerializer):
+    submitter_name = serializers.SerializerMethodField()
+    python_test_title = serializers.SerializerMethodField()
+
+    class Meta:
+        model = SubmissionPyTest
+        fields = ['id', 'submitter_name', 'python_test_title', 'num_total_tests',
+                  'num_correct_tests', 'incorrect_tests', 'num_error_tests', 'submission_time']
+
+    def get_submitter_name(self, obj):
+        return obj.submitter.username
+
+    def get_python_test_title(self, obj):
+        return obj.python_test.title

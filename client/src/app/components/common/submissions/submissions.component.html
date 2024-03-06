@@ -8,13 +8,13 @@
             <th>Result</th>
           </tr>
       <tr *ngFor="let submission of submissions">
-        <td>{{submission.submissionN}}</td>
-        <td>{{submission.user}}</td>
-        <td>{{submission.task}}</td>
+        <td>{{submission.id}}</td>
+        <td>{{submission.submitter_name}}</td>
+        <td>{{submission.python_test_title}}</td>
         <td>
           <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
           ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-          ><i class="fa-solid fa-xmark"></i> {{submission.result}}
+          ><i class="fa-solid fa-xmark"></i> {{submission.num_correct_tests}}/{{submission.num_total_tests}}
         </td>
       </tr>
     </table>

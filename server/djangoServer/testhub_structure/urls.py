@@ -1,7 +1,7 @@
 from django.urls import path
 
 from djangoServer.testhub_structure.views import GetCoursesAndTopics, CreateMultipleChoiceExam, CreatePythonExam, \
-    MultipleChoiceExam, GetMultipleChoiceTestSubmission, GetMultipleChoiceQuestion, PythonTest
+    MultipleChoiceExam, GetMultipleChoiceTestSubmission, GetMultipleChoiceQuestion, PythonTest, GetAllSubmissions
 
 urlpatterns = [
     path('getCoursesAndTopics/', GetCoursesAndTopics.as_view(), name='get-courses-and-topics'),
@@ -14,5 +14,6 @@ urlpatterns = [
          name='get-multiple-questions-test-submission'),
     path('submissions/multipleChoiceExam/<int:submissionId>/<int:questionId>/', GetMultipleChoiceQuestion.as_view(),
          name='get-multiple-choice-question'),
-    path('pythonTest/<str:name>/', PythonTest.as_view(), name='python-test')
+    path('pythonTest/<str:name>/', PythonTest.as_view(), name='python-test'),
+    path('submissions/', GetAllSubmissions.as_view(), name='all-submissions')
 ]

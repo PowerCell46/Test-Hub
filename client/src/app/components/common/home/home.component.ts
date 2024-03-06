@@ -45,8 +45,8 @@ export class HomeComponent implements OnInit {
           });
         });
       });
-      console.log(this.courses);
-      
+
+      // console.log(this.courses);
     });
   }
   

@@ -13,7 +13,7 @@ from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceT
     SubmissionMultipleChoiceTest, SubmissionPyTest
 from djangoServer.testhub_structure.permissions import IsTeacher
 from djangoServer.testhub_structure.serializers import CourseSerializer, MultipleChoiceExamSerializer, \
-    MultipleChoiceSubmissionSerializer, MultipleChoiceQuestionSerializer, PythonTestSerializer
+    MultipleChoiceSubmissionSerializer, MultipleChoiceQuestionSerializer, PythonTestSerializer, PySubmissions
 
 
 def run_tests(code, test_code):
@@ -292,6 +292,15 @@ class PythonTest(APIView):
             incorrect_tests=failed_tests,
             num_error_tests=number_of_errors
         )
-        print(submission.pk)
+
         return Response({"message": "Successful submission!", 'submissionId': submission.pk},
                         status=status.HTTP_201_CREATED)
+
+
+class GetAllSubmissions(APIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request):
+        submissions = SubmissionPyTest.objects.order_by('-submission_time')[:10]
+        serializer = PySubmissions(submissions, many=True)
+        return Response(serializer.data)
