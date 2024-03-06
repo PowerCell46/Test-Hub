@@ -166,6 +166,11 @@ table td i {
     color: darkred;
 }
 
+.fa-circle-xmark {
+    font-size: 1.15rem;
+    color: #E49B0F;
+}
+
 
 .inner-container-wrapper {
     /* background-color: #076c55; */

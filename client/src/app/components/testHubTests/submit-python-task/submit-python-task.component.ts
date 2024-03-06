@@ -44,9 +44,14 @@ export class SubmitPythonTaskComponent implements OnInit{
       });
 
       this.pythonTest = data;
-      // console.log(data);      
+      console.log(data);      
     });
 
+  }
+
+
+  getArray(num: number): any[] {
+    return new Array(num);
   }
 
   onPythonTaskSubmit(): void {

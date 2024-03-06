@@ -252,6 +252,7 @@ class PythonTest(APIView):
     def get(self, request, name):
         name = unquote(name).replace('-', ' ')
         python_test = get_object_or_404(PyTest, title=name)
+        submissions = PySubmissions(python_test.submissions.all().order_by('-submission_time')[:5], many=True)
         topic_name = python_test.topic.name
         topic_tasks = []
 
@@ -265,6 +266,7 @@ class PythonTest(APIView):
         data = serializer.data
         data['topicName'] = topic_name
         data['topicTasks'] = topic_tasks
+        data['submissions'] = submissions.data
 
         return Response(data)
 

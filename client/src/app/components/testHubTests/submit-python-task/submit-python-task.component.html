@@ -3,16 +3,31 @@
 
   <div class="tasks-container">
     <ng-container *ngFor="let task of pythonTest.topicTasks">
-
-      <div *ngIf="task.type === 'multiple-choice'" routerLink="/contests/{{courseName}}/{{topicName}}/multiple-choice/{{task.encodedName}}" class="task">
+      <div
+        *ngIf="task.type === 'multiple-choice'"
+        routerLink="/contests/{{ courseName }}/{{
+          topicName
+        }}/multiple-choice/{{ task.encodedName }}"
+        class="task"
+      >
         {{ task.name }}
       </div>
-      <div *ngIf="task.type === 'python'" routerLink="/contests/{{courseName}}/{{topicName}}/python/{{task.encodedName}}" class="task">
+      <div
+        *ngIf="task.type === 'python'"
+        routerLink="/contests/{{ courseName }}/{{ topicName }}/python/{{
+          task.encodedName
+        }}"
+        class="task"
+      >
         {{ task.name }}
       </div>
     </ng-container>
   </div>
-  <form [formGroup]="pythonTestSubmitForm" (ngSubmit)="onPythonTaskSubmit()" class="inner-container">
+  <form
+    [formGroup]="pythonTestSubmitForm"
+    (ngSubmit)="onPythonTaskSubmit()"
+    class="inner-container"
+  >
     <div class="inner-container-wrapper">
       <h5>{{ pythonTest.title }}</h5>
       <a target="_blank" href="{{ pythonTest.description }}">
@@ -21,7 +36,8 @@
     </div>
     <div id="unit-tests-wrapper">
       <h5 id="unit-tests-title">Code:</h5>
-      <textarea formControlName="code"
+      <textarea
+        formControlName="code"
         (input)="updateCode($any($event.target).value)"
         placeholder="Enter Python code here..."
       ></textarea>
@@ -32,53 +48,41 @@
   </form>
 </main>
 
-<table>
+<table *ngIf="pythonTest">
   <tr>
-    <th>Points</th>
+    <th>Result</th>
     <th>Submission Date</th>
   </tr>
-  <tr>
+  <tr *ngFor="let submission of pythonTest.submissions">
     <td>
-      <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-      ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-      ><i class="fa-solid fa-xmark"></i> 80/100
-    </td>
-    <td>00:28:50 08.10.2023</td>
-  </tr>
-  <tr>
-    <td>
-      <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-      ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-      ><i class="fa-solid fa-xmark"></i> 80/100
-    </td>
-    <td>00:28:50 08.10.2023</td>
-  </tr>
-  <tr>
-    <td>
-      <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-      ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-      ><i class="fa-solid fa-xmark"></i> 80/100
-    </td>
-    <td>00:28:50 08.10.2023</td>
-  </tr>
-  <tr>
-    <td>
-      <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-      ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-      ><i class="fa-solid fa-xmark"></i> 80/100
-    </td>
-    <td>00:28:50 08.10.2023</td>
-  </tr>
-  <tr>
-    <td>
-      <i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-      ><i class="fa-solid fa-check"></i><i class="fa-solid fa-check"></i
-      ><i class="fa-solid fa-xmark"></i> 80/100
-    </td>
-    <td>00:28:50 08.10.2023</td>
-  </tr>
-</table> 
+      <i
+        class="fa-solid fa-check"
+        *ngFor="let n of getArray(submission.num_correct_tests)"
+      ></i>
+      <!-- Correct tests -->
 
+      <i
+        class="fa-regular fa-circle-xmark"
+        *ngFor="let n of getArray(submission.num_error_tests)"
+      ></i>
+      <!-- Error tests -->
+
+      <i
+        class="fa-solid fa-xmark"
+        *ngFor="
+          let n of getArray(
+            submission.num_total_tests -
+              (submission.num_correct_tests + submission.num_error_tests)
+          )
+        "
+      ></i>
+      <!-- Incorrect tests -->
+
+      {{ submission.num_correct_tests }}/{{ submission.num_total_tests }}
+    </td>
+    <td>{{ submission.submission_time | date : "dd/MM/yyyy HH:mm:ss" }}</td>
+  </tr>
+</table>
 
 <!-- 
 def is_even(number):
