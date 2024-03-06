@@ -50,7 +50,7 @@ class MultipleChoiceQuestion(models.Model):  # What is the difference between li
 
 
 class SubmissionMultipleChoiceTest(models.Model):
-    submitter = models.ForeignKey(to=User, on_delete=models.DO_NOTHING, related_name='submissions')
+    submitter = models.ForeignKey(to=User, on_delete=models.DO_NOTHING, related_name='multi_choice_submissions')
     answers = models.TextField()  # data format: questionId selectedValue|questionId selectedValue
     correct_answers = models.PositiveIntegerField()
     multiple_choice_exam = models.ForeignKey(to=MultipleChoiceTest, on_delete=models.DO_NOTHING,
@@ -58,8 +58,10 @@ class SubmissionMultipleChoiceTest(models.Model):
 
 
 class SubmissionPyTest(models.Model):
-    ...
-    #Time
-    #user
-    #py test
-    #result
+    submitter = models.ForeignKey(to=User, on_delete=models.DO_NOTHING, related_name='py_submissions')
+    python_test = models.ForeignKey(to=PyTest, on_delete=models.CASCADE, related_name='submissions')
+    num_total_tests = models.PositiveIntegerField()
+    num_correct_tests = models.PositiveIntegerField()
+    incorrect_tests = models.TextField()
+    num_error_tests = models.PositiveIntegerField()
+    submission_time = models.DateTimeField(auto_now_add=True)

@@ -4,7 +4,9 @@ import { PythonTestService } from '../../../services/python-test.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { decodeURLSegment, encodeURLSegment } from '../../../../assets/utils';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthenticationService } from '../../../services/authentication.service';
+import { baseServerUrl } from '../../../../assets/constants';
 
 @Component({
   selector: 'app-submit-python-task',
@@ -16,9 +18,10 @@ export class SubmitPythonTaskComponent implements OnInit{
   courseName: string = '';
   topicName: string = '';
   pythonTestSubmitForm: FormGroup;
+  pythonTestName: any;
   pythonTest: any;
 
-  constructor(private route: ActivatedRoute, private pythonTestService: PythonTestService, private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
+  constructor(private route: ActivatedRoute, private pythonTestService: PythonTestService, private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthenticationService) {
     this.pythonTestSubmitForm = this.formBuilder.group({
       code: ['', [Validators.required]]
     });
@@ -32,10 +35,10 @@ export class SubmitPythonTaskComponent implements OnInit{
     this.route.params.subscribe(params => {
       this.courseName = params['courseName'];
       this.topicName = params['topicName'];
-      this.pythonTest = params['taskName'];
+      this.pythonTestName = params['taskName'];
     });
     
-    this.pythonTestService.getPythonTestData(this.pythonTest).subscribe((data: any) => {
+    this.pythonTestService.getPythonTestData(this.pythonTestName).subscribe((data: any) => {
       data.topicTasks = data.topicTasks.map((task: any) => {
         return { ...task, encodedName: encodeURLSegment(task.name) };
       });
@@ -49,8 +52,22 @@ export class SubmitPythonTaskComponent implements OnInit{
   onPythonTaskSubmit(): void {
     
     console.log(this.pythonTestSubmitForm.value);
+    
     if (this.pythonTestSubmitForm.valid) {
-            
+      const headers = new HttpHeaders({
+        'Authorization': `Token ${this.authService.getToken()}`
+      });
+      
+      this.http.post(`${baseServerUrl}testHub/pythonTest/${this.pythonTestName}/`, this.pythonTestSubmitForm.value, {headers: headers})
+      .subscribe({
+        next: () => {
+
+          this.router.navigate(['/']);
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
     }
   }
 }

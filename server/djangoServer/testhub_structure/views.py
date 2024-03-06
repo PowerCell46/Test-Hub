@@ -1,5 +1,7 @@
+import sys
+import unittest
 from urllib.parse import unquote
-
+import io
 from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.shortcuts import render, get_object_or_404
@@ -7,12 +9,61 @@ from rest_framework import status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
 from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceTest, MultipleChoiceQuestion, PyTest, \
     SubmissionMultipleChoiceTest
 from djangoServer.testhub_structure.permissions import IsTeacher
 from djangoServer.testhub_structure.serializers import CourseSerializer, MultipleChoiceExamSerializer, \
     MultipleChoiceSubmissionSerializer, MultipleChoiceQuestionSerializer, PythonTestSerializer
+
+
+def run_tests(code, test_code):
+    old_stdout = sys.stdout
+    new_stdout = io.StringIO()
+    sys.stdout = new_stdout
+
+    namespace = {}
+
+    try:
+        exec(code, namespace)
+    except Exception as e:
+        sys.stdout = old_stdout
+        return {
+            'score': 0,
+            'output': f'Error in executing code: {e}',
+            'errors': [(str(e), '')],
+            'failures': []
+        }
+
+    try:
+        exec(test_code, namespace)
+    except Exception as e:
+        sys.stdout = old_stdout
+        return {
+            'score': 0,
+            'output': f'Error in executing test code: {e}',
+            'errors': [(str(e), '')],
+            'failures': []
+        }
+
+    suite = unittest.TestSuite()
+    for obj in namespace.values():
+        if isinstance(obj, type) and issubclass(obj, unittest.TestCase):
+            suite.addTest(unittest.defaultTestLoader.loadTestsFromTestCase(obj))
+
+    result = unittest.TextTestRunner().run(suite)
+
+    output = new_stdout.getvalue()
+    sys.stdout = old_stdout
+
+    score = result.testsRun - len(result.failures) - len(result.errors)
+
+    return {
+        'number_of_tests': result.testsRun,
+        'score': score,
+        'output': output,
+        'errors': result.errors,
+        'failures': result.failures
+    }
 
 
 class CreateTopic(APIView):
@@ -217,3 +268,14 @@ class PythonTest(APIView):
 
         return Response(data)
 
+    def post(self, request, name):
+        name = unquote(name).replace('-', ' ')
+        python_test = get_object_or_404(PyTest, title=name)
+        user_code = request.data['code']
+        test_results = run_tests(python_test.unit_tests, user_code)
+        # print(test_results)
+        num_of_correct_answers = test_results['score']
+        failed_tests = '|'.join([err.split('AssertionError:')[1].strip() for _, err in test_results['failures']])
+        number_of_errors = (len(test_results['errors']))
+        print(failed_tests)
+        return Response('HELLO')
