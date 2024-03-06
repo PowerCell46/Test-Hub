@@ -88,3 +88,8 @@ table td i {
 .fa-xmark {
     color: darkred;
 }
+
+.fa-circle-xmark {
+    font-size: 1.15rem;
+    color: #E49B0F;
+}

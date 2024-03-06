@@ -31,4 +31,8 @@ export class SubmissionsComponent implements OnInit{
     })
   }
 
+  getArray(num: number): any[] {
+    return new Array(num);
+  }
+
 }
