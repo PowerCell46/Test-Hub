@@ -2,14 +2,15 @@
     <h1>Recent Submissions</h1>
     <table>
         <tr>
-            <!-- <th>Time</th> -->
             <th>Submission №</th>
+            <th>Date & Time</th>
             <th>User</th>
             <th>Task</th>
             <th>Result</th>
           </tr>
           <tr *ngFor="let submission of submissions">
             <td>{{submission.id}}</td>
+            <td>{{submission.submission_time | date : "dd/MM/yyyy HH:mm:ss" }}</td>
             <td>{{submission.submitter_name}}</td>
             <td>{{submission.python_test_title}}</td>
             <td>
