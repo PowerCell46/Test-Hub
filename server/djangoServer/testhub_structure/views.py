@@ -10,7 +10,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceTest, MultipleChoiceQuestion, PyTest, \
-    SubmissionMultipleChoiceTest
+    SubmissionMultipleChoiceTest, SubmissionPyTest
 from djangoServer.testhub_structure.permissions import IsTeacher
 from djangoServer.testhub_structure.serializers import CourseSerializer, MultipleChoiceExamSerializer, \
     MultipleChoiceSubmissionSerializer, MultipleChoiceQuestionSerializer, PythonTestSerializer
@@ -268,14 +268,30 @@ class PythonTest(APIView):
 
         return Response(data)
 
-    def post(self, request, name):
+    def post(self, request, name):  # Error Handling
+        user = request.user
+
+        if not user.is_authenticated:
+            return Response({"error": "Authentication required"}, status=401)
+
         name = unquote(name).replace('-', ' ')
         python_test = get_object_or_404(PyTest, title=name)
         user_code = request.data['code']
         test_results = run_tests(python_test.unit_tests, user_code)
-        # print(test_results)
         num_of_correct_answers = test_results['score']
         failed_tests = '|'.join([err.split('AssertionError:')[1].strip() for _, err in test_results['failures']])
         number_of_errors = (len(test_results['errors']))
-        print(failed_tests)
-        return Response('HELLO')
+
+        # print(test_results)
+
+        submission = SubmissionPyTest.objects.create(
+            submitter=user,
+            python_test=python_test,
+            num_total_tests=test_results['number_of_tests'],
+            num_correct_tests=num_of_correct_answers,
+            incorrect_tests=failed_tests,
+            num_error_tests=number_of_errors
+        )
+        print(submission.pk)
+        return Response({"message": "Successful submission!", 'submissionId': submission.pk},
+                        status=status.HTTP_201_CREATED)
