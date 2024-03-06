@@ -54,6 +54,10 @@ export class SubmitPythonTaskComponent implements OnInit{
     return new Array(num);
   }
 
+  reloadPage() {
+    window.location.reload();
+  }
+
   onPythonTaskSubmit(): void {
     
     console.log(this.pythonTestSubmitForm.value);
@@ -67,7 +71,8 @@ export class SubmitPythonTaskComponent implements OnInit{
       .subscribe({
         next: () => {
 
-          this.router.navigate(['/']);
+          alert("Successfully Sent!");
+          // this.router.navigate(['/']);
         },
         error: (err) => {
           console.error(err);

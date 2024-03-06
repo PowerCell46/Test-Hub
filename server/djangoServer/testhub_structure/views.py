@@ -39,6 +39,7 @@ def run_tests(code, test_code):
     except Exception as e:
         sys.stdout = old_stdout
         return {
+        # 'number_of_tests': result.testsRun, TO FIXX
             'score': 0,
             'output': f'Error in executing test code: {e}',
             'errors': [(str(e), '')],

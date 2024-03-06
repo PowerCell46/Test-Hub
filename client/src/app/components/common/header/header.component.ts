@@ -15,6 +15,9 @@ export class HeaderComponent implements OnInit, OnDestroy{
 
   navigationVisible: boolean = true;
   navigationOpacity: number = 1;
+  
+  hiddenMenuVisible: boolean = false;
+  hiddenMenuOpacity: number = 0;
 
   hideShowNavigation(event: any): void {
     if (this.navigationVisible) {
@@ -26,6 +29,17 @@ export class HeaderComponent implements OnInit, OnDestroy{
         event.target.style.transform = 'rotate(90deg)';
         this.navigationVisible = true;
         setTimeout(() => this.navigationOpacity = 1, 250);
+    }
+  }
+
+  hideShowHiddenMenu(): void {
+    if (this.hiddenMenuVisible) {
+        this.hiddenMenuOpacity = 0;
+        setTimeout(() => this.hiddenMenuVisible = false, 500);
+    
+    } else {
+        this.hiddenMenuVisible = true;
+        setTimeout(() => this.hiddenMenuOpacity = 1, 250);
     }
   }
 

@@ -7,19 +7,19 @@
         *ngIf="task.type === 'multiple-choice'"
         routerLink="/contests/{{ courseName }}/{{
           topicName
-        }}/multiple-choice/{{ task.encodedName }}"
+        }}/multiple-choice/{{ task.encodedName }}/"
         class="task"
       >
-        {{ task.name }}
+      <i class="fa-regular fa-rectangle-list"></i> {{ task.name }}
       </div>
       <div
         *ngIf="task.type === 'python'"
         routerLink="/contests/{{ courseName }}/{{ topicName }}/python/{{
           task.encodedName
-        }}"
+        }}/"
         class="task"
       >
-        {{ task.name }}
+      <i class="fa-solid fa-code"></i> {{ task.name }}
       </div>
     </ng-container>
   </div>
@@ -51,7 +51,7 @@
 <table *ngIf="pythonTest">
   <tr>
     <th>Result</th>
-    <th>Submission Date</th>
+    <th>Submission Date<i (click)="reloadPage()" class="fa-solid fa-rotate-right"></i></th>
   </tr>
   <tr *ngFor="let submission of pythonTest.submissions">
     <td>

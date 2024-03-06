@@ -5,14 +5,19 @@
         id="test-hub-logo"
         src="../../assets/images/9a641d59-fa1d-4616-b53e-9f3a1784a8ad-transformed.webp"
         alt="Test Hub Logo"
+        (click)="hideShowHiddenMenu()"
       />
       </a>
-      <ul>
-        <li *ngIf="isLoggedIn"><a routerLink="/createPythonTest">Python</a></li>
+      <div class="hidden-section" [ngStyle]="{'display': hiddenMenuVisible ? 'flex' : 'none', 'opacity': hiddenMenuOpacity}">
+        <li *ngIf="isLoggedIn"><a routerLink="/myProfile">My Profile</a></li>
+        <li *ngIf="isLoggedIn"><a routerLink="/createPythonTest">Python Task</a></li>
         <li *ngIf="isLoggedIn"><a routerLink="/createMultipleChoiceQuestion">MultipleChoice</a></li>
+      </div>
+
+      <ul>
         <li><a routerLink="/submissions">Submissions</a></li>
+        <li><a routerLink="/">Home</a></li>
         <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
-        <!-- <li *ngIf="isLoggedIn"><a routerLink="/myProfile">My Profile</a></li> -->
         <li *ngIf="!isLoggedIn"><a routerLink="/register">Register</a></li>
         <li *ngIf="isLoggedIn"><a routerLink="/logout">Logout</a></li>
       </ul>
