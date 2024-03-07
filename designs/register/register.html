@@ -44,9 +44,10 @@
     <main>
       <section id="right-side">
         <h1>Edit Profile</h1>
-        <img id="profile-picture" src="../images/IMG_9692.png" alt="" />
         <form method="POST">
-          <div id="register-names-div">
+          <img id="profile-picture" src="../images/IMG_9692.png" alt="" />
+          <!-- Hidden input for the picture -->
+          <div id="edit-names-div">
             <input
               type="text"
               name="first-name"
@@ -60,11 +61,14 @@
               value="Gerdzhikov"
             />
           </div>
-          <select name="course" formControlName="course" id="course-select" (change)="onCourseSelect()">
-            <option value="Select a Course" disabled selected>Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
+          <div id="gender-wrapper">
+            <label for="course" id="choose-gender" >Gender:</label>
+            <select name="course" formControlName="course" id="course-select" (change)="onCourseSelect()">
+              <option value="Select a Course" disabled selected>Unknown</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
           <!-- <p class="error-message">First name must be at least 6 chars!</p> -->
           <input type="text" name="email" placeholder="Email" />
           <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
@@ -72,7 +76,7 @@
           <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
           <input type="text" name="nationality" placeholder="Nationality" />
           <!-- <p class="error-message">Password must be at least 6 chars!</p> -->
-          <button id="register-submit-button">Edit</button>
+          <button id="edit-submit-button">Edit</button>
         </form>
         <h5>
           Everything's OK? Return to

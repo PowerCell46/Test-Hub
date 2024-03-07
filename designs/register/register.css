@@ -22,11 +22,11 @@ body {
 
 
 main {
-    margin-top: 2vh;
+    /* margin-top: 2vh; */
     margin-bottom: 5vh;
     width: 50vw;
     height: 80vh;
-    background-color: whitesmoke;
+    background-color: #F9F6EE;
     display: flex;
     flex-direction: row;
     box-shadow: 1px 1px 7px 0.5px rgba(0,0,0,0.75);
@@ -50,13 +50,14 @@ main form {
 
 
 main section {
+    /* background-color: #076c55; */
     height: 100%;
-    width: 50%;
+    width: 55%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 2vh;
+    gap: 3vh;
 }
 
 
@@ -74,19 +75,19 @@ main section input {
 }
 
 
-#register-names-div {
+#edit-names-div {
     display: flex;
     justify-content: space-between;
 }
 
 
-#register-names-div input {
-    width: 44.5%;
+#edit-names-div input {
+    width: 43%;
     display: inline;
 }
 
 
-#register-submit-button {
+#edit-submit-button {
     margin-top: 1rem;
     padding: 1rem 2.4rem;
     font-size: 1.6rem;
@@ -104,17 +105,17 @@ main section input {
 }
 
 
-#register-submit-button:hover {
+#edit-submit-button:hover {
     animation: rotate-scale-up 1s ease-in-out forwards;
     background-color: var(--darker-green);
 }
 
 
 h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-family: "Courier Prime", monospace;   
     position: absolute;
-    top: 22%;
+    top: 18%;
     text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.54);
 }
 
@@ -157,9 +158,32 @@ h5 a:hover {
 #profile-picture {
     height: 15vh;
     border-radius: 1rem;
+    margin-top: 2vh;
+    margin-bottom: 1.5vh;
 }
 
 
+select {
+    cursor: pointer;
+    font-size: 1.4rem;
+    border-radius: var(--border-radius);
+    font-family: "Anta", sans-serif;
+    padding: 0.5rem 1rem;
+}
+
+#choose-gender {
+    font-family: 'Anta';
+    font-size: 2rem;    
+    margin-right: 1rem;
+    color: grey;
+    text-shadow: var(--text-shadow);
+}
+
+
+#gender-wrapper {
+    display: flex;
+    align-items: center;
+}
 
 @-webkit-keyframes rotate-scale-up {
     0% {
