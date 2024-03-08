@@ -326,4 +326,43 @@ class MyProfile(APIView):
         user_data['firstName'] = user.first_name
         user_data['lastName'] = user.last_name
         user_data['dateJoined'] = user.date_joined
+
+        total_py_submissions = SubmissionPyTest.objects.filter(submitter=user).count()
+        user_data['pySubmissionsCount'] = total_py_submissions
+        user_data['averagePythonGrade'] = (
+            calculate_average_grade('Python', SubmissionPyTest.objects.filter(submitter=user)))
+
+        user_data['multipleChoiceSubmissionsCount'] = \
+            SubmissionMultipleChoiceTest.objects.filter(submitter=user).count()
+        user_data['averageMultipleChoiceGrade'] = (
+            calculate_average_grade('MultipleChoice', SubmissionMultipleChoiceTest.objects.filter(submitter=user)))
+        
         return Response(user_data)
+
+
+def calculate_average_grade(test_type: str, submissions) -> str:
+    total_correct_points = {}
+    total_total_points = {}
+
+    for submission in submissions:
+        if test_type == 'Python':
+            submission_title = submission.python_test.title
+            submission_correct_points = submission.num_correct_tests
+            test_total_points = submission.num_total_tests
+        else:
+            submission_title = submission.multiple_choice_exam.title
+            submission_correct_points = submission.correct_answers
+            test_total_points = submission.multiple_choice_exam.questions.count()
+
+        if submission_title not in total_correct_points.keys():
+            total_correct_points[submission_title] = submission_correct_points
+            total_total_points[submission_title] = test_total_points
+
+        if submission_correct_points > total_correct_points[submission_title]:
+            total_correct_points[submission_title] = submission_correct_points
+
+    print(total_correct_points)
+    print(total_total_points)
+
+    return (f'{sum(total_correct_points.values()) / len(total_correct_points.values()):.2f}/'
+            f'{sum(total_total_points.values()) / len(total_total_points.values()):.2f}')
