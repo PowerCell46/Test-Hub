@@ -1,54 +1,67 @@
 <div class="content-wrapper" *ngIf="userData">
   <aside>
-    <img
-      src="{{userData.image}}"
-      alt="Profile Picture"
-      class="flicker-1"
-    />
+    <img src="{{ userData.image }}" alt="Profile Picture" class="flicker-1" />
     <i class="fa-solid fa-user-pen"></i>
-    <i class="fa-solid fa-user-slash"></i>
+    <i id="delete-profile-i" class="fa-solid fa-user-slash"></i>
     <h5>My Profile</h5>
     <p>
-      Name: <span>
-        {{ (userData.firstName?.length > 0 || userData.lastName?.length > 0) ? 
-        (userData.firstName + ' ' + userData.lastName).trim() : "? ? ? ? ?" }}
+      Name:
+      <span>
+        {{
+          userData.firstName?.length > 0 || userData.lastName?.length > 0
+            ? (userData.firstName + " " + userData.lastName).trim()
+            : "? ? ? ? ?"
+        }}
       </span>
-    </p>    
-    <p>
-      Telephone: <span>{{ userData.phone_number?.length > 0 ? userData.phone_number : "? ? ? ? ?" }}</span>
     </p>
     <p>
-      Gender: <span>{{ userData.gender?.length > 0 ? userData.gender : "? ? ? ? ?" }}</span>
+      Telephone:
+      <span>{{
+        userData.phone_number?.length > 0 ? userData.phone_number : "? ? ? ? ?"
+      }}</span>
     </p>
     <p>
-      Nationality: <span>{{ userData.nationality?.length > 0 ? userData.nationality : "? ? ? ? ?" }}</span>
+      Gender:
+      <span>{{
+        userData.gender?.length > 0 ? userData.gender : "? ? ? ? ?"
+      }}</span>
     </p>
-    <p>Date Joined: <span *ngIf="userData.dateJoined; else noDate">{{ userData.dateJoined | date: 'dd/MM/yyyy' }}</span></p>
+    <p>
+      Nationality:
+      <span>{{
+        userData.nationality?.length > 0 ? userData.nationality : "? ? ? ? ?"
+      }}</span>
+    </p>
+    <p>
+      Date Joined:
+      <span *ngIf="userData.dateJoined; else noDate">{{
+        userData.dateJoined | date : "dd/MM/yyyy"
+      }}</span>
+    </p>
     <ng-template #noDate>? ? ? ? ?</ng-template>
   </aside>
   <main>
     <h1>Account Statistics:</h1>
-    <p>Total Python Submissions: <span>{{userData.pySubmissionsCount}}</span></p>
-    <p>Average Python Grade: <span>{{userData.averagePythonGrade}}</span></p>
-    <p>Total Multiple Choice Submissions: <span>{{userData.multipleChoiceSubmissionsCount}}</span></p>
-    <p>Average Multiple Choice Grade: <span>{{userData.averageMultipleChoiceGrade}}</span></p>
-    <section>
-      <h2>Python Basics</h2>
-      <p>Test Submissions: <span>20</span></p>
-      <p>Avg. Python Grade: <span>4/5</span></p>
-      <p>Avg. Multiple Choice Tests Grade: <span>17/20</span></p>
-    </section>
-    <section>
-      <h2>Python Basics</h2>
-      <p>Test Submissions: <span>20</span></p>
-      <p>Avg. Python Grade: <span>4/5</span></p>
-      <p>Avg. Multiple Choice Tests Grade: <span>17/20</span></p>
-    </section>
-    <section>
-      <h2>Python Basics</h2>
-      <p>Test Submissions: <span>20</span></p>
-      <p>Avg. Python Grade: <span>4/5</span></p>
-      <p>Avg. Multiple Choice Tests Grade: <span>17/20</span></p>
+    <p>
+      Total Python Submissions: <span>{{ userData.pySubmissionsCount }}</span>
+    </p>
+    <p>
+      Average Python Grade: <span>{{ userData.averagePythonGrade }}</span>
+    </p>
+    <p>
+      Total Multiple Choice Submissions:
+      <span>{{ userData.multipleChoiceSubmissionsCount }}</span>
+    </p>
+    <p>
+      Average Multiple Choice Grade:
+      <span>{{ userData.averageMultipleChoiceGrade }}</span>
+    </p>
+    <section *ngFor="let course of userData.courses_data">
+      <h2>{{course.course_name}}</h2>
+      <p>Python Test Submissions: <span>{{course.py_test_submissions}}</span></p>
+      <p>Avg. Python Grade: <span>{{course.avg_python_grade}}</span></p>
+      <p>Multiple Choice Submissions: <span>{{course.multiple_choice_submissions}}</span></p>
+      <p>Avg. Multiple Choice Tests Grade: <span>{{course.avg_multiple_choice_grade}}</span></p>
     </section>
   </main>
 </div>

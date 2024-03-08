@@ -44,11 +44,11 @@ aside i {
 }
 
 aside i:hover {
-    color: 	#1F51FF;
+    color: 	#133199;
     transform: translateY(-0.4rem);
 }
 
-.fa-user-slash:hover {
+#delete-profile-i:hover {
     color: var(--maroon-red);
 }
 
@@ -118,11 +118,12 @@ main section:hover {
 main section h2 {
     text-align: center;
     font-size: 2.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5vh;
 }
 
 main section p {
-    margin: 1rem;
+    margin: 1.5rem;
 }
 
 .flicker-1 {
