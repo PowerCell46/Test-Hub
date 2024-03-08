@@ -9,6 +9,8 @@ from rest_framework import status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+from djangoServer.testhub_auth.serializers import UserProfileDetailsSerializer
 from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceTest, MultipleChoiceQuestion, PyTest, \
     SubmissionMultipleChoiceTest, SubmissionPyTest
 from djangoServer.testhub_structure.permissions import IsTeacher
@@ -253,7 +255,7 @@ class PythonTest(APIView):
     def get(self, request, name):
         name = unquote(name).replace('-', ' ')
         python_test = get_object_or_404(PyTest, title=name)
-        submissions = PySubmissions(python_test.submissions.all().order_by('-submission_time')[:5], many=True)
+        submissions = PySubmissions(python_test.submissions.all().order_by('-submission_time')[:5], many=True)  # Само за Юзъра!!!
         topic_name = python_test.topic.name
         topic_tasks = []
 
@@ -307,3 +309,19 @@ class GetAllSubmissions(APIView):
         submissions = SubmissionPyTest.objects.order_by('-submission_time')[:10]
         serializer = PySubmissions(submissions, many=True)
         return Response(serializer.data)
+
+
+class MyProfile(APIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request):
+        user = request.user
+
+        if not user.is_authenticated:
+            return Response({"error": "Authentication required"}, status=401)
+
+        print(user)
+
+        userDetails = UserProfileDetailsSerializer(user.user_details, many=False)
+        
+        return Response(userDetails.data)

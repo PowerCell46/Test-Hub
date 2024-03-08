@@ -13,6 +13,7 @@ import { MultipleChoiceTestComponent } from './components/testHubTests/multiple-
 import { ResultMultipleChoiceTestComponent } from './components/testHubTests/result-multiple-choice-test/result-multiple-choice-test.component';
 import { ResultSingleQuestionComponent } from './components/testHubTests/result-single-question/result-single-question.component';
 import { SubmitPythonTaskComponent } from './components/testHubTests/submit-python-task/submit-python-task.component';
+import { MyProfileComponent } from './components/common/my-profile/my-profile.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -28,7 +29,9 @@ const routes: Routes = [
   {path: "submissions/multipleChoiceTest/:submissionId/:questionId", component: ResultSingleQuestionComponent},
   
   {path: "contests/:courseName/:topicName/multiple-choice/:taskName", component: MultipleChoiceTestComponent},
-  {path: "contests/:courseName/:topicName/python/:taskName", component: SubmitPythonTaskComponent}
+  {path: "contests/:courseName/:topicName/python/:taskName", component: SubmitPythonTaskComponent},
+
+  {path: "myProfile", component: MyProfileComponent}
 
   // {path: '', redirectTo: '/error', pathMatch: 'full'},
   // {path: '/error', component: ErrorComponent},

@@ -30,3 +30,9 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
         UserProfile.objects.update_or_create(user=account, defaults={'image': self.validated_data.get('image')})
         return account
+
+
+class UserProfileDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = '__all__'

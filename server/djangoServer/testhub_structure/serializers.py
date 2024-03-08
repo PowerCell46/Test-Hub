@@ -74,3 +74,4 @@ class PySubmissions(serializers.ModelSerializer):
 
     def get_python_test_title(self, obj):
         return obj.python_test.title
+
