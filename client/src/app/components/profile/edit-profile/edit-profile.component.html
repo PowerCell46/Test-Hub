@@ -1,10 +1,10 @@
 <main>
   <section id="right-side">
     <h1>Edit Profile</h1>
-    <form method="POST">
+    <form [formGroup]="editProfileForm" (ngSubmit)="onEditProfileSubmit()">
       <img
         id="profile-picture"
-        src="../../../../assets/images/IMG_9692.png"
+        src="{{userDetails.image}}"
         alt="Profile picture"
       />
       <!-- Hidden input for the picture -->
@@ -20,22 +20,24 @@
           type="text"
           name="first-name"
           placeholder="First Name"
+          formControlName="firstName"
           value="{{ userDetails.firstName }}"
         />
         <input
           type="text"
           name="last-name"
+          formControlName="lastName"
           placeholder="Last Name"
           value="{{ userDetails.lastName }}"
         />
       </div>
       <div id="gender-wrapper">
         <label for="course" id="choose-gender">Gender:</label>
-        <select name="course" formControlName="course" id="course-select">
-          <option value="Select a Course" disabled selected>Unknown</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
+        <select name="course" formControlName="gender" id="course-select">
+            <option value="" disabled selected>Unknown</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>       
       </div>
       <!-- <p class="error-message">First name must be at least 6 chars!</p> -->
       <input
@@ -43,13 +45,11 @@
         name="email"
         placeholder="Email"
         value="{{ userDetails.email }}"
-        disabled
-      />
-
-      
+        disabled/>
       <input
         type="text"
         name="telephone"
+        formControlName="telephone"
         placeholder="Telephone"
         value="{{ userDetails.phone_number }}"
       />
@@ -57,15 +57,14 @@
       <input
         type="text"
         name="nationality"
+        formControlName="nationality"
         placeholder="Nationality"
         value="{{ userDetails.nationality }}"
       />
       <!-- <p class="error-message">Password must be at least 6 chars!</p> -->
-      <button id="edit-submit-button">Save Changes</button>
+      <button type="submit" id="edit-submit-button">Save Changes</button>
     </form>
-    <h5>
-      Everything's OK? Return to
-      <a href="../login/login.html">My Profile</a>
+    <h5>Everything's OK? Return to <a href="../login/login.html">My Profile</a>
     </h5>
   </section>
 </main>
