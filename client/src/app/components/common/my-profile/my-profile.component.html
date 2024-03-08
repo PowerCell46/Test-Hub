@@ -1,8 +1,18 @@
+<section [ngStyle]="{'display': deleteProfileVisible ? 'flex' : 'none', 'opacity': deleteProfileOpacity}" class="delete-profile-section">
+  <i class="fa-solid fa-triangle-exclamation"></i>
+  <h1>Are you sure?</h1>
+  <p>This action will permanently delete all of your data!</p>
+  <div class="buttons-wrapper">
+    <button id="cancel" (click)="hideDeleteProfileSection()">Cancel</button>
+    <button>Delete</button>
+  </div>
+</section>
+
 <div class="content-wrapper" *ngIf="userData">
   <aside>
     <img src="{{ userData.image }}" alt="Profile Picture" class="flicker-1" />
     <i class="fa-solid fa-user-pen"></i>
-    <i id="delete-profile-i" class="fa-solid fa-user-slash"></i>
+    <i id="delete-profile-i" class="fa-solid fa-user-slash" (click)="showDeleteProfileSection()"></i>
     <h5>My Profile</h5>
     <p>
       Name:
