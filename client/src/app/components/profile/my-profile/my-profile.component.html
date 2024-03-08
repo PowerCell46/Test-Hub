@@ -11,7 +11,7 @@
 <div class="content-wrapper" *ngIf="userData">
   <aside>
     <img src="{{ userData.image }}" alt="Profile Picture" class="flicker-1" />
-    <i class="fa-solid fa-user-pen"></i>
+    <i class="fa-solid fa-user-pen" routerLink="/editProfile"></i>
     <i id="delete-profile-i" class="fa-solid fa-user-slash" (click)="showDeleteProfileSection()"></i>
     <h5>My Profile</h5>
     <p>

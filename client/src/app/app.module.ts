@@ -19,7 +19,8 @@ import { MultipleChoiceTestComponent } from './components/testHubTests/multiple-
 import { ResultMultipleChoiceTestComponent } from './components/testHubTests/result-multiple-choice-test/result-multiple-choice-test.component';
 import { ResultSingleQuestionComponent } from './components/testHubTests/result-single-question/result-single-question.component';
 import { SubmitPythonTaskComponent } from './components/testHubTests/submit-python-task/submit-python-task.component';
-import { MyProfileComponent } from './components/common/my-profile/my-profile.component';
+import { MyProfileComponent } from './components/profile/my-profile/my-profile.component';
+import { EditProfileComponent } from './components/profile/edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { MyProfileComponent } from './components/common/my-profile/my-profile.co
     ResultMultipleChoiceTestComponent,
     ResultSingleQuestionComponent,
     SubmitPythonTaskComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

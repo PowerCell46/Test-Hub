@@ -1,0 +1,71 @@
+<main>
+  <section id="right-side">
+    <h1>Edit Profile</h1>
+    <form method="POST">
+      <img
+        id="profile-picture"
+        src="../../../../assets/images/IMG_9692.png"
+        alt="Profile picture"
+      />
+      <!-- Hidden input for the picture -->
+      <input
+      type="text"
+      name="username"
+      placeholder="Username"
+      value="{{ userDetails.username }}"
+      disabled
+        />
+      <div id="edit-names-div">
+        <input
+          type="text"
+          name="first-name"
+          placeholder="First Name"
+          value="{{ userDetails.firstName }}"
+        />
+        <input
+          type="text"
+          name="last-name"
+          placeholder="Last Name"
+          value="{{ userDetails.lastName }}"
+        />
+      </div>
+      <div id="gender-wrapper">
+        <label for="course" id="choose-gender">Gender:</label>
+        <select name="course" formControlName="course" id="course-select">
+          <option value="Select a Course" disabled selected>Unknown</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+      <!-- <p class="error-message">First name must be at least 6 chars!</p> -->
+      <input
+        type="text"
+        name="email"
+        placeholder="Email"
+        value="{{ userDetails.email }}"
+        disabled
+      />
+
+      
+      <input
+        type="text"
+        name="telephone"
+        placeholder="Telephone"
+        value="{{ userDetails.phone_number }}"
+      />
+      <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
+      <input
+        type="text"
+        name="nationality"
+        placeholder="Nationality"
+        value="{{ userDetails.nationality }}"
+      />
+      <!-- <p class="error-message">Password must be at least 6 chars!</p> -->
+      <button id="edit-submit-button">Save Changes</button>
+    </form>
+    <h5>
+      Everything's OK? Return to
+      <a href="../login/login.html">My Profile</a>
+    </h5>
+  </section>
+</main>

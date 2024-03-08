@@ -2,7 +2,7 @@ from django.urls import path
 
 from djangoServer.testhub_structure.views import GetCoursesAndTopics, CreateMultipleChoiceExam, CreatePythonExam, \
     MultipleChoiceExam, GetMultipleChoiceTestSubmission, GetMultipleChoiceQuestion, PythonTest, GetAllSubmissions, \
-    MyProfile
+    MyProfile, EditProfile
 
 urlpatterns = [
     path('getCoursesAndTopics/', GetCoursesAndTopics.as_view(), name='get-courses-and-topics'),
@@ -18,4 +18,5 @@ urlpatterns = [
     path('pythonTest/<str:name>/', PythonTest.as_view(), name='python-test'),
     path('submissions/', GetAllSubmissions.as_view(), name='all-submissions'),
     path('myProfile/', MyProfile.as_view(), name='my-profile'),
+    path('editProfile/', EditProfile.as_view(), name='edit-profile'),
 ]

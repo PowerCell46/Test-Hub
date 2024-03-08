@@ -17,4 +17,12 @@ export class MyProfileService {
 
     return this.http.get<any[]>(`${baseServerUrl}/testHub/myProfile/`, {headers: headers}).pipe();
   }
+
+  getEditProfileData() {
+    const headers = new HttpHeaders({
+      'Authorization': `Token ${this.authService.getToken()}`,
+    });
+
+    return this.http.get<any[]>(`${baseServerUrl}/testHub/editProfile/`, {headers: headers}).pipe();
+  }
 }
