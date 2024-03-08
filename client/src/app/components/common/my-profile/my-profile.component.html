@@ -1,18 +1,30 @@
-<div class="content-wrapper">
+<div class="content-wrapper" *ngIf="userData">
   <aside>
     <img
-      src="../../../../assets/images/IMG_9692.png"
+      src="{{userData.image}}"
       alt="Profile Picture"
       class="flicker-1"
     />
     <i class="fa-solid fa-user-pen"></i>
     <i class="fa-solid fa-user-slash"></i>
     <h5>My Profile</h5>
-    <p>Name: <span>Peter Gerdzhikov</span></p>
-    <p>Telephone: <span>0879201912</span></p>
-    <p>Gender: <span>Male</span></p>
-    <p>Nationality: <span>Bulgarian</span></p>
-    <p>Date Joined: <span>01/03/2024</span></p>
+    <p>
+      Name: <span>
+        {{ (userData.firstName?.length > 0 || userData.lastName?.length > 0) ? 
+        (userData.firstName + ' ' + userData.lastName).trim() : "? ? ? ? ?" }}
+      </span>
+    </p>    
+    <p>
+      Telephone: <span>{{ userData.phone_number?.length > 0 ? userData.phone_number : "? ? ? ? ?" }}</span>
+    </p>
+    <p>
+      Gender: <span>{{ userData.gender?.length > 0 ? userData.gender : "? ? ? ? ?" }}</span>
+    </p>
+    <p>
+      Nationality: <span>{{ userData.nationality?.length > 0 ? userData.nationality : "? ? ? ? ?" }}</span>
+    </p>
+    <p>Date Joined: <span *ngIf="userData.dateJoined; else noDate">{{ userData.dateJoined | date: 'dd/MM/yyyy' }}</span></p>
+    <ng-template #noDate>? ? ? ? ?</ng-template>
   </aside>
   <main>
     <h1>Account Statistics:</h1>

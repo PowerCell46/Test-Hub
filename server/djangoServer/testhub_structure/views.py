@@ -320,8 +320,10 @@ class MyProfile(APIView):
         if not user.is_authenticated:
             return Response({"error": "Authentication required"}, status=401)
 
-        print(user)
-
-        userDetails = UserProfileDetailsSerializer(user.user_details, many=False)
-        
-        return Response(userDetails.data)
+        user_details_serializer = UserProfileDetailsSerializer(
+            user.user_details, context={'request': request}, many=False)
+        user_data = user_details_serializer.data
+        user_data['firstName'] = user.first_name
+        user_data['lastName'] = user.last_name
+        user_data['dateJoined'] = user.date_joined
+        return Response(user_data)

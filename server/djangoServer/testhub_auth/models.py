@@ -6,7 +6,7 @@ from django.dispatch import receiver
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_details')
-    image = models.ImageField(upload_to='user_images/')  # , default='default.jpg' ADD A DEFAULT IMAGE IN THE FOLDER!
+    image = models.ImageField(upload_to='user_images/', default='user_images/defaultProfilePic.png')
     phone_number = models.CharField(max_length=10, null=True, blank=True)
     nationality = models.CharField(max_length=25, null=True, blank=True)
     gender = models.CharField(choices=(('Male', 'Male'), ('Female', 'Female')), null=True, blank=True)
