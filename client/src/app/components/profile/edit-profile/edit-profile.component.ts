@@ -13,11 +13,12 @@ export class EditProfileComponent implements OnInit {
 
   constructor(private profileService: MyProfileService, private formBuilder: FormBuilder) {
     this.editProfileForm = this.formBuilder.group({
-      firstName: ['', [Validators.required, Validators.minLength(5)]],
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.minLength(5)]],
       gender: ['', Validators.required],
       telephone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
-      nationality: ['', [Validators.required, Validators.minLength(2)]]
+      nationality: ['', [Validators.required, Validators.minLength(2)]],
+      profilePicture: ['', [Validators.required]]
     });
   }
 
@@ -34,8 +35,16 @@ export class EditProfileComponent implements OnInit {
       lastName: this.userDetails.lastName,
       gender: this.userDetails.gender,
       telephone: this.userDetails.phone_number,
-      nationality: this.userDetails.nationality
+      nationality: this.userDetails.nationality,
+      profilePicture: this.userDetails.image
     });
+  }
+
+  onFileChange(event: any) {
+    if (event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.editProfileForm.get('profilePicture')?.setValue(file);
+    }
   }
 
   onEditProfileSubmit(): void {
@@ -46,3 +55,5 @@ export class EditProfileComponent implements OnInit {
     }
   }
 }
+
+

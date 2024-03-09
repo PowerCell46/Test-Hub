@@ -2,19 +2,28 @@
   <section id="right-side">
     <h1>Edit Profile</h1>
     <form [formGroup]="editProfileForm" (ngSubmit)="onEditProfileSubmit()">
-      <img
+      <!-- <img
         id="profile-picture"
-        src="{{userDetails.image}}"
+        src="{{ userDetails.image }}"
         alt="Profile picture"
-      />
-      <!-- Hidden input for the picture -->
+      /> -->
       <input
-      type="text"
-      name="username"
-      placeholder="Username"
-      value="{{ userDetails.username }}"
-      disabled
-        />
+          name="profilePicture"
+          formControlName="profilePicture"
+          type="file"
+          class="file-upload"
+          accept="image/jpeg, image/png, image/webp"
+          required=""
+          (change)="onFileChange($event)"
+      />
+  
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        value="{{ userDetails.username }}"
+        disabled
+      />
       <div id="edit-names-div">
         <input
           type="text"
@@ -31,21 +40,33 @@
           value="{{ userDetails.lastName }}"
         />
       </div>
+      <p
+        *ngIf="editProfileForm.get('firstName')?.touched && editProfileForm.get('firstName')?.errors?.['minlength']"
+        class="error-message"
+      >
+        First name must be at least 3 chars!
+      </p>
+      <p
+        *ngIf="editProfileForm.get('lastName')?.touched && editProfileForm.get('lastName')?.errors?.['minlength']"
+        class="error-message"
+      >
+        Last name must be at least 5 chars!
+      </p>
       <div id="gender-wrapper">
         <label for="course" id="choose-gender">Gender:</label>
         <select name="course" formControlName="gender" id="course-select">
-            <option value="" disabled selected>Unknown</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>       
+          <option value="" disabled selected>Unknown</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
       </div>
-      <!-- <p class="error-message">First name must be at least 6 chars!</p> -->
       <input
         type="text"
         name="email"
         placeholder="Email"
         value="{{ userDetails.email }}"
-        disabled/>
+        disabled
+      />
       <input
         type="text"
         name="telephone"
@@ -53,7 +74,16 @@
         placeholder="Telephone"
         value="{{ userDetails.phone_number }}"
       />
-      <!-- <p class="error-message">Email must be at least 6 chars!</p> -->
+      <p
+        *ngIf="editProfileForm.get('telephone')?.touched && editProfileForm.get('telephone')?.errors?.['minlength']"
+        class="error-message">
+        Telephone Must be exactly 10 chars!
+      </p>
+      <p
+      *ngIf="editProfileForm.get('telephone')?.touched && editProfileForm.get('telephone')?.errors?.['maxlength']"
+      class="error-message">
+      Telephone Must be exactly 10 chars!
+    </p>
       <input
         type="text"
         name="nationality"
@@ -61,10 +91,16 @@
         placeholder="Nationality"
         value="{{ userDetails.nationality }}"
       />
-      <!-- <p class="error-message">Password must be at least 6 chars!</p> -->
+      <p
+      *ngIf="editProfileForm.get('nationality')?.touched && editProfileForm.get('nationality')?.errors?.['minlength']"
+      class="error-message">
+      Nationality Must be at least 2 chars!
+    </p>
+
       <button type="submit" id="edit-submit-button">Save Changes</button>
     </form>
-    <h5>Everything's OK? Return to <a href="../login/login.html">My Profile</a>
+    <h5>
+      Everything's OK? Return to <a href="../login/login.html">My Profile</a>
     </h5>
   </section>
 </main>
