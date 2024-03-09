@@ -15,6 +15,7 @@ import { ResultSingleQuestionComponent } from './components/testHubTests/result-
 import { SubmitPythonTaskComponent } from './components/testHubTests/submit-python-task/submit-python-task.component';
 import { MyProfileComponent } from './components/profile/my-profile/my-profile.component';
 import { EditProfileComponent } from './components/profile/edit-profile/edit-profile.component';
+import { SubmissionsMultipleChoiceTestsComponent } from './components/submissions/submissions-multiple-choice-tests/submissions-multiple-choice-tests.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: "createMultipleChoiceQuestion", component: CreateMultiplechoiceTestComponent},
   {path: "createPythonTest", component: PythonTestsComponent},
 
-  {path: "submissions", component: SubmissionsComponent},
+  {path: "submissions/python", component: SubmissionsComponent},
+  {path: "submissions/multipleChoiceTests", component: SubmissionsMultipleChoiceTestsComponent},
   {path: "submissions/multipleChoiceTest/:submissionId", component: ResultMultipleChoiceTestComponent},
   {path: "submissions/multipleChoiceTest/:submissionId/:questionId", component: ResultSingleQuestionComponent},
   

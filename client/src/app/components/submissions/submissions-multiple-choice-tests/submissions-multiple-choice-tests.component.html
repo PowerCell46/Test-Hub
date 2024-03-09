@@ -1,0 +1,26 @@
+<main>
+    <h1>Recent Multiple Choice Submissions</h1>
+    <table>
+        <tr>
+            <th>Submission №</th>
+            <th>Date & Time</th>
+            <th>User</th>
+            <th>Task</th>
+            <th>Result</th>
+          </tr>
+          <tr *ngFor="let submission of submissions">
+            <td>{{submission.id}}</td>
+            <td>{{submission.submission_time | date : "dd/MM/yyyy HH:mm:ss" }}</td>
+            <td>{{submission.submitter.username}}</td>
+            <td>{{submission.multiple_choice_exam.title}}</td>
+            <td>
+    
+              <i class="fa-solid fa-check" *ngFor="let n of getArray(submission.correct_answers)"></i> <!-- Correct tests -->
+                            
+              <i class="fa-solid fa-xmark" *ngFor="let n of getArray(submission.multiple_choice_exam.questions.length - submission.correct_answers)"></i> <!-- Incorrect tests -->
+              
+              {{submission.correct_answers}}/{{submission.multiple_choice_exam.questions.length}}
+            </td>
+          </tr>
+    </table>
+  </main>

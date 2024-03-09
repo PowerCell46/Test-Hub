@@ -31,8 +31,8 @@
 
     <ul>
       <li *ngIf="isLoggedIn"><a routerLink="/myProfile">My Profile</a></li>
-      <li><a routerLink="/submissions">Py Submissions</a></li>
-      <li><a routerLink="/submissions">MCQ Submissions</a></li>
+      <li><a routerLink="/submissions/python">Py Submissions</a></li>
+      <li><a routerLink="/submissions/multipleChoiceTests">MCQ Submissions</a></li>
       <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
       <li *ngIf="!isLoggedIn"><a routerLink="/register">Register</a></li>
       <li *ngIf="isLoggedIn"><a routerLink="/logout">Logout</a></li>

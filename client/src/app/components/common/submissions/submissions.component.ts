@@ -14,7 +14,7 @@ export class SubmissionsComponent implements OnInit{
   constructor(private submissionsService: SubmissionsService) {}
 
   ngOnInit(): void {
-    this.submissionsService.getAllSubmissions().subscribe(data => {
+    this.submissionsService.getAllPySubmissions().subscribe(data => {
       this.submissions = data;
     })
   }

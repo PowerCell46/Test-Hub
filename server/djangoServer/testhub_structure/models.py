@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.contrib.auth.models import User
 from django.core.validators import MinLengthValidator, FileExtensionValidator
 from django.db import models
@@ -55,6 +57,7 @@ class SubmissionMultipleChoiceTest(models.Model):
     correct_answers = models.PositiveIntegerField()
     multiple_choice_exam = models.ForeignKey(to=MultipleChoiceTest, on_delete=models.DO_NOTHING,
                                              related_name='submissions')
+    submission_time = models.DateTimeField(auto_now_add=True)
 
 
 class SubmissionPyTest(models.Model):

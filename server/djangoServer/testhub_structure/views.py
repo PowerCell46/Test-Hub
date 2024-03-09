@@ -302,7 +302,7 @@ class PythonTest(APIView):
                         status=status.HTTP_201_CREATED)
 
 
-class GetAllSubmissions(APIView):
+class GetAllPySubmissions(APIView):
     permission_classes = (AllowAny,)
 
     def get(self, request):
@@ -420,3 +420,12 @@ class EditProfile(APIView):
 
     def post(self, request):
         ...
+
+
+class GetAllMultipleChoiceSubmissions(APIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request):
+        submissions = SubmissionMultipleChoiceTest.objects.order_by('-submission_time', '-id')[:10]
+        serializer = MultipleChoiceSubmissionSerializer(submissions, many=True)
+        return Response(serializer.data)

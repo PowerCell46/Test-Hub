@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Course, Topic, PyTest, MultipleChoiceTest, MultipleChoiceQuestion, SubmissionMultipleChoiceTest, \
     SubmissionPyTest
+from ..testhub_auth.serializers import UserProfileDetailsSerializer, UserRegistrationSerializer
 
 
 class PyTestSerializer(serializers.ModelSerializer):
@@ -49,9 +50,11 @@ class MultipleChoiceExamSerializer(serializers.ModelSerializer):
 
 
 class MultipleChoiceSubmissionSerializer(serializers.ModelSerializer):
+    multiple_choice_exam = MultipleChoiceExamSerializer(many=False, read_only=True)
+    submitter = UserRegistrationSerializer(many=False, read_only=True)
     class Meta:
         model = SubmissionMultipleChoiceTest
-        fields = ['answers', 'correct_answers']
+        fields = ['id', 'submission_time', 'answers', 'correct_answers', 'multiple_choice_exam', 'submitter']
 
 
 class PythonTestSerializer(serializers.ModelSerializer):

@@ -9,7 +9,11 @@ export class SubmissionsService {
 
   constructor(private http: HttpClient) { }
 
-  getAllSubmissions() {
-    return this.http.get<any[]>(`${baseServerUrl}testHub/submissions/`).pipe();
+  getAllPySubmissions() {
+    return this.http.get<any[]>(`${baseServerUrl}testHub/submissions/python/`).pipe();
+  }
+
+  getAllMCQSubmissions() {
+    return this.http.get<any[]>(`${baseServerUrl}testHub/submissions/multipleChoice/`).pipe();
   }
 }
