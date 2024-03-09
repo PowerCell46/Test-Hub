@@ -66,3 +66,10 @@ export interface MultipleChoiceExam {
     title: string,
     questions: multipleChoiceQuestion[]
 }
+
+export interface Integration {
+    title: string,
+    description: string,
+    imageUrl: string,
+    id: string
+}

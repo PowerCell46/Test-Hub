@@ -1,0 +1,51 @@
+.integration {
+    margin: 0 auto;
+    padding: 2.5rem;
+    width: 87.5%;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 5vh;
+}
+
+.integration:nth-child(2n) {
+    background-color: rgba(0, 0, 0, 0.4);
+} 
+
+
+.integration img {
+    border-radius: 0.7rem;
+    box-shadow: var(--box-shadow);
+}
+
+#GGF-img {
+    height: 20vh;
+    box-shadow: none;
+}
+
+#SPGE-img {
+    height: 70vh;
+}
+
+.integration-content-wrapper {
+    /* background-color: aliceblue; */
+    width: 50vw;
+}
+
+
+.integration .integration-content-wrapper h5 {
+    text-align: center;
+    color: whitesmoke;
+    margin-bottom: 5vh;
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    font-family: 'Permanent Marker';
+    text-shadow: var(--text-shadow);
+}
+
+.integration p {
+    width: 100%;
+    font-size: 1.6rem;
+}
