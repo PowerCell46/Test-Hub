@@ -402,26 +402,6 @@ def calculate_average_grade(test_type: str, submissions) -> str:
     return f'{avg_correct_points:.2f}/{avg_total_points:.2f}'
 
 
-class EditProfile(APIView):
-    def get(self, request):
-        user = request.user
-
-        if not user.is_authenticated:
-            return Response({"error": "Authentication required"}, status=401)
-
-        user_details_serializer = UserProfileDetailsSerializer(
-            user.user_details, context={'request': request}, many=False)
-        user_data = user_details_serializer.data
-        user_data['firstName'] = user.first_name
-        user_data['lastName'] = user.last_name
-        user_data['email'] = user.email
-        user_data['username'] = user.username
-        return Response(user_data)
-
-    def post(self, request):
-        ...
-
-
 class GetAllMultipleChoiceSubmissions(APIView):
     permission_classes = (AllowAny,)
 

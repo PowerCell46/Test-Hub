@@ -7,15 +7,16 @@
         src="{{ userDetails.image }}"
         alt="Profile picture"
       /> -->
+
+      <div class="image-upload-div">
       <input
           name="profilePicture"
-          formControlName="profilePicture"
           type="file"
           class="file-upload"
           accept="image/jpeg, image/png, image/webp"
           required=""
-          (change)="onFileChange($event)"
       />
+    </div>
   
       <input
         type="text"
@@ -100,7 +101,7 @@
       <button type="submit" id="edit-submit-button">Save Changes</button>
     </form>
     <h5>
-      Everything's OK? Return to <a href="../login/login.html">My Profile</a>
+      Everything's OK? Return to <a routerLink="/myProfile">My Profile</a>
     </h5>
   </section>
 </main>

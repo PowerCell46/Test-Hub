@@ -23,6 +23,6 @@ export class MyProfileService {
       'Authorization': `Token ${this.authService.getToken()}`,
     });
 
-    return this.http.get<any[]>(`${baseServerUrl}/testHub/editProfile/`, {headers: headers}).pipe();
+    return this.http.get<any[]>(`${baseServerUrl}/auth/editProfile/`, {headers: headers}).pipe();
   }
 }
