@@ -11,19 +11,22 @@ interface Topic {
 })
 export class CoursesTopicsService {
   requestUrl: string =  `${baseServerUrl}testHub/getCoursesAndTopics/`;
-  constructor(private http: HttpClient) { }
+  
+  constructor(
+    private http: HttpClient
+  ) { }
 
   getCoursesTopicsTests(): Observable<any> {
     return this.http.get<any[]>(this.requestUrl).pipe();
   }
 
-  getCourses(): Observable<string[]> {
+  getCourses(): Observable<string[]> { // returns an array of all the courses names
     return this.http.get<any[]>(this.requestUrl).pipe(
       map(data => data.map(course => course.name))
     );
   }
    
-  getTopics(selectedCourse: string): Observable<any> {
+  getTopics(selectedCourse: string): Observable<any> { // returns an array of the selected course topics
     return this.http.get<any[]>(this.requestUrl).pipe(
        map(courses => {        
          const selectedCourseObj = courses.find(course => course.name === selectedCourse);

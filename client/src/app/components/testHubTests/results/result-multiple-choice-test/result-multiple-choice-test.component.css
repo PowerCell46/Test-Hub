@@ -16,7 +16,7 @@ body {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     margin-bottom: 5vh;
-    background-image: url('../../../../assets/images/coding-avfu043y2kv52wha.jpg');
+    background-image: url('../../../../../assets/images/coding-avfu043y2kv52wha.jpg');
     animation-name: bgPositionAnim;
     animation-duration: 10s;
     animation-timing-function: ease-in-out;

@@ -5,7 +5,9 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../../services/authentication/authentication.service';
 import { CoursesTopicsService } from '../../../../services/courses-topics.service';
 import { topicDefaultValueValidator } from '../../../../../assets/validators/topicValidator';
-import { baseServerUrl } from '../../../../../assets/constants';
+import { baseServerUrl, toastifyParams } from '../../../../../assets/constants';
+import Toastify from 'toastify-js';
+import 'toastify-js/src/toastify.css';
 
 @Component({
   selector: 'app-create-multiplechoice-test',
@@ -17,32 +19,42 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
     topics: any = [];
     public multipleQuestionsExamForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, public authService: AuthenticationService, private courseTopicsService: CoursesTopicsService) {
+    constructor(
+      private formBuilder: FormBuilder,
+      private http: HttpClient,
+      private router: Router,
+      public authService: AuthenticationService,
+      private courseTopicsService: CoursesTopicsService
+    ) {
       this.multipleQuestionsExamForm = this.formBuilder.group({
         examTitle: ['', [Validators.required, Validators.minLength(3)]],
         course: ['', [Validators.required]],
-        topic: [{value: null, disabled: true}, [topicDefaultValueValidator()]],
+        topic: [{value: null, disabled: true}, [Validators.required, topicDefaultValueValidator()]],
         examQuestions: this.formBuilder.array([])
       });
-
     }
 
+
     ngOnInit(): void {
-      this.courseTopicsService.getCourses().subscribe(data => {
+      this.courseTopicsService.getCourses().subscribe((data: string[]) => {
+        // console.log(data);
         this.courses = data;
       });
     }
 
+
     onCourseSelect(): void {
       const selectedCourse = this.multipleQuestionsExamForm.get('course')?.value;
       if (selectedCourse) {
-        this.courseTopicsService.getTopics(selectedCourse).subscribe(topics => {        
+        this.courseTopicsService.getTopics(selectedCourse).subscribe((topics: string[]) => {  
+          // console.log(topics);                
           this.topics = topics;
           this.multipleQuestionsExamForm.get('topic')?.enable();
           this.multipleQuestionsExamForm.get('topic')?.setValue('Select a Topic');
         });
       }
     }
+
 
     get examQuestions(): FormArray {
       return this.multipleQuestionsExamForm.get('examQuestions') as FormArray;
@@ -61,29 +73,51 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
       });
     }
 
+
     addQuestion(): void {
       const newId = this.examQuestions.value.length + 1; 
       this.examQuestions.push(this.createQuestionFormGroup(newId));
     }
 
+
     removeQuestion(index: number): void {
       this.examQuestions.removeAt(index);
     }
 
+    
     onMultipleQuestionsSubmit(): void {
-      // if form is valid ???
-      const headers = new HttpHeaders({
-        'Authorization': `Token ${this.authService.getToken()}`
-      });
-
-      this.http.post(`${baseServerUrl}testHub/createMultipleChoiceExam/`, this.multipleQuestionsExamForm.value, {headers: headers})
-      .subscribe({
-        next: () => {
-          this.router.navigate(['/']);
-        },
-        error: err => {
-          console.error(err);
-        }
-      });
+      if (this.multipleQuestionsExamForm.valid) {
+        const headers = new HttpHeaders({
+          'Authorization': `Token ${this.authService.getToken()}`
+        });
+  
+        this.http.post(`${baseServerUrl}testHub/createMultipleChoiceExam/`, this.multipleQuestionsExamForm.value, {headers: headers})
+        .subscribe({
+          next: () => {
+            this.router.navigate(['/']);
+          },
+          error: err => {
+            console.error(err);
+            Toastify({
+              text: "MCQ Submission error: Please try again later.",
+              duration: 3000,
+              close: toastifyParams.close,
+              gravity: "top",
+              position: "center",
+              backgroundColor: toastifyParams.errorBackgroundColor,
+            }).showToast();
+          }
+        });
+      
+      } else {
+        Toastify({
+          text: "Please fill in all required fields correctly.",
+          duration: 3000,
+          close: toastifyParams.close,
+          gravity: "top",
+          position: "center",
+          backgroundColor: toastifyParams.errorBackgroundColor,
+        }).showToast();
+      }   
     }
 }

@@ -3,6 +3,7 @@
   (ngSubmit)="onMultipleQuestionsSubmit()"
 >
   <section id="choose-course-choose-topic">
+    <!-- Exam Title -->
     <div class="title-wrapper">
       <label id="task-title-label" for="task-title">Exam Title:</label>
       <input
@@ -10,15 +11,18 @@
         id="task-title"
         formControlName="examTitle"
         placeholder="Python Advanced Exam"
+        [ngClass]="{'error': multipleQuestionsExamForm.get('examTitle')?.touched && multipleQuestionsExamForm.get('examTitle')?.invalid}"
       />
     </div>
+    <!-- Error message Exam Title -->
     <p *ngIf="multipleQuestionsExamForm.get('examTitle')?.touched && multipleQuestionsExamForm.get('examTitle')?.errors?.['minlength']" class="error-message">
       Title must be at least 3 chars!
     </p>
+
     <div class="wrapper">
       <div>
+        <!-- Course -->
         <label for="course">Course:</label>
-
         <select name="course" formControlName="course" id="course-select" (change)="onCourseSelect()">
           <option value="Select a Course" disabled selected>Select a Course</option>
           <option *ngFor="let course of courses" [value]="course">
@@ -28,6 +32,7 @@
       </div>
 
       <div>
+        <!-- Topic -->
         <label for="topic">Topic:</label>
         <select name="topic" formControlName="topic" id="course-select">
           <option value="Select a Topic" disabled selected>Select a Topic</option>
@@ -60,6 +65,7 @@
           formControlName="title"
           type="text"
           placeholder="What is the difference between list and tuple?"
+          [ngClass]="{'error': question.get('title')?.touched && question.get('title')?.invalid }"
         />
         <!-- Error message Title -->
         <p *ngIf="question.get('title')?.touched && question.get('title')?.errors?.['minlength']" class="error-message">
@@ -74,6 +80,7 @@
             formControlName="optionA"
             type="text"
             placeholder="A"
+            [ngClass]="{'error': question.get('optionA')?.touched && question.get('optionA')?.invalid }"
           />
          <!-- Option B -->
           <input
@@ -81,6 +88,7 @@
             formControlName="optionB"
             type="text"
             placeholder="B"
+            [ngClass]="{'error': question.get('optionB')?.touched && question.get('optionB')?.invalid }"
           />
         </div>
          <!--Error message Option A  -->
@@ -92,7 +100,6 @@
           Option B must be at least 1 char!
         </p>
 
-
         <div>
           <!-- Option C -->
           <input
@@ -100,6 +107,7 @@
             formControlName="optionC"
             type="text"
             placeholder="C"
+            [ngClass]="{'error': question.get('optionC')?.touched && question.get('optionC')?.invalid }"
           />
           <!-- Option D -->
           <input
@@ -107,6 +115,7 @@
             formControlName="optionD"
             type="text"
             placeholder="D"
+            [ngClass]="{'error': question.get('optionD')?.touched && question.get('optionD')?.invalid }"
           />
         </div>
         <!--Error message Option C  -->
@@ -124,13 +133,14 @@
           formControlName="correctAnswer"
           type="number"
           placeholder="Correct Answer"
+          [ngClass]="{'error': question.get('correctAnswer')?.touched && question.get('correctAnswer')?.invalid }"
         />
         <!-- Error message Correct Answer -->
         <p *ngIf="question.get('correctAnswer')?.touched && question.get('correctAnswer')?.errors?.['min']" class="error-message">
           Correct Answer must be at least 1!
         </p>
         <p *ngIf="question.get('correctAnswer')?.touched && question.get('correctAnswer')?.errors?.['max']" class="error-message">
-          Correct Answer must be lower than 4!
+          Correct Answer must be lower than 5!
         </p>
       </section>
     </main>
