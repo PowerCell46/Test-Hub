@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { passwordStrengthValidator } from '../../../../assets/validators/passwordValidator';
 import { HttpClient } from '@angular/common/http';
 import { baseServerUrl, toastifyParams } from '../../../../assets/constants';
-import Toastify from 'toastify-js'
-import 'toastify-js/src/toastify.css'
+import Toastify from 'toastify-js';
+import 'toastify-js/src/toastify.css';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/authentication.service';
 

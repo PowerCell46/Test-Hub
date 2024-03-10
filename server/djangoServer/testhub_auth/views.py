@@ -8,7 +8,8 @@ from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 
 from djangoServer.testhub_auth.models import UserProfile
-from djangoServer.testhub_auth.serializers import UserRegistrationSerializer, UserProfileDetailsSerializer
+from djangoServer.testhub_auth.serializers import UserRegistrationSerializer, UserProfileDetailsSerializer, \
+    UserSerializer
 from djangoServer.testhub_structure.permissions import IsUnauthenticated
 
 
@@ -27,8 +28,8 @@ class UserRegister(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class UserLogin(APIView):  # ALLOW ONLY NOT AUTHENTICATED USERS
-    permission_classes = [AllowAny]
+class UserLogin(APIView):
+    permission_classes = [IsUnauthenticated]
 
     def post(self, request):
         username = request.data.get('username')
@@ -36,8 +37,14 @@ class UserLogin(APIView):  # ALLOW ONLY NOT AUTHENTICATED USERS
 
         user = authenticate(username=username, password=password)
         if user:
+            if user.user_details.is_deleted:
+                return Response({'error': 'Invalid Username or Password'}, status=status.HTTP_404_NOT_FOUND)
             token, created = Token.objects.get_or_create(user=user)
-            return Response({'token': token.key}, status=status.HTTP_200_OK)
+            user_serializer = UserSerializer(user)
+            return Response({
+                'token': token.key,
+                'user': user_serializer.data
+            }, status=status.HTTP_200_OK)
         else:
             return Response({'error': 'Invalid Username or Password'}, status=status.HTTP_400_BAD_REQUEST)
 

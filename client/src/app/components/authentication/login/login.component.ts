@@ -4,7 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { passwordStrengthValidator } from '../../../../assets/validators/passwordValidator';
-import { baseServerUrl } from '../../../../assets/constants';
+import { baseServerUrl, toastifyParams } from '../../../../assets/constants';
+import Toastify from 'toastify-js';
+import 'toastify-js/src/toastify.css';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,12 @@ import { baseServerUrl } from '../../../../assets/constants';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, public authService: AuthenticationService) {
+  constructor(
+      private formBuilder: FormBuilder,
+      private http: HttpClient,
+      private router: Router,
+      private authService: AuthenticationService
+    ) {
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(5), passwordStrengthValidator()]],
       password: ['', [Validators.required, Validators.minLength(5), passwordStrengthValidator()]]
@@ -29,15 +36,38 @@ export class LoginComponent {
         next: (response: any) => {
           // console.log(response);
 
-          this.authService.saveToken(response.token);
+          this.authService.saveToken(response.token, response.user);
 
           this.router.navigate(['/']);
           
         },
-        error: (err) => {
-          console.error(err);
+        error: (error) => {
+          let errorMessage = "Registration error: Please try again later."; 
+          if (error.error && typeof error.error === 'object') {
+            Object.keys(error.error).forEach(key => {
+              errorMessage = `${key}: ${error.error[key].join(" ")}`;
+            });
+          }
+          Toastify({
+            text: errorMessage,
+            duration: 3000,
+            close: toastifyParams.close,
+            gravity: "top",
+            position: "center",
+            backgroundColor: toastifyParams.errorBackgroundColor,
+          }).showToast();
         }
-      })
+      });
+
+    } else {
+      Toastify({
+        text: "Please fill in all required fields correctly.",
+        duration: 3000,
+        close: toastifyParams.close,
+        gravity: "top",
+        position: "center",
+        backgroundColor: toastifyParams.errorBackgroundColor,
+      }).showToast();
     }
   }
 }

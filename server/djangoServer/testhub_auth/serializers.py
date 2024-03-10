@@ -33,7 +33,13 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         return account
 
 
-class UserProfileDetailsSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['email', 'username', 'first_name', 'last_name']
+
+
+class UserProfileDetailsSerializer(serializers.ModelSerializer):  # User-details
     class Meta:
         model = UserProfile
         fields = '__all__'
