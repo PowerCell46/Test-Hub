@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SubmissionsComponent } from './submissions.component';
+import { SubmissionsComponent } from './submissions-python-test.component';
 
 describe('SubmissionsComponent', () => {
   let component: SubmissionsComponent;

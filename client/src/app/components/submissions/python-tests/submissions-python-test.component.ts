@@ -5,8 +5,8 @@ import { SubmissionsService } from '../../../services/submissions.service';
 
 @Component({
   selector: 'app-submissions',
-  templateUrl: './submissions.component.html',
-  styleUrl: './submissions.component.css'
+  templateUrl: './submissions-python-test.component.html',
+  styleUrl: './submissions-python-test.component.css'
 })
 export class SubmissionsComponent implements OnInit{
   submissions: any[] = []; 
