@@ -17,7 +17,7 @@ import 'toastify-js/src/toastify.css';
 export class CreateMultiplechoiceTestComponent implements OnInit{
     courses: any = [];
     topics: any = [];
-    public multipleQuestionsExamForm: FormGroup;
+    public multipleQuestionsTestForm: FormGroup;
 
     constructor(
       private formBuilder: FormBuilder,
@@ -26,11 +26,11 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
       public authService: AuthenticationService,
       private courseTopicsService: CoursesTopicsService
     ) {
-      this.multipleQuestionsExamForm = this.formBuilder.group({
-        examTitle: ['', [Validators.required, Validators.minLength(3)]],
+      this.multipleQuestionsTestForm = this.formBuilder.group({
+        testTitle: ['', [Validators.required, Validators.minLength(3)]],
         course: ['', [Validators.required]],
         topic: [{value: null, disabled: true}, [Validators.required, topicDefaultValueValidator()]],
-        examQuestions: this.formBuilder.array([])
+        testQuestions: this.formBuilder.array([])
       });
     }
 
@@ -44,20 +44,20 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
 
 
     onCourseSelect(): void {
-      const selectedCourse = this.multipleQuestionsExamForm.get('course')?.value;
+      const selectedCourse = this.multipleQuestionsTestForm.get('course')?.value;
       if (selectedCourse) {
         this.courseTopicsService.getTopics(selectedCourse).subscribe((topics: string[]) => {  
           // console.log(topics);                
           this.topics = topics;
-          this.multipleQuestionsExamForm.get('topic')?.enable();
-          this.multipleQuestionsExamForm.get('topic')?.setValue('Select a Topic');
+          this.multipleQuestionsTestForm.get('topic')?.enable();
+          this.multipleQuestionsTestForm.get('topic')?.setValue('Select a Topic');
         });
       }
     }
 
 
-    get examQuestions(): FormArray {
-      return this.multipleQuestionsExamForm.get('examQuestions') as FormArray;
+    get testQuestions(): FormArray {
+      return this.multipleQuestionsTestForm.get('testQuestions') as FormArray;
     }
 
 
@@ -75,23 +75,23 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
 
 
     addQuestion(): void {
-      const newId = this.examQuestions.value.length + 1; 
-      this.examQuestions.push(this.createQuestionFormGroup(newId));
+      const newId = this.testQuestions.value.length + 1; 
+      this.testQuestions.push(this.createQuestionFormGroup(newId));
     }
 
 
     removeQuestion(index: number): void {
-      this.examQuestions.removeAt(index);
+      this.testQuestions.removeAt(index);
     }
 
     
     onMultipleQuestionsSubmit(): void {
-      if (this.multipleQuestionsExamForm.valid) {
+      if (this.multipleQuestionsTestForm.valid) {
         const headers = new HttpHeaders({
           'Authorization': `Token ${this.authService.getToken()}`
         });
   
-        this.http.post(`${baseServerUrl}testHub/createMultipleChoiceExam/`, this.multipleQuestionsExamForm.value, {headers: headers})
+        this.http.post(`${baseServerUrl}testHub/createMultipleChoiceTest/`, this.multipleQuestionsTestForm.value, {headers: headers})
         .subscribe({
           next: () => {
             this.router.navigate(['/']);

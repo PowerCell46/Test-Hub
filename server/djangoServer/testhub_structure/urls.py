@@ -1,16 +1,17 @@
 from django.urls import path
 
-from djangoServer.testhub_structure.views import GetCoursesAndTopics, CreateMultipleChoiceExam, CreatePythonExam, \
+from djangoServer.testhub_structure.views import GetCoursesAndTopics, CreatePythonExam, \
     MultipleChoiceExam, GetMultipleChoiceTestSubmission, GetMultipleChoiceQuestion, PythonTest, GetAllPySubmissions, \
-    MyProfile, GetAllMultipleChoiceSubmissions
+    MyProfile, GetAllMultipleChoiceSubmissions, CreateMultipleChoiceTest
 
 urlpatterns = [
+    path('coursesTopicsTests/', GetCoursesAndTopics.as_view(), name='courses-topics-tests'),
     # path('createCourse/', ),
     # path('createTopic/', ),
-    path('createMultipleChoiceExam/', CreateMultipleChoiceExam.as_view(), name='create-multiple-choice-exam'),
+    path('createMultipleChoiceTest/', CreateMultipleChoiceTest.as_view(), name='create-multiple-choice-test'),
     path('createPythonTest/', CreatePythonExam.as_view(), name='create-python-exam'),
 
-    path('getCoursesAndTopics/', GetCoursesAndTopics.as_view(), name='get-courses-and-topics'),
+
 
 
     path('multipleChoiceExam/<str:examName>/', MultipleChoiceExam.as_view(), name='get-multiple-choice-exam'),

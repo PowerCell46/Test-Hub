@@ -10,7 +10,7 @@ interface Topic {
   providedIn: 'root'
 })
 export class CoursesTopicsService {
-  requestUrl: string =  `${baseServerUrl}testHub/getCoursesAndTopics/`;
+  requestUrl: string =  `${baseServerUrl}testHub/coursesTopicsTests/`;
   
   constructor(
     private http: HttpClient

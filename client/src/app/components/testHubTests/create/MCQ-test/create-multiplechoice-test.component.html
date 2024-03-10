@@ -1,5 +1,5 @@
 <form
-  [formGroup]="multipleQuestionsExamForm"
+  [formGroup]="multipleQuestionsTestForm"
   (ngSubmit)="onMultipleQuestionsSubmit()"
 >
   <section id="choose-course-choose-topic">
@@ -9,13 +9,13 @@
       <input
         type="text"
         id="task-title"
-        formControlName="examTitle"
+        formControlName="testTitle"
         placeholder="Python Advanced Exam"
-        [ngClass]="{'error': multipleQuestionsExamForm.get('examTitle')?.touched && multipleQuestionsExamForm.get('examTitle')?.invalid}"
+        [ngClass]="{'error': multipleQuestionsTestForm.get('testTitle')?.touched && multipleQuestionsTestForm.get('testTitle')?.invalid}"
       />
     </div>
     <!-- Error message Exam Title -->
-    <p *ngIf="multipleQuestionsExamForm.get('examTitle')?.touched && multipleQuestionsExamForm.get('examTitle')?.errors?.['minlength']" class="error-message">
+    <p *ngIf="multipleQuestionsTestForm.get('testTitle')?.touched && multipleQuestionsTestForm.get('testTitle')?.errors?.['minlength']" class="error-message">
       Title must be at least 3 chars!
     </p>
 
@@ -42,9 +42,9 @@
     </div>
   </section>
 
-  <div formArrayName="examQuestions">
+  <div formArrayName="testQuestions">
     <main
-      *ngFor="let question of examQuestions.controls; let i = index"
+      *ngFor="let question of testQuestions.controls; let i = index"
       [formGroupName]="i"
     >
       <section
@@ -147,7 +147,7 @@
   </div>
 
   <section (click)="addQuestion()" id="add-new-question">
-    <p id="total-questions">Total Questions: {{examQuestions.value.length}}</p>
+    <p id="total-questions">Total Questions: {{testQuestions.value.length}}</p>
     <h1>Add a Question</h1>
   </section>
 

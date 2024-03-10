@@ -69,14 +69,6 @@ def run_tests(code, test_code):
     }
 
 
-class CreateTopic(APIView):
-    permission_classes = [IsTeacher]
-
-    def post(self, request):
-
-        return Response({'message': "Only teacher can see this."})
-
-
 class GetCoursesAndTopics(APIView):
     permission_classes = (AllowAny,)
 
@@ -86,20 +78,8 @@ class GetCoursesAndTopics(APIView):
         return Response(serializer.data)
 
 
-example_data = {
-    'examTitle': 'Sum two numbers',
-    'course': 'Python Basics',
-    'topic': 'First Steps in Coding',
-    'examQuestions': [
-            {'id': 1, 'title': 'Question', 'optionA': 'A',
-             'optionB': 'B', 'optionC': 'C', 'optionD': 'D',
-             'correctAnswer': 1}
-        ]
-}
-
-
-class CreateMultipleChoiceExam(APIView):  # Only teachers can create
-    permission_classes = (AllowAny,)
+class CreateMultipleChoiceTest(APIView):
+    permission_classes = [IsTeacher]
 
     def post(self, request):
         data = request.data
@@ -112,12 +92,12 @@ class CreateMultipleChoiceExam(APIView):  # Only teachers can create
 
         with transaction.atomic():
             multiple_choice_test = MultipleChoiceTest.objects.create(
-                title=data.get('examTitle'),
+                title=data.get('testTitle'),
                 creator=user,
                 topic=topic
             )
 
-            for question in data.get('examQuestions', []):
+            for question in data.get('testQuestions', []):
                 MultipleChoiceQuestion.objects.create(
                     test=multiple_choice_test,
                     question_title=question.get('title'),
