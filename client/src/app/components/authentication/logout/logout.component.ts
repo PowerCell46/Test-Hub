@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../../../services/authentication.service';
+import { AuthenticationService } from '../../../services/authentication/authentication.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { baseServerUrl } from '../../../../assets/constants';
+import { baseServerUrl, toastifyParams } from '../../../../assets/constants';
 import { Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import 'toastify-js/src/toastify.css';
 
 @Component({
   selector: 'app-logout',
@@ -11,9 +13,11 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent {
 
-  constructor(private http: HttpClient, private router: Router, public authService: AuthenticationService) {
-    
-  }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthenticationService
+  ) {}
 
   onLogoutClick(): void {
     if (this.authService.isLoggedIn()) {
@@ -27,10 +31,19 @@ export class LogoutComponent {
 
           this.router.navigate(['/']);
         },
-        error: err => {
-          console.error(err);
+        error: (error) => {
+          console.error(error);
+          Toastify({
+            text: "Logout error: Please try again later.",
+            duration: 3000,
+            close: toastifyParams.close,
+            gravity: "top",
+            position: "center",
+            backgroundColor: toastifyParams.errorBackgroundColor,
+          }).showToast();
         }
-      })      
+      });
+           
     }
   }
 }

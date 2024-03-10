@@ -1,4 +1,5 @@
 <nav>
+  <p *ngIf="username" id="greeting-message"><i class="fa-solid fa-hand-peace fa-bounce"></i> Hello there, <span>{{username}}</span>!</p>
   <section
     id="navigation-section"
     [ngStyle]="{

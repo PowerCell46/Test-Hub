@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../../../services/authentication.service';
+import { AuthenticationService } from '../../../../services/authentication/authentication.service';
 import { CoursesTopicsService } from '../../../../services/courses-topics.service';
 import { topicDefaultValueValidator } from '../../../../../assets/validators/topicValidator';
 import { baseServerUrl } from '../../../../../assets/constants';

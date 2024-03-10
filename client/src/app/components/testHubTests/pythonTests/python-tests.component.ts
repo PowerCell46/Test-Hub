@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python';
 import 'prismjs/themes/prism.css';
-import { AuthenticationService } from '../../../services/authentication.service';
+import { AuthenticationService } from '../../../services/authentication/authentication.service';
 import { CoursesTopicsService } from '../../../services/courses-topics.service';
 import { topicDefaultValueValidator } from '../../../../assets/validators/topicValidator';
 import { baseServerUrl } from '../../../../assets/constants';

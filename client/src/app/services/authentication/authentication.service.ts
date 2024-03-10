@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { User } from '../../assets/interfaces/main-interfaces';
+import { User } from '../../../assets/interfaces/main-interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,8 @@ export class AuthenticationService {
   constructor() { }
 
   saveToken(token: string, user: User): void {
+    console.log(user);
+    
     localStorage.setItem('token', token);
     localStorage.setItem('username', user.username);
     this.updateLoginStatus(true); 
@@ -24,6 +26,7 @@ export class AuthenticationService {
 
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
     this.updateLoginStatus(false);
   }
 

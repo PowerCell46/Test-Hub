@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../../services/authentication.service';
+import { AuthenticationService } from '../../../services/authentication/authentication.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -9,9 +9,12 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit, OnDestroy{
   isLoggedIn: boolean = false;
+  username: string | null = null;
   private authSubscription!: Subscription;
   
-  constructor(public authService: AuthenticationService) {}
+  constructor(
+    public authService: AuthenticationService
+  ) {}
 
   navigationVisible: boolean = true;
   navigationOpacity: number = 1;
@@ -46,7 +49,9 @@ export class HeaderComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.authSubscription = this.authService.loginStatus.subscribe(status => {
       this.isLoggedIn = status;
+      this.username = localStorage.getItem('username');
     });
+    this.username = localStorage.getItem('username');
   }
 
   ngOnDestroy(): void {

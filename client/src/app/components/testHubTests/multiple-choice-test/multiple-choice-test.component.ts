@@ -5,7 +5,7 @@ import { MultipleChoiceExamService } from '../../../services/multiple-choice-exa
 import { MultipleChoiceExam } from '../../../../assets/interfaces/main-interfaces';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthenticationService } from '../../../services/authentication.service';
+import { AuthenticationService } from '../../../services/authentication/authentication.service';
 import { baseServerUrl } from '../../../../assets/constants';
 
 @Component({

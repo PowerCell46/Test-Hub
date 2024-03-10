@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MyProfileService } from '../../../services/my-profile.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthenticationService } from '../../../services/authentication.service';
+import { AuthenticationService } from '../../../services/authentication/authentication.service';
 import { baseServerUrl } from '../../../../assets/constants';
 import { Router } from '@angular/router';
 

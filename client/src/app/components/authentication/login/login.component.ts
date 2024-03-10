@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../../services/authentication.service';
+import { AuthenticationService } from '../../../services/authentication/authentication.service';
 import { passwordStrengthValidator } from '../../../../assets/validators/passwordValidator';
 import { baseServerUrl, toastifyParams } from '../../../../assets/constants';
 import Toastify from 'toastify-js';
@@ -42,7 +42,7 @@ export class LoginComponent {
           
         },
         error: (error) => {
-          let errorMessage = "Registration error: Please try again later."; 
+          let errorMessage = "Login error: Please try again later."; 
           if (error.error && typeof error.error === 'object') {
             Object.keys(error.error).forEach(key => {
               errorMessage = `${key}: ${error.error[key].join(" ")}`;

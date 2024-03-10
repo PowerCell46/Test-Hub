@@ -6,7 +6,7 @@ import { baseServerUrl, toastifyParams } from '../../../../assets/constants';
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../../services/authentication.service';
+import { AuthenticationService } from '../../../services/authentication/authentication.service';
 
 @Component({
   selector: 'app-register',
