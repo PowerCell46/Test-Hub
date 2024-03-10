@@ -8,26 +8,43 @@
     justify-content: space-around;
     background-color: rgba(0, 0, 0, 0.6);
     margin-bottom: 5vh;
+    transition: 600ms ease-in-out;
 }
+
 
 .integration:nth-child(2n) {
     background-color: rgba(0, 0, 0, 0.4);
 } 
 
 
+.integration:hover {
+    transform: translateY(-1rem) translateX(-0.3rem);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
 .integration img {
     border-radius: 0.7rem;
     box-shadow: var(--box-shadow);
+    transition: 600ms ease-in-out;
 }
+
+
+.integration img:hover {
+    filter: blur(3px);
+}
+
 
 #GGF-img {
     height: 20vh;
     box-shadow: none;
 }
 
+
 #SPGE-img {
     height: 70vh;
 }
+
 
 .integration-content-wrapper {
     /* background-color: aliceblue; */
@@ -45,10 +62,12 @@
     text-shadow: var(--text-shadow);
 }
 
+
 .integration p {
     width: 100%;
     font-size: 1.6rem;
 }
+
 
 b {
     font-weight: 600;

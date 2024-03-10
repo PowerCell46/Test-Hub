@@ -5,15 +5,15 @@ import { Router } from '@angular/router';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python';
 import 'prismjs/themes/prism.css';
-import { AuthenticationService } from '../../../services/authentication/authentication.service';
-import { CoursesTopicsService } from '../../../services/courses-topics.service';
-import { topicDefaultValueValidator } from '../../../../assets/validators/topicValidator';
-import { baseServerUrl } from '../../../../assets/constants';
+import { AuthenticationService } from '../../../../services/authentication/authentication.service';
+import { CoursesTopicsService } from '../../../../services/courses-topics.service';
+import { topicDefaultValueValidator } from '../../../../../assets/validators/topicValidator';
+import { baseServerUrl } from '../../../../../assets/constants';
 
 @Component({
   selector: 'app-python-tests',
-  templateUrl: './python-tests.component.html',
-  styleUrls: ['./python-tests.component.css']
+  templateUrl: './create-python-test.component.html',
+  styleUrls: ['./create-python-test.component.css']
 })
 export class PythonTestsComponent implements OnInit {
   courses: any = [];

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import Prism from 'prismjs';
-import { PythonTestService } from '../../../services/python-test.service';
+import { PythonTestService } from '../../../../services/python-test.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { decodeURLSegment, encodeURLSegment } from '../../../../assets/utils';
+import { decodeURLSegment, encodeURLSegment } from '../../../../../assets/utils';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthenticationService } from '../../../services/authentication/authentication.service';
-import { baseServerUrl } from '../../../../assets/constants';
+import { AuthenticationService } from '../../../../services/authentication/authentication.service';
+import { baseServerUrl } from '../../../../../assets/constants';
 
 @Component({
   selector: 'app-submit-python-task',

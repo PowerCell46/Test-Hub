@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { decodeURLSegment } from '../../../../assets/utils';
-import { MultipleChoiceExamService } from '../../../services/multiple-choice-exam.service';
-import { MultipleChoiceExam } from '../../../../assets/interfaces/main-interfaces';
+import { decodeURLSegment } from '../../../../../assets/utils';
+import { MultipleChoiceExamService } from '../../../../services/multiple-choice-exam.service';
+import { MultipleChoiceExam } from '../../../../../assets/interfaces/main-interfaces';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthenticationService } from '../../../services/authentication/authentication.service';
-import { baseServerUrl } from '../../../../assets/constants';
+import { AuthenticationService } from '../../../../services/authentication/authentication.service';
+import { baseServerUrl } from '../../../../../assets/constants';
 
 @Component({
   selector: 'app-multiple-choice-test',
-  templateUrl: './multiple-choice-test.component.html',
-  styleUrl: './multiple-choice-test.component.css'
+  templateUrl: './submit-multiple-choice-test.component.html',
+  styleUrl: './submit-multiple-choice-test.component.css'
 })
 export class MultipleChoiceTestComponent implements OnInit {
   exam!: MultipleChoiceExam;

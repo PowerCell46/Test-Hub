@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PythonTestsComponent } from './python-tests.component';
+import { PythonTestsComponent } from './create-python-test.component';
 
 describe('PythonTestsComponent', () => {
   let component: PythonTestsComponent;

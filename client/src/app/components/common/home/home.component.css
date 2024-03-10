@@ -60,11 +60,12 @@ main section h1 {
 h2 {
     text-align: center;
     color: whitesmoke;
-    margin-top: 4vh;
+    margin-top: 5vh;
     font-size: 6rem;
     font-family: 'Permanent Marker';
     text-shadow: var(--text-shadow);
 }
+
 
 p {
     letter-spacing: 0.1rem;

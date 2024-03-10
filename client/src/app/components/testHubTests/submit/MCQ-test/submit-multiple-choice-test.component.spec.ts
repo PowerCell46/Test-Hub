@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MultipleChoiceTestComponent } from './multiple-choice-test.component';
+import { MultipleChoiceTestComponent } from './submit-multiple-choice-test.component';
 
 describe('MultipleChoiceTestComponent', () => {
   let component: MultipleChoiceTestComponent;

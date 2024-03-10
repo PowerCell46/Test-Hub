@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MultipleChoiceExamService } from '../../../services/multiple-choice-exam.service';
+import { MultipleChoiceExamService } from '../../../../services/multiple-choice-exam.service';
 
 @Component({
   selector: 'app-result-single-question',
