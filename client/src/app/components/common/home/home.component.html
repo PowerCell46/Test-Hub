@@ -1,54 +1,96 @@
 <main>
-    <aside>
-      <div class="course-section" *ngFor="let course of courses" @fadeInOut>
-        <li (click)="toggleTopics(course.name)">
-          <!-- Course Titlle-->
-         {{course.name}} <i class="fa-solid fa-arrow-down" [ngStyle]="{'transform': course.visible ? 'rotate(180deg)' : 'rotate(0deg)'}"></i> 
-        </li>
-        <div *ngIf="course.visible" class="hidden">
-          <div class="topic-section" *ngFor="let topic of course.topics" @fadeInOut>
-             <!-- Topic Titlle-->
-            <li (click)="toggleTasks(course.name, topic.name)">{{topic.name}} <i class="fa-solid fa-arrow-down" [ngStyle]="{'transform': topic.visible ? 'rotate(180deg)' : 'rotate(0deg)'}"></i></li>
-            <div *ngIf="topic.visible">
-              <div class="hidden-tasks" id="hidden-tasks-multiple-question" *ngFor="let task of topic.multiple_choice_tests" @fadeInOut>
-                <!-- MultipleQuestion Task Title -->
-                <li routerLink="/contests/{{course.encoded}}/{{topic.encoded}}/multiple-choice/{{task.encoded}}"><i class="fa-regular fa-rectangle-list"></i> {{task.title}}</li>
-              </div>
-              <div class="hidden-tasks hidden-tasks-python" *ngFor="let task of topic.py_tests" @fadeInOut>
-                <!-- Python Task Title -->
-                <li routerLink="/contests/{{course.encoded}}/{{topic.encoded}}/python/{{task.encoded}}"><i class="fa-solid fa-code"></i> {{task.title}}</li>
-              </div>
+  <aside>
+    <div class="course-section" *ngFor="let course of courses" @fadeInOut>
+      <li (click)="toggleTopics(course.name)">
+        <!-- Course Titlle-->
+        {{ course.name }}
+        <i
+          class="fa-solid fa-arrow-down"
+          [ngStyle]="{
+            transform: course.visible ? 'rotate(180deg)' : 'rotate(0deg)'
+          }"
+        ></i>
+      </li>
+      <div *ngIf="course.visible" class="hidden">
+        <div
+          class="topic-section"
+          *ngFor="let topic of course.topics"
+          @fadeInOut
+        >
+          <!-- Topic Titlle-->
+          <li (click)="toggleTasks(course.name, topic.name)">
+            {{ topic.name }}
+            <i
+              class="fa-solid fa-arrow-down"
+              [ngStyle]="{
+                transform: topic.visible ? 'rotate(180deg)' : 'rotate(0deg)'
+              }"
+            ></i>
+          </li>
+          <div *ngIf="topic.visible">
+            <div
+              class="hidden-tasks"
+              id="hidden-tasks-multiple-question"
+              *ngFor="let task of topic.multiple_choice_tests"
+              @fadeInOut
+            >
+              <!-- MultipleQuestion Task Title -->
+              <li
+                routerLink="/contests/{{ course.encoded }}/{{
+                  topic.encoded
+                }}/multiple-choice/{{ task.encoded }}"
+              >
+                <i class="fa-regular fa-rectangle-list"></i> {{ task.title }}
+              </li>
+            </div>
+            <div
+              class="hidden-tasks hidden-tasks-python"
+              *ngFor="let task of topic.py_tests"
+              @fadeInOut
+            >
+              <!-- Python Task Title -->
+              <li
+                routerLink="/contests/{{ course.encoded }}/{{
+                  topic.encoded
+                }}/python/{{ task.encoded }}"
+              >
+                <i class="fa-solid fa-code"></i> {{ task.title }}
+              </li>
             </div>
           </div>
         </div>
       </div>
-    </aside>
+    </div>
+  </aside>
 
-    <section>
-      <h1>TestHub</h1>
-    </section>
-  </main>
+  <section>
+    <h1>TestHub</h1>
+  </section>
+</main>
 
 <h5 id="welcoming-message">
   Welcome to TestHub, a place where students can test their knowledge and
-  improve their practical and theoretical skills in the sphere of
-  Programming with Python!
+  improve their practical and theoretical skills in the sphere of Programming
+  with Python!
 </h5>
 
 <h2>Project integration</h2>
 <p>
-  The main points for creating this project are the following: <br />1.
-  Create a web application that demonstrates all of my skills in the
-  HTML&CSS, Frontend, Backend and DB fields. <br />2. Defend my two final
-  courses at the SoftUni academy - Angular and Django Advanced. <br />3.
-  Deploy the application successfully so it can be used by:
+  The main points for creating this project are the following: <br />1. Create a
+  web application that demonstrates all of my skills in the
+  <b>HTML&CSS, Frontend, Backend and DB</b> fields. <br />2. Defend my two final
+  courses at the <b>SoftUni academy</b> - <b>Angular and Django Advanced</b>. <br />3. Deploy
+  the application successfully so it can be used by:
 </p>
 
 <div *ngFor="let integration of integrations" class="integration">
-  <img id="{{integration.id}}" src="{{integration.imageUrl}}" alt="Integration-img" />
+  <img
+    id="{{ integration.id }}"
+    src="{{ integration.imageUrl }}"
+    alt="Integration-img"
+  />
   <div class="integration-content-wrapper">
-    <h5>{{integration.title}}</h5>
+    <h5>{{ integration.title }}</h5>
     <p [innerHTML]="integration.description"></p>
   </div>
 </div>
-  

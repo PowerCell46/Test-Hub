@@ -49,3 +49,9 @@
     width: 100%;
     font-size: 1.6rem;
 }
+
+b {
+    font-weight: 600;
+    color: whitesmoke;
+    text-decoration: underline;
+}

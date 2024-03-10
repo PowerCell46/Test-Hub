@@ -25,4 +25,5 @@ export class MyProfileService {
 
     return this.http.get<any[]>(`${baseServerUrl}/auth/editProfile/`, {headers: headers}).pipe();
   }
+
 }

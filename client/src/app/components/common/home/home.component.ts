@@ -26,8 +26,8 @@ export class HomeComponent implements OnInit {
     {
       title: "Faculty of Mathematics and Informatics", 
       description: `For the last two semesters I've had lectures and exercises at FMI,
-        studying Foundations of Programming, Databases and
-        Object-Oriented-Programming. <br> In one way or another I helped with the
+        studying <b>Foundations of Programming, Databases and
+        Object-Oriented-Programming</b>. <br> In one way or another I helped with the
         teaching process and completely undestand the need of such a platform,
         where students can exercise and get an instant feedback for their
         tasks.`, 

@@ -101,3 +101,12 @@ def update_user_details(first_name, last_name, gender, telephone, nationality, p
         user_profile.image = profile_picture
     user.save()
     user_profile.save()
+
+
+class DeleteProfile(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request):
+        request.user.user_details.soft_delete()
+        Token.objects.filter(user=request.user).delete()
+        return Response("Successful Delete!", status=status.HTTP_200_OK)

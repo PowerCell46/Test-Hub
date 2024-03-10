@@ -10,6 +10,11 @@ class UserProfile(models.Model):
     phone_number = models.CharField(max_length=10, null=True, blank=True)
     nationality = models.CharField(max_length=25, null=True, blank=True)
     gender = models.CharField(choices=(('Male', 'Male'), ('Female', 'Female')), null=True, blank=True)
+    is_deleted = models.BooleanField(default=False)
+
+    def soft_delete(self):
+        self.is_deleted = True
+        self.save()
 
     def __str__(self):
         return self.user.username
