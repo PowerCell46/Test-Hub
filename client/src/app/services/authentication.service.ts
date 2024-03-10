@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { User } from '../../assets/interfaces/main-interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,9 @@ export class AuthenticationService {
 
   constructor() { }
 
-  saveToken(token: string): void {
+  saveToken(token: string, user: User): void {
     localStorage.setItem('token', token);
+    localStorage.setItem('username', user.username);
     this.updateLoginStatus(true); 
   }
 

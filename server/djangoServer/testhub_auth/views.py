@@ -9,10 +9,11 @@ from rest_framework.authtoken.models import Token
 
 from djangoServer.testhub_auth.models import UserProfile
 from djangoServer.testhub_auth.serializers import UserRegistrationSerializer, UserProfileDetailsSerializer
+from djangoServer.testhub_structure.permissions import IsUnauthenticated
 
 
 class UserRegister(APIView):
-    permission_classes = [AllowAny]  # ALLOW ONLY NOT AUTHENTICATED USERS
+    permission_classes = [IsUnauthenticated]
 
     def post(self, request):
         serializer = UserRegistrationSerializer(data=request.data)

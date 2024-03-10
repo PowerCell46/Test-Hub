@@ -1,3 +1,15 @@
+export interface User {
+    email: string,
+    username: string,
+    first_name: string,
+    last_name: string,
+}
+
+export interface SuccessfulAuth {
+    token: string,
+    user: User
+}
+
 export interface QuestionInitForm {
     id: number,
     title: string

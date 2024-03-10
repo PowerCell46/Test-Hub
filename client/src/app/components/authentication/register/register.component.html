@@ -11,12 +11,14 @@
           name="first-name"
           formControlName="firstName"
           placeholder="First Name"
+          [ngClass]="{'error': registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid}"
         />
         <input
           type="text"
           name="last-name"
           formControlName="lastName"
           placeholder="Last Name"
+          [ngClass]="{'error': registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid}"
         />
       </div>
       <!-- Error messages First Name and Last Name -->
@@ -39,6 +41,7 @@
       name="username"
       formControlName="username"
       placeholder="Username"
+      [ngClass]="{'error': registerForm.get('username')?.touched && registerForm.get('username')?.invalid}"
     />
     <!-- Error messages Username -->
     <p
@@ -60,6 +63,7 @@
         name="email"
         formControlName="email"
         placeholder="Email"
+        [ngClass]="{'error': registerForm.get('email')?.touched && registerForm.get('email')?.invalid}"
       />
       <!-- Error messages Email -->
       <p
@@ -81,6 +85,7 @@
         name="password"
         formControlName="password"
         placeholder="Password"
+        [ngClass]="{'error': registerForm.get('password')?.touched && registerForm.get('password')?.invalid}"
       />
       <!-- Error messages Password -->
       <p
@@ -98,6 +103,7 @@
 
       <button type="submit" id="register-submit-button">Register</button>
     </form>
+
     <h5>Already have an account? <a routerLink="/login">Login here</a></h5>
   </section>
 </main>
