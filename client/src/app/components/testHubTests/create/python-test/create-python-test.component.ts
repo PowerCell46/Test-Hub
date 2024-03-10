@@ -8,7 +8,9 @@ import 'prismjs/themes/prism.css';
 import { AuthenticationService } from '../../../../services/authentication/authentication.service';
 import { CoursesTopicsService } from '../../../../services/courses-topics.service';
 import { topicDefaultValueValidator } from '../../../../../assets/validators/topicValidator';
-import { baseServerUrl } from '../../../../../assets/constants';
+import { baseServerUrl, toastifyParams } from '../../../../../assets/constants';
+import Toastify from 'toastify-js';
+import 'toastify-js/src/toastify.css';
 
 @Component({
   selector: 'app-python-tests',
@@ -21,15 +23,22 @@ export class PythonTestsComponent implements OnInit {
   pythonTestForm: FormGroup;
   highlightedCode: string = '';
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthenticationService, private courseTopicsService: CoursesTopicsService) {
+  constructor(
+      private formBuilder: FormBuilder,
+      private http: HttpClient,
+      private router: Router,
+      private authService: AuthenticationService,
+      private courseTopicsService: CoursesTopicsService
+    ) {
     this.pythonTestForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       course: ['', [Validators.required]],
-      topic: [{value: null, disabled: true}, [topicDefaultValueValidator()]],
+      topic: [{value: null, disabled: true}, [Validators.required, topicDefaultValueValidator()]],
       description: ['', [Validators.required]],
       unitTests: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
+
 
   ngOnInit(): void {
     this.courseTopicsService.getCourses().subscribe(data => {
@@ -37,10 +46,11 @@ export class PythonTestsComponent implements OnInit {
     });
   }
 
+
   onCourseSelect(): void {
     const selectedCourse = this.pythonTestForm.get('course')?.value;
     if (selectedCourse) {
-      this.courseTopicsService.getTopics(selectedCourse).subscribe(topics => {        
+      this.courseTopicsService.getTopics(selectedCourse).subscribe((topics: string[]) => {        
         this.topics = topics;
         this.pythonTestForm.get('topic')?.enable();
         this.pythonTestForm.get('topic')?.setValue('Select a Topic');
@@ -49,34 +59,55 @@ export class PythonTestsComponent implements OnInit {
   }
 
 
-  updateCode(code: string) { // Updated the python syntax highlighting area
+  updateCode(code: string) { // Update the Python syntax highlighting area
     this.highlightedCode = Prism.highlight(code, Prism.languages['python'], 'python');
   }
 
-  onPythonTestSubmit(): void { // if valid ???
-    const formData = new FormData();
-    formData.append('title', this.pythonTestForm.get('title')?.value ?? '');
-    formData.append('course', this.pythonTestForm.get('course')?.value ?? '');
-    formData.append('topic', this.pythonTestForm.get('topic')?.value ?? '');
-    formData.append('unitTests', this.pythonTestForm.get('unitTests')?.value ?? '');
-  
-    const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
-    if (fileInput && fileInput.files && fileInput.files.length > 0) {
-      formData.append('description', fileInput.files[0]);
-    }
-  
-    const headers = new HttpHeaders({
-      'Authorization': `Token ${this.authService.getToken()}`
-    });
 
-    this.http.post(`${baseServerUrl}testHub/createPythonTest/`, formData, {headers: headers})
-    .subscribe({
-      next: () => {
-        this.router.navigate(['/']);
-      }, 
-      error: err => {
-        console.error(err);
+  onPythonTestSubmit(): void { 
+    if (this.pythonTestForm.valid) {
+      const formData = new FormData();
+      formData.append('title', this.pythonTestForm.get('title')?.value ?? '');
+      formData.append('course', this.pythonTestForm.get('course')?.value ?? '');
+      formData.append('topic', this.pythonTestForm.get('topic')?.value ?? '');
+      formData.append('unitTests', this.pythonTestForm.get('unitTests')?.value ?? '');
+    
+      const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+      if (fileInput && fileInput.files && fileInput.files.length > 0) {
+        formData.append('description', fileInput.files[0]);
       }
-    });
+    
+      const headers = new HttpHeaders({
+        'Authorization': `Token ${this.authService.getToken()}`
+      });
+  
+      this.http.post(`${baseServerUrl}testHub/createPythonTest/`, formData, {headers: headers})
+      .subscribe({
+        next: () => {
+          this.router.navigate(['/']);
+        }, 
+        error: err => {
+          console.error(err);
+          Toastify({
+            text: "Python Submission error: Please try again later.",
+            duration: 3000,
+            close: toastifyParams.close,
+            gravity: "top",
+            position: "center",
+            backgroundColor: toastifyParams.errorBackgroundColor,
+          }).showToast();
+        }
+      });
+
+    } else {
+      Toastify({
+        text: "Please fill in all required fields correctly.",
+        duration: 3000,
+        close: toastifyParams.close,
+        gravity: "top",
+        position: "center",
+        backgroundColor: toastifyParams.errorBackgroundColor,
+      }).showToast();
+    }   
   }
 }

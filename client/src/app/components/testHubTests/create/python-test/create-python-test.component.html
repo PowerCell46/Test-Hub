@@ -2,30 +2,28 @@
   <section id="choose-course-choose-topic">
     <div class="title-wrapper">
       <label id="task-title-label" for="task-title">Exam Title:</label>
+      <!-- Test Title -->
       <input
         type="text"
         id="task-title"
         formControlName="title"
         placeholder="Sum even numbers"
+        [ngClass]="{'error': pythonTestForm.get('testTitle')?.touched && pythonTestForm.get('testTitle')?.invalid}"
       />
     </div>
     <!-- Error message Title -->
-    <p
-      *ngIf="pythonTestForm.get('title')?.touched && pythonTestForm.get('title')?.errors?.['minlength']"
-      class="error-message"
-    >
+    <p *ngIf="pythonTestForm.get('title')?.touched && pythonTestForm.get('title')?.errors?.['minlength']" class="error-message">
       Title must be at least 3 chars!
     </p>
     <div class="wrapper">
       <div>
+        <!-- Course -->
         <label for="course">Course:</label>
-
         <select
           name="course"
           formControlName="course"
           id="course-select"
-          (change)="onCourseSelect()"
-        >
+          (change)="onCourseSelect()">
           <option value="Select a Course" disabled selected>
             Select a Course
           </option>
@@ -36,6 +34,7 @@
       </div>
 
       <div>
+        <!-- Topic -->
         <label for="topic">Topic:</label>
         <select name="topic" formControlName="topic" id="course-select">
           <option value="Select a Topic" disabled selected>
@@ -50,6 +49,7 @@
   </section>
 
   <div class="file-upload-div">
+    <!-- Test Description -->
     <label for="task-description-file" class="file-upload-label"
       >File Description:</label
     >
@@ -60,15 +60,18 @@
       class="file-upload"
       accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
       required=""
+      [ngClass]="{'error': pythonTestForm.get('description')?.touched && pythonTestForm.get('description')?.invalid}"
     />
   </div>
 
   <div id="unit-tests-wrapper">
+    <!-- Unit Tests -->
     <h5 id="unit-tests-title">Unit Tests:</h5>
     <textarea
       formControlName="unitTests"
       (input)="updateCode($any($event.target).value)"
       placeholder="Enter Python code here..."
+      [ngClass]="{'error': pythonTestForm.get('unitTests')?.touched && pythonTestForm.get('unitTests')?.invalid}"
     ></textarea>
   </div>
   <pre><code [innerHTML]="highlightedCode" class="language-python"></code></pre>
@@ -83,6 +86,7 @@
 
   <button type="submit">Create Task</button>
 </form>
+
 
 <!-- 
 import unittest

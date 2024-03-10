@@ -1,15 +1,15 @@
 from django.urls import path
 
-from djangoServer.testhub_structure.views import GetCoursesAndTopics, CreatePythonExam, \
+from djangoServer.testhub_structure.views import GetCoursesAndTopics, \
     MultipleChoiceExam, GetMultipleChoiceTestSubmission, GetMultipleChoiceQuestion, PythonTest, GetAllPySubmissions, \
-    MyProfile, GetAllMultipleChoiceSubmissions, CreateMultipleChoiceTest
+    MyProfile, GetAllMultipleChoiceSubmissions, CreateMultipleChoiceTest, CreatePythonTest
 
 urlpatterns = [
     path('coursesTopicsTests/', GetCoursesAndTopics.as_view(), name='courses-topics-tests'),
     # path('createCourse/', ),
     # path('createTopic/', ),
     path('createMultipleChoiceTest/', CreateMultipleChoiceTest.as_view(), name='create-multiple-choice-test'),
-    path('createPythonTest/', CreatePythonExam.as_view(), name='create-python-exam'),
+    path('createPythonTest/', CreatePythonTest.as_view(), name='create-python-test'),
 
 
 

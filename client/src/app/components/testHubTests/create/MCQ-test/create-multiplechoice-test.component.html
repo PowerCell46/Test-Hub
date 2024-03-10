@@ -3,9 +3,9 @@
   (ngSubmit)="onMultipleQuestionsSubmit()"
 >
   <section id="choose-course-choose-topic">
-    <!-- Exam Title -->
+    <!-- Test Title -->
     <div class="title-wrapper">
-      <label id="task-title-label" for="task-title">Exam Title:</label>
+      <label id="task-title-label" for="task-title">Test Title:</label>
       <input
         type="text"
         id="task-title"
@@ -14,7 +14,7 @@
         [ngClass]="{'error': multipleQuestionsTestForm.get('testTitle')?.touched && multipleQuestionsTestForm.get('testTitle')?.invalid}"
       />
     </div>
-    <!-- Error message Exam Title -->
+    <!-- Error message Test Title -->
     <p *ngIf="multipleQuestionsTestForm.get('testTitle')?.touched && multipleQuestionsTestForm.get('testTitle')?.errors?.['minlength']" class="error-message">
       Title must be at least 3 chars!
     </p>
@@ -152,6 +152,6 @@
   </section>
 
   <div class="button-wrapper">
-    <button type="submit" id="create-multipleChoice-button">Create Exam</button>
+    <button type="submit" id="create-multipleChoice-button">Create Test</button>
   </div>
 </form>

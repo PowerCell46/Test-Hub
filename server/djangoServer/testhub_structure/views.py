@@ -111,8 +111,8 @@ class CreateMultipleChoiceTest(APIView):
         return Response({'message': 'Multiple choice exam created successfully!'})
 
 
-class CreatePythonExam(APIView):  # Only teachers can create
-    permission_classes = (AllowAny,)
+class CreatePythonTest(APIView):
+    permission_classes = [IsTeacher]
 
     def post(self, request, *args, **kwargs):
         title = request.data.get('title')
