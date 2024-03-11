@@ -1,16 +1,13 @@
 from django.contrib.auth import authenticate
-from django.db import transaction
-from django.shortcuts import render
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
-
 from djangoServer.testhub_auth.models import UserProfile
 from djangoServer.testhub_auth.serializers import UserRegistrationSerializer, UserProfileDetailsSerializer, \
     UserSerializer
-from djangoServer.testhub_auth.utils import calculate_average_grade
+from djangoServer.testhub_auth.utils import calculate_average_grade, update_user_details
 from djangoServer.testhub_structure.models import SubmissionPyTest, SubmissionMultipleChoiceTest
 from djangoServer.testhub_structure.permissions import IsUnauthenticated
 
@@ -114,12 +111,10 @@ class MyProfile(APIView):
 
 
 class EditProfile(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         user = request.user
-
-        if not user.is_authenticated:
-            return Response({"error": "Authentication required"}, status=401)
 
         user_details_serializer = UserProfileDetailsSerializer(
             user.user_details, context={'request': request}, many=False)
@@ -138,30 +133,10 @@ class EditProfile(APIView):
         nationality = request.data.get('nationality')
         profile_picture = request.FILES.get('profilePicture') if 'profilePicture' in request.FILES else None
 
-        print(first_name, last_name, gender, nationality, telephone, profile_picture)
         user_profile = UserProfile.objects.get(user=request.user)
         update_user_details(first_name, last_name, gender, telephone, nationality, profile_picture, user_profile,
                             user=request.user)
         return Response("Successful Edit!", status=status.HTTP_200_OK)
-
-
-
-@transaction.atomic
-def update_user_details(first_name, last_name, gender, telephone, nationality, profile_picture, user_profile: UserProfile, user) -> None:
-    if first_name != user.first_name and first_name != '':
-        user.first_name = first_name
-    if last_name != user.last_name and last_name != '':
-        user.last_name = last_name
-    if gender != user_profile.gender and gender != '':
-        user_profile.gender = gender
-    if telephone != user_profile.phone_number and telephone != '':
-        user_profile.phone_number = telephone
-    if nationality != user_profile.nationality and nationality != '':
-        user_profile.nationality = nationality
-    if profile_picture != user_profile.image and profile_picture is not None:
-        user_profile.image = profile_picture
-    user.save()
-    user_profile.save()
 
 
 class DeleteProfile(APIView):

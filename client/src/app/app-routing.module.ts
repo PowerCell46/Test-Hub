@@ -5,7 +5,7 @@ import { RegisterComponent } from './components/authentication/register/register
 import { LogoutComponent } from './components/authentication/logout/logout.component';
 import { ErrorComponent } from './components/common/error/error.component';
 import { CreateMultiplechoiceTestComponent } from './components/testHubTests/create/MCQ-test/create-multiplechoice-test.component';
-import { RouteGuardService } from './services/route-guard.service';
+import { RouteGuardService } from './services/routeGuard/route-guard.service';
 import { HomeComponent } from './components/common/home/home.component';
 import { PythonTestsComponent } from './components/testHubTests/create/python-test/create-python-test.component';
 import { SubmissionsComponent } from './components/submissions/python-tests/submissions-python-test.component';

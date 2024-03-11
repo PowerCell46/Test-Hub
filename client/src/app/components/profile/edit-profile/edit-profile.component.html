@@ -2,12 +2,7 @@
   <section id="right-side">
     <h1>Edit Profile</h1>
     <form [formGroup]="editProfileForm" (ngSubmit)="onEditProfileSubmit()">
-      <!-- <img
-        id="profile-picture"
-        src="{{ userDetails.image }}"
-        alt="Profile picture"
-      /> -->
-
+      <!-- Profile Image -->
       <div class="image-upload-div">
       <input
           name="profilePicture"
@@ -15,9 +10,10 @@
           class="file-upload"
           accept="image/jpeg, image/png, image/webp"
           required=""
+          [ngClass]="{'error': editProfileForm.get('profilePicture')?.touched && editProfileForm.get('profilePicture')?.invalid}"
       />
     </div>
-  
+    <!-- Username = not changable -->
       <input
         type="text"
         name="username"
@@ -26,33 +22,40 @@
         disabled
       />
       <div id="edit-names-div">
+        <!-- First Name -->
         <input
           type="text"
           name="first-name"
           placeholder="First Name"
           formControlName="firstName"
           value="{{ userDetails.firstName }}"
+          [ngClass]="{'error': editProfileForm.get('firstName')?.touched && editProfileForm.get('firstName')?.invalid}"
         />
+        <!-- Last Name -->
         <input
           type="text"
           name="last-name"
           formControlName="lastName"
           placeholder="Last Name"
           value="{{ userDetails.lastName }}"
+          [ngClass]="{'error': editProfileForm.get('lastName')?.touched && editProfileForm.get('lastName')?.invalid}"
         />
       </div>
+      <!-- Error message First Name -->
       <p
         *ngIf="editProfileForm.get('firstName')?.touched && editProfileForm.get('firstName')?.errors?.['minlength']"
         class="error-message"
       >
         First name must be at least 3 chars!
       </p>
+      <!-- Error message Last Name -->
       <p
         *ngIf="editProfileForm.get('lastName')?.touched && editProfileForm.get('lastName')?.errors?.['minlength']"
         class="error-message"
       >
         Last name must be at least 5 chars!
       </p>
+      <!-- Gender -->
       <div id="gender-wrapper">
         <label for="course" id="choose-gender">Gender:</label>
         <select name="course" formControlName="gender" id="course-select">
@@ -61,6 +64,7 @@
           <option value="Female">Female</option>
         </select>
       </div>
+      <!-- Email = Not changable -->
       <input
         type="text"
         name="email"
@@ -68,6 +72,7 @@
         value="{{ userDetails.email }}"
         disabled
       />
+      <!-- Phone Number -->
       <input
         type="text"
         name="telephone"
@@ -75,15 +80,18 @@
         placeholder="Telephone"
         value="{{ userDetails.phone_number }}"
       />
+      <!-- Error message Phone number -->
       <p
         *ngIf="editProfileForm.get('telephone')?.touched && editProfileForm.get('telephone')?.errors?.['minlength']"
         class="error-message">
         Telephone Must be exactly 10 chars!
       </p>
+      <!-- Error message Phone number -->
       <p
       *ngIf="editProfileForm.get('telephone')?.touched && editProfileForm.get('telephone')?.errors?.['maxlength']"
       class="error-message">
       Telephone Must be exactly 10 chars!
+      <!-- Nationality -->
     </p>
       <input
         type="text"
@@ -92,7 +100,8 @@
         placeholder="Nationality"
         value="{{ userDetails.nationality }}"
       />
-      <p
+      <!-- Error message nationality -->
+    <p
       *ngIf="editProfileForm.get('nationality')?.touched && editProfileForm.get('nationality')?.errors?.['minlength']"
       class="error-message">
       Nationality Must be at least 2 chars!
