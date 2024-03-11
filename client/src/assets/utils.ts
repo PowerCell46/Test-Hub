@@ -9,6 +9,7 @@ export function encodeURLSegment(segment: string): string {
     return encodedSegment;
 }
 
+
 export function decodeURLSegment(segment: string): string {
     let decodedSegment = decodeURIComponent(segment);
   

@@ -15,17 +15,6 @@ export interface QuestionInitForm {
     title: string
 } 
 
-// export interface RegisterUser {
-//     username: string,
-//     email: string,
-//     image: null 
-// }
-
-// export interface RegisterResponse {
-//     user: RegisterUser,
-//     token: string
-// }
-
 interface PyTests { // For Home Page
     id: number,
     title: string,

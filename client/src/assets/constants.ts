@@ -37,4 +37,4 @@ export const projectIntegrations: Integration[] = [
       imageUrl: 'https://web.gea.uni-sofia.bg/wp-content/uploads/2020/11/%D0%93%D0%93%D0%A4-%D0%9B%D0%BE%D0%B3%D0%BE-%D0%BC%D0%B0%D0%BB%D0%BA%D0%BE-150%D1%85150.png',
       id: "GGF-img"
     }
-  ]
+]
