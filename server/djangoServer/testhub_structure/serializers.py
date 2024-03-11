@@ -33,7 +33,7 @@ class CourseSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'topics']
 
 
-class MultipleChoiceQuestionSerializer(serializers.ModelSerializer):
+class MultipleChoiceQuestionSerializer(serializers.ModelSerializer):  # Used for a single question from a MCQ submission
     class Meta:
         model = MultipleChoiceQuestion
         fields = ['id', 'question_title', 'first_option',
@@ -49,9 +49,10 @@ class MultipleChoiceExamSerializer(serializers.ModelSerializer):  # Used for Sub
         fields = ['title', 'questions']
 
 
-class MultipleChoiceSubmissionSerializer(serializers.ModelSerializer):
+class MultipleChoiceTestSubmissionSerializer(serializers.ModelSerializer):  # Used for MCQ Submission
     multiple_choice_exam = MultipleChoiceExamSerializer(many=False, read_only=True)
     submitter = UserRegistrationSerializer(many=False, read_only=True)
+
     class Meta:
         model = SubmissionMultipleChoiceTest
         fields = ['id', 'submission_time', 'answers', 'correct_answers', 'multiple_choice_exam', 'submitter']

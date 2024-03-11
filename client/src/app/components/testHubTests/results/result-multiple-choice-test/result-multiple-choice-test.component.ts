@@ -10,7 +10,10 @@ import { MultipleChoiceTestService } from '../../../../services/multipleChoiceTe
 export class ResultMultipleChoiceTestComponent implements OnInit{
   submissionId!: number;
   submission: any;
-  constructor(private route: ActivatedRoute, private multipleChoiceTestService: MultipleChoiceTestService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private multipleChoiceTestService: MultipleChoiceTestService
+  ) {}
 
 
   ngOnInit(): void {
@@ -20,7 +23,7 @@ export class ResultMultipleChoiceTestComponent implements OnInit{
       this.multipleChoiceTestService.getMultipleChoiceSubmission(this.submissionId).subscribe(data => {
         // console.log(data);
         this.submission = data;
-      })
-    })
+      });
+    });
   }
 }

@@ -12,7 +12,11 @@ export class ResultSingleQuestionComponent implements OnInit{
   questionId!: number;
   question!: any;
 
-  constructor(private route: ActivatedRoute, private multipleChoiceTestService: MultipleChoiceTestService) {}
+  
+  constructor(
+    private route: ActivatedRoute,
+    private multipleChoiceTestService: MultipleChoiceTestService
+  ) {}
 
 
   ngOnInit(): void {
@@ -26,5 +30,5 @@ export class ResultSingleQuestionComponent implements OnInit{
           this.question = data;
         });
     });
-    }
+  }
 }

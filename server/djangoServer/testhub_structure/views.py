@@ -15,7 +15,8 @@ from djangoServer.testhub_structure.models import Course, Topic, MultipleChoiceT
     SubmissionMultipleChoiceTest, SubmissionPyTest
 from djangoServer.testhub_structure.permissions import IsTeacher
 from djangoServer.testhub_structure.serializers import CourseSerializer, MultipleChoiceExamSerializer, \
-    MultipleChoiceSubmissionSerializer, MultipleChoiceQuestionSerializer, PythonTestSerializer, PySubmissions
+    MultipleChoiceQuestionSerializer, PythonTestSerializer, PySubmissions, \
+    MultipleChoiceTestSubmissionSerializer
 
 
 def run_tests(code, test_code):
@@ -187,11 +188,17 @@ class SubmitMultipleChoiceTest(APIView):
 
 
 class GetMultipleChoiceTestSubmission(APIView):
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
 
-    def get(self, request, submissionId):
-        submission = SubmissionMultipleChoiceTest.objects.get(pk=submissionId)
-        serializer = MultipleChoiceSubmissionSerializer(submission, many=False)
+    def get(self, request, submission_id):
+        try:
+            submission = get_object_or_404(SubmissionMultipleChoiceTest, pk=submission_id)
+            if submission.submitter != request.user:
+                return Response({"error": "This submission was not made by you!"}, status=status.HTTP_403_FORBIDDEN)
+        except SubmissionMultipleChoiceTest.DoesNotExist:
+            return Response({"error": "Submission not found."}, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = MultipleChoiceTestSubmissionSerializer(submission, many=False)
         data = serializer.data
         data['total_questions'] = submission.multiple_choice_exam.questions.count()
         answers = []
@@ -207,17 +214,22 @@ class GetMultipleChoiceTestSubmission(APIView):
         return Response(data)
 
 
-class GetMultipleChoiceQuestion(APIView):  # Да се пусне на чата да сложи try except-и
-    permission_classes = (AllowAny,)
+class GetMultipleChoiceTestSingleQuestion(APIView):
+    permission_classes = (IsAuthenticated,)
 
-    def get(self, request, submissionId, questionId):
-        submission = SubmissionMultipleChoiceTest.objects.get(pk=submissionId)
-        given_answer = None
+    def get(self, request, submission_id, question_id):
+        try:
+            submission = get_object_or_404(SubmissionMultipleChoiceTest, pk=submission_id)
+            if submission.submitter != request.user:
+                return Response({"error": "This submission was not made by you!"}, status=status.HTTP_403_FORBIDDEN)
+        except SubmissionMultipleChoiceTest.DoesNotExist:
+            return Response({"error": "Submission not found."}, status=status.HTTP_404_NOT_FOUND)
+
         for data in submission.answers.split("|"):
             current_question_id = int(data.split(' ')[0])
-            if current_question_id == questionId:
+            if current_question_id == question_id:
                 given_answer = int(data.split(' ')[1])
-                question = MultipleChoiceQuestion.objects.get(id=current_question_id)
+                question = get_object_or_404(MultipleChoiceQuestion, id=current_question_id)
                 serializer = MultipleChoiceQuestionSerializer(question, many=False)
                 data = serializer.data
                 data['givenAnswer'] = given_answer
@@ -382,5 +394,5 @@ class GetAllMultipleChoiceSubmissions(APIView):
 
     def get(self, request):
         submissions = SubmissionMultipleChoiceTest.objects.order_by('-submission_time', '-id')[:10]
-        serializer = MultipleChoiceSubmissionSerializer(submissions, many=True)
+        serializer = MultipleChoiceTestSubmissionSerializer(submissions, many=True)
         return Response(serializer.data)

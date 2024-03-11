@@ -1,8 +1,9 @@
-from django.urls import path
+from django.urls import path, include
 
 from djangoServer.testhub_structure.views import GetCoursesAndTopics, \
-    GetMultipleChoiceTestSubmission, GetMultipleChoiceQuestion, PythonTest, GetAllPySubmissions, \
-    MyProfile, GetAllMultipleChoiceSubmissions, CreateMultipleChoiceTest, CreatePythonTest, SubmitMultipleChoiceTest
+    GetMultipleChoiceTestSubmission, PythonTest, GetAllPySubmissions, \
+    MyProfile, GetAllMultipleChoiceSubmissions, CreateMultipleChoiceTest, CreatePythonTest, SubmitMultipleChoiceTest, \
+    GetMultipleChoiceTestSingleQuestion
 
 urlpatterns = [
     path('coursesTopicsTests/', GetCoursesAndTopics.as_view(), name='courses-topics-tests'),
@@ -14,14 +15,16 @@ urlpatterns = [
 
     path('multipleChoiceTest/<str:exam_name>/', SubmitMultipleChoiceTest.as_view(), name='submit-multiple-choice-test'),
 
+    path('submissions/', include([
+        path('multipleChoiceTest/<int:submission_id>/', GetMultipleChoiceTestSubmission.as_view(),
+             name='get-multiple-choice-test-submission'),
+        path('multipleChoiceTest/<int:submission_id>/<int:question_id>/', GetMultipleChoiceTestSingleQuestion.as_view(),
+         name='get-multiple-choice-test-single-question'),
 
+        path('python/', GetAllPySubmissions.as_view(), name='all-python-submissions'),
+        path('multipleChoice/', GetAllMultipleChoiceSubmissions.as_view(), name='all-mcq-submissions')
+    ])),
 
-    path('submissions/multipleChoiceExam/<int:submissionId>/', GetMultipleChoiceTestSubmission.as_view(),
-         name='get-multiple-questions-test-submission'),
-    path('submissions/multipleChoiceExam/<int:submissionId>/<int:questionId>/', GetMultipleChoiceQuestion.as_view(),
-         name='get-multiple-choice-question'),
     path('pythonTest/<str:name>/', PythonTest.as_view(), name='python-test'),
-    path('submissions/python/', GetAllPySubmissions.as_view(), name='all-py-submissions'),
-    path('submissions/multipleChoice/', GetAllMultipleChoiceSubmissions.as_view(), name='all-mcq-submissions'),
     path('myProfile/', MyProfile.as_view(), name='my-profile'),  # Move to auth
 ]

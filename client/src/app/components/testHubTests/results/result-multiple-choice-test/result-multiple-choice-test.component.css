@@ -6,7 +6,7 @@ body {
 
 
 .result-section {
-    margin: 0 auto;
+    margin: 5vh auto;
     width: 75vw;
     display: flex;
     flex-direction: column;
@@ -15,14 +15,12 @@ body {
     height: 70vh;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    margin-bottom: 5vh;
     background-image: url('../../../../../assets/images/coding-avfu043y2kv52wha.jpg');
     animation-name: bgPositionAnim;
     animation-duration: 10s;
     animation-timing-function: ease-in-out;
     animation-direction: alternate;
     animation-iteration-count: infinite;
-    margin-bottom: 5vh;
 }
 
 
