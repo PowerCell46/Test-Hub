@@ -6,7 +6,7 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-python';
 import 'prismjs/themes/prism.css';
 import { AuthenticationService } from '../../../../services/authentication/authentication.service';
-import { CoursesTopicsService } from '../../../../services/courses-topics.service';
+import { CoursesTopicsTestsService } from '../../../../services/coursesTopicsTests/courses-topics-tests.service';
 import { topicDefaultValueValidator } from '../../../../../assets/validators/topicValidator';
 import { baseServerUrl, toastifyParams } from '../../../../../assets/constants';
 import Toastify from 'toastify-js';
@@ -28,7 +28,7 @@ export class PythonTestsComponent implements OnInit {
       private http: HttpClient,
       private router: Router,
       private authService: AuthenticationService,
-      private courseTopicsService: CoursesTopicsService
+      private courseTopicsTestsService: CoursesTopicsTestsService
     ) {
     this.pythonTestForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
@@ -41,7 +41,7 @@ export class PythonTestsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.courseTopicsService.getCourses().subscribe(data => {
+    this.courseTopicsTestsService.getCourses().subscribe(data => {
       this.courses = data;
     });
   }
@@ -50,7 +50,7 @@ export class PythonTestsComponent implements OnInit {
   onCourseSelect(): void {
     const selectedCourse = this.pythonTestForm.get('course')?.value;
     if (selectedCourse) {
-      this.courseTopicsService.getTopics(selectedCourse).subscribe((topics: string[]) => {        
+      this.courseTopicsTestsService.getTopics(selectedCourse).subscribe((topics: string[]) => {        
         this.topics = topics;
         this.pythonTestForm.get('topic')?.enable();
         this.pythonTestForm.get('topic')?.setValue('Select a Topic');

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { baseServerUrl } from '../../assets/constants';
+import { baseServerUrl } from '../../../assets/constants';
 interface Topic {
   name: string;
  }
@@ -9,7 +9,7 @@ interface Topic {
 @Injectable({
   providedIn: 'root'
 })
-export class CoursesTopicsService {
+export class CoursesTopicsTestsService {
   requestUrl: string =  `${baseServerUrl}testHub/coursesTopicsTests/`;
   
   constructor(

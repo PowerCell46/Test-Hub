@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@ang
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../../services/authentication/authentication.service';
-import { CoursesTopicsService } from '../../../../services/courses-topics.service';
+import { CoursesTopicsTestsService } from '../../../../services/coursesTopicsTests/courses-topics-tests.service';
 import { topicDefaultValueValidator } from '../../../../../assets/validators/topicValidator';
 import { baseServerUrl, toastifyParams } from '../../../../../assets/constants';
 import Toastify from 'toastify-js';
@@ -24,7 +24,7 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
       private http: HttpClient,
       private router: Router,
       public authService: AuthenticationService,
-      private courseTopicsService: CoursesTopicsService
+      private courseTopicsTestsService: CoursesTopicsTestsService
     ) {
       this.multipleQuestionsTestForm = this.formBuilder.group({
         testTitle: ['', [Validators.required, Validators.minLength(3)]],
@@ -36,7 +36,7 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
 
 
     ngOnInit(): void {
-      this.courseTopicsService.getCourses().subscribe((data: string[]) => {
+      this.courseTopicsTestsService.getCourses().subscribe((data: string[]) => {
         // console.log(data);
         this.courses = data;
       });
@@ -46,7 +46,7 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
     onCourseSelect(): void {
       const selectedCourse = this.multipleQuestionsTestForm.get('course')?.value;
       if (selectedCourse) {
-        this.courseTopicsService.getTopics(selectedCourse).subscribe((topics: string[]) => {  
+        this.courseTopicsTestsService.getTopics(selectedCourse).subscribe((topics: string[]) => {  
           // console.log(topics);                
           this.topics = topics;
           this.multipleQuestionsTestForm.get('topic')?.enable();
