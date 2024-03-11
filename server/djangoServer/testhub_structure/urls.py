@@ -1,9 +1,9 @@
 from django.urls import path, include
 
 from djangoServer.testhub_structure.views import GetCoursesAndTopics, \
-    GetMultipleChoiceTestSubmission, PythonTest, GetAllPySubmissions, \
+    GetMultipleChoiceTestSubmission, GetAllPySubmissions, \
     MyProfile, GetAllMultipleChoiceSubmissions, CreateMultipleChoiceTest, CreatePythonTest, SubmitMultipleChoiceTest, \
-    GetMultipleChoiceTestSingleQuestion
+    GetMultipleChoiceTestSingleQuestion, SubmitPythonTest
 
 urlpatterns = [
     path('coursesTopicsTests/', GetCoursesAndTopics.as_view(), name='courses-topics-tests'),
@@ -25,6 +25,6 @@ urlpatterns = [
         path('multipleChoice/', GetAllMultipleChoiceSubmissions.as_view(), name='all-mcq-submissions')
     ])),
 
-    path('pythonTest/<str:name>/', PythonTest.as_view(), name='python-test'),
+    path('pythonTest/<str:name>/', SubmitPythonTest.as_view(), name='submit-python-test'),
     path('myProfile/', MyProfile.as_view(), name='my-profile'),  # Move to auth
 ]

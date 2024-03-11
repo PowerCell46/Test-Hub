@@ -17,24 +17,20 @@ export class MultipleChoiceTestService {
   ) { }
 
 
-  private getHeaders(): HttpHeaders {
-    return new HttpHeaders({
-      'Authorization': `Token ${this.authService.getToken()}`
-    });
-  }
+  
 
 
   getMultipleChoiceTest(examName: string): Observable<any> {
-    return this.http.get<any[]>(`${this.requestUrl}${examName}/`, {headers: this.getHeaders() }).pipe();
+    return this.http.get<any[]>(`${this.requestUrl}${examName}/`, {headers: this.authService.getHeaders() }).pipe();
   }
 
 
   getMultipleChoiceSubmission(submissionId: number): Observable<any> {
-    return this.http.get<any[]>(`${baseServerUrl}testHub/submissions/multipleChoiceTest/${submissionId}/`, {headers: this.getHeaders() }).pipe();
+    return this.http.get<any[]>(`${baseServerUrl}testHub/submissions/multipleChoiceTest/${submissionId}/`, {headers: this.authService.getHeaders() }).pipe();
   }
 
 
   getSingleQuestion(submissionId: number, questionId: number): Observable<any> {
-    return this.http.get<any[]>(`${baseServerUrl}testHub/submissions/multipleChoiceTest/${submissionId}/${questionId}/`, {headers: this.getHeaders() }).pipe();
+    return this.http.get<any[]>(`${baseServerUrl}testHub/submissions/multipleChoiceTest/${submissionId}/${questionId}/`, {headers: this.authService.getHeaders() }).pipe();
   }
 }

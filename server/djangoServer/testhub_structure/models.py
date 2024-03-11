@@ -65,6 +65,6 @@ class SubmissionPyTest(models.Model):
     python_test = models.ForeignKey(to=PyTest, on_delete=models.CASCADE, related_name='submissions')
     num_total_tests = models.PositiveIntegerField()
     num_correct_tests = models.PositiveIntegerField()
-    incorrect_tests = models.TextField()
+    incorrect_tests = models.TextField()  # ___ is not ___ : error details|___ is not ___ : error details
     num_error_tests = models.PositiveIntegerField()
     submission_time = models.DateTimeField(auto_now_add=True)

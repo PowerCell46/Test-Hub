@@ -273,3 +273,7 @@ textarea {
 .fa-rotate-right:hover {
     background-color: #007262;
 }
+
+.error {
+    border: 3.5px solid var(--maroon-red);
+}

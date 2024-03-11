@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../../../assets/interfaces/main-interfaces';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,12 @@ export class AuthenticationService {
 
   getToken(): string | null {
     return localStorage.getItem('token');
+  }
+
+  getHeaders(): HttpHeaders {
+    return new HttpHeaders({
+      'Authorization': `Token ${this.getToken()}`
+    });
   }
 
   private updateLoginStatus(isLoggedIn: boolean): void {

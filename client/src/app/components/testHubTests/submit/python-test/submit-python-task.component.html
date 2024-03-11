@@ -1,7 +1,9 @@
 <main *ngIf="pythonTest">
+  <!-- Topic -->
   <h1>{{ pythonTest.topicName }}</h1>
 
   <div class="tasks-container">
+    <!-- Topic Tasks - MCQ and Python Tasks -->
     <ng-container *ngFor="let task of pythonTest.topicTasks">
       <div
         *ngIf="task.type === 'multiple-choice'"
@@ -29,17 +31,21 @@
     class="inner-container"
   >
     <div class="inner-container-wrapper">
+      <!-- Task Title -->
       <h5>{{ pythonTest.title }}</h5>
+      <!-- Task Description -->
       <a target="_blank" href="{{ pythonTest.description }}">
         <i class="fa-solid fa-file"></i>
       </a>
     </div>
     <div id="unit-tests-wrapper">
       <h5 id="unit-tests-title">Paste Code Here:</h5>
+      <!-- Task Code -->
       <textarea
         formControlName="code"
         (input)="updateCode($any($event.target).value)"
         placeholder="Enter Python code here..."
+        [ngClass]="{'error': pythonTestSubmitForm.get('code')?.touched && pythonTestSubmitForm.get('code')?.invalid}"
       ></textarea>
     </div>
     <pre><code [innerHTML]="highlightedCode" class="language-python"></code></pre>
@@ -83,6 +89,7 @@
     <td>{{ submission.submission_time | date : "dd/MM/yyyy HH:mm:ss" }}</td>
   </tr>
 </table>
+
 
 <!-- 
 def is_even(number):
