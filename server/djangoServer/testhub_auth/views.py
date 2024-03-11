@@ -10,6 +10,8 @@ from rest_framework.authtoken.models import Token
 from djangoServer.testhub_auth.models import UserProfile
 from djangoServer.testhub_auth.serializers import UserRegistrationSerializer, UserProfileDetailsSerializer, \
     UserSerializer
+from djangoServer.testhub_auth.utils import calculate_average_grade
+from djangoServer.testhub_structure.models import SubmissionPyTest, SubmissionMultipleChoiceTest
 from djangoServer.testhub_structure.permissions import IsUnauthenticated
 
 
@@ -58,6 +60,57 @@ class UserLogout(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         except:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+class MyProfile(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        user = request.user
+
+        user_details_serializer = UserProfileDetailsSerializer(
+            user.user_details, context={'request': request}, many=False)
+        user_data = user_details_serializer.data
+        user_data['firstName'] = user.first_name
+        user_data['lastName'] = user.last_name
+        user_data['dateJoined'] = user.date_joined
+
+        total_py_submissions = SubmissionPyTest.objects.filter(submitter=user).count()
+        user_data['pySubmissionsCount'] = total_py_submissions
+        user_data['averagePythonGrade'] = (
+            calculate_average_grade('Python', SubmissionPyTest.objects.filter(submitter=user)))
+
+        user_data['multipleChoiceSubmissionsCount'] = \
+            SubmissionMultipleChoiceTest.objects.filter(submitter=user).count()
+        user_data['averageMultipleChoiceGrade'] = (
+            calculate_average_grade('MultipleChoice', SubmissionMultipleChoiceTest.objects.filter(submitter=user)))
+
+        courses_names = []
+
+        for submission in (SubmissionPyTest.objects.filter(submitter=user)):
+            courses_names.append(submission.python_test.topic.course.name)
+        for submission in (SubmissionMultipleChoiceTest.objects.filter(submitter=user)):
+            courses_names.append(submission.multiple_choice_exam.topic.course.name)
+        courses_names = set(courses_names)
+
+        courses_data = []
+        for course in courses_names:
+            course_python_tasks = SubmissionPyTest.objects.filter(python_test__topic__course__name=course)
+            course_multiple_choice_tasks = (
+                SubmissionMultipleChoiceTest.objects.filter(multiple_choice_exam__topic__course__name=course))
+            current_course_python_avg_grade = calculate_average_grade('Python', course_python_tasks)
+            current_course_multiple_choice_avg_grade = (
+                calculate_average_grade('MultipleChoice', course_multiple_choice_tasks))
+            courses_data.append({
+                "course_name": course,
+                "py_test_submissions": course_python_tasks.count(),
+                "multiple_choice_submissions": course_multiple_choice_tasks.count(),
+                "avg_python_grade": current_course_python_avg_grade,
+                "avg_multiple_choice_grade": current_course_multiple_choice_avg_grade})
+
+        user_data['courses_data'] = courses_data
+
+        return Response(user_data)
 
 
 class EditProfile(APIView):

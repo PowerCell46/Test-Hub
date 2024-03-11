@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MyProfileService } from '../../../services/my-profile.service';
+import { MyProfileService } from '../../../services/myProfile/my-profile.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthenticationService } from '../../../services/authentication/authentication.service';
-import { baseServerUrl } from '../../../../assets/constants';
+import { baseServerUrl, toastifyParams } from '../../../../assets/constants';
 import { Router } from '@angular/router';
+import Toastify from 'toastify-js';
+import 'toastify-js/src/toastify.css';
 
 @Component({
   selector: 'app-my-profile',
@@ -16,7 +18,12 @@ export class MyProfileComponent implements OnInit{
 
  
   userData: any = {};
-  constructor( private http: HttpClient, private myProfileService: MyProfileService, private authService: AuthenticationService, private router: Router) {}
+  constructor( 
+    private http: HttpClient,
+    private myProfileService: MyProfileService,
+    private authService: AuthenticationService,
+    private router: Router
+  ) {}
 
 
   ngOnInit(): void {
@@ -26,29 +33,49 @@ export class MyProfileComponent implements OnInit{
     });
   }
 
+
   showDeleteProfileSection(): void {
       this.deleteProfileVisible = true;
       setTimeout(() => this.deleteProfileOpacity = 1, 250);
   }
+
 
   hideDeleteProfileSection(): void {
       this.deleteProfileOpacity = 0;
       setTimeout(() => this.deleteProfileVisible = false, 500);
   }
 
+
   onDeleteUserProfile(): void {
-    const headers = new HttpHeaders({
-      'Authorization': `Token ${this.authService.getToken()}`
-    });
-    this.http.delete(`${baseServerUrl}auth/deleteProfile/`, {headers: headers})
+    this.http.delete(`${baseServerUrl}auth/deleteProfile/`, {headers: this.authService.getHeaders()})
     .subscribe({
       next: () => {
-        this.authService.logout();
 
-        this.router.navigate(['/']);
+        Toastify({
+          text: "Successful Account Deletion!",
+          duration: 3000,
+          close: toastifyParams.close,
+          gravity: "top",
+          position: "center",
+          backgroundColor: toastifyParams.successBackgroundColor,
+        }).showToast();
+        
+        setTimeout(() => {
+          this.authService.logout();
+          this.router.navigate(['/']);
+        }, 3000);
+        
       }, 
-      error: (err) => {
-        console.error(err);
+      error: (error) => {
+        console.error(error); 
+        Toastify({
+          text: `Delete Profile error: Please try again later.`,
+          duration: 3000,
+          close: toastifyParams.close,
+          gravity: "top",
+          position: "center",
+          backgroundColor: toastifyParams.errorBackgroundColor,
+        }).showToast();
       }
     });
   }

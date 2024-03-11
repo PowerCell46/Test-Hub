@@ -235,104 +235,13 @@ class SubmitPythonTest(APIView):
                         status=status.HTTP_201_CREATED)
 
 
-class GetAllPySubmissions(APIView):
+class GetAllPythonSubmissions(APIView):
     permission_classes = (AllowAny,)
 
     def get(self, request):
         submissions = SubmissionPyTest.objects.order_by('-submission_time', '-id')[:10]
         serializer = PySubmissions(submissions, many=True)
         return Response(serializer.data)
-
-
-class MyProfile(APIView):
-    permission_classes = (AllowAny,)
-
-    def get(self, request):
-        user = request.user
-
-        if not user.is_authenticated:
-            return Response({"error": "Authentication required"}, status=401)
-
-        user_details_serializer = UserProfileDetailsSerializer(
-            user.user_details, context={'request': request}, many=False)
-        user_data = user_details_serializer.data
-        user_data['firstName'] = user.first_name
-        user_data['lastName'] = user.last_name
-        user_data['dateJoined'] = user.date_joined
-
-        total_py_submissions = SubmissionPyTest.objects.filter(submitter=user).count()
-        user_data['pySubmissionsCount'] = total_py_submissions
-        user_data['averagePythonGrade'] = (
-            calculate_average_grade('Python', SubmissionPyTest.objects.filter(submitter=user)))
-
-        user_data['multipleChoiceSubmissionsCount'] = \
-            SubmissionMultipleChoiceTest.objects.filter(submitter=user).count()
-        user_data['averageMultipleChoiceGrade'] = (
-            calculate_average_grade('MultipleChoice', SubmissionMultipleChoiceTest.objects.filter(submitter=user)))
-
-        courses_names = []
-
-        for submission in (SubmissionPyTest.objects.filter(submitter=user)):
-            courses_names.append(submission.python_test.topic.course.name)
-        for submission in (SubmissionMultipleChoiceTest.objects.filter(submitter=user)):
-            courses_names.append(submission.multiple_choice_exam.topic.course.name)
-        courses_names = set(courses_names)
-
-        courses_data = []
-        for course in courses_names:
-            course_python_tasks = SubmissionPyTest.objects.filter(python_test__topic__course__name=course)
-            course_multiple_choice_tasks = (
-                SubmissionMultipleChoiceTest.objects.filter(multiple_choice_exam__topic__course__name=course))
-            current_course_python_avg_grade = calculate_average_grade('Python', course_python_tasks)
-            current_course_multiple_choice_avg_grade = (
-                calculate_average_grade('MultipleChoice', course_multiple_choice_tasks))
-            courses_data.append({
-                "course_name": course,
-                "py_test_submissions": course_python_tasks.count(),
-                "multiple_choice_submissions": course_multiple_choice_tasks.count(),
-                "avg_python_grade": current_course_python_avg_grade,
-                "avg_multiple_choice_grade": current_course_multiple_choice_avg_grade})
-
-        user_data['courses_data'] = courses_data
-
-        return Response(user_data)
-
-
-def calculate_average_grade(test_type: str, submissions) -> str:
-    total_correct_points = {}
-    total_total_points = {}
-
-    for submission in submissions:
-        if test_type == 'Python':
-            submission_title = submission.python_test.title
-            submission_correct_points = submission.num_correct_tests
-            test_total_points = submission.num_total_tests
-        else:
-            submission_title = submission.multiple_choice_exam.title
-            submission_correct_points = submission.correct_answers
-            test_total_points = submission.multiple_choice_exam.questions.count()
-
-        if submission_title not in total_correct_points.keys():
-            total_correct_points[submission_title] = submission_correct_points
-            total_total_points[submission_title] = test_total_points
-
-        if submission_correct_points > total_correct_points[submission_title]:
-            total_correct_points[submission_title] = submission_correct_points
-
-    # print(total_correct_points)
-    # print(total_total_points)
-
-    if len(total_correct_points) > 0:
-        avg_correct_points = sum(total_correct_points.values()) / len(total_correct_points)
-    else:
-        avg_correct_points = 0.0
-
-    if len(total_total_points) > 0:
-        avg_total_points = sum(total_total_points.values()) / len(total_total_points)
-    else:
-        avg_total_points = 0.0
-
-    return f'{avg_correct_points:.2f}/{avg_total_points:.2f}'
 
 
 class GetAllMultipleChoiceSubmissions(APIView):

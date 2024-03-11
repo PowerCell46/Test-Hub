@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MyProfileService } from '../../../services/my-profile.service';
+import { MyProfileService } from '../../../services/myProfile/my-profile.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthenticationService } from '../../../services/authentication/authentication.service';
