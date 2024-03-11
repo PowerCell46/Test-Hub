@@ -74,7 +74,7 @@ interface multipleChoiceQuestion {
     question_title: string,
 } 
 
-export interface MultipleChoiceExam {
+export interface MultipleChoiceTest {
     title: string,
     questions: multipleChoiceQuestion[]
 }

@@ -1,10 +1,13 @@
 <main *ngIf="exam">
   <h1>{{ exam.title }}</h1>
 
-  <form [formGroup]="examForm" (ngSubmit)="onMultipleQuestionsExamSubmit()">
+  <form [formGroup]="testForm" (ngSubmit)="onMultipleQuestionsTestSubmit()">
     <div formArrayName="questions">
-      <section *ngFor="let questionControl of questionsFormArray.controls; let i = index" [formGroupName]="i" class="options">
-        <h5>{{ exam.questions[i].question_title }}</h5>
+      <!-- Question Section -->
+      <section *ngFor="let questionControl of questionsFormArray.controls; let i = index" [formGroupName]="i" class="options" 
+      [ngClass]="{'unfilled-question': formSubmitted && !questionControl.get('selectedValue')?.value}">
+        <!-- Title -->
+      <h5>{{ exam.questions[i].question_title }}</h5>
         <div class="container">
 
           <div class="inner-container">
@@ -30,5 +33,4 @@
       <button type="submit">Finish Test</button>
     </div>
   </form>
-  
 </main>

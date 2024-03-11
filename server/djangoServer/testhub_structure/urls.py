@@ -1,20 +1,21 @@
 from django.urls import path
 
 from djangoServer.testhub_structure.views import GetCoursesAndTopics, \
-    MultipleChoiceExam, GetMultipleChoiceTestSubmission, GetMultipleChoiceQuestion, PythonTest, GetAllPySubmissions, \
-    MyProfile, GetAllMultipleChoiceSubmissions, CreateMultipleChoiceTest, CreatePythonTest
+    GetMultipleChoiceTestSubmission, GetMultipleChoiceQuestion, PythonTest, GetAllPySubmissions, \
+    MyProfile, GetAllMultipleChoiceSubmissions, CreateMultipleChoiceTest, CreatePythonTest, SubmitMultipleChoiceTest
 
 urlpatterns = [
     path('coursesTopicsTests/', GetCoursesAndTopics.as_view(), name='courses-topics-tests'),
+
     # path('createCourse/', ),
     # path('createTopic/', ),
     path('createMultipleChoiceTest/', CreateMultipleChoiceTest.as_view(), name='create-multiple-choice-test'),
     path('createPythonTest/', CreatePythonTest.as_view(), name='create-python-test'),
 
+    path('multipleChoiceTest/<str:exam_name>/', SubmitMultipleChoiceTest.as_view(), name='submit-multiple-choice-test'),
 
 
 
-    path('multipleChoiceExam/<str:examName>/', MultipleChoiceExam.as_view(), name='get-multiple-choice-exam'),
     path('submissions/multipleChoiceExam/<int:submissionId>/', GetMultipleChoiceTestSubmission.as_view(),
          name='get-multiple-questions-test-submission'),
     path('submissions/multipleChoiceExam/<int:submissionId>/<int:questionId>/', GetMultipleChoiceQuestion.as_view(),

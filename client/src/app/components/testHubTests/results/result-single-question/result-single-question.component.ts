@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MultipleChoiceExamService } from '../../../../services/multiple-choice-exam.service';
+import { MultipleChoiceTestService } from '../../../../services/multipleChoiceTest/multiple-choice-test.service';
 
 @Component({
   selector: 'app-result-single-question',
@@ -12,7 +12,7 @@ export class ResultSingleQuestionComponent implements OnInit{
   questionId!: number;
   question!: any;
 
-  constructor(private route: ActivatedRoute, private multipleChoiceExamService: MultipleChoiceExamService) {}
+  constructor(private route: ActivatedRoute, private multipleChoiceTestService: MultipleChoiceTestService) {}
 
 
   ngOnInit(): void {
@@ -20,7 +20,7 @@ export class ResultSingleQuestionComponent implements OnInit{
         this.submissionId = params['submissionId'];
         this.questionId = params['questionId'];
       
-        this.multipleChoiceExamService.getSingleQuestion(this.submissionId, this.questionId).subscribe(data => {
+        this.multipleChoiceTestService.getSingleQuestion(this.submissionId, this.questionId).subscribe(data => {
           console.log(data);
           
           this.question = data;

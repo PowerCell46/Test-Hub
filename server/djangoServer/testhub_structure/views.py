@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.shortcuts import render, get_object_or_404
 from rest_framework import status
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -142,30 +142,25 @@ class CreatePythonTest(APIView):
         return Response({'message': 'Python Test created successfully!'}, status=status.HTTP_201_CREATED)
 
 
-class MultipleChoiceExam(APIView):
-    permission_classes = (AllowAny,)
+class SubmitMultipleChoiceTest(APIView):
+    permission_classes = (IsAuthenticated,)
 
-    def get(self, request, examName):
-        multiple_questions_exam = MultipleChoiceTest.objects.get(title=examName)
-        serializer = MultipleChoiceExamSerializer(multiple_questions_exam)
+    def get(self, request, exam_name):
+        multiple_questions_test = get_object_or_404(MultipleChoiceTest, title=exam_name)
+        serializer = MultipleChoiceExamSerializer(multiple_questions_test)
         return Response(serializer.data)
 
-    def post(self, request, examName):
-        user = request.user
-
-        if not user.is_authenticated:
-            return Response({"error": "Authentication required"}, status=401)
-
+    def post(self, request, exam_name):
         try:
-            multiple_questions_exam = MultipleChoiceTest.objects.get(title=examName)
-        except MultipleChoiceTest.DoesNotExist:
-            return Response({"error": "Exam not found"}, status=status.HTTP_404_NOT_FOUND)
+            multiple_questions_test = get_object_or_404(MultipleChoiceTest, title=exam_name)
+        except:
+            return Response({"error": "Test not found"}, status=status.HTTP_404_NOT_FOUND)
 
         answers_data = request.data.get('questions')
         if not isinstance(answers_data, list):
             return Response({"error": "Invalid data format"}, status=status.HTTP_400_BAD_REQUEST)
 
-        question_ids = [d['questionId'] for d in answers_data]
+        question_ids = [el['questionId'] for el in answers_data]
         questions = MultipleChoiceQuestion.objects.filter(pk__in=question_ids)
 
         if len(questions) != len(answers_data):
@@ -181,10 +176,10 @@ class MultipleChoiceExam(APIView):
                 answers.append(f"{q_data['questionId']} {q_data['selectedValue']}")
 
             submission = SubmissionMultipleChoiceTest.objects.create(
-                submitter=user,
+                submitter=request.user,
                 answers='|'.join(answers),
                 correct_answers=correct_answers,
-                multiple_choice_exam=multiple_questions_exam
+                multiple_choice_exam=multiple_questions_test
             )
 
         return Response({"message": "Successful submission!", 'submissionId': submission.pk},

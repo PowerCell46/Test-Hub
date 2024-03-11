@@ -41,7 +41,7 @@ class MultipleChoiceQuestionSerializer(serializers.ModelSerializer):
                   'correct_answer']
 
 
-class MultipleChoiceExamSerializer(serializers.ModelSerializer):
+class MultipleChoiceExamSerializer(serializers.ModelSerializer):  # Used for Submit MCQ Test
     questions = MultipleChoiceQuestionSerializer(many=True, read_only=True)
 
     class Meta:
