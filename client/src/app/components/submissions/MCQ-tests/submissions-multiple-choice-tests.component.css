@@ -1,5 +1,6 @@
 @import url('../../../../assets/styles/submissions.css');
 
+
 tr:nth-child(1n) {
     background-color: #4a32a9;
 }
@@ -9,6 +10,14 @@ tr:nth-child(2n) {
     background-color: #6d52d7;
 }
 
+
 tr:nth-child(1) {
     background-color: #001c27;
+}
+
+
+tr:not(:first-child):hover {
+    cursor: pointer;
+    background-color: #342376;
+    transform: translateY(-0.4rem);
 }

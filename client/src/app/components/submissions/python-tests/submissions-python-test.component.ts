@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Submissions } from '../../../../assets/interfaces/main-interfaces';
-import { HttpClient } from '@angular/common/http';
-import { SubmissionsService } from '../../../services/submissions.service';
+import { SubmissionsService } from '../../../services/submissions/submissions.service';
 
 @Component({
   selector: 'app-submissions',
@@ -11,16 +9,19 @@ import { SubmissionsService } from '../../../services/submissions.service';
 export class SubmissionsComponent implements OnInit{
   submissions: any[] = []; 
 
-  constructor(private submissionsService: SubmissionsService) {}
+  constructor(
+    private submissionsService: SubmissionsService
+  ) {}
 
+  
   ngOnInit(): void {
     this.submissionsService.getAllPySubmissions().subscribe(data => {
       this.submissions = data;
     })
   }
 
+
   getArray(num: number): any[] {
     return new Array(num);
   }
-
 }

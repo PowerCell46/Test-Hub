@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SubmissionsService } from '../../../services/submissions.service';
+import { SubmissionsService } from '../../../services/submissions/submissions.service';
 
 @Component({
   selector: 'app-submissions-multiple-choice-tests',
@@ -9,7 +9,10 @@ import { SubmissionsService } from '../../../services/submissions.service';
 export class SubmissionsMultipleChoiceTestsComponent implements OnInit {
   submissions: any[] = []; 
 
-  constructor(private submissionsService: SubmissionsService) {}
+  constructor(
+    private submissionsService: SubmissionsService
+  ) {}
+
 
   ngOnInit(): void {
     this.submissionsService.getAllMCQSubmissions().subscribe(data => {
@@ -17,6 +20,7 @@ export class SubmissionsMultipleChoiceTestsComponent implements OnInit {
     });
   }
 
+  
   getArray(num: number): any[] {
     return new Array(num);
   }

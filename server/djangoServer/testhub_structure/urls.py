@@ -14,6 +14,7 @@ urlpatterns = [
     path('createPythonTest/', CreatePythonTest.as_view(), name='create-python-test'),
 
     path('multipleChoiceTest/<str:exam_name>/', SubmitMultipleChoiceTest.as_view(), name='submit-multiple-choice-test'),
+    path('pythonTest/<str:name>/', SubmitPythonTest.as_view(), name='submit-python-test'),
 
     path('submissions/', include([
         path('multipleChoiceTest/<int:submission_id>/', GetMultipleChoiceTestSubmission.as_view(),
@@ -21,10 +22,10 @@ urlpatterns = [
         path('multipleChoiceTest/<int:submission_id>/<int:question_id>/', GetMultipleChoiceTestSingleQuestion.as_view(),
          name='get-multiple-choice-test-single-question'),
 
-        path('python/', GetAllPySubmissions.as_view(), name='all-python-submissions'),
-        path('multipleChoice/', GetAllMultipleChoiceSubmissions.as_view(), name='all-mcq-submissions')
+        path('python/', GetAllPySubmissions.as_view(), name='get-all-python-submissions'),
+        path('multipleChoice/', GetAllMultipleChoiceSubmissions.as_view(), name='get-all-mcq-submissions')
     ])),
 
-    path('pythonTest/<str:name>/', SubmitPythonTest.as_view(), name='submit-python-test'),
+
     path('myProfile/', MyProfile.as_view(), name='my-profile'),  # Move to auth
 ]

@@ -239,7 +239,7 @@ class GetAllPySubmissions(APIView):
     permission_classes = (AllowAny,)
 
     def get(self, request):
-        submissions = SubmissionPyTest.objects.order_by('-submission_time')[:10]
+        submissions = SubmissionPyTest.objects.order_by('-submission_time', '-id')[:10]
         serializer = PySubmissions(submissions, many=True)
         return Response(serializer.data)
 
