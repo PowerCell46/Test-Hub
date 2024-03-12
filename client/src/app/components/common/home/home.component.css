@@ -123,3 +123,8 @@ p {
     color: #FFD43B;
     font-size: 2.25rem;
 }
+
+hr {
+    margin-top: 3vh;
+    margin-bottom: -1vh;
+}

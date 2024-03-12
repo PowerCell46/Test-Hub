@@ -16,6 +16,7 @@ import 'toastify-js/src/toastify.css';
 export class EditProfileComponent implements OnInit {
   userDetails: any = {};
   editProfileForm: FormGroup;
+  formSubmitted: boolean = false;
 
   constructor(
     private profileService: MyProfileService,
@@ -62,6 +63,7 @@ export class EditProfileComponent implements OnInit {
 
 
   onEditProfileSubmit(): void {
+    this.formSubmitted = true;
     // console.log(this.editProfileForm.value);
     
     if (this.editProfileForm.valid) {

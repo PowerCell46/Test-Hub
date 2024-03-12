@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+
+:root {
+    --dark-green: #08785e;
+    --darker-green: #076c55;
+    --midnight-blue: #101720;
+    --border-radius: 0.3rem;
+    --text-shadow: 3px 1px 2px rgba(0, 0, 0, 0.54);
+    --box-shadow: 1px 1px 7px 0.5px rgba(0,0,0,0.75);
+}
+
+
+html {
+    background-image: linear-gradient(to right, #16a06b, #009486, #00869a, #0076a0, #006398);
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+main {
+    background-image: url('https://images7.alphacoders.com/122/1228014.png');
+    background-size: cover;
+    width: 90vw;
+    height: 77.5vh;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    animation-name: bgPositionAnim;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+
+
+@keyframes bgPositionAnim {
+    0% {
+        background-position: center calc(100%);
+    }
+    100% {
+        background-position: center;
+    }
+}
+
+
+
+.text-container {
+    margin-top: 4vh;
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.text-container h1{
+    margin: 0;
+    font-size: 12.5rem;
+    font-family: 'Permanent Marker';
+    color: rgba(225,225,225, .01);
+    background-image: url("https://zeevector.com/wp-content/uploads/Colorful-Background-HD.png");
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: animate 15s ease-in-out infinite;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+
+h5 {
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    font-size: 10rem;
+    color: whitesmoke;
+    font-family: 'Anta';
+    text-shadow: var(--text-shadow);
+}
+
+
+main p {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-shadow: var(--text-shadow);
+    padding: 2rem 1rem;
+    line-height: 1.35;
+    background-color:rgba(0,0,0, 0.8);
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    width: 70%;
+    margin-top: 6vh;
+    color: whitesmoke;
+    font-size: 2rem;
+    font-family: 'Anta';
+}
+
+
+@keyframes animate {
+      0%, 100% {
+        background-position: left top;
+      }
+      25%{
+        background-position: right bottom;
+       }
+      50% {
+        background-position: left bottom;
+      }
+      75% {
+        background-position: right top;
+      }
+}

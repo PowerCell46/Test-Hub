@@ -10,7 +10,7 @@
           </tr>
           <tr *ngFor="let submission of submissions">
             <td>{{submission.id}}</td>
-            <td>{{submission.submission_time | date : "dd/MM/yyyy HH:mm:ss" }}</td>
+            <td>{{submission.submission_time | date : "HH:mm:ss dd/MM/yyyy" }}</td>
             <td>{{submission.submitter_name}}</td>
             <td>{{submission.python_test_title}}</td>
             <td>

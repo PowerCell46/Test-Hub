@@ -1,10 +1,92 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'images/9a641d59-fa1d-4616-b53e-9f3a1784a8ad-transformed.webp' %}"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="{% static '/style/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="{% static 'js/index.js' %}"></script>
+  </head>
+  <body>
+
+    <nav>
+        <section id="navigation-section">
+          <img
+            id="test-hub-logo"
+            src="{% static 'images/9a641d59-fa1d-4616-b53e-9f3a1784a8ad-transformed.webp' %}"
+            alt="Test Hub Logo"
+          />
+          <ul>
+            <li><a href="{% url 'admin:index' %}">Django Admin Site</a></li>
+            <li><a href="{% url 'home-page' %}">Home Page</a></li>
+            <li><a target="_blank" href="http://localhost:4200/">Test Hub</a></li>
+          </ul>
+        </section>
+        <i
+          onclick="hideShowNavigation(event)"
+          id="hide-show-nav-i"
+          class="fa-solid fa-bars"
+        ></i>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+ <footer class="footer">
+        <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social-icon">
+          <li class="social-icon__item">
+            <a class="social-icon__link" href="#">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+          </li>
+          <li class="social-icon__item">
+            <a class="social-icon__link" href="#">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+          </li>
+          <li class="social-icon__item">
+            <a class="social-icon__link" href="#">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </li>
+          <li class="social-icon__item">
+            <a class="social-icon__link" href="#">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </li>
+        </ul>
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+          <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+        </ul>
+        <p>
+          &copy;2024
+          <a href="https://github.com/PowerCell46" target="_blank">PowerCell46</a>
+          | All Rights Reserved
+        </p>
+      </footer>
+    </body>
+  </html>

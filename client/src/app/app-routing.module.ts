@@ -35,10 +35,9 @@ const routes: Routes = [
   {path: "contests/:courseName/:topicName/python/:taskName", component: SubmitPythonTaskComponent},
 
   {path: "myProfile", component: MyProfileComponent},
-  {path: "editProfile", component: EditProfileComponent}
+  {path: "editProfile", component: EditProfileComponent},
 
-  // {path: '', redirectTo: '/error', pathMatch: 'full'},
-  // {path: '/error', component: ErrorComponent},
+  {path: '**', component: ErrorComponent},
 ];
 
 @NgModule({

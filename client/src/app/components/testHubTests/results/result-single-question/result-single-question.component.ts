@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MultipleChoiceTestService } from '../../../../services/multipleChoiceTest/multiple-choice-test.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-result-single-question',
@@ -15,7 +16,8 @@ export class ResultSingleQuestionComponent implements OnInit{
   
   constructor(
     private route: ActivatedRoute,
-    private multipleChoiceTestService: MultipleChoiceTestService
+    private multipleChoiceTestService: MultipleChoiceTestService,
+    private location: Location
   ) {}
 
 
@@ -30,5 +32,10 @@ export class ResultSingleQuestionComponent implements OnInit{
           this.question = data;
         });
     });
+  }
+
+
+  goBack(): void {
+    this.location.back();
   }
 }

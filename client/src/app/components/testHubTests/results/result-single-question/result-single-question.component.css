@@ -1,3 +1,7 @@
+::ng-deep html {
+    background-image: linear-gradient(to right, #16a06b, #009486, #00869a, #0076a0, #006398);
+}
+
 
 main {
     display: flex;
@@ -114,4 +118,18 @@ form {
 form div {
     display: flex;
     justify-content: space-around;
+}
+
+#back-to-results {
+    font-size: 2.25rem;
+    position: absolute;
+    top: 33.5%;
+    left: 14%;
+    cursor: pointer;
+    transition: 600ms ease-in-out;
+}
+
+
+#back-to-results:hover {
+    transform: translateY(-0.3rem);
 }
