@@ -18,9 +18,15 @@
       Username must contain at least one uppercase letter, one lowercase letter, and a number!
     </p>
 
-     <!-- Password -->
-      <input type="password" name="password" formControlName="password" placeholder="Password"
-      [ngClass]="{'error': formSubmitted && loginForm.get('password')?.invalid}" />
+    <i id="hide-show-password" class="fa-solid fa-eye"
+      (mousedown)="showPassword(true)"
+      (mouseup)="showPassword(false)"
+      (mouseleave)="showPassword(false)">
+    </i>
+    <!-- Password -->
+    <input [type]="passwordFieldType" name="password" formControlName="password" placeholder="Password"
+        [ngClass]="{'error': formSubmitted && loginForm.get('password')?.invalid}" />
+    
       <!-- Erros messages Password -->
       <p
         *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength']"

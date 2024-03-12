@@ -16,6 +16,11 @@ import 'toastify-js/src/toastify.css';
 export class LoginComponent {
   loginForm: FormGroup;
   formSubmitted: boolean = false;
+  passwordFieldType: string = 'password';
+
+  showPassword(show: boolean): void {
+    this.passwordFieldType = show ? 'text' : 'password';
+  }
 
   constructor(
       private formBuilder: FormBuilder,
@@ -39,7 +44,7 @@ export class LoginComponent {
         next: (response: any) => {
           // console.log(response);
 
-          this.authService.saveToken(response.token, response.user);
+          this.authService.saveToken(response.token, response.user, response.is_teacher);
 
           this.router.navigate(['/']);
           

@@ -13,11 +13,13 @@ export class AuthenticationService {
 
   constructor() { }
 
-  saveToken(token: string, user: User): void {
-    console.log(user);
+  saveToken(token: string, user: User, is_teacher: boolean): void {
+    // console.log(user);
     
     localStorage.setItem('token', token);
     localStorage.setItem('username', user.username);
+    localStorage.setItem('isTeacher', JSON.stringify(is_teacher
+      ));
     this.updateLoginStatus(true); 
   }
 

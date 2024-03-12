@@ -49,7 +49,7 @@ export class RegisterComponent {
         next: (response: any): void => {
           // console.log(response);
 
-          this.authService.saveToken(response.token, response.user);
+          this.authService.saveToken(response.token, response.user, response.is_teacher);
 
           this.router.navigate(['/']);
           

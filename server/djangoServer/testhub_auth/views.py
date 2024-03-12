@@ -22,7 +22,8 @@ class UserRegister(APIView):
             token, created = Token.objects.get_or_create(user=user)
             return Response({
                 'user': serializer.data,
-                'token': token.key
+                'token': token.key,
+                'is_teacher': user.groups.filter(name='Teachers').exists()
             }, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -42,7 +43,8 @@ class UserLogin(APIView):
             user_serializer = UserSerializer(user)
             return Response({
                 'token': token.key,
-                'user': user_serializer.data
+                'user': user_serializer.data,
+                'is_teacher': user.groups.filter(name='Teachers').exists()
             }, status=status.HTTP_200_OK)
         else:
             return Response({'error': 'Invalid Username or Password'}, status=status.HTTP_400_BAD_REQUEST)

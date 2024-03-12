@@ -140,6 +140,15 @@ h5 a:hover {
 }
 
 
+#hide-show-password {
+    position: absolute;
+    left: 38.2%;
+    top: 52.5%;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+
 @-webkit-keyframes rotate-scale-up {
     0% {
       -webkit-transform: scale(1) rotateZ(0);
