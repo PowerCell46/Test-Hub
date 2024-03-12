@@ -15,6 +15,7 @@ import 'toastify-js/src/toastify.css';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  formSubmitted: boolean = false;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -29,6 +30,8 @@ export class LoginComponent {
   }
 
   onLoginSubmit(): void {
+    this.formSubmitted = true;
+
     if (this.loginForm.valid) {
       // console.log(this.loginForm.value);
       

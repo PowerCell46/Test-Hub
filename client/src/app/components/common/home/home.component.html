@@ -35,13 +35,16 @@
               @fadeInOut
             >
               <!-- MultipleQuestion Task Title -->
-              <li
-                routerLink="/contests/{{ course.encoded }}/{{
-                  topic.encoded
-                }}/multiple-choice/{{ task.encoded }}"
-              >
-                <i class="fa-regular fa-rectangle-list"></i> {{ task.title }}
-              </li>
+              <ng-container *ngIf="username; else noLink">
+                <li routerLink="/contests/{{ course.encoded }}/{{ topic.encoded }}/multiple-choice/{{ task.encoded }}">
+                  <i class="fa-regular fa-rectangle-list"></i> {{ task.title }}
+                </li>
+              </ng-container>
+              <ng-template #noLink>
+                <li>
+                  <i class="fa-regular fa-rectangle-list"></i> {{ task.title }}
+                </li>
+              </ng-template>
             </div>
             <div
               class="hidden-tasks hidden-tasks-python"
@@ -49,13 +52,16 @@
               @fadeInOut
             >
               <!-- Python Task Title -->
-              <li
-                routerLink="/contests/{{ course.encoded }}/{{
-                  topic.encoded
-                }}/python/{{ task.encoded }}"
-              >
-                <i class="fa-solid fa-code"></i> {{ task.title }}
-              </li>
+              <ng-container *ngIf="username; else noLink">
+                <li routerLink="/contests/{{ course.encoded }}/{{ topic.encoded }}/python/{{ task.encoded }}">
+                  <i class="fa-solid fa-code"></i> {{ task.title }}
+                </li>
+              </ng-container>
+              <ng-template #noLink>
+                <li>
+                  <i class="fa-solid fa-code"></i> {{ task.title }}
+                </li>
+              </ng-template>
             </div>
           </div>
         </div>
@@ -65,6 +71,7 @@
 
   <section>
     <h1>TestHub</h1>
+    <p *ngIf="username" id="greeting-message"><i class="fa-solid fa-hand-peace fa-bounce"></i> Hello there, <span>{{username}}</span>!</p>
   </section>
 </main>
 

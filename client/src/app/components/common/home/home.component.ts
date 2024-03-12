@@ -24,6 +24,7 @@ import { projectIntegrations } from '../../../../assets/constants';
 export class HomeComponent implements OnInit {  
   courses: Courses[] = [];
   integrations: Integration[] = projectIntegrations;
+  username: string | null = null;
 
   constructor(
     private courseTopicsTestsService: CoursesTopicsTestsService
@@ -33,7 +34,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.courseTopicsTestsService.getCoursesTopicsTests().subscribe(data => {
       this.courses = data;
-  
+      this.username = localStorage.getItem('username');
       this.courses.forEach(course => {
         course.visible = false; 
         course.encoded = encodeURLSegment(course.name); // encode the Name so it can be used in the URL
@@ -53,6 +54,7 @@ export class HomeComponent implements OnInit {
 
       // console.log(this.courses);
     });
+    this.username = localStorage.getItem('username');
   }
   
 

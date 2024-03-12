@@ -1,25 +1,25 @@
 .integration {
     margin: 0 auto;
     padding: 2.5rem;
-    width: 87.5%;
+    width: 82.5%;
     border-radius: var(--border-radius);
     display: flex;
     align-items:center;
     justify-content: space-around;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
     margin-bottom: 5vh;
     transition: 600ms ease-in-out;
 }
 
 
 .integration:nth-child(2n) {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
 } 
 
 
 .integration:hover {
+    background-color: rgba(0, 0, 0, 0.6);
     transform: translateY(-1rem) translateX(-0.3rem);
-    background-color: rgba(0, 0, 0, 0.8);
 }
 
 
@@ -64,8 +64,8 @@
 
 
 .integration p {
-    width: 100%;
-    font-size: 1.6rem;
+    width: 90%;
+    font-size: 1.4rem;
 }
 
 

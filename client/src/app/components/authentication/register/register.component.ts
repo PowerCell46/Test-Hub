@@ -15,6 +15,7 @@ import { AuthenticationService } from '../../../services/authentication/authenti
 })
 export class RegisterComponent {
   registerForm: FormGroup;
+  formSubmitted: boolean = false;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -32,6 +33,8 @@ export class RegisterComponent {
   }
 
   onRegisterSubmit(): void {
+    this.formSubmitted = true;
+    
     if (this.registerForm.valid) {
       // console.log(this.registerForm.value);
       

@@ -4,12 +4,11 @@
     <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" method="POST">
       <!-- Username -->
       <input type="text" name="username" formControlName="username" placeholder="Username"
-      [ngClass]="{'error': loginForm.get('username')?.touched && loginForm.get('username')?.invalid}"/>
+      [ngClass]="{'error': formSubmitted && loginForm.get('username')?.invalid}"/>
       <!-- Error messages Username -->
       <p
       *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['minlength']"
-      class="error-message"
-    >
+      class="error-message">
       Username must be at least 5 chars!
     </p>
     <p
@@ -21,7 +20,7 @@
 
      <!-- Password -->
       <input type="password" name="password" formControlName="password" placeholder="Password"
-      [ngClass]="{'error': loginForm.get('password')?.touched && loginForm.get('password')?.invalid}" />
+      [ngClass]="{'error': formSubmitted && loginForm.get('password')?.invalid}" />
       <!-- Erros messages Password -->
       <p
         *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength']"

@@ -90,35 +90,6 @@ nav section ul li a:hover {
     color: #e1e2e0;    
 }
 
-#greeting-message {
-    letter-spacing: 0.1rem;
-    position: absolute;
-    left: 2%;
-    color: whitesmoke;
-    text-shadow: var(--text-shadow);
-    font-family: 'Poppins';
-    font-size: 1.6rem;
-}
-
-#greeting-message span {
-    background-image: -webkit-linear-gradient(135deg, var(--maroon-red), #191970);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: none;
-    font-weight: 900;
-    cursor: pointer;
-}
-
-#greeting-message span:hover {
-    background-image: -webkit-linear-gradient(135deg, #191970, var(--maroon-red));
-}
-
-#greeting-message i {
-    color: #FFD43B;
-    font-size: 2rem;
-    margin-right: 0.5rem;
-}
 
 /* @media only screen and (max-height: 1080px) {
     nav section {

@@ -9,7 +9,6 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit, OnDestroy{
   isLoggedIn: boolean = false;
-  username: string | null = null;
   private authSubscription!: Subscription;
   
   constructor(
@@ -49,9 +48,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.authSubscription = this.authService.loginStatus.subscribe(status => {
       this.isLoggedIn = status;
-      this.username = localStorage.getItem('username');
     });
-    this.username = localStorage.getItem('username');
   }
 
   ngOnDestroy(): void {

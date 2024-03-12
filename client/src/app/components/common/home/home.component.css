@@ -25,10 +25,26 @@ main section {
     transition: 600ms ease-in-out;
     margin-left: 1rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     max-height: 66vh;
     min-height: 66vh;
+    animation-name: bgPositionAnim;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes bgPositionAnim {
+    0% {
+        background-position: center calc(100%);
+    }
+    100% {
+        background-position: center;
+    }
 }
 
 
@@ -77,4 +93,33 @@ p {
     line-height: 1.5;
     color: whitesmoke;
     text-shadow: var(--text-shadow);
+}
+
+
+#greeting-message {
+    letter-spacing: 0.1rem;
+    font-family: 'Anta';
+    color: whitesmoke;
+    text-shadow: var(--text-shadow);
+    font-family: 'Poppins';
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+#greeting-message span {
+    background-image: -webkit-linear-gradient(135deg, #AAFF00, #EADDCA);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+
+#greeting-message i {
+    color: #FFD43B;
+    font-size: 2.25rem;
 }
