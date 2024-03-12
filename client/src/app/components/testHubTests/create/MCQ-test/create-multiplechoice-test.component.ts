@@ -18,6 +18,7 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
     courses: any = [];
     topics: any = [];
     public multipleQuestionsTestForm: FormGroup;
+    formSubmitted: boolean = false;
 
     constructor(
       private formBuilder: FormBuilder,
@@ -86,6 +87,8 @@ export class CreateMultiplechoiceTestComponent implements OnInit{
 
     
     onMultipleQuestionsSubmit(): void {
+      this.formSubmitted = true;
+
       if (this.multipleQuestionsTestForm.valid) {
         const headers = new HttpHeaders({
           'Authorization': `Token ${this.authService.getToken()}`

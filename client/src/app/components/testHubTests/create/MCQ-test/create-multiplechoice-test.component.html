@@ -11,7 +11,7 @@
         id="task-title"
         formControlName="testTitle"
         placeholder="Python Advanced Exam"
-        [ngClass]="{'error': multipleQuestionsTestForm.get('testTitle')?.touched && multipleQuestionsTestForm.get('testTitle')?.invalid}"
+        [ngClass]="{'error': formSubmitted && multipleQuestionsTestForm.get('testTitle')?.invalid}"
       />
     </div>
     <!-- Error message Test Title -->
@@ -23,7 +23,8 @@
       <div>
         <!-- Course -->
         <label for="course">Course:</label>
-        <select name="course" formControlName="course" id="course-select" (change)="onCourseSelect()">
+        <select name="course" formControlName="course" id="course-select" (change)="onCourseSelect()" 
+        [ngClass]="{'error': formSubmitted && multipleQuestionsTestForm.get('course')?.invalid}">
           <option value="Select a Course" disabled selected>Select a Course</option>
           <option *ngFor="let course of courses" [value]="course">
             {{ course }}
@@ -34,7 +35,8 @@
       <div>
         <!-- Topic -->
         <label for="topic">Topic:</label>
-        <select name="topic" formControlName="topic" id="course-select">
+        <select name="topic" formControlName="topic" id="course-select"
+        [ngClass]="{'error': formSubmitted && multipleQuestionsTestForm.get('topic')?.invalid}">
           <option value="Select a Topic" disabled selected>Select a Topic</option>
           <option *ngFor="let topic of topics" [value]="topic">{{topic}}</option>
         </select>
@@ -65,13 +67,12 @@
           formControlName="title"
           type="text"
           placeholder="What is the difference between list and tuple?"
-          [ngClass]="{'error': question.get('title')?.touched && question.get('title')?.invalid }"
+          [ngClass]="{'error': formSubmitted && question.get('title')?.invalid }"
         />
         <!-- Error message Title -->
         <p *ngIf="question.get('title')?.touched && question.get('title')?.errors?.['minlength']" class="error-message">
           Title must be at least 5 chars!
         </p>
-
 
         <div>
           <!-- Option A -->
@@ -80,7 +81,7 @@
             formControlName="optionA"
             type="text"
             placeholder="A"
-            [ngClass]="{'error': question.get('optionA')?.touched && question.get('optionA')?.invalid }"
+            [ngClass]="{'error': formSubmitted && question.get('optionA')?.invalid }"
           />
          <!-- Option B -->
           <input
@@ -88,7 +89,7 @@
             formControlName="optionB"
             type="text"
             placeholder="B"
-            [ngClass]="{'error': question.get('optionB')?.touched && question.get('optionB')?.invalid }"
+            [ngClass]="{'error': formSubmitted && question.get('optionB')?.invalid }"
           />
         </div>
          <!--Error message Option A  -->
@@ -107,7 +108,7 @@
             formControlName="optionC"
             type="text"
             placeholder="C"
-            [ngClass]="{'error': question.get('optionC')?.touched && question.get('optionC')?.invalid }"
+            [ngClass]="{'error': formSubmitted && question.get('optionC')?.invalid }"
           />
           <!-- Option D -->
           <input
@@ -115,7 +116,7 @@
             formControlName="optionD"
             type="text"
             placeholder="D"
-            [ngClass]="{'error': question.get('optionD')?.touched && question.get('optionD')?.invalid }"
+            [ngClass]="{'error': formSubmitted && question.get('optionD')?.invalid }"
           />
         </div>
         <!--Error message Option C  -->
@@ -133,7 +134,7 @@
           formControlName="correctAnswer"
           type="number"
           placeholder="Correct Answer"
-          [ngClass]="{'error': question.get('correctAnswer')?.touched && question.get('correctAnswer')?.invalid }"
+          [ngClass]="{'error': formSubmitted && question.get('correctAnswer')?.invalid }"
         />
         <!-- Error message Correct Answer -->
         <p *ngIf="question.get('correctAnswer')?.touched && question.get('correctAnswer')?.errors?.['min']" class="error-message">
