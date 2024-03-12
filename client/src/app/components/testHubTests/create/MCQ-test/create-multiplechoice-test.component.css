@@ -1,5 +1,9 @@
 @import url('../../../../../assets/styles/choose-title-course-topic.css');
 
+::ng-deep html {
+    background-image: linear-gradient(to right, #006398, #0076a0, #00869a, #009486, #16a06b);
+}
+
 
 main {
     display: flex;

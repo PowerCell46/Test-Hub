@@ -45,7 +45,7 @@
         formControlName="code"
         (input)="updateCode($any($event.target).value)"
         placeholder="Enter Python code here..."
-        [ngClass]="{'error': pythonTestSubmitForm.get('code')?.touched && pythonTestSubmitForm.get('code')?.invalid}"
+        [ngClass]="{'error': formSubmitted && pythonTestSubmitForm.get('code')?.invalid}"
       ></textarea>
     </div>
     <pre><code [innerHTML]="highlightedCode" class="language-python"></code></pre>

@@ -22,6 +22,7 @@ export class SubmitPythonTaskComponent implements OnInit{
   pythonTestSubmitForm: FormGroup;
   pythonTestName: any;
   pythonTest: any;
+  formSubmitted: boolean = false;
 
   constructor(
     private route: ActivatedRoute, 
@@ -71,6 +72,8 @@ export class SubmitPythonTaskComponent implements OnInit{
   
 
   onPythonTaskSubmit(): void {
+    this.formSubmitted = true;
+
     if (this.pythonTestSubmitForm.valid) {
       const headers = new HttpHeaders({
         'Authorization': `Token ${this.authService.getToken()}`

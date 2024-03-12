@@ -8,7 +8,7 @@
         id="task-title"
         formControlName="title"
         placeholder="Sum even numbers"
-        [ngClass]="{'error': pythonTestForm.get('testTitle')?.touched && pythonTestForm.get('testTitle')?.invalid}"
+        [ngClass]="{'error': formSubmitted && pythonTestForm.get('title')?.invalid}"
       />
     </div>
     <!-- Error message Title -->
@@ -23,6 +23,7 @@
           name="course"
           formControlName="course"
           id="course-select"
+          [ngClass]="{'error': formSubmitted && pythonTestForm.get('course')?.invalid}"
           (change)="onCourseSelect()">
           <option value="Select a Course" disabled selected>
             Select a Course
@@ -36,7 +37,8 @@
       <div>
         <!-- Topic -->
         <label for="topic">Topic:</label>
-        <select name="topic" formControlName="topic" id="course-select">
+        <select name="topic" formControlName="topic" id="course-select"
+        [ngClass]="{'error': formSubmitted && pythonTestForm.get('topic')?.invalid}">
           <option value="Select a Topic" disabled selected>
             Select a Topic
           </option>
@@ -60,7 +62,7 @@
       class="file-upload"
       accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
       required=""
-      [ngClass]="{'error': pythonTestForm.get('description')?.touched && pythonTestForm.get('description')?.invalid}"
+      [ngClass]="{'error': formSubmitted && pythonTestForm.get('description')?.invalid}"
     />
   </div>
 
@@ -71,7 +73,7 @@
       formControlName="unitTests"
       (input)="updateCode($any($event.target).value)"
       placeholder="Enter Python code here..."
-      [ngClass]="{'error': pythonTestForm.get('unitTests')?.touched && pythonTestForm.get('unitTests')?.invalid}"
+      [ngClass]="{'error': formSubmitted && pythonTestForm.get('unitTests')?.invalid}"
     ></textarea>
   </div>
   <pre><code [innerHTML]="highlightedCode" class="language-python"></code></pre>

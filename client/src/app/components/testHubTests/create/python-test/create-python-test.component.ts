@@ -22,6 +22,7 @@ export class PythonTestsComponent implements OnInit {
   topics: any = [];
   pythonTestForm: FormGroup;
   highlightedCode: string = '';
+  formSubmitted: boolean = false;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -65,6 +66,8 @@ export class PythonTestsComponent implements OnInit {
 
 
   onPythonTestSubmit(): void { 
+    this.formSubmitted = true;
+    
     if (this.pythonTestForm.valid) {
       const formData = new FormData();
       formData.append('title', this.pythonTestForm.get('title')?.value ?? '');

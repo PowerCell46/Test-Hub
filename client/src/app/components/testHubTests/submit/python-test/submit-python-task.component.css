@@ -1,3 +1,8 @@
+::ng-deep html {
+    background-image: linear-gradient(to bottom, #005e80, #007389, #008677, #00954d, #6c9d00);
+}
+
+
 main {
     margin: 0 auto;
     width: 80vw;
@@ -45,9 +50,11 @@ h1 {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+
 .task i {
     margin-right: 0.5rem;
 }
+
 
 .task:hover {
     background-color: rgba(255, 255, 255, 0.2);
@@ -108,11 +115,13 @@ button:hover {
     background-color: var(--darker-green);
 }
 
+
 #unit-tests-title {
     font-size: 2.25rem;
     text-shadow: none;
     font-weight: 600;
 }
+
 
 table {
     margin: 0 auto;
@@ -148,7 +157,7 @@ tr {
 
 tr:not(:first-child):hover {
     /* cursor: pointer; */
-    background-color: #007262;
+    background-color: #277289;
     transform: translateY(-0.4rem);
 }
 
@@ -182,6 +191,7 @@ table td i {
     color: darkred;
 }
 
+
 .fa-circle-xmark {
     font-size: 1.15rem;
     color: #E49B0F;
@@ -200,7 +210,7 @@ table td i {
     color: black;
     margin-top: -1.5vh;
     font-size: 3rem;
-    transition: 300ms ease-in-out;
+    transition: 600ms ease-in-out;
     cursor: pointer;
 }
 
@@ -237,6 +247,7 @@ textarea {
     overflow: auto;
 }
 
+
 #unit-tests-wrapper {
     margin-top: 2vh;
     display: flex;
@@ -245,6 +256,7 @@ textarea {
     justify-content: center;
     width: 100%;
 }
+
 
 #unit-tests-err {
     margin-top: 2vh;
@@ -256,10 +268,12 @@ textarea {
     text-shadow: none;
 }
 
+
 .title-wrapper {
     margin-top: 2vh;
     margin-bottom: 3vh;
 }
+
 
 .fa-rotate-right {
     cursor: pointer;
@@ -270,9 +284,11 @@ textarea {
     transition: 300ms ease-in-out;
 }
 
+
 .fa-rotate-right:hover {
     background-color: #007262;
 }
+
 
 .error {
     border: 3.5px solid var(--maroon-red);
