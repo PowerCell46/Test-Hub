@@ -1,4 +1,4 @@
-
+import re
 from urllib.parse import unquote
 from django.core.exceptions import ValidationError
 from django.db import transaction
@@ -216,19 +216,21 @@ class SubmitPythonTest(APIView):
         user_code = request.data['code']
         test_results = run_tests(python_test.unit_tests, user_code)
 
+        total_tests = len(re.compile(r'\s*def test_').findall(python_test.unit_tests))
         num_of_correct_answers = test_results['score']
         failed_tests = '|'.join([err.split('AssertionError:')[1].strip() for _, err in test_results['failures']])
-        number_of_errors = (len(test_results['errors']))
-
-        # print(test_results)
+        if failed_tests:
+            num_failed_tests = len(failed_tests.split('|'))
+        else:
+            num_failed_tests = 0
 
         submission = SubmissionPyTest.objects.create(
             submitter=user,
             python_test=python_test,
-            num_total_tests=test_results['number_of_tests'],
+            num_total_tests=total_tests,
             num_correct_tests=num_of_correct_answers,
             incorrect_tests=failed_tests,
-            num_error_tests=number_of_errors
+            num_error_tests=total_tests - (num_of_correct_answers + num_failed_tests)
         )
 
         return Response({"message": "Successful submission!", 'submissionId': submission.pk},
