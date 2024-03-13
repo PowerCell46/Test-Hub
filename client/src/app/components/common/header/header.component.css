@@ -62,10 +62,11 @@ nav section ul li a:hover {
     color: whitesmoke;
 }
 
+
 .hidden-section {
     z-index: 999;
     position: absolute;
-    left: 27.3%;
+    left: 28.5%;
     top: 11.8%;
     list-style: none;
     transition: all 0.3s ease-in-out;
@@ -79,6 +80,7 @@ nav section ul li a:hover {
     padding: 1.25rem;
 }
 
+
 .hidden-section li a {
     color: whitesmoke;
     text-decoration: none;
@@ -88,6 +90,21 @@ nav section ul li a:hover {
 .hidden-section li a:hover {
     text-decoration: underline;
     color: #e1e2e0;    
+}
+
+
+.hidden-submissions-auth {
+    left: 54.3%;
+}
+
+
+.hidden-submissions-not-auth {
+    left: 48.5%;
+}
+
+
+#submissions-a {
+    cursor: pointer;
 }
 
 
@@ -120,4 +137,19 @@ nav section ul li a:hover {
     #hide-show-nav-i {
         font-size: 3rem;
     }
+
+    .hidden-section {
+        left: 29%;
+        gap: 1.75rem;
+        padding: 1.75rem;
+    }
+    
+    .hidden-submissions-auth {
+        left: 54.8%;
+    }
+
+    .hidden-submissions-not-auth {
+        left: 49%;
+    }
+    
 }

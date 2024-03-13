@@ -133,4 +133,9 @@ hr {
         max-height: 70vh;
         min-height: 70vh; 
     }
+
+    #greeting-message {
+        width: 45%;
+        padding: 1rem;
+    }
 }

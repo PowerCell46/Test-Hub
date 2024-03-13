@@ -10,12 +10,18 @@ export class AuthenticationService {
   private loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
   private teacher = new BehaviorSubject<boolean>(this.isTeacher());
 
-  
+
   loginStatus = this.loggedIn.asObservable();
   teacherStatus = this.teacher.asObservable();
 
 
   constructor() { }
+
+  
+  private updateStatuses(isLoggedIn: boolean, isTeacher: boolean): void {
+    this.loggedIn.next(isLoggedIn);
+    this.teacher.next(isTeacher);
+  }
 
 
   saveToken(token: string, user: User, is_teacher: boolean): void {  
@@ -55,11 +61,5 @@ export class AuthenticationService {
     return new HttpHeaders({
       'Authorization': `Token ${this.getToken()}`
     });
-  }
-
-
-  private updateStatuses(isLoggedIn: boolean, isTeacher: boolean): void {
-    this.loggedIn.next(isLoggedIn);
-    this.teacher.next(isTeacher);
   }
 }

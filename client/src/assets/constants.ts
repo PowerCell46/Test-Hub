@@ -27,14 +27,14 @@ export const projectIntegrations: Integration[] = [
       title: "SPGE John Atanasov", 
       description: `I've talked with a few teachers from the School that such a system can be of a great use if implemented successfully.
         <br> Again same as the case with FMI, teachers can create tasks that students can try to solve and get an instant result, which will definitely help with the learning process.`,
-      imageUrl: "../../../../assets/images/SPGE.jpg", 
+      imageUrl: "https://spge-bg.com/wp-content/uploads/2017/05/spge-1.jpg", 
       id: "SPGE-img"
     },
     {
       title: "Faculty of Geology and Geography", 
       description: `The project can be implemented mainly with the Multiple Choice Question Tests.
         <br> Teachers can add sample tests that students can use in order to prepare for the Examination session.`,
-      imageUrl: 'https://web.gea.uni-sofia.bg/wp-content/uploads/2020/11/%D0%93%D0%93%D0%A4-%D0%9B%D0%BE%D0%B3%D0%BE-%D0%BC%D0%B0%D0%BB%D0%BA%D0%BE-150%D1%85150.png',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Sofia_University_%22St._Kliment_Ohridski%22_%2837849719131%29.jpg/1200px-Sofia_University_%22St._Kliment_Ohridski%22_%2837849719131%29.jpg',
       id: "GGF-img"
     }
 ]

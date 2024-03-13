@@ -6,23 +6,21 @@
       opacity: navigationOpacity
     }"
   >
-  <ng-container *ngIf="isTeacher; else noLink">
-    <a routerLink="/">
+  <!-- Teacher's clickable img -->
+  <ng-container *ngIf="isTeacher; else noLink"> 
       <img
         id="test-hub-logo"
         src="../../assets/images/9a641d59-fa1d-4616-b53e-9f3a1784a8ad-transformed.webp"
         alt="Test Hub Logo"
-        (click)="hideShowHiddenMenu()" />
-    </a>
+        (click)="hideShowHiddenMenu()" 
+      />
   </ng-container>
   <ng-template #noLink>
-    <a routerLink="/">
       <img
         id="test-hub-logo"
         src="../../assets/images/9a641d59-fa1d-4616-b53e-9f3a1784a8ad-transformed.webp"
         alt="Test Hub Logo"
       />
-    </a>
   </ng-template>
   <!-- Teacher's menu -->
   <div class="hidden-section" [ngStyle]="{ display: hiddenMenuVisible ? 'flex' : 'none', opacity: hiddenMenuOpacity}">
@@ -36,8 +34,15 @@
 
     <ul>
       <li *ngIf="isLoggedIn"><a routerLink="/myProfile">My Profile</a></li>
-      <li><a routerLink="/submissions/python">Py Submissions</a></li>
-      <li><a routerLink="/submissions/multipleChoiceTests">MCQ Submissions</a></li>
+      <li><a routerLink="/">Home Page</a></li>
+      <li><a (click)="hideShowSubmissions()" id="submissions-a">Submissions</a></li>
+      <!-- Submissions Hidden Menu -->
+          <div 
+            [ngClass]="isLoggedIn ? 'hidden-section hidden-submissions-auth' : 'hidden-section hidden-submissions-not-auth'"
+            [ngStyle]="{ display: submissionsVisible ? 'flex' : 'none', opacity: submissionsOpacity}">
+              <li><a routerLink="/submissions/python">Python</a></li>
+              <li><a routerLink="/submissions/multipleChoiceTests">MultipleChoice</a></li>
+          </div>   
       <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
       <li *ngIf="!isLoggedIn"><a routerLink="/register">Register</a></li>
       <li *ngIf="isLoggedIn"><a routerLink="/logout">Logout</a></li>

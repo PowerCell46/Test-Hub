@@ -24,6 +24,9 @@ export class HeaderComponent implements OnInit, OnDestroy{
   hiddenMenuVisible: boolean = false;
   hiddenMenuOpacity: number = 0;
 
+  submissionsVisible: boolean = false;
+  submissionsOpacity: number = 0;
+
   hideShowNavigation(event: any): void {
     if (this.navigationVisible) {
         event.target.style.transform = 'rotate(0deg)';
@@ -37,6 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
     }
   }
 
+  
   hideShowHiddenMenu(): void {
     if (this.hiddenMenuVisible) {
         this.hiddenMenuOpacity = 0;
@@ -47,6 +51,19 @@ export class HeaderComponent implements OnInit, OnDestroy{
         setTimeout(() => this.hiddenMenuOpacity = 1, 250);
     }
   }
+
+
+  hideShowSubmissions(): void {
+    if (this.submissionsVisible) {
+      this.submissionsOpacity = 0;
+      setTimeout(() => this.submissionsVisible = false, 500);
+    
+    } else {
+      this.submissionsVisible = true;
+      setTimeout(() => this.submissionsOpacity = 1, 250);
+    }
+  }
+
 
   ngOnInit(): void {
     this.authSubscription = this.authService.loginStatus.subscribe(status => {
