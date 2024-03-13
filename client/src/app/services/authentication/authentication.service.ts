@@ -30,6 +30,7 @@ export class AuthenticationService {
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
+    localStorage.removeItem('isTeacher');
     this.updateLoginStatus(false);
   }
 

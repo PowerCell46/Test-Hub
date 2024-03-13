@@ -1,9 +1,9 @@
 <main *ngIf="question">
     <h1>Python Advanced Exam</h1>
     <section class="options">
+        <i (click)="goBack()" id="back-to-results" class="fa-solid fa-left-long"></i>
         <h5>{{question.question_title}}</h5>
         <form>
-            <i (click)="goBack()" id="back-to-results" class="fa-solid fa-left-long"></i>
             <div>
                 <input type="radio" name="first_option" value="{{question.first_option}}" [checked]="question.givenAnswer === 1" disabled/>
                 <label for="first_option" id="{{question.correct_answer === 1 ? 'correct' : 'wrong'}}">{{question.first_option}}</label>

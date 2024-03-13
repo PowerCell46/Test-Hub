@@ -55,7 +55,7 @@ class SubmissionMultipleChoiceTest(models.Model):
     submitter = models.ForeignKey(to=User, on_delete=models.DO_NOTHING, related_name='multi_choice_submissions')
     answers = models.TextField()  # data format: questionId selectedValue|questionId selectedValue
     correct_answers = models.PositiveIntegerField()
-    multiple_choice_exam = models.ForeignKey(to=MultipleChoiceTest, on_delete=models.DO_NOTHING,
+    multiple_choice_exam = models.ForeignKey(to=MultipleChoiceTest, on_delete=models.CASCADE,
                                              related_name='submissions')
     submission_time = models.DateTimeField(auto_now_add=True)
 
@@ -65,6 +65,6 @@ class SubmissionPyTest(models.Model):
     python_test = models.ForeignKey(to=PyTest, on_delete=models.CASCADE, related_name='submissions')
     num_total_tests = models.PositiveIntegerField()
     num_correct_tests = models.PositiveIntegerField()
-    incorrect_tests = models.TextField()  # ___ is not ___ : error details|___ is not ___ : error details
+    incorrect_tests = models.TextField()  # ___/True/ is not ___/False/ : error details|___ is not ___ : error details
     num_error_tests = models.PositiveIntegerField()
     submission_time = models.DateTimeField(auto_now_add=True)
