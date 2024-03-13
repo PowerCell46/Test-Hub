@@ -47,17 +47,16 @@ export class SubmitPythonTaskComponent implements OnInit{
       this.courseName = params['courseName'];
       this.topicName = params['topicName'];
       this.pythonTestName = params['taskName'];
-    });
-    
-
-    this.pythonTestService.getPythonTestData(this.pythonTestName).subscribe((data: any) => {
-      data.topicTasks = data.topicTasks.map((task: any) => {
-        return { ...task, encodedName: encodeURLSegment(task.name) };
+  
+      // Move this inside the subscription so it's called whenever the params change
+      this.pythonTestService.getPythonTestData(this.pythonTestName).subscribe((data: any) => {
+        data.topicTasks = data.topicTasks.map((task: any) => {
+          return { ...task, encodedName: encodeURLSegment(task.name) };
+        });
+        console.log(data);      
+        this.pythonTest = data;
       });
-      console.log(data);      
-      this.pythonTest = data;
     });
-
   }
 
 

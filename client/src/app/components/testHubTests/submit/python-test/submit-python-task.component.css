@@ -273,7 +273,7 @@ textarea {
 .fa-rotate-right {
     cursor: pointer;
     position: relative;
-    left: 37%;
+    left: 34%;
     padding: 0.45rem;
     border-radius: var(--border-radius);
     transition: 300ms ease-in-out;

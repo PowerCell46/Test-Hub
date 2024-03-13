@@ -9,7 +9,10 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit, OnDestroy{
   isLoggedIn: boolean = false;
+  isTeacher: boolean = false;
   private authSubscription!: Subscription;
+  private teacherSubscription!: Subscription;
+
   
   constructor(
     public authService: AuthenticationService
@@ -49,11 +52,19 @@ export class HeaderComponent implements OnInit, OnDestroy{
     this.authSubscription = this.authService.loginStatus.subscribe(status => {
       this.isLoggedIn = status;
     });
+
+    this.teacherSubscription = this.authService.teacherStatus.subscribe(status => {
+      this.isTeacher = status;
+    })
   }
 
   ngOnDestroy(): void {
     if (this.authSubscription) {
       this.authSubscription.unsubscribe();
+    }
+
+    if (this.teacherSubscription) {
+      this.teacherSubscription.unsubscribe();
     }
   }
 }

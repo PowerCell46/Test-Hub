@@ -18,6 +18,8 @@ import { EditProfileComponent } from './components/profile/edit-profile/edit-pro
 import { SubmissionsMultipleChoiceTestsComponent } from './components/submissions/MCQ-tests/submissions-multiple-choice-tests.component';
 import { NonAuthGuardService } from './services/routerGuards/nonAuthGuard/non-auth-guard.service';
 import { AuthGuardService } from './services/routerGuards/AuthGuard/auth-guard.service';
+import { TeacherGuardService } from './services/routerGuards/TeacherGuard/teacher-guard.service';
+
 
 const routes: Routes = [
   {path: "", component: HomeComponent}, // Home Page - accessible by everyone
@@ -25,8 +27,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [NonAuthGuardService]}, // Login - non-authenticated
   {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService]}, // Logout - authenticated
   
-  {path: "createMultipleChoiceQuestion", component: CreateMultiplechoiceTestComponent, canActivate: [AuthGuardService]}, // Create MCQ - authenticated + Teacher role
-  {path: "createPythonTest", component: PythonTestsComponent, canActivate: [AuthGuardService]}, // Create Python - authenticated + Teacher role
+  {path: "createMultipleChoiceQuestion", component: CreateMultiplechoiceTestComponent, canActivate: [AuthGuardService, TeacherGuardService]}, // Create MCQ - authenticated + Teacher role
+  {path: "createPythonTest", component: PythonTestsComponent, canActivate: [AuthGuardService, TeacherGuardService]}, // Create Python - authenticated + Teacher role
 
   {path: "submissions/python", component: SubmissionsComponent}, // Python Submissions - accessible by everyone
   {path: "submissions/multipleChoiceTests", component: SubmissionsMultipleChoiceTestsComponent}, // MCQ Submissions -  accessible by everyone

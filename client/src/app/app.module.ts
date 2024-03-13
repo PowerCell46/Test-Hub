@@ -43,7 +43,7 @@ import { SubmissionsMultipleChoiceTestsComponent } from './components/submission
     SubmitPythonTaskComponent,
     MyProfileComponent,
     EditProfileComponent,
-    SubmissionsMultipleChoiceTestsComponent
+    SubmissionsMultipleChoiceTestsComponent,
   ],
   imports: [
     BrowserModule,

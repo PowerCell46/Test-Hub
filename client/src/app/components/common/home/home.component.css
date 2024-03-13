@@ -92,6 +92,9 @@ p {
 
 
 #greeting-message {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem;
+    width: 62.5%;
     letter-spacing: 0.1rem;
     font-family: 'Anta';
     color: whitesmoke;
