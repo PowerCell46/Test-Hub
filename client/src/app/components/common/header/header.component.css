@@ -106,3 +106,18 @@ nav section ul li a:hover {
         margin-bottom: 4vh;
     }
 } */
+
+
+@media screen and (min-width: 2500px) {
+    nav section {
+        font-size: 1.5rem;
+    }
+    
+    nav section ul {
+        gap: 4rem;
+    }
+
+    #hide-show-nav-i {
+        font-size: 3rem;
+    }
+}

@@ -117,7 +117,7 @@ button {
     margin-top: 1rem;
     padding: 1.5rem 3.6rem;
     font-size: 2rem;
-    background-color: #006faf;
+    background-color: var(--dark-green);
     border-radius: var(--border-radius);
     font-family: "Anta";
     font-weight: 400;
@@ -132,7 +132,8 @@ button {
 
 
 button:hover {
-    background-color: #1a7db7;
+    animation: rotate-scale-up 1s ease-in-out forwards;
+    background-color: var(--darker-green);
 }
 
 .button-wrapper {
@@ -159,3 +160,34 @@ button:hover {
     90% { border-color: #663399; }
     100% {border-color: #FF4500; }
 }
+
+
+@-webkit-keyframes rotate-scale-up {
+    0% {
+      -webkit-transform: scale(1) rotateZ(0);
+              transform: scale(1) rotateZ(0);
+    }
+    50% {
+      -webkit-transform: scale(1.3) rotateZ(180deg);
+              transform: scale(1.3) rotateZ(180deg);
+    }
+    100% {
+      -webkit-transform: scale(1) rotateZ(360deg);
+              transform: scale(1) rotateZ(360deg);
+    }
+  }
+  
+  @keyframes rotate-scale-up {
+    0% {
+      -webkit-transform: scale(1) rotateZ(0);
+              transform: scale(1) rotateZ(0);
+    }
+    50% {
+      -webkit-transform: scale(1.3) rotateZ(180deg);
+              transform: scale(1.3) rotateZ(180deg);
+    }
+    100% {
+      -webkit-transform: scale(1) rotateZ(360deg);
+              transform: scale(1) rotateZ(360deg);
+    }
+  }

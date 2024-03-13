@@ -1,6 +1,6 @@
 main {
     margin: 0 auto;
-    width: 80vw;
+    width: 70vw;
     background-image: url('https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-013.jpg');
     background-size: cover;
     display: flex;
@@ -124,7 +124,7 @@ table {
     margin-top: 2.5vh;
     border-collapse: separate;
     border-spacing: 15px;
-    width: 80vw;
+    width: 70vw;
     background-color: var(--midnight-blue);
     padding: 1.5rem 0.5rem;
 }
@@ -287,4 +287,11 @@ textarea {
 
 .error {
     border: 3.5px solid var(--maroon-red);
+}
+
+
+@media screen and (min-width: 2500px) {
+    .fa-rotate-right {
+        left: 38.5%;
+    }
 }

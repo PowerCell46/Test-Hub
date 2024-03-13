@@ -130,3 +130,11 @@ form div {
 #back-to-results:hover {
     transform: translateY(-0.3rem);
 }
+
+
+@media screen and (min-width: 2500px) {
+    #back-to-results {
+        margin-top: -1rem;
+        font-size: 2.75rem;
+    }
+}

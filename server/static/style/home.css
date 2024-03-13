@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 html {
-    	background-image: linear-gradient(to right, #16a06b, #009486, #00869a, #0076a0, #006398);
+    background-image: linear-gradient(to left top, #862d00, #804900, #766100, #66760b, #518934, #378e52, #19926e, #009486, #008a91, #007e9a, #00719c, #006398);
 }
 
 :root {
