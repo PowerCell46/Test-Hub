@@ -77,7 +77,7 @@
 }
 
 
-footer a {
+footer p a {
   font-weight: 900;
   text-shadow: none;
   background-image: -webkit-linear-gradient(135deg, rgb(206, 5, 1), #6600A8);
@@ -87,7 +87,7 @@ footer a {
 }
 
 
-footer a:hover {
+footer p a:hover {
   background-image: -webkit-linear-gradient(135deg,  #6600A8, rgb(206, 5, 1));
 }
 

@@ -16,28 +16,30 @@ import { SubmitPythonTaskComponent } from './components/testHubTests/submit/pyth
 import { MyProfileComponent } from './components/profile/my-profile/my-profile.component';
 import { EditProfileComponent } from './components/profile/edit-profile/edit-profile.component';
 import { SubmissionsMultipleChoiceTestsComponent } from './components/submissions/MCQ-tests/submissions-multiple-choice-tests.component';
+import { NonAuthGuardService } from './services/routerGuards/nonAuthGuard/non-auth-guard.service';
+import { AuthGuardService } from './services/routerGuards/AuthGuard/auth-guard.service';
 
 const routes: Routes = [
-  {path: "", component: HomeComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'logout', canActivate: [RouteGuardService], component: LogoutComponent},
+  {path: "", component: HomeComponent}, // Home Page - accessible by everyone
+  {path: 'register', component: RegisterComponent, canActivate: [NonAuthGuardService]}, // Register - non-authenticated
+  {path: 'login', component: LoginComponent, canActivate: [NonAuthGuardService]}, // Login - non-authenticated
+  {path: 'logout', component: LogoutComponent, canActivate: [AuthGuardService]}, // Logout - authenticated
   
-  {path: "createMultipleChoiceQuestion", component: CreateMultiplechoiceTestComponent},
-  {path: "createPythonTest", component: PythonTestsComponent},
+  {path: "createMultipleChoiceQuestion", component: CreateMultiplechoiceTestComponent, canActivate: [AuthGuardService]}, // Create MCQ - authenticated + Teacher role
+  {path: "createPythonTest", component: PythonTestsComponent, canActivate: [AuthGuardService]}, // Create Python - authenticated + Teacher role
 
-  {path: "submissions/python", component: SubmissionsComponent},
-  {path: "submissions/multipleChoiceTests", component: SubmissionsMultipleChoiceTestsComponent},
-  {path: "submissions/multipleChoiceTest/:submissionId", component: ResultMultipleChoiceTestComponent},
-  {path: "submissions/multipleChoiceTest/:submissionId/:questionId", component: ResultSingleQuestionComponent},
+  {path: "submissions/python", component: SubmissionsComponent}, // Python Submissions - accessible by everyone
+  {path: "submissions/multipleChoiceTests", component: SubmissionsMultipleChoiceTestsComponent}, // MCQ Submissions -  accessible by everyone
+  {path: "submissions/multipleChoiceTest/:submissionId", component: ResultMultipleChoiceTestComponent, canActivate: [AuthGuardService]}, // Result MCQ - authenticated
+  {path: "submissions/multipleChoiceTest/:submissionId/:questionId", component: ResultSingleQuestionComponent, canActivate: [AuthGuardService]}, // Result single MCQ - authenticated
   
-  {path: "contests/:courseName/:topicName/multiple-choice/:taskName", component: MultipleChoiceTestComponent},
-  {path: "contests/:courseName/:topicName/python/:taskName", component: SubmitPythonTaskComponent},
+  {path: "contests/:courseName/:topicName/multiple-choice/:taskName", component: MultipleChoiceTestComponent, canActivate: [AuthGuardService]}, // Submit MCQ - authenticated
+  {path: "contests/:courseName/:topicName/python/:taskName", component: SubmitPythonTaskComponent, canActivate: [AuthGuardService]}, // Submit Python - authenticated
 
-  {path: "myProfile", component: MyProfileComponent},
-  {path: "editProfile", component: EditProfileComponent},
+  {path: "myProfile", component: MyProfileComponent, canActivate: [AuthGuardService]}, // My Profile - authenticated
+  {path: "editProfile", component: EditProfileComponent, canActivate: [AuthGuardService]}, // Edit Profile - authenticated
 
-  {path: '**', component: ErrorComponent},
+  {path: '**', component: ErrorComponent}, // Error Page - accessible by everyone
 ];
 
 @NgModule({

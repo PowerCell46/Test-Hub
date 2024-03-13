@@ -17,7 +17,8 @@
 
 
 html {
-    background: url('./assets/images/wallpaperflare.com_wallpaper.jpg') no-repeat center center / cover;
+    /* background: url('./assets/images/wallpaperflare.com_wallpaper.jpg') no-repeat center center / cover; */
+	background-image: linear-gradient(to right, #16a06b, #009486, #00869a, #0076a0, #006398);
 }
 
 
