@@ -81,13 +81,19 @@
 
       <!-- Password -->
       <input
+      id="password"
         type="password"
         name="password"
         formControlName="password"
         placeholder="Password"
         [ngClass]="{'error': formSubmitted && registerForm.get('password')?.invalid}"
-      />
-      <!-- Error messages Password -->
+        />
+        <i id="hide-show-password" class="fa-solid fa-eye"
+        (mousedown)="showPassword(true)"
+        (mouseup)="showPassword(false)"
+        (mouseleave)="showPassword(false)">
+      </i>
+        <!-- Error messages Password -->
       <p
         *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['minlength']"
         class="error-message"

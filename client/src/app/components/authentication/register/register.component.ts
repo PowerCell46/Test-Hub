@@ -16,7 +16,12 @@ import { AuthenticationService } from '../../../services/authentication/authenti
 export class RegisterComponent {
   registerForm: FormGroup;
   formSubmitted: boolean = false;
+  passwordFieldType: string = 'password';
 
+  showPassword(show: boolean): void {
+    this.passwordFieldType = show ? 'text' : 'password';
+  }
+  
   constructor(
       private formBuilder: FormBuilder,
       private http: HttpClient,
