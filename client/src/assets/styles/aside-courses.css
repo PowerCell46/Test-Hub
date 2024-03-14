@@ -71,3 +71,16 @@ aside li:hover {
 .hidden-tasks li:hover {
     background-color: rgba(0, 0, 0, 0.3);   
 }
+
+
+@media screen and (min-width: 2500px) {
+    aside {
+        width: 25%;
+        margin-right: 3rem;
+    }
+
+    
+    aside li {
+        padding: 1.4rem 2.4rem;
+    }
+}
