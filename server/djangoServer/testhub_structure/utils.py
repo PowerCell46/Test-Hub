@@ -35,3 +35,15 @@ def run_tests(code, test_code):
         }
     finally:
         sys.stdout = old_stdout
+
+
+def get_all_topic_tasks(task) -> []:
+    topic_tasks = []
+
+    for task in task.topic.multiple_choice_tests.all():
+        topic_tasks.append({"type": "multiple-choice", "name": task.title})
+
+    for task in task.topic.py_tests.all():
+        topic_tasks.append({"type": "python", "name": task.title})
+
+    return topic_tasks

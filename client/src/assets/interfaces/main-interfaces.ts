@@ -5,15 +5,18 @@ export interface User {
     last_name: string,
 }
 
+
 export interface SuccessfulAuth {
     token: string,
     user: User
 }
 
+
 export interface QuestionInitForm {
     id: number,
     title: string
 } 
+
 
 interface PyTests { // For Home Page
     id: number,
@@ -22,12 +25,14 @@ interface PyTests { // For Home Page
     encoded: string
 }
 
+
 interface MultipleChoiceTests { // For Home Page
     id: number,
     title: string,
     visible: boolean,
     encoded: string
 }
+
 
 interface Topics { // For Home Page
     id: number,
@@ -38,6 +43,7 @@ interface Topics { // For Home Page
     encoded: string
 }
 
+
 export interface Courses { // For Home Page
     id: number,
     name: string,
@@ -46,12 +52,14 @@ export interface Courses { // For Home Page
     encoded: string
 }
 
+
 export interface Submissions {
     submissionN: number,
     user: string,
     task: string,
     result: string
 }
+
 
 interface multipleChoiceQuestion {
     id: number,
@@ -63,10 +71,20 @@ interface multipleChoiceQuestion {
     question_title: string,
 } 
 
+
+interface Task {
+    name: string,
+    type: string,
+    encodedName: string
+}
+
+
 export interface MultipleChoiceTest {
     title: string,
-    questions: multipleChoiceQuestion[]
+    questions: multipleChoiceQuestion[],
+    topicTasks: Task[]
 }
+
 
 export interface Integration {
     title: string,

@@ -1,3 +1,14 @@
+@import url('../../../../../assets/styles/tasks-links.css');
+
+
+.tasks-container {
+    margin: 0 auto;
+    width: 70%;
+    margin-top: -3vh;
+    margin-bottom: 5vh;
+}
+
+
 main {
     /* display: flex;
     flex-direction: column;
@@ -191,3 +202,15 @@ button:hover {
               transform: scale(1) rotateZ(360deg);
     }
   }
+
+
+  @media screen and (min-width: 2500px) {
+    main section {
+        padding: 6rem 8rem;
+        width: 50%;        
+     }
+
+     .tasks-container {
+        width: 60%;
+    }
+}

@@ -1,6 +1,28 @@
 <main *ngIf="exam">
   <h1>{{ exam.title }}</h1>
-
+  <div class="tasks-container">
+    <!-- Topic Tasks - MCQ and Python Tasks -->
+    <ng-container *ngFor="let task of exam.topicTasks">
+      <div
+        *ngIf="task.type === 'multiple-choice'"
+        routerLink="/contests/{{ courseName }}/{{
+          topicName
+        }}/multiple-choice/{{ task.encodedName }}/"
+        class="task"
+      >
+      <i class="fa-regular fa-rectangle-list"></i> {{ task.name }}
+      </div>
+      <div
+        *ngIf="task.type === 'python'"
+        routerLink="/contests/{{ courseName }}/{{ topicName }}/python/{{
+          task.encodedName
+        }}/"
+        class="task"
+      >
+      <i class="fa-solid fa-code"></i> {{ task.name }}
+      </div>
+    </ng-container>
+  </div>
   <form [formGroup]="testForm" (ngSubmit)="onMultipleQuestionsTestSubmit()">
     <div formArrayName="questions">
       <!-- Question Section -->

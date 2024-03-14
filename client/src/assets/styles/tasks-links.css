@@ -1,0 +1,30 @@
+.tasks-container {
+    margin-bottom: 2vh;
+    border-radius: var(--border-radius);
+    width: 80%;
+    gap: 0.1rem;
+    display: flex;
+}
+
+
+.task {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1rem;
+    border: 2px solid black;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.task i {
+    margin-right: 0.5rem;
+}
+
+
+.task:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}

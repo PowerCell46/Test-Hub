@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { decodeURLSegment } from '../../../../../assets/utils';
+import { decodeURLSegment, encodeURLSegment } from '../../../../../assets/utils';
 import { MultipleChoiceTestService } from '../../../../services/multipleChoiceTest/multiple-choice-test.service';
 import { MultipleChoiceTest } from '../../../../../assets/interfaces/main-interfaces';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -18,6 +18,8 @@ import 'toastify-js/src/toastify.css';
 export class MultipleChoiceTestComponent implements OnInit {
   exam!: MultipleChoiceTest;
   taskName!: string;
+  courseName: string = '';
+  topicName: string = '';
   public testForm!: FormGroup; 
   formSubmitted = false; 
   
@@ -33,13 +35,21 @@ export class MultipleChoiceTestComponent implements OnInit {
 
 
   ngOnInit(): void {    
-    this.route.params.subscribe(params => {
-      this.taskName = decodeURLSegment(params['taskName']);
-  
-      this.multipleChoiceTestService.getMultipleChoiceTest(this.taskName).subscribe(data => {        
-        this.exam = data;
-        this.initializeForm();
-      });
+      this.route.params.subscribe(params => {
+        this.courseName = params['courseName'];
+        this.topicName = params['topicName'];
+        this.taskName = decodeURLSegment(params['taskName']);
+    
+        this.multipleChoiceTestService.getMultipleChoiceTest(this.taskName).subscribe(data => {        
+          data.topicTasks = data.topicTasks.map((task: any) => {
+            return { ...task, encodedName: encodeURLSegment(task.name) };
+          });
+
+          // console.log(data);
+          
+          this.exam = data;
+          this.initializeForm();
+        });
     });
   }
 

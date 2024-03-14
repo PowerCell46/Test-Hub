@@ -14,7 +14,7 @@ from djangoServer.testhub_structure.permissions import IsTeacher
 from djangoServer.testhub_structure.serializers import CourseSerializer, MultipleChoiceExamSerializer, \
     MultipleChoiceQuestionSerializer, PythonTestSerializer, PySubmissions, \
     MultipleChoiceTestSubmissionSerializer
-from djangoServer.testhub_structure.utils import run_tests
+from djangoServer.testhub_structure.utils import run_tests, get_all_topic_tasks
 
 
 class GetCoursesAndTopics(APIView):
@@ -96,7 +96,9 @@ class SubmitMultipleChoiceTest(APIView):
     def get(self, request, exam_name):
         multiple_questions_test = get_object_or_404(MultipleChoiceTest, title=exam_name)
         serializer = MultipleChoiceExamSerializer(multiple_questions_test)
-        return Response(serializer.data)
+        data = serializer.data
+        data['topicTasks'] = get_all_topic_tasks(multiple_questions_test)
+        return Response(data)
 
     def post(self, request, exam_name):
         try:
@@ -192,18 +194,10 @@ class SubmitPythonTest(APIView):
         submissions = PySubmissions(python_test.submissions
                             .filter(submitter=request.user).order_by('-submission_time')[:5], many=True)
         topic_name = python_test.topic.name
-        topic_tasks = []
-
-        for task in python_test.topic.multiple_choice_tests.all():
-            topic_tasks.append({"type": "multiple-choice", "name": task.title})
-
-        for task in python_test.topic.py_tests.all():
-            topic_tasks.append({"type": "python", "name": task.title})
-
         serializer = PythonTestSerializer(python_test, context={'request': request}, many=False)
         data = serializer.data
         data['topicName'] = topic_name
-        data['topicTasks'] = topic_tasks
+        data['topicTasks'] = get_all_topic_tasks(python_test)
         data['submissions'] = submissions.data
 
         return Response(data)
