@@ -37,6 +37,7 @@
 
 #GGF-img {
     height: 47.5vh;
+    margin-right: 2vw;
 }
 
 
@@ -72,4 +73,16 @@ b {
     font-weight: 600;
     color: whitesmoke;
     text-decoration: underline;
+}
+
+
+@media screen and (min-width: 2500px) {
+    .integration .integration-content-wrapper h5  {
+        font-size: 3.25rem;
+    }
+
+
+    .integration p {
+        font-size: 1.6rem;
+    }
 }

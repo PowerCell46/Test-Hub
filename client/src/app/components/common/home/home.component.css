@@ -138,4 +138,12 @@ hr {
         width: 45%;
         padding: 1rem;
     }
+
+    h2 {
+        font-size: 6.5rem;
+    }
+
+    p {
+        line-height: 1.75;
+    }
 }

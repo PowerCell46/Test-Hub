@@ -68,7 +68,7 @@ main section input {
 
 
 #register-names-div input {
-    width: 45%;
+    width: 44.2%;
     display: inline;
 }
 
@@ -143,7 +143,7 @@ h5 a:hover {
 #hide-show-password {
     z-index: 2;
     margin-bottom: -7vh;
-    margin-left: 17.7vw;
+    margin-left: 13.75vw;
     font-size: 1.2rem;
     cursor: pointer;
 }
@@ -181,11 +181,32 @@ h5 a:hover {
 
 
   @media screen and (min-width: 2500px) {
+    main {
+        margin-top: 5vh;
+        height: 70vh;
+        width: 70vw;
+    }
+
+
     #hide-show-password {
         margin-bottom: -6.4vh;
-        margin-left: 14vw;
+        margin-left: 12.25vw;
         font-size: 1.2rem;
         cursor: pointer;
     }
+
+    h1 {
+        font-size: 3.75rem;
+    }
+
+    h5 {
+        margin-top: 1rem;
+        font-size: 1.35rem;
+    }
+
+    #register-names-div input {
+        width: 45%;
+    }
 }
+
 

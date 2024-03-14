@@ -151,8 +151,13 @@
     }
   }
 
+
 @media screen and (min-width: 2500px) {
   .footer {
     width: 95.8%;
   }  
+
+  .footer p {
+    font-size: 2.25rem;
+  }
 }

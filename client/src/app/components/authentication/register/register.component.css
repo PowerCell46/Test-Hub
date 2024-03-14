@@ -2,7 +2,7 @@
 
 
 main form {
-    width: 50%;
+    width: 52.5%;
     gap: 1.2vh;
 }
 
@@ -20,9 +20,19 @@ main form {
 
 #hide-show-password {
     z-index: 2;
-    margin-top: -4.1vh;
+    margin-top: -4.6vh;
     margin-bottom: 4vh;
-    margin-left: 17.5vw;
+    margin-left: 18.4vw;
     font-size: 1.2rem;
     cursor: pointer;
+}
+
+
+@media screen and (min-width: 2500px) { 
+    #hide-show-password {
+        margin-top: -4.1vh;
+        margin-left: 16.4vw;
+    }
+
+
 }
