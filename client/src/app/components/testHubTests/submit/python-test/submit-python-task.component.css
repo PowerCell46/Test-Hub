@@ -59,7 +59,7 @@ h1 {
 
 
 button {
-    margin-top: 2rem;
+    margin-top: 3.6rem;
     margin-bottom: 5vh;
     padding: 1rem 2.4rem;
     font-size: 1.6rem;
@@ -78,6 +78,7 @@ button {
 
 
 button:hover {
+    animation: rotate-scale-up 1s ease-in-out forwards;
     background-color: var(--darker-green);
 }
 
@@ -90,6 +91,7 @@ button:hover {
 
 
 table {
+    box-shadow: var(--box-shadow);
     margin: 0 auto;
     border-radius: var(--border-radius);
     margin-top: 2.5vh;
@@ -165,10 +167,9 @@ table td i {
 
 
 .inner-container-wrapper {
-    /* background-color: #076c55; */
     display: flex;
     align-items: center;
-    gap: 2vw;
+    gap: 1.25vw;
 }
 
 
@@ -197,11 +198,10 @@ textarea {
     font-size: 1.1rem;
     line-height: 35px;
     resize: none;
-  }
+}
   
   
-
-  pre {
+pre {
     font-family: 'Anta';
     min-height: 20vh;
     border-radius: var(--border-radius);
@@ -261,8 +261,62 @@ textarea {
 }
 
 
+.error-message {
+    text-shadow: var(--text-shadow);
+    font-size: 1.3rem;
+    margin-top: -13.5vh;
+    text-align: center;
+    font-family: "Courier Prime", monospace;
+    font-weight: 600;
+    color: var(--maroon-red);
+}
+
+
+
+@-webkit-keyframes rotate-scale-up {
+    0% {
+      -webkit-transform: scale(1) rotateZ(0);
+              transform: scale(1) rotateZ(0);
+    }
+    50% {
+      -webkit-transform: scale(1.3) rotateZ(180deg);
+              transform: scale(1.3) rotateZ(180deg);
+    }
+    100% {
+      -webkit-transform: scale(1) rotateZ(360deg);
+              transform: scale(1) rotateZ(360deg);
+    }
+  }
+  
+  @keyframes rotate-scale-up {
+    0% {
+      -webkit-transform: scale(1) rotateZ(0);
+              transform: scale(1) rotateZ(0);
+    }
+    50% {
+      -webkit-transform: scale(1.3) rotateZ(180deg);
+              transform: scale(1.3) rotateZ(180deg);
+    }
+    100% {
+      -webkit-transform: scale(1) rotateZ(360deg);
+              transform: scale(1) rotateZ(360deg);
+    }
+  }
+
+
+
 @media screen and (min-width: 2500px) {
     .fa-rotate-right {
         left: 38.5%;
+    }
+    
+
+    textarea {
+        padding-left: 0.8rem;
+        width: 25%;
+        height: 50px;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        line-height: 35px;
     }
 }

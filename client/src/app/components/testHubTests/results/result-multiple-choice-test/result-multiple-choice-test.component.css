@@ -104,3 +104,11 @@ h4 {
     font-family: 'Anta';
     text-align: center;
 }
+
+
+@media screen and (min-width: 2500px) {
+    .result-section {
+        width: 70vw;
+        height: 65h;
+    }    
+}

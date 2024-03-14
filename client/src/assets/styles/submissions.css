@@ -98,12 +98,16 @@ table td i {
 @media screen and (min-width: 2500px) {
     table th,
     table td {
-        padding: 2.5rem;
-        font-size: 1.6rem;
+        padding: 2.3rem;
+        font-size: 1.4rem;
     }
 
     table {
         border-spacing: 0.9rem 1.5rem;
+    }
+
+    main {
+        width: 85%;
     }
 }
 

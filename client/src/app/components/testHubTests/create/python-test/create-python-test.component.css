@@ -15,7 +15,7 @@ form {
  
 
 button {
-    margin: 3rem 0;
+    margin: 4rem 0;
     padding: 1rem 2.4rem;
     font-size: 1.6rem;
     background-color: var(--dark-green);
@@ -274,17 +274,31 @@ textarea {
 @media screen and (min-width: 2500px) {
     form {
         background-size: cover;
+        width: 75%;
     }
+
+    
+    form label, #choose-course-choose-topic label {
+        font-size: 2.25rem;
+    }
+
 
     textarea {
         width: 20%;
         height: 50px;
+        border-radius: var(--border-radius);
+        padding-top: 0.5rem;
+        padding-left: 0.8rem;
+        font-size: 1.3rem;
+        line-height: 30px;
     }
+
  
     pre {
         margin-top: 2.5vh;
         width: 50%;
     }
+
 
     #unit-tests-wrapper {
         margin-top: 1.5vh;

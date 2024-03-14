@@ -50,6 +50,13 @@
     </div>
     <pre><code [innerHTML]="highlightedCode" class="language-python"></code></pre>
     <div class="current-task"></div>
+    <p
+    *ngIf="pythonTestSubmitForm.get('code')?.touched && pythonTestSubmitForm.get('code')?.errors?.['minlength']"
+    class="error-message"
+    id="unit-tests-err"
+  >
+    Python Code must be at least 3 symbols!
+  </p>
     <button type="submit">Submit</button>
   </form>
 </main>
