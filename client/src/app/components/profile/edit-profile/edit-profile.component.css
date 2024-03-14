@@ -21,7 +21,7 @@ main form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 55%;
+    width: 65%;
     gap: 1.2vh;
 }
 
@@ -246,4 +246,18 @@ input[type=file]::file-selector-button:hover {
  .image-upload-div button:hover {
     background-color: #009578;
     transform: translateY(-0.2rem);
+}
+
+
+@media screen and (min-width: 2500px) {
+    main {
+        margin-top: 5vh;
+        width: 52.5vw;
+        height: 72.5vh;
+    }
+
+    #edit-names-div input {
+        width: 45%;
+        display: inline;
+    }
 }

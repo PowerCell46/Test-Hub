@@ -119,3 +119,11 @@ main p {
         background-position: right top;
       }
 }
+
+
+@media screen and (min-width: 2500px) {
+    main {
+        width: 80vw;
+        height: 77.5vh;
+    }       
+}

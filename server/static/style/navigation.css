@@ -8,7 +8,6 @@ nav {
     align-items: center;
     justify-content: center;
     margin: 3vh 0;
-    /* background-color: aliceblue; */
 }
 
 
@@ -29,7 +28,7 @@ nav section {
 nav section ul {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 
@@ -49,7 +48,7 @@ nav section ul li a:hover {
 
 #test-hub-logo {
     height: 6.5vh;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 
 
@@ -61,4 +60,96 @@ nav section ul li a:hover {
     transform: rotate(90deg);
     transition: 400ms ease-in-out;
     color: whitesmoke;
+}
+
+
+.hidden-section {
+    z-index: 999;
+    position: absolute;
+    left: 28.5%;
+    top: 11.8%;
+    list-style: none;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;    
+    /* background-color: purple; */
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    border-radius: var(--border-radius);
+    padding: 1.25rem;
+}
+
+
+.hidden-section li a {
+    color: whitesmoke;
+    text-decoration: none;
+
+}
+
+.hidden-section li a:hover {
+    text-decoration: underline;
+    color: #e1e2e0;    
+}
+
+
+.hidden-submissions-auth {
+    left: 54.3%;
+}
+
+
+.hidden-submissions-not-auth {
+    left: 48.5%;
+}
+
+
+#submissions-a {
+    cursor: pointer;
+}
+
+
+/* @media only screen and (max-height: 1080px) {
+    nav section {
+        width: 42.5vw;
+        height: 9vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 0.45rem;
+        box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.75);
+        font-size: 1.3rem;
+        margin-top: 4vh;
+        margin-bottom: 4vh;
+    }
+} */
+
+
+@media screen and (min-width: 2500px) {
+    nav section {
+        font-size: 1.5rem;
+    }
+    
+    nav section ul {
+        gap: 4rem;
+    }
+
+    #hide-show-nav-i {
+        font-size: 3rem;
+    }
+
+    .hidden-section {
+        left: 29%;
+        gap: 1.75rem;
+        padding: 1.75rem;
+    }
+    
+    .hidden-submissions-auth {
+        left: 54.8%;
+    }
+
+    .hidden-submissions-not-auth {
+        left: 48.7%;
+    }
+    
 }
