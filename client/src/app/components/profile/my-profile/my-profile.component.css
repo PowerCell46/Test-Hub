@@ -243,3 +243,33 @@ main section p {
       left: 39.5%;      
     }
   }
+
+  @media (max-height: 1080px) and (max-width: 1920px)  {
+    aside p  {
+      font-size: 1.5rem;
+    }
+
+    aside img {
+      width: 30%;
+  }
+
+    #delete-profile-i {
+      margin-left: -1.2rem;
+    }
+
+    aside i {
+      font-size: 1.7rem;
+    }
+
+    .fa-user-pen {
+      left: 40.8%;      
+    }
+
+    main {
+      width: 42.5vw;
+    }
+
+    .content-wrapper {
+      justify-content: space-evenly;
+    }
+  }

@@ -33,6 +33,14 @@ main form {
         margin-top: -4.1vh;
         margin-left: 16.4vw;
     }
+}
 
-
+@media (max-height: 1080px) and (max-width: 1920px) {
+    #hide-show-password {
+        margin-top: -5.4vh;
+        margin-bottom: 4vh;
+        margin-left: 18.2vw;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
 }

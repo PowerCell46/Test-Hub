@@ -77,3 +77,14 @@ button:hover {
     80% { opacity: 0.8; }
     90% { opacity: 0.5; }
 }
+
+
+@media (max-height: 1080px) and (max-width: 1920px) {
+    .delete-profile-section {
+        padding: 4rem;
+        position: absolute;
+        left: 25%;
+        gap: 2rem;
+    }
+    
+}

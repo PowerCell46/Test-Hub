@@ -84,3 +84,17 @@ aside li:hover {
         padding: 1.4rem 2.4rem;
     }
 }
+
+
+@media (max-height: 1080px) and (max-width: 1920px) {
+    aside {
+        margin-right: 2rem;
+        width: 25vw;
+    }
+
+    aside li {
+        list-style: none;
+        border: 1px solid white;
+        font-size: 1.3rem;
+    }
+}

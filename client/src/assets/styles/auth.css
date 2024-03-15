@@ -210,3 +210,22 @@ h5 a:hover {
 }
 
 
+@media (max-height: 1080px) and (max-width: 1920px) {
+    h1 {
+        font-size: 2.75rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        /* Does not work */
+    }
+
+    #hide-show-password {
+        margin-bottom: -7.9vh;
+        margin-left: 15.4vw;
+    }
+
+    main form {
+        width: 45%;
+    }
+}

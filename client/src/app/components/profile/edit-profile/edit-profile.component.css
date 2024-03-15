@@ -261,3 +261,19 @@ input[type=file]::file-selector-button:hover {
         display: inline;
     }
 }
+
+@media (max-height: 1080px) and (max-width: 1920px)  {
+    main {
+        width: 55vw;
+        height: 100vh;
+    }
+
+    main form {
+        width: 70%;
+        gap: 1.5vh;
+    }
+
+    /* main section {
+        margin: 5vh 0;
+    } */
+}
