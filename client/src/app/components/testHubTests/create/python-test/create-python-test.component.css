@@ -304,3 +304,52 @@ textarea {
         margin-top: 1.5vh;
     }
 }
+
+@media (max-height: 1080px) and (max-width: 1920px) {
+    
+form {
+    margin-bottom: 10vh;
+    /* Does not work */
+}
+
+input[type=file] {
+    margin: 2.5vh 0;
+    font-size: 1.2rem;
+    padding: 1.2rem;
+}
+
+
+input[type=file]::file-selector-button {
+    width: 40%;
+    padding: 1rem 1rem;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+
+.file-upload-label {
+    font-size: 1.8rem;
+}
+
+#unit-tests-title {
+    font-size: 2rem;
+}
+
+button {
+    margin: 2rem 0;
+    padding: 1rem 2.4rem;
+}
+
+#task-title {
+    font-family: 'Anta';
+    font-size: 1.5rem;
+    padding: 0.8rem 1.6rem;
+    margin-top: 2vh;
+}
+
+#task-title-label {
+    margin: 2vh 0;
+    font-size: 2rem;
+}
+
+}

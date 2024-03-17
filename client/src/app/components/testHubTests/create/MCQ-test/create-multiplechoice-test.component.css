@@ -239,3 +239,28 @@ main section input {
     }
 }
 
+@media (max-height: 1080px) and (max-width: 1920px) {
+    #task-title {
+        font-family: 'Anta';
+        margin-top: 2vh;
+        /* Font size and padding does not work */
+    }
+
+    #task-title-label {
+        margin: 0;
+        margin-top: 2vh;
+    }
+
+    #choose-course-choose-topic label{
+        font-size: 2.25rem;    
+        margin-right: 1rem;
+    }
+
+    #choose-course-choose-topic select {
+        cursor: pointer;
+        font-size: 1.8rem;
+        border-radius: var(--border-radius);
+        font-family: "Anta", sans-serif;
+        padding: 0.4rem 0.8rem;
+    }
+}
