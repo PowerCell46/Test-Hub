@@ -263,4 +263,10 @@ main section input {
         font-family: "Anta", sans-serif;
         padding: 0.4rem 0.8rem;
     }
+
+    #remove-question {
+        bottom: 12.5vh;
+        left: 49.2%;
+        transition: 400ms ease-in-out;
+    }
 }

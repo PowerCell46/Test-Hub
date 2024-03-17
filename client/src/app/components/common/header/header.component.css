@@ -125,6 +125,10 @@ nav section ul li a:hover {
     .hidden-submissions-auth {
         left: 54.5%;
     }
+
+    .hidden-submissions-not-auth {
+        left: 48.2%;
+    }
 }
 
 
