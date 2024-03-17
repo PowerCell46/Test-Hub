@@ -166,4 +166,18 @@
   .footer {
     width: 93.6%;
   }  
+
+  .social-icon__link {
+    font-size: 2.1rem;
+  }
+
+  .menu__link {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  .footer p {
+    font-size: 1.6rem;
+    margin: 1.7rem 0 1.8rem 0;
+  }
 }

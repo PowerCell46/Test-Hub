@@ -119,8 +119,8 @@ nav section ul li a:hover {
     }
 
     .hidden-submissions-auth {
-        top: 12.5%;
-        left: 54.8%;
+        top: 12.9%;
+        left: 53.5%;
     }
 }
 
@@ -151,5 +151,4 @@ nav section ul li a:hover {
     .hidden-submissions-not-auth {
         left: 48.7%;
     }
-    
 }
