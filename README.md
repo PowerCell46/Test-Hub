@@ -26,16 +26,22 @@ TestHub is an online system designed to facilitate test creation, management, an
 - **Frontend Styling:** Custom HTML and CSS
 
 ## Setup Instructions:
-
-1. **Prerequisites:**
-   - Ensure you have Node.js and npm installed for Angular.
-   - Install Python and Django for the backend.
-   - Set up a PostgreSQL database.
-
-2. **Installation:**
+   - Make sure that you have **Node.js, Python** installed and configured.
    - Clone the repository.
-   - Navigate to the frontend and backend directories and install dependencies.
-   - Configure the backend settings, including database connections.
+
+1. **Setting Up The Frontend:**
+   - Use **cd client** to navigate to the Frontend Part of the application. Run **npm install** to download all the needed dependencies. 
+   - When the process is done Run **ng serve** to start the Frontend
+
+2. **Setting up the Backend:**
+   - Use **cd server** to navigate to the Backend Part of the application. Run **pip install -r requirements.txt** to download all the needed dependencies. 
+   - Choose whether to use **Postgre SQL** or **SQL Lite**. 
+   If you choose **Postgre SQL** make sure that you have created the database before that.
+   - Run **python manage.py migrate** to create all of the tables in the Database.
+   - Run **python manage.py createsuperuser** and setup an account for managing the system.
+   - Run **python manage.py runserver** to start the Backend.
+   - Using the navigation go to **Django Admin** and Authenticate with the created user. After that go to **Authentication and Authorization** section and click on **Groups**. On the right side click on **add group**, name it ***Teachers*** and select the permissions that you want to give to every Teacher. After that is finished click on **Save**.
+   Again in the **Authentication and Authorization** section choose users, (select your user for example) and in the groups section give the Teachers role to the user. Don't forget to save.
 
 3. **Running the Application:**
    - Start the Django server for the backend.
