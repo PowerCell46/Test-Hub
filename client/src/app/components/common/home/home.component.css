@@ -33,16 +33,6 @@ main section {
 }
 
 
-@keyframes bgPositionAnim {
-    0% {
-        background-position: center calc(100%);
-    }
-    100% {
-        background-position: center;
-    }
-}
-
-
 main section:hover {
     filter: blur(3px);
 }
@@ -58,7 +48,7 @@ main section h1 {
 
 
 #welcoming-message {
-    margin: 0 auto; /* Not the best way */
+    margin: 0 auto;
     margin-top: 3vh;
     width: 80%;
     font-size: 2rem;
@@ -122,49 +112,12 @@ p {
     font-size: 2.25rem;
 }
 
-hr {
-    margin-top: 3vh;
-    margin-bottom: -1vh;
-}
 
-
-@media screen and (min-width: 2500px) {
-    main section {
-        max-height: 70vh;
-        min-height: 70vh; 
+@keyframes bgPositionAnim {
+    0% {
+        background-position: center calc(100%);
     }
-
-    #greeting-message {
-        width: 45%;
-        padding: 1rem;
-    }
-
-    h2 {
-        font-size: 6.5rem;
-    }
-
-    p {
-        line-height: 1.75;
-    }
-}
-
-
-@media (max-height: 1080px) and (max-width: 1920px)  {
-    main {
-        margin-top: 4vh;
-    }
-
-    #greeting-message {
-        font-size: 2.25rem;
-    }
-
-    #welcoming-message {
-        font-size: 1.5rem;
-        line-height: 1.5;
-    } 
-
-    p {
-        line-height: 1.5;
-        font-size: 1.4rem;
+    100% {
+        background-position: center;
     }
 }

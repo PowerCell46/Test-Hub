@@ -1,0 +1,52 @@
+
+@media (height: 1080px) and (width: 1920px) {
+    nav section {
+        height: 7vh;
+        font-size: 1.15rem;
+    }
+
+    #hide-show-nav-i {
+        font-size: 2rem;
+    }
+
+    .hidden-section {
+        top: 12.9%;
+    }
+
+    .hidden-submissions-auth {
+        left: 54.5%;
+    }
+
+    .hidden-submissions-not-auth {
+        left: 48.2%;
+    }
+}
+
+
+@media screen and (min-width: 2500px) {
+    nav section {
+        font-size: 1.5rem;
+    }
+    
+    nav section ul {
+        gap: 4rem;
+    }
+
+    #hide-show-nav-i {
+        font-size: 3rem;
+    }
+
+    .hidden-section {
+        left: 29%;
+        gap: 1.75rem;
+        padding: 1.75rem;
+    }
+    
+    .hidden-submissions-auth {
+        left: 54.8%;
+    }
+
+    .hidden-submissions-not-auth {
+        left: 48.7%;
+    }
+}

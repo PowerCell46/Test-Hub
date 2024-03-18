@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css', './header.component.media-queries.css'],
 })
 export class HeaderComponent implements OnInit, OnDestroy{
   isLoggedIn: boolean = false;

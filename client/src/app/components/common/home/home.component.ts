@@ -8,7 +8,7 @@ import { projectIntegrations } from '../../../../assets/constants';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrls: ['./home.component.css', './home.component.media-queries.css'],
   animations: [
     trigger('fadeInOut', [
       transition(':enter', [ // Alias for void => *
