@@ -147,6 +147,7 @@ button:hover {
     background-color: var(--darker-green);
 }
 
+
 .button-wrapper {
     width: 100%;
     display: flex;
@@ -154,10 +155,12 @@ button:hover {
     justify-content: center;
 }
 
+
 .unfilled-question {
     border: 7.5px dashed #FF4500;
     animation: changeColor 3s infinite;
 }
+
 
 .inner-container {
     display: flex;
@@ -202,30 +205,3 @@ button:hover {
               transform: scale(1) rotateZ(360deg);
     }
   }
-
-
-  @media screen and (min-width: 2500px) {
-    main section {
-        padding: 6rem 8rem;
-        width: 50%;        
-     }
-
-     .tasks-container {
-        width: 60%;
-    }
-}
-
-
-@media (max-height: 1080px) and (max-width: 1920px) {
-
-    button {
-        margin-top: 1rem;
-        padding: 1.25rem 2rem;
-        font-size: 1.8rem;
-        margin-bottom: -10vh;
-    }
-
-    h1 {
-        margin-bottom: 6vh;
-    }
-}

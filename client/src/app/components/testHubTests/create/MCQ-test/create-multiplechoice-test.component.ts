@@ -12,7 +12,7 @@ import 'toastify-js/src/toastify.css';
 @Component({
   selector: 'app-create-multiplechoice-test',
   templateUrl: './create-multiplechoice-test.component.html',
-  styleUrls: ['./create-multiplechoice-test.component.css']
+  styleUrls: ['./create-multiplechoice-test.component.css', './create-multiplechoice-test.component.media-queries.css']
 })
 export class CreateMultiplechoiceTestComponent implements OnInit{
     courses: any = [];

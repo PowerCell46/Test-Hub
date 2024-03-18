@@ -17,7 +17,6 @@ main {
 
 
 main form {
-    /* background-color: #800000; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +26,6 @@ main form {
 
 
 main section {
-    /* background-color: #076c55; */
     height: 100%;
     width: 55%;
     display: flex;
@@ -123,7 +121,6 @@ h5 a:hover {
 
 
 .error-message {
-    /* margin-top: 1vh; */
     text-align: center;
     font-family: "Courier Prime", monospace;
     font-weight: 600;
@@ -153,7 +150,6 @@ select {
     font-size: 2rem;    
     margin-right: 1rem;
     color: grey;
-    /* text-shadow: var(--text-shadow); */
 }
 
 
@@ -176,7 +172,7 @@ select {
       -webkit-transform: scale(1) rotateZ(360deg);
               transform: scale(1) rotateZ(360deg);
     }
-  }
+}
   
 
 @keyframes rotate-scale-up {
@@ -192,9 +188,9 @@ select {
       -webkit-transform: scale(1) rotateZ(360deg);
               transform: scale(1) rotateZ(360deg);
     }
-  }
+}
 
-  input[type=file] {
+input[type=file] {
     font-family: 'Anta';
     display: flex;
     color: black;
@@ -243,37 +239,7 @@ input[type=file]::file-selector-button:hover {
 }
 
 
- .image-upload-div button:hover {
+.image-upload-div button:hover {
     background-color: #009578;
     transform: translateY(-0.2rem);
-}
-
-
-@media screen and (min-width: 2500px) {
-    main {
-        margin-top: 5vh;
-        width: 52.5vw;
-        height: 72.5vh;
-    }
-
-    #edit-names-div input {
-        width: 45%;
-        display: inline;
-    }
-}
-
-@media (max-height: 1080px) and (max-width: 1920px)  {
-    main {
-        width: 55vw;
-        height: 100vh;
-    }
-
-    main form {
-        width: 70%;
-        gap: 1.5vh;
-    }
-
-    .error {
-        border: 3px solid var(--maroon-red);
-    }
 }

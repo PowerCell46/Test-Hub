@@ -1,0 +1,28 @@
+@media screen and (min-width: 2500px) {
+    main {
+        margin-top: 5vh;
+        width: 52.5vw;
+        height: 72.5vh;
+    }
+
+    #edit-names-div input {
+        width: 45%;
+        display: inline;
+    }
+}
+
+@media (max-height: 1080px) and (max-width: 1920px)  {
+    main {
+        width: 55vw;
+        height: 100vh;
+    }
+
+    main form {
+        width: 70%;
+        gap: 1.5vh;
+    }
+
+    .error {
+        border: 3px solid var(--maroon-red);
+    }
+}

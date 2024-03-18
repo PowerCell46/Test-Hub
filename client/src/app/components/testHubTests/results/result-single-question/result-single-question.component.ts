@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-result-single-question',
   templateUrl: './result-single-question.component.html',
-  styleUrl: './result-single-question.component.css'
+  styleUrls: ['./result-single-question.component.css', './result-single-question.component.media-queries.css']
 })
 export class ResultSingleQuestionComponent implements OnInit{
   submissionId!: number;

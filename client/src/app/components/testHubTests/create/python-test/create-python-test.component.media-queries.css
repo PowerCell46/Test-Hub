@@ -1,0 +1,98 @@
+
+
+@media screen and (min-width: 2500px) {
+    form {
+        background-size: cover;
+        width: 75%;
+    }
+
+    
+    form label, #choose-course-choose-topic label {
+        font-size: 2.25rem;
+    }
+
+
+    textarea {
+        width: 20%;
+        height: 50px;
+        border-radius: var(--border-radius);
+        padding-top: 0.5rem;
+        padding-left: 0.8rem;
+        font-size: 1.3rem;
+        line-height: 30px;
+    }
+
+ 
+    pre {
+        margin-top: 2.5vh;
+        width: 50%;
+    }
+
+
+    #unit-tests-wrapper {
+        margin-top: 1.5vh;
+    }
+}
+
+@media (max-height: 1080px) and (max-width: 1920px) {
+    
+form {
+    padding-top: 1.25vh;
+    padding-bottom: 1.5vh;
+}
+
+input[type=file] {
+    margin: 2.5vh 0;
+    font-size: 1.2rem;
+    padding: 1.2rem;
+}
+
+
+input[type=file]::file-selector-button {
+    width: 40%;
+    padding: 1rem 1rem;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+
+.file-upload-label {
+    font-size: 1.8rem;
+}
+
+#unit-tests-title {
+    font-size: 2rem;
+}
+
+button {
+    margin: 2rem 0;
+    padding: 1rem 2.4rem;
+}
+
+#task-title {
+    font-family: 'Anta';
+    font-size: 1.5rem;
+    padding: 0.8rem 1.6rem;
+    margin-top: 2vh;
+}
+
+#task-title-label {
+    margin: 2vh 0;
+    font-size: 2rem;
+}
+
+.error-message {
+    font-size: 1.35rem;
+    margin-top: -15vh;
+    margin-bottom: 3vh;
+}
+
+#unit-tests-err {
+    margin-top: 2vh;
+    margin-bottom: -1.2vh;
+}
+
+.error {
+    border: 3px solid var(--maroon-red);
+}
+}

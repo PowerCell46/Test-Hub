@@ -5,7 +5,7 @@ import { MultipleChoiceTestService } from '../../../../services/multipleChoiceTe
 @Component({
   selector: 'app-result-multiple-choice-test',
   templateUrl: './result-multiple-choice-test.component.html',
-  styleUrl: './result-multiple-choice-test.component.css'
+  styleUrls: ['./result-multiple-choice-test.component.css', './result-multiple-choice-test.component.media-queries.css']
 })
 export class ResultMultipleChoiceTestComponent implements OnInit{
   submissionId!: number;

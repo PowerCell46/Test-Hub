@@ -1,0 +1,26 @@
+@media screen and (min-width: 2500px) {
+    .result-section {
+        width: 70vw;
+        height: 65h;
+    }    
+}
+
+@media (max-height: 1080px) and (max-width: 1920px) {
+    .result-section {
+        margin: 5vh auto;
+        width: 70vw;
+        height: 70vh;
+    }
+
+    .result-section h5 {
+        font-size: 5rem;
+    }
+
+    .correct-answer-button, .wrong-answer-button {
+        padding:  1.1rem 1.8rem;
+        font-size:  1.8rem;
+        min-width:  100px;
+        min-height: 90px;
+    }
+
+}

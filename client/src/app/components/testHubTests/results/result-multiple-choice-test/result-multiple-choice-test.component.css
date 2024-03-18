@@ -25,16 +25,6 @@ body {
 }
 
 
-@keyframes bgPositionAnim {
-    0% {
-        background-position: center calc(100%);
-    }
-    100% {
-        background-position: center;
-    }
-}
-
-
 .result-section h5 {
     color: whitesmoke;
     font-family: 'Anta', sans-serif;
@@ -96,6 +86,7 @@ body {
     transform: translateY(-0.4rem);
 }
 
+
 h4 {
     margin-bottom: 3vh;
     font-size: 4rem;
@@ -106,29 +97,11 @@ h4 {
 }
 
 
-@media screen and (min-width: 2500px) {
-    .result-section {
-        width: 70vw;
-        height: 65h;
-    }    
-}
-
-@media (max-height: 1080px) and (max-width: 1920px) {
-    .result-section {
-        margin: 5vh auto;
-        width: 70vw;
-        height: 70vh;
+@keyframes bgPositionAnim {
+    0% {
+        background-position: center calc(100%);
     }
-
-    .result-section h5 {
-        font-size: 5rem;
+    100% {
+        background-position: center;
     }
-
-    .correct-answer-button, .wrong-answer-button {
-        padding:  1.1rem 1.8rem;
-        font-size:  1.8rem;
-        min-width:  100px;
-        min-height: 90px;
-    }
-
 }

@@ -11,7 +11,7 @@ import 'toastify-js/src/toastify.css';
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.css']
+  styleUrls: ['./edit-profile.component.css', './edit-profile.component.media-queries.css']
 })
 export class EditProfileComponent implements OnInit {
   userDetails: any = {};

@@ -15,7 +15,7 @@ import 'toastify-js/src/toastify.css';
 @Component({
   selector: 'app-python-tests',
   templateUrl: './create-python-test.component.html',
-  styleUrls: ['./create-python-test.component.css']
+  styleUrls: ['./create-python-test.component.css', './create-python-test.component.media-queries.css']
 })
 export class PythonTestsComponent implements OnInit {
   courses: any = [];

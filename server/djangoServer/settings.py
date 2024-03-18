@@ -93,23 +93,23 @@ WSGI_APPLICATION = 'djangoServer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "testhub",
-        "USER": "postgres",
-        "PASSWORD": "963",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
-    }
-}
-
 # DATABASES = {
 #     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": "djangoprojecttesthub",
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "testhub",
+#         "USER": "postgres",
+#         "PASSWORD": "963",
+#         "HOST": "127.0.0.1",
+#         "PORT": "5432",
 #     }
 # }
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "djangoprojecttesthub",
+    }
+}
 
 
 # Password validation

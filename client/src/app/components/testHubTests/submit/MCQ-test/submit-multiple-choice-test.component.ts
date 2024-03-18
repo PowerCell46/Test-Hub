@@ -13,7 +13,7 @@ import 'toastify-js/src/toastify.css';
 @Component({
   selector: 'app-multiple-choice-test',
   templateUrl: './submit-multiple-choice-test.component.html',
-  styleUrl: './submit-multiple-choice-test.component.css'
+  styleUrls: ['./submit-multiple-choice-test.component.css', './submit-multiple-choice-test.component.media-queries.css']
 })
 export class MultipleChoiceTestComponent implements OnInit {
   exam!: MultipleChoiceTest;

@@ -13,7 +13,7 @@ import 'toastify-js/src/toastify.css';
 @Component({
   selector: 'app-submit-python-task',
   templateUrl: './submit-python-task.component.html',
-  styleUrl: './submit-python-task.component.css'
+  styleUrls: ['./submit-python-task.component.css', './submit-python-task.component.media-queries.css']
 })
 export class SubmitPythonTaskComponent implements OnInit{
   highlightedCode: string = '';

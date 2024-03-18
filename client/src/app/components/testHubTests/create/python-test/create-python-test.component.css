@@ -1,5 +1,6 @@
 @import url('../../../../../assets/styles/choose-title-course-topic.css');
 
+
 form {
     margin: 0 auto;
     background-image: url('https://images4.alphacoders.com/718/718136.jpg');
@@ -89,6 +90,7 @@ button:hover {
     box-shadow: var(--box-shadow);
 }
 
+
 .error {
     border: 3.5px solid var(--maroon-red);
 }
@@ -163,7 +165,7 @@ input[type=file]::file-selector-button:hover {
 }
 
 
- .file-upload-div button:hover {
+.file-upload-div button:hover {
     background-color: #009578;
     transform: translateY(-0.2rem);
 }
@@ -178,12 +180,14 @@ input[type=file]::file-selector-button:hover {
     margin-bottom: 2vh;
 }
 
+
 #choose-course-choose-topic {
     margin-top: -5vh;
     border: none;
     box-shadow: none;
     background-color: transparent;
 }
+
 
 #choose-course-choose-topic .wrapper {
     margin-top: -12.5vh;
@@ -203,8 +207,7 @@ textarea {
   }
   
   
-
-  pre {
+pre {
     font-family: 'Anta';
     min-height: 20vh;
     border-radius: var(--border-radius);
@@ -216,6 +219,7 @@ textarea {
     overflow: auto;
 }
 
+
 #unit-tests-wrapper {
     display: flex;
     gap: 1.5vw;
@@ -223,6 +227,7 @@ textarea {
     justify-content: center;
     width: 100%;
 }
+
 
 #unit-tests-err {
     margin-top: 2vh;
@@ -233,6 +238,7 @@ textarea {
     background-color: #f5f5f5;
     text-shadow: none;
 }
+
 
 .title-wrapper {
     margin-top: 2vh;
@@ -269,101 +275,3 @@ textarea {
               transform: scale(1) rotateZ(360deg);
     }
   }
-
-
-@media screen and (min-width: 2500px) {
-    form {
-        background-size: cover;
-        width: 75%;
-    }
-
-    
-    form label, #choose-course-choose-topic label {
-        font-size: 2.25rem;
-    }
-
-
-    textarea {
-        width: 20%;
-        height: 50px;
-        border-radius: var(--border-radius);
-        padding-top: 0.5rem;
-        padding-left: 0.8rem;
-        font-size: 1.3rem;
-        line-height: 30px;
-    }
-
- 
-    pre {
-        margin-top: 2.5vh;
-        width: 50%;
-    }
-
-
-    #unit-tests-wrapper {
-        margin-top: 1.5vh;
-    }
-}
-
-@media (max-height: 1080px) and (max-width: 1920px) {
-    
-form {
-    padding-top: 1.25vh;
-    padding-bottom: 1.5vh;
-}
-
-input[type=file] {
-    margin: 2.5vh 0;
-    font-size: 1.2rem;
-    padding: 1.2rem;
-}
-
-
-input[type=file]::file-selector-button {
-    width: 40%;
-    padding: 1rem 1rem;
-    font-size: 1.2rem;
-    margin-right: 1rem;
-}
-
-
-.file-upload-label {
-    font-size: 1.8rem;
-}
-
-#unit-tests-title {
-    font-size: 2rem;
-}
-
-button {
-    margin: 2rem 0;
-    padding: 1rem 2.4rem;
-}
-
-#task-title {
-    font-family: 'Anta';
-    font-size: 1.5rem;
-    padding: 0.8rem 1.6rem;
-    margin-top: 2vh;
-}
-
-#task-title-label {
-    margin: 2vh 0;
-    font-size: 2rem;
-}
-
-.error-message {
-    font-size: 1.35rem;
-    margin-top: -15vh;
-    margin-bottom: 3vh;
-}
-
-#unit-tests-err {
-    margin-top: 2vh;
-    margin-bottom: -1.2vh;
-}
-
-.error {
-    border: 3px solid var(--maroon-red);
-}
-}

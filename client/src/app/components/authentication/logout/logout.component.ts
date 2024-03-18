@@ -9,7 +9,7 @@ import 'toastify-js/src/toastify.css';
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',
-  styleUrl: './logout.component.css'
+  styleUrls: ['./logout.component.css', './logout.component.media-queries.css']
 })
 export class LogoutComponent {
 

@@ -10,7 +10,7 @@ import 'toastify-js/src/toastify.css';
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
-  styleUrl: './my-profile.component.css'
+  styleUrls: ['./my-profile.component.css', './my-profile.component.media-queries.css']
 })
 export class MyProfileComponent implements OnInit{
   deleteProfileVisible: boolean = false;

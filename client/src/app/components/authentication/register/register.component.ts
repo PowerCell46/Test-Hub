@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../../services/authentication/authenti
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css', './register.component.media-queries.css']
 })
 export class RegisterComponent {
   registerForm: FormGroup;

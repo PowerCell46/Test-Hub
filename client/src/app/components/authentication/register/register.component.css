@@ -8,7 +8,6 @@ main form {
 
 
 #left-side {
-    /* background-color: #1b2d47; */
     background: url('../../../../assets/images/97133ec9-8094-4eb6-945c-cee5c52fa329.webp') center center / cover no-repeat;
 }
 
@@ -25,22 +24,4 @@ main form {
     margin-left: 18.4vw;
     font-size: 1.2rem;
     cursor: pointer;
-}
-
-
-@media screen and (min-width: 2500px) { 
-    #hide-show-password {
-        margin-top: -4.1vh;
-        margin-left: 16.4vw;
-    }
-}
-
-@media (max-height: 1080px) and (max-width: 1920px) {
-    #hide-show-password {
-        margin-top: -5.9vh;
-        margin-bottom: 4vh;
-        margin-left: 18.2vw;
-        font-size: 1.2rem;
-        cursor: pointer;
-    }
 }
