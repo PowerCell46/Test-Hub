@@ -124,7 +124,6 @@ tr {
 
 
 tr:not(:first-child):hover {
-    /* cursor: pointer; */
     background-color: #277289;
     transform: translateY(-0.4rem);
 }
@@ -350,4 +349,10 @@ pre {
         padding: 1rem 2.4rem;
         font-size: 1.6rem;
      }
+
+    table th,
+    table td {
+        border-radius: var(--border-radius);
+        font-size: 1.25rem;
+    }
 }

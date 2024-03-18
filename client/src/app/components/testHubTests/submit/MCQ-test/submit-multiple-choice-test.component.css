@@ -222,5 +222,10 @@ button:hover {
         margin-top: 1rem;
         padding: 1.25rem 2rem;
         font-size: 1.8rem;
+        margin-bottom: -10vh;
+    }
+
+    h1 {
+        margin-bottom: 6vh;
     }
 }

@@ -272,4 +272,21 @@ main section p {
     .content-wrapper {
       justify-content: space-evenly;
     }
+
+    main h1 {
+      font-size: 3.7rem;
+    }
+    
+    main p {
+      font-size: 1.25rem;
+    }
+
+    main section h2 {
+      font-size: 2.3rem;
+  }
+
+    aside i {
+      position: absolute;
+      top: 18.25%;
+     }
   }
