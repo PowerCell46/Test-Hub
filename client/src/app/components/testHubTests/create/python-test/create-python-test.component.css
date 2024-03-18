@@ -308,8 +308,8 @@ textarea {
 @media (max-height: 1080px) and (max-width: 1920px) {
     
 form {
-    margin-bottom: 10vh;
-    /* Does not work */
+    padding-top: 1.25vh;
+    padding-bottom: 1.5vh;
 }
 
 input[type=file] {

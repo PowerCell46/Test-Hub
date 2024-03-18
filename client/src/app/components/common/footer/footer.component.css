@@ -164,11 +164,12 @@
 
 @media (max-height: 1080px) and (max-width: 1920px) {
   .footer {
+    margin-top: 25vh;
     width: 93.6%;
   }  
 
   .social-icon__link {
-    font-size: 2.1rem;
+    font-size: 2.3rem;
   }
 
   .menu__link {
@@ -177,7 +178,7 @@
   }
 
   .footer p {
-    font-size: 1.6rem;
+    font-size: 1.85rem;
     margin: 1.7rem 0 1.8rem 0;
   }
 }

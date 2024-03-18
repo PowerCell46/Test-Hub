@@ -221,11 +221,15 @@ h5 a:hover {
     }
 
     #hide-show-password {
-        margin-bottom: -8.4vh;
+        margin-bottom: -8.6vh;
         margin-left: 15.4vw;
     }
 
     main form {
         width: 45%;
+    }
+
+    #register-names-div input {
+        width: 43%;
     }
 }

@@ -112,3 +112,9 @@ table td i {
 }
 
 
+@media (max-height: 1080px) and (max-width: 1920px) {
+    h1 {
+        margin-top: 1.5vh;
+        font-size: 3.25rem;
+    }
+}
