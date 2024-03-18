@@ -25,10 +25,10 @@
   <!-- Teacher's menu -->
   <div class="hidden-section" [ngStyle]="{ display: hiddenMenuVisible ? 'flex' : 'none', opacity: hiddenMenuOpacity}">
     <li *ngIf="isLoggedIn">
-      <a routerLink="/createPythonTest">Python Task</a>
+      <a routerLink="/createPythonTest" (click)="hideShowHiddenMenu()">Python Task</a>
     </li>
     <li *ngIf="isLoggedIn">
-      <a routerLink="/createMultipleChoiceQuestion">MultipleChoice</a>
+      <a routerLink="/createMultipleChoiceQuestion" (click)="hideShowHiddenMenu()">MultipleChoice</a>
     </li>
   </div>   
 
@@ -40,8 +40,8 @@
           <div 
             [ngClass]="isLoggedIn ? 'hidden-section hidden-submissions-auth' : 'hidden-section hidden-submissions-not-auth'"
             [ngStyle]="{ display: submissionsVisible ? 'flex' : 'none', opacity: submissionsOpacity}">
-              <li><a routerLink="/submissions/python">Python</a></li>
-              <li><a routerLink="/submissions/multipleChoiceTests">MultipleChoice</a></li>
+              <li><a routerLink="/submissions/python" (click)="hideShowSubmissions()">Python</a></li>
+              <li><a routerLink="/submissions/multipleChoiceTests" (click)="hideShowSubmissions()">MultipleChoice</a></li>
           </div>   
       <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
       <li *ngIf="!isLoggedIn"><a routerLink="/register">Register</a></li>
