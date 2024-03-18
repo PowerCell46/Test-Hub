@@ -352,4 +352,18 @@ button {
     font-size: 2rem;
 }
 
+.error-message {
+    font-size: 1.35rem;
+    margin-top: -15vh;
+    margin-bottom: 3vh;
+}
+
+#unit-tests-err {
+    margin-top: 2vh;
+    margin-bottom: -1.2vh;
+}
+
+.error {
+    border: 3px solid var(--maroon-red);
+}
 }

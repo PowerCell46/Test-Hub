@@ -232,4 +232,8 @@ h5 a:hover {
     #register-names-div input {
         width: 43%;
     }
+
+    .error {
+        border: 2.5px solid var(--maroon-red);
+    }
 }
