@@ -269,4 +269,21 @@ main section input {
         left: 49.2%;
         transition: 400ms ease-in-out;
     }
+
+    #question-title-input {
+        width: 47%;
+        font-size: 1.7rem;
+        padding: 0.7rem 1.4rem;
+    }
+
+    .question-options-inputs {
+        font-size: 1.3rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    #question-correct-answer {
+        width: 17.5%;
+        font-size: 1.3rem;
+        padding: 0.9rem 1.85rem;
+    }
 }
