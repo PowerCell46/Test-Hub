@@ -28,3 +28,10 @@
 .task:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+
+@media (max-height: 1080px) and (max-width: 1920px) {
+    .task {
+        font-size: 1.05rem;
+    }
+}
