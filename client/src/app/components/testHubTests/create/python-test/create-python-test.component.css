@@ -204,7 +204,7 @@ textarea {
     font-size: 1.1rem;
     line-height: 35px;
     resize: none;
-  }
+}
   
   
 pre {
@@ -259,9 +259,10 @@ pre {
       -webkit-transform: scale(1) rotateZ(360deg);
               transform: scale(1) rotateZ(360deg);
     }
-  }
+}
   
-  @keyframes rotate-scale-up {
+
+@keyframes rotate-scale-up {
     0% {
       -webkit-transform: scale(1) rotateZ(0);
               transform: scale(1) rotateZ(0);
@@ -274,4 +275,4 @@ pre {
       -webkit-transform: scale(1) rotateZ(360deg);
               transform: scale(1) rotateZ(360deg);
     }
-  }
+}

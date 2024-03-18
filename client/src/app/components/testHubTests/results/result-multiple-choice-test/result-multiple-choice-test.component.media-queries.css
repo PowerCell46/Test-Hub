@@ -5,7 +5,8 @@
     }    
 }
 
-@media (max-height: 1080px) and (max-width: 1920px) {
+
+@media (max-height: 1000px) and (max-width: 1900px) {
     .result-section {
         margin: 5vh auto;
         width: 70vw;

@@ -129,7 +129,7 @@ main p {
 }
 
 
-@media (max-height: 1080px) and (max-width: 1920px)  {
+@media (max-height: 1000px) and (max-width: 1900px) {
     main {
         width: 77.5vw;
         height: 77.5vh;

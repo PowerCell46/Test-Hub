@@ -54,8 +54,7 @@ tr:not(:first-child):hover {
 }
 
 
-table th,
-table td {
+table th, table td {
     border-radius: var(--border-radius).5rem;
     font-size: 1.3rem;
     color: whitesmoke;
@@ -89,6 +88,7 @@ table td i {
     color: darkred;
 }
 
+
 .fa-circle-xmark {
     font-size: 1.15rem;
     color: #E49B0F;
@@ -112,7 +112,7 @@ table td i {
 }
 
 
-@media (max-height: 1080px) and (max-width: 1920px) {
+@media (max-height: 1000px) and (max-width: 1900px) {
     h1 {
         margin-top: 1.5vh;
         font-size: 3.25rem;

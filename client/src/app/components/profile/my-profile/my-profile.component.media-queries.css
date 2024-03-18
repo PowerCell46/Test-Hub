@@ -25,18 +25,17 @@
       width: 45vw;
     }
 
-    
     .content-wrapper {
       justify-content: space-evenly;
     }
-
     
     .fa-user-pen {
       left: 39.5%;      
     }
   }
 
-  @media (max-height: 1080px) and (max-width: 1920px)  {
+
+  @media (max-height: 1000px) and (max-width: 1900px) {
     aside p  {
       font-size: 1.5rem;
     }
@@ -75,10 +74,10 @@
 
     main section h2 {
       font-size: 2.3rem;
-  }
+    }
 
     aside i {
       position: absolute;
       top: 18.25%;
      }
-  }
+}

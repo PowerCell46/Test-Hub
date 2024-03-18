@@ -8,7 +8,8 @@
     }
     }
     
-@media (max-height: 1080px) and (max-width: 1920px) {
+    
+@media (max-height: 1000px) and (max-width: 1900px) {
     .footer {
         margin-top: 25vh;
         width: 93.6%;

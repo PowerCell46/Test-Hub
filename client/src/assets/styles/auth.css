@@ -210,7 +210,7 @@ h5 a:hover {
 }
 
 
-@media (max-height: 1080px) and (max-width: 1920px) {
+@media (max-height: 1000px) and (max-width: 1900px) {
     h1 {
         font-size: 2.75rem;
     }

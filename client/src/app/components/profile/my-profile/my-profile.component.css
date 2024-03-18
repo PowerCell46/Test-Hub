@@ -144,6 +144,7 @@ main section p {
 	        animation: flicker-1 4s linear 1s infinite both;
 }
 
+
  @-webkit-keyframes flicker-1 {
     0%,
     100% {
