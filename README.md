@@ -74,112 +74,116 @@ TestHub is an online system designed to facilitate test creation, management, an
     <br>
 </p>
    Home Page with unopened topics and tasks.
-   <br>
+
 <p align="center">
+      <br>
     <img height="300em" src="./project-images/HomeView2.png" alt="homePage.jpg"/>
     <br>
 </p>
    Home Page with opened topics and tasks.
-   <br>
+
 <p align="center">
+   <br>
     <img height="300em" src="./project-images/HomeIntegration1.png" alt="homePage.jpg"/>
     <br>
 </p>
    Project Integration Part 1
-   <br>
+   
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/HomeIntegration2.png" alt="homePage.jpg"/>
     <br>
 </p>
    Project Integration Part 2
-   <br>
+   
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/HomeIntegration3.png" alt="homePage.jpg"/>
     <br>
 </p>
    Project Integration Part 3
-   <br>
 
 ### Register View
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/RegisterView.png" alt="registerPage.jpg"/>
     <br>
 </p>
    Register View
-   <br>
 
 ### Login View
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/LoginView.png" alt="loginView.jpg"/>
     <br>
 </p>
    Login View
-   <br>
 
 ### Logout View
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/LogoutView.png" alt="homePage.jpg"/>
     <br>
 </p>
    Logout View
-   <br>
 
 ### Create Python Test
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/CreatePythonTest.png" alt="homePage.jpg"/>
     <br>
 </p>
    Create Python Test (accessible only by Teachers)
-   <br>
 
 ### Create Multiplechoice Test
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/CreateMCQ.png" alt="homePage.jpg"/>
     <br>
 </p>
    Create Multiplechoice Test (accessible only by Teachers)
-   <br>
 
 ### Submit Python Test
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/PythonTest1.png" alt="homePage.jpg"/>
     <br>
 </p>
    Python Test Submit Section
-   <br>
 
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/PythonTest2.png" alt="submit-python-test.jpg"/>
     <br>
 </p>
    Python Test Submit previous user submissions
-   <br>
 
 ### Submit MultipleChoice Test
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/MultipleChoiceTest.png" alt="homePage.jpg"/>
     <br>
 </p>
    Submit MultipleChoice Test
-   <br>
 
 ### MultipleChoice Test Results
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/ResultMCQ1.png" alt="homePage.jpg"/>
     <br>
 </p>
    Result MultipleChoice Test 1
-   <br>
 
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/ResultMCQ2.png" alt="homePage.jpg"/>
     <br>
 </p>
    Result MultipleChoice Test 2
-   <br>
 
 ### Single MultipleChoice Question Result
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/ResultSMCQ.png" alt="homePage.jpg"/>
     <br>
 </p>
@@ -188,6 +192,7 @@ TestHub is an online system designed to facilitate test creation, management, an
 
 ### Python Submissions
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/PythonSubmissions.png" alt="homePage.jpg"/>
     <br>
 </p>
@@ -196,17 +201,17 @@ TestHub is an online system designed to facilitate test creation, management, an
 
 ### MultipleChoice Submissions
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/MCQSubmissions.PNG" alt="homePage.jpg"/>
     <br>
 </p>
    MultipleChoice Submissions
-   <br>
 
 
 ### My Profile
 <p align="center">
+    <br>
     <img height="300em" src="./project-images/MyProfile.png" alt="homePage.jpg"/>
     <br>
 </p>
    My Profile
-   <br>
