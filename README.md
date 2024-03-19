@@ -107,7 +107,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### Register View
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/RegisterView.png" alt="registerPage.jpg"/>
     <br>
 </p>
@@ -115,7 +114,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### Login View
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/LoginView.png" alt="loginView.jpg"/>
     <br>
 </p>
@@ -123,7 +121,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### Logout View
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/LogoutView.png" alt="logoutView.jpg"/>
     <br>
 </p>
@@ -131,7 +128,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### Create Python Test
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/CreatePythonTest.png" alt="createPythonTest.jpg"/>
     <br>
 </p>
@@ -139,7 +135,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### Create MultipleChoice Test
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/CreateMCQ.png" alt="createMCQTest.jpg"/>
     <br>
 </p>
@@ -147,7 +142,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### Submit Python Test
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/PythonTest1.png" alt="submitPythonTest.jpg"/>
     <br>
 </p>
@@ -162,7 +156,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### Submit MultipleChoice Test
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/MultipleChoiceTest.png" alt="submitMCQ.jpg"/>
     <br>
 </p>
@@ -170,7 +163,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### MultipleChoice Test Results
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/ResultMCQ1.png" alt="resultMCQTest.jpg"/>
     <br>
 </p>
@@ -185,7 +177,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### Single MultipleChoice Question Result
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/ResultSMCQ.png" alt="resultSingleMCQ.jpg"/>
     <br>
 </p>
@@ -193,7 +184,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### Python Submissions
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/PythonSubmissions.png" alt="pythonSubmissions.jpg"/>
     <br>
 </p>
@@ -203,7 +193,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### MultipleChoice Submissions
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/MCQSubmissions.PNG" alt="mcqSubmissions.jpg"/>
     <br>
 </p>
@@ -212,7 +201,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### My Profile
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/MyProfile.png" alt="myProfile.jpg"/>
     <br>
 </p>
@@ -221,7 +209,6 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ### Server Home Page
 <p align="center">
-    <br>
     <img height="300em" src="./project-images/TestHubServerHome.PNG" alt="myProfile.jpg"/>
     <br>
 </p>
