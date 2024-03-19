@@ -218,3 +218,12 @@ TestHub is an online system designed to facilitate test creation, management, an
     <br>
 </p>
    My Profile view, accessible only by authenticated users, where people can see their Personal Data, Total Account Statistics, and Statistics for every course that they have participated in.
+
+
+### Server Home Page
+<p align="center">
+    <br>
+    <img height="300em" src="./project-images/TestHubServerHome.PNG" alt="myProfile.jpg"/>
+    <br>
+</p>
+   Starting the server this Home view shows, greeting the Teacher/Administrator, and giving them possible options where to head.
