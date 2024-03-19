@@ -9,7 +9,7 @@ A repository containing my currently developed project, written in Django and An
 
 ## Introduction:
 
-TestHub is an online system designed to facilitate test creation, management, and participation for educational purposes. It allows teachers to create two types of tests - multiple-choice tests and Python tests. The system is organized into courses, with each course containing various topics. Within each topic, different tests can be assigned. Students can attempt these tests and receive instant feedback on their performance.
+TestHub is an online system designed to facilitate test creation, management, and participation for educational purposes. It allows teachers to create two types of tests - Multiple-choice tests and Python tests. The system is organized into courses, with each course containing various topics. Within each topic, different tests can be assigned. Students can attempt these tests and receive instant feedback on their performance.
 
 ## Features:
 
@@ -43,43 +43,39 @@ TestHub is an online system designed to facilitate test creation, management, an
    - Using the navigation go to **Django Admin** and Authenticate with the created user. After that go to **Authentication and Authorization** section and click on **Groups**. On the right side click on **add group**, name it ***Teachers*** and select the permissions that you want to give to every Teacher. After that is finished click on **Save**.
    Again in the **Authentication and Authorization** section choose users, (select your user for example) and in the groups section give the Teachers role to the user. Don't forget to save.
 
-3. **Running the Application:**
-   - Start the Django server for the backend.
-   - Run the Angular application for the frontend.
+3. **Starting the Application:**
+   - In the console where you started the Frontend/Client, click on the given link to access the Web Application.
 
 ## Directory Structure:
 
-- **frontend:** Contains Angular frontend files.
-- **backend:** Contains Django backend files.
-- **database:** Database migrations and configurations.
+- **client:** Contains Angular frontend files.
+- **server:** Contains Django backend files.
+- **project-images:** Screenshots from the Web Application.
 
 ## Usage:
 
-1. **Test Creation:**
+1. **Course&Topic Creation:**
+   - The Administrator can create courses and topics through the Django Admin Site.  
+
+2. **Test Creation:**
    - Teachers can log in and create new tests under the desired course and topic.
 
-2. **Test Participation:**
+3. **Test Participation:**
    - Students can log in and attempt tests available under their enrolled courses and topics.
 
-3. **Profile Page:**
+4. **Profile Page:**
    - Users can view their personal information and statistics, including total stats and stats for each course participated in.
 
-## API Documentation:
+# TestHub Documentation
 
-- Detailed API documentation is available for interacting with the backend services.
-
-## Deployment:
-
-- Instructions for deploying the application to production servers.
-
-## Testing:
-
-- Guidelines for testing both frontend and backend components.
-
-## Contributing:
-
-- Guidelines for contributing to the project, including setting up a development environment and submitting pull requests.
-
-## Additional Resources:
-
-- Links to relevant documentation for Angular, Django, PostgreSQL, and other technologies used in the project.
+#### Home View
+<p align="center">
+    <img height="300em" src="./project-images/HomeView1.png" alt="homePage.jpg"/>
+    <br>
+</p>
+   Home Page with unopened topics and tasks.
+<p align="center">
+    <img height="300em" src="./project-images/HomeView2.png" alt="homePage.jpg"/>
+    <br>
+</p>
+   Home Page with opened topics and tasks.
