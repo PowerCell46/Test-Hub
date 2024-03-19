@@ -74,8 +74,28 @@ TestHub is an online system designed to facilitate test creation, management, an
     <br>
 </p>
    Home Page with unopened topics and tasks.
+   <br>
 <p align="center">
     <img height="300em" src="./project-images/HomeView2.png" alt="homePage.jpg"/>
     <br>
 </p>
    Home Page with opened topics and tasks.
+   <br>
+<p align="center">
+    <img height="300em" src="./project-images/HomeIntegration1.png" alt="homePage.jpg"/>
+    <br>
+</p>
+   Project Integration Part 1
+   <br>
+<p align="center">
+    <img height="300em" src="./project-images/HomeIntegration2.png" alt="homePage.jpg"/>
+    <br>
+</p>
+   Project Integration Part 2
+   <br>
+<p align="center">
+    <img height="300em" src="./project-images/HomeIntegration3.png" alt="homePage.jpg"/>
+    <br>
+</p>
+   Project Integration Part 3
+   <br>
