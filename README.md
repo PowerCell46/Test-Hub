@@ -73,35 +73,38 @@ TestHub is an online system designed to facilitate test creation, management, an
     <img height="300em" src="./project-images/HomeView1.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Home Page with unopened topics and tasks.
+   Home Page with closed topics and tasks. Accessible by authenticated and unauthenticated users. If the user is authenticated there's a greeting message in the right container.
 
 <p align="center">
       <br>
     <img height="300em" src="./project-images/HomeView2.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Home Page with opened topics and tasks.
+   Home Page with opened topics and tasks. Clicking on a specific course a dropdown menu opens with the available topics, the same happens with the topics - clicking on a topic displays all of the available tasks. Unauthenticated users cannot access the tests, they can only see the structure.
+
+##### Project Integration
+   Scrolling down the home page we get to the possible integration of the TestHub Project.
 
 <p align="center">
    <br>
     <img height="300em" src="./project-images/HomeIntegration1.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Project Integration Part 1
+   Project Integration - FMI
    
 <p align="center">
     <br>
     <img height="300em" src="./project-images/HomeIntegration2.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Project Integration Part 2
+   Project Integration - John Atanasov
    
 <p align="center">
     <br>
     <img height="300em" src="./project-images/HomeIntegration3.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Project Integration Part 3
+   Project Integration - GGF
 
 ### Register View
 <p align="center">
@@ -109,7 +112,7 @@ TestHub is an online system designed to facilitate test creation, management, an
     <img height="300em" src="./project-images/RegisterView.png" alt="registerPage.jpg"/>
     <br>
 </p>
-   Register View
+   Register View acessible only by unauthenticated users.
 
 ### Login View
 <p align="center">
@@ -117,46 +120,46 @@ TestHub is an online system designed to facilitate test creation, management, an
     <img height="300em" src="./project-images/LoginView.png" alt="loginView.jpg"/>
     <br>
 </p>
-   Login View
+   Login View accessible only by unauthenticated users.
 
 ### Logout View
 <p align="center">
     <br>
-    <img height="300em" src="./project-images/LogoutView.png" alt="homePage.jpg"/>
+    <img height="300em" src="./project-images/LogoutView.png" alt="logoutView.jpg"/>
     <br>
 </p>
-   Logout View
+   Logout View accessible only by authenticated users.
 
 ### Create Python Test
 <p align="center">
     <br>
-    <img height="300em" src="./project-images/CreatePythonTest.png" alt="homePage.jpg"/>
+    <img height="300em" src="./project-images/CreatePythonTest.png" alt="createPythonTest.jpg"/>
     <br>
 </p>
-   Create Python Test (accessible only by Teachers)
+   If the logged account is a Teacher, clicking on the Project Logo there's a dropdown menu with available creating options - create Python Test and create MCQ Test. After the Teacher successfully fills in the form a new Python Test is created.
 
-### Create Multiplechoice Test
+### Create MultipleChoice Test
 <p align="center">
     <br>
-    <img height="300em" src="./project-images/CreateMCQ.png" alt="homePage.jpg"/>
+    <img height="300em" src="./project-images/CreateMCQ.png" alt="createMCQTest.jpg"/>
     <br>
 </p>
-   Create Multiplechoice Test (accessible only by Teachers)
+   After the Teacher successfully fills in the form a new MultipleChoice Test is created.
 
 ### Submit Python Test
 <p align="center">
     <br>
-    <img height="300em" src="./project-images/PythonTest1.png" alt="homePage.jpg"/>
+    <img height="300em" src="./project-images/PythonTest1.png" alt="submitPythonTest.jpg"/>
     <br>
 </p>
-   Python Test Submit Section
+   Every authenticated user can select a specific Python Task, read the description file and submit his/hers solution to the problem. After a few seconds the pages refreshes and scrolling down you can see how many points you've got.
 
 <p align="center">
     <br>
     <img height="300em" src="./project-images/PythonTest2.png" alt="submit-python-test.jpg"/>
     <br>
 </p>
-   Python Test Submit previous user submissions
+   Below the Python Test Submission is a list with the last 5 submissions to this task from the current user.
 
 ### Submit MultipleChoice Test
 <p align="center">
@@ -164,7 +167,7 @@ TestHub is an online system designed to facilitate test creation, management, an
     <img height="300em" src="./project-images/MultipleChoiceTest.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Submit MultipleChoice Test
+   Every authenticated user can select a specific MCQ Test, answer the questions and submit his/hers answers. 
 
 ### MultipleChoice Test Results
 <p align="center">
@@ -172,14 +175,14 @@ TestHub is an online system designed to facilitate test creation, management, an
     <img height="300em" src="./project-images/ResultMCQ1.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Result MultipleChoice Test 1
+   After the user has submitted the Test, he/she is redirected to the Result MCQ Test view, where you can see how many points you've got.
 
 <p align="center">
     <br>
     <img height="300em" src="./project-images/ResultMCQ2.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Result MultipleChoice Test 2
+   Scrolling down you can see which of the submitted answers are correct and which ones are wrong.
 
 ### Single MultipleChoice Question Result
 <p align="center">
@@ -187,8 +190,7 @@ TestHub is an online system designed to facilitate test creation, management, an
     <img height="300em" src="./project-images/ResultSMCQ.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Result Single MultipleChoice Question
-   <br>
+   Clicking on a specific question you can see exactly what is the correct answer and which one you have selected, so you can learn from your mistakes.
 
 ### Python Submissions
 <p align="center">
@@ -196,7 +198,7 @@ TestHub is an online system designed to facilitate test creation, management, an
     <img height="300em" src="./project-images/PythonSubmissions.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Python Submissions
+   A view accessible by everyone, where you can see the last 10 Python submissions in the platform. 
    <br>
 
 ### MultipleChoice Submissions
@@ -205,7 +207,7 @@ TestHub is an online system designed to facilitate test creation, management, an
     <img height="300em" src="./project-images/MCQSubmissions.PNG" alt="homePage.jpg"/>
     <br>
 </p>
-   MultipleChoice Submissions
+   A view accessible by everyone, where you can see the last 10 MCQ submissions in the platform.
 
 
 ### My Profile
@@ -214,4 +216,4 @@ TestHub is an online system designed to facilitate test creation, management, an
     <img height="300em" src="./project-images/MyProfile.png" alt="homePage.jpg"/>
     <br>
 </p>
-   My Profile
+   My Profile view, accessible only by authenticated users, where people can see their Personal Data, Total Account Statistics, and Statistics for every course that they have participated in.
