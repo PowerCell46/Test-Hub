@@ -9,7 +9,7 @@ A repository containing my currently developed project, written in Django and An
 
 ## Introduction:
 
-TestHub is an online system designed to facilitate test creation, management, and participation for educational purposes. It allows teachers to create two types of tests - Multiple-choice tests and Python tests. The system is organized into courses, with each course containing various topics. Within each topic, different tests can be assigned. Students can attempt these tests and receive instant feedback on their performance.
+Welcome to TestHub, an innovative online platform tailored to streamline the process of test creation, management, and engagement within educational settings. Designed with educators in mind, TestHub empowers teachers to craft two distinct types of assessments: Multiple-choice tests and Python tests. Dive into our system structured around courses, each housing a diverse array of topics. Delve deeper into specific subjects where various tests await assignment. Students can seamlessly tackle these assessments and promptly receive feedback on their performance. Join us on TestHub and revolutionize the way you approach testing in education!
 
 ## Features:
 
@@ -20,10 +20,10 @@ TestHub is an online system designed to facilitate test creation, management, an
 
 ## Technologies Used:
 
-- **Backend:** Django Rest Framework
-- **Frontend:** Angular
-- **Database:** PostgreSQL
-- **Frontend Styling:** Custom HTML and CSS
+- **Backend:** *Django Rest Framework*
+- **Frontend:** *Angular*
+- **Database:** *PostgreSQL*
+- **Frontend Styling:** *Custom HTML and CSS*
 
 ## Setup Instructions:
    - Make sure that you have **Node.js, Python** installed and configured.
