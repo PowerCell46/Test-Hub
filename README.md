@@ -144,7 +144,7 @@ TestHub is an online system designed to facilitate test creation, management, an
     <img height="300em" src="./project-images/CreateMCQ.png" alt="createMCQTest.jpg"/>
     <br>
 </p>
-   After the Teacher successfully fills in the form a new MultipleChoice Test is created.
+   If the logged account is a Teacher, clicking on the Project Logo there's a dropdown menu with available creating options - create Python Test and create MCQ Test. After the Teacher successfully fills in the form a new MultipleChoice Test is created.
 
 ### Submit Python Test
 <p align="center">
@@ -159,12 +159,12 @@ TestHub is an online system designed to facilitate test creation, management, an
     <img height="300em" src="./project-images/PythonTest2.png" alt="submit-python-test.jpg"/>
     <br>
 </p>
-   Below the Python Test Submission is a list with the last 5 submissions to this task from the current user.
+   Below the Python Test Submission is a list with the last 5 submissions for this task from the current logged in user.
 
 ### Submit MultipleChoice Test
 <p align="center">
     <br>
-    <img height="300em" src="./project-images/MultipleChoiceTest.png" alt="homePage.jpg"/>
+    <img height="300em" src="./project-images/MultipleChoiceTest.png" alt="submitMCQ.jpg"/>
     <br>
 </p>
    Every authenticated user can select a specific MCQ Test, answer the questions and submit his/hers answers. 
@@ -172,14 +172,14 @@ TestHub is an online system designed to facilitate test creation, management, an
 ### MultipleChoice Test Results
 <p align="center">
     <br>
-    <img height="300em" src="./project-images/ResultMCQ1.png" alt="homePage.jpg"/>
+    <img height="300em" src="./project-images/ResultMCQ1.png" alt="resultMCQTest.jpg"/>
     <br>
 </p>
    After the user has submitted the Test, he/she is redirected to the Result MCQ Test view, where you can see how many points you've got.
 
 <p align="center">
     <br>
-    <img height="300em" src="./project-images/ResultMCQ2.png" alt="homePage.jpg"/>
+    <img height="300em" src="./project-images/ResultMCQ2.png" alt="resultMCQTest.jpg"/>
     <br>
 </p>
    Scrolling down you can see which of the submitted answers are correct and which ones are wrong.
@@ -187,7 +187,7 @@ TestHub is an online system designed to facilitate test creation, management, an
 ### Single MultipleChoice Question Result
 <p align="center">
     <br>
-    <img height="300em" src="./project-images/ResultSMCQ.png" alt="homePage.jpg"/>
+    <img height="300em" src="./project-images/ResultSMCQ.png" alt="resultSingleMCQ.jpg"/>
     <br>
 </p>
    Clicking on a specific question you can see exactly what is the correct answer and which one you have selected, so you can learn from your mistakes.
@@ -195,25 +195,26 @@ TestHub is an online system designed to facilitate test creation, management, an
 ### Python Submissions
 <p align="center">
     <br>
-    <img height="300em" src="./project-images/PythonSubmissions.png" alt="homePage.jpg"/>
+    <img height="300em" src="./project-images/PythonSubmissions.png" alt="pythonSubmissions.jpg"/>
     <br>
 </p>
-   A view accessible by everyone, where you can see the last 10 Python submissions in the platform. 
+   In the header, clicking on the Submissions, a dropdown menu appears where you can choose from Python and MCQ Submissions.
+   Here can see the last 10 Python submissions in the platform. 
    <br>
 
 ### MultipleChoice Submissions
 <p align="center">
     <br>
-    <img height="300em" src="./project-images/MCQSubmissions.PNG" alt="homePage.jpg"/>
+    <img height="300em" src="./project-images/MCQSubmissions.PNG" alt="mcqSubmissions.jpg"/>
     <br>
 </p>
-   A view accessible by everyone, where you can see the last 10 MCQ submissions in the platform.
-
+   In the header, clicking on the Submissions, a dropdown menu appears where you can choose from Python and MCQ Submissions.
+   Here can see the last 10 MCQ submissions in the platform. 
 
 ### My Profile
 <p align="center">
     <br>
-    <img height="300em" src="./project-images/MyProfile.png" alt="homePage.jpg"/>
+    <img height="300em" src="./project-images/MyProfile.png" alt="myProfile.jpg"/>
     <br>
 </p>
    My Profile view, accessible only by authenticated users, where people can see their Personal Data, Total Account Statistics, and Statistics for every course that they have participated in.
