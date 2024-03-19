@@ -99,3 +99,44 @@ TestHub is an online system designed to facilitate test creation, management, an
 </p>
    Project Integration Part 3
    <br>
+
+### Register View
+<p align="center">
+    <img height="300em" src="./project-images/RegisterView.png" alt="registerPage.jpg"/>
+    <br>
+</p>
+   Register View
+   <br>
+
+### Login View
+<p align="center">
+    <img height="300em" src="./project-images/LoginView.png" alt="loginView.jpg"/>
+    <br>
+</p>
+   Login View
+   <br>
+
+### Logout View
+<p align="center">
+    <img height="300em" src="./project-images/LogoutView.png" alt="homePage.jpg"/>
+    <br>
+</p>
+   Logout View
+   <br>
+
+### Create Python Test
+<p align="center">
+    <img height="300em" src="./project-images/CreatePythonTest.png" alt="homePage.jpg"/>
+    <br>
+</p>
+   Create Python Test (accessible only by Teachers)
+   <br>
+
+### Create Multiplechoice Test
+<p align="center">
+    <img height="300em" src="./project-images/CreateMCQ.png" alt="homePage.jpg"/>
+    <br>
+</p>
+   Create Multiplechoice Test (accessible only by Teachers)
+   <br>
+
