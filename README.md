@@ -58,7 +58,7 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
    - The Administrator can create courses and topics through the Django Admin Site.  
 
 2. **Test Creation:**
-   - Teachers can log in and create new tests under the desired course and topic.
+   - Teachers can log in and create new Python and MultipleChoice Tests under the desired course and topic.
 
 3. **Test Participation:**
    - Students can log in and attempt tests available under their enrolled courses and topics.
@@ -86,25 +86,24 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
    Scrolling down the home page we get to the possible integration of the TestHub Project.
 
 <p align="center">
-   <br>
     <img height="300em" src="./project-images/HomeIntegration1.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Project Integration - FMI
+   Project Integration - FMI - Faculty of Mathematics and Informatics
    
 <p align="center">
     <br>
     <img height="300em" src="./project-images/HomeIntegration2.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Project Integration - John Atanasov
+   Project Integration - SPGE John Atanasov
    
 <p align="center">
     <br>
     <img height="300em" src="./project-images/HomeIntegration3.png" alt="homePage.jpg"/>
     <br>
 </p>
-   Project Integration - GGF
+   Project Integration - GGF - Faculty of Geology and Geography
 
 ### Register View
 <p align="center">
