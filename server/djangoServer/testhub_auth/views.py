@@ -1,13 +1,14 @@
 from django.contrib.auth import authenticate
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from djangoServer.testhub_auth.models import UserProfile
 from djangoServer.testhub_auth.serializers import UserRegistrationSerializer, UserProfileDetailsSerializer, \
     UserSerializer
-from djangoServer.testhub_auth.utils import calculate_average_grade, update_user_details
+from djangoServer.testhub_auth.utils import calculate_average_grade, update_user_details, \
+    send_email
 from djangoServer.testhub_structure.models import SubmissionPyTest, SubmissionMultipleChoiceTest
 from djangoServer.testhub_structure.permissions import IsUnauthenticated
 
@@ -20,6 +21,7 @@ class UserRegister(APIView):
         if serializer.is_valid():
             user = serializer.save()
             token, created = Token.objects.get_or_create(user=user)
+            send_email(user.username, user.email, 'Register')
             return Response({
                 'user': serializer.data,
                 'token': token.key,
@@ -146,5 +148,6 @@ class DeleteProfile(APIView):
 
     def delete(self, request):
         request.user.user_details.soft_delete()
+        send_email(request.user.username, request.user.email, 'Delete Profile')
         Token.objects.filter(user=request.user).delete()
         return Response("Successful Delete!", status=status.HTTP_200_OK)

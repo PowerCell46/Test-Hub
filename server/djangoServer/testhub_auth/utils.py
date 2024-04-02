@@ -1,5 +1,10 @@
 from django.db import transaction
-
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from email.mime.image import MIMEImage
+from django.conf import settings
+import os
 from djangoServer.testhub_auth.models import UserProfile
 
 
@@ -58,3 +63,23 @@ def update_user_details(first_name, last_name, gender, telephone, nationality, p
 
     user.save()
     user_profile.save()
+
+
+def send_email(username: str, email: str, view: str):
+    subject = 'Welcome to TestHub!' if view == 'Register' else 'Goodbye from TestHub!'
+    # message = 'Hello there, you made a successful registration to TestHub!'
+    html_message = render_to_string('registration_email.html' if view == 'Register' else 'account_deletion_email.html',
+                                    {'username': username})
+    text_message = strip_tags(html_message)
+    from_email = 'PowerCell4664@gmail.com'
+    recipient_list = [email]
+    # send_mail(subject, message, from_email, recipient_list)
+    email = EmailMultiAlternatives(subject, text_message, from_email, recipient_list)
+    email.attach_alternative(html_message, "text/html")
+    with open(os.path.join(settings.BASE_DIR, 'static', 'images',
+                           '9a641d59-fa1d-4616-b53e-9f3a1784a8ad-transformed.webp'), 'rb') as img:
+        mime_image = MIMEImage(img.read())
+        mime_image.add_header('Content-ID', '<image1>')
+        mime_image.add_header('Content-Disposition', 'inline')
+        email.attach(mime_image)
+    email.send()
