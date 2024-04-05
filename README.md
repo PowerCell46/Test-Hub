@@ -79,7 +79,16 @@ starting url: http://localhost:8000/
       - myProfile/ - My Profile Endpoint
       - editProfile/ - Edit Profile Endpoint
       - deleteProfile/ - Delete Profile Endpoint 
-
+   4. testHub/ - Main part of the REST API
+      - coursesTopicsTests/ - 
+      - createMultipleChoiceTest/ -
+      - multipleChoiceTest/{examName} - 
+      - pythonTest/{testName} - 
+      - submissions/ - 
+         * multipleChoiceTest/{submissionId} -
+         * multipleChoiceTest/{submissionId}/{questionId} -
+         * python/ - 
+         * multipleChoice - 
 </pre>
 
 ## Usage:
