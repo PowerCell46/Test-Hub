@@ -69,26 +69,27 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 ## Django REST API endpoints structure:
 
 <pre>
-starting url: http://localhost:8000/
-   1. admin/ - Django Admin Site
-   2. / - Django Server Home Page
-   3. auth/ - Authentication Part of the REST API
-      - register/ - Register Endpoint
-      - login/ - Login Endpoint
-      - logout/ - Logout Endpoint
-      - myProfile/ - My Profile Endpoint
-      - editProfile/ - Edit Profile Endpoint
-      - deleteProfile/ - Delete Profile Endpoint 
+starting url: <b>http://localhost:8000/</b>
+   1. <b>admin/</b> - Django Admin Site
+   2. <b>/</b> - Django Server Home Page
+   3. <b>auth/</b> - Authentication Part of the REST API
+      - <b>register/</b> - Register Endpoint
+      - <b>login/</b> - Login Endpoint
+      - <b>logout/</b> - Logout Endpoint
+      - <b>myProfile/</b> - My Profile Endpoint
+      - <b>editProfile/</b> - Edit Profile Endpoint
+      - <b>deleteProfile/</b> - Delete Profile Endpoint 
    4. testHub/ - Main part of the REST API
-      - coursesTopicsTests/ - 
-      - createMultipleChoiceTest/ -
-      - multipleChoiceTest/{examName} - 
-      - pythonTest/{testName} - 
-      - submissions/ - 
-         * multipleChoiceTest/{submissionId} -
-         * multipleChoiceTest/{submissionId}/{questionId} -
-         * python/ - 
-         * multipleChoice - 
+      - <b>coursesTopicsTests/</b> - Endpoint for all of the data
+      - <b>createMultipleChoiceTest/</b> - Create MCQ Endpoint
+      - <b>createPythonTest/</b> - Create Python Test Endpoint
+      - <b>multipleChoiceTest/{examName}/</b> - Submit MCQ 
+      - <b>pythonTest/{testName}/</b> - Submit Python Test
+      - <b>submissions/</b> - TestHub Submissions
+         * <b>multipleChoiceTest/{submissionId}/</b> - Get MCQ submission
+         * <b>multipleChoiceTest/{submissionId}/{questionId}/</b> - Get MCQ single question
+         * <b>python/</b> - Get Python Tests submissions
+         * <b>multipleChoice/</b> - Get MCQ submissions
 </pre>
 
 ## Usage:
