@@ -68,6 +68,20 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 ## Django REST API endpoints structure:
 
+<pre>
+starting url: http://localhost:8000/
+   1. admin/ - Django Admin Site
+   2. / - Django Server Home Page
+   3. auth/ - Authentication Part of the REST API
+      - register/ - Register Endpoint
+      - login/ - Login Endpoint
+      - logout/ - Logout Endpoint
+      - myProfile/ - My Profile Endpoint
+      - editProfile/ - Edit Profile Endpoint
+      - deleteProfile/ - Delete Profile Endpoint 
+
+</pre>
+
 ## Usage:
 
 1. **Course&Topic Creation:**
