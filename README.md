@@ -57,6 +57,15 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 - **Server:** Contains Django backend files.
 - **Project-images:** Screenshots from the Web Application.
 
+
+## Database ER diagram:
+
+<p align="center">
+    <br>
+    <img height="300em" src="./project-images/HomeView1.png" alt="homePage.jpg"/>
+    <br>
+</p>
+
 ## Usage:
 
 1. **Course&Topic Creation:**
@@ -74,7 +83,7 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 4. **Profile Page:**
    - Users can view their personal information and statistics, including total stats and stats for each course participated in.
 
-# TestHub Documentation
+# TestHub Showcase
 
 #### Home View
 
