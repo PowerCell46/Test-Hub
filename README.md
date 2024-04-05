@@ -62,9 +62,11 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 <p align="center">
     <br>
-    <img height="400em" src="./project-images/TestHubERD.png" alt="ERD.jpg"/>
+    <img height="600em" src="./project-images/TestHubERD.png" alt="ERD.jpg"/>
     <br>
 </p>
+
+## Django REST API endpoints structure:
 
 ## Usage:
 
