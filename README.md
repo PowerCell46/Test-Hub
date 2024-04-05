@@ -62,7 +62,7 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 
 <p align="center">
     <br>
-    <img height="300em" src="./project-images/HomeView1.png" alt="homePage.jpg"/>
+    <img height="400em" src="./project-images/TestHubERD.png" alt="ERD.jpg"/>
     <br>
 </p>
 
