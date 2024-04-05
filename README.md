@@ -69,7 +69,8 @@ Welcome to TestHub, an innovative online platform tailored to streamline the pro
 ## Django REST API endpoints structure:
 
 <pre>
-starting url: <b>http://localhost:8000/</b>
+TestHub starting url: <b>http://localhost:8000/</b>
+
    1. <b>admin/</b> - Django Admin Site
    2. <b>/</b> - Django Server Home Page
    3. <b>auth/</b> - Authentication Part of the REST API
@@ -79,14 +80,14 @@ starting url: <b>http://localhost:8000/</b>
       - <b>myProfile/</b> - My Profile Endpoint
       - <b>editProfile/</b> - Edit Profile Endpoint
       - <b>deleteProfile/</b> - Delete Profile Endpoint 
-   4. testHub/ - Main part of the REST API
-      - <b>coursesTopicsTests/</b> - Endpoint for all of the data
+   4. testHub/ - Main part of the TestHub REST API
+      - <b>coursesTopicsTests/</b> - Endpoint for all of the TestHub Exam data
       - <b>createMultipleChoiceTest/</b> - Create MCQ Endpoint
       - <b>createPythonTest/</b> - Create Python Test Endpoint
-      - <b>multipleChoiceTest/{examName}/</b> - Submit MCQ 
+      - <b>multipleChoiceTest/{examName}/</b> - Submit MCQ Test 
       - <b>pythonTest/{testName}/</b> - Submit Python Test
       - <b>submissions/</b> - TestHub Submissions
-         * <b>multipleChoiceTest/{submissionId}/</b> - Get MCQ submission
+         * <b>multipleChoiceTest/{submissionId}/</b> - Get MCQ Test submission
          * <b>multipleChoiceTest/{submissionId}/{questionId}/</b> - Get MCQ single question
          * <b>python/</b> - Get Python Tests submissions
          * <b>multipleChoice/</b> - Get MCQ submissions
