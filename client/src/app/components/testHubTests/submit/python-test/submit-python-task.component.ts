@@ -53,7 +53,7 @@ export class SubmitPythonTaskComponent implements OnInit{
         data.topicTasks = data.topicTasks.map((task: any) => {
           return { ...task, encodedName: encodeURLSegment(task.name) };
         });
-        console.log(data);      
+        // console.log(data);      
         this.pythonTest = data;
       });
     });

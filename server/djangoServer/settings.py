@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'djangoServer.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "testhub",
+        "NAME": "testhubproject",
         "USER": "postgres",
         "PASSWORD": "963",
         "HOST": "127.0.0.1",
