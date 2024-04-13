@@ -80,7 +80,7 @@ TestHub starting url: <b>http://localhost:8000/</b>
       - <b>myProfile/</b> - My Profile Endpoint
       - <b>editProfile/</b> - Edit Profile Endpoint
       - <b>deleteProfile/</b> - Delete Profile Endpoint 
-   4. testHub/ - Main part of the TestHub REST API
+   4. <b>testHub/</b> - Main part of the TestHub REST API
       - <b>coursesTopicsTests/</b> - Endpoint for all of the TestHub Exam data
       - <b>createMultipleChoiceTest/</b> - Create MCQ Endpoint
       - <b>createPythonTest/</b> - Create Python Test Endpoint
